@@ -8,4 +8,7 @@ obj/
 *.mdf
 *.ldf
 *.sqlite
+.vs
+.github
+.config
 appsettings.Development.json
