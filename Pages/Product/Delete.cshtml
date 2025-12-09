@@ -42,8 +42,11 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Product.Category.Id)
         </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Rating)
+        </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Product.Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

@@ -19,7 +19,7 @@ namespace E_commerce_c_charp.Pages_Product
         {
             _context = context;
         }
-
+        
         [BindProperty] //Permet la liaison de modèle
         public Product _Product { get; set; } = default!;
 

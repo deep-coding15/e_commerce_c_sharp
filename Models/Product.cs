@@ -17,4 +17,5 @@ public class Product
     // Basic category system
     public int CategoryId { get; set; }
     public Category? Category { get; set; }
+    public string Rating { get; set; } = string.Empty;
 }

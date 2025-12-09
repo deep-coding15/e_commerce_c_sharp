@@ -15,7 +15,7 @@ public static class SeedData
             {
                 throw new ArgumentNullException("Null E_commerce_c_charp_context");
             }
-            
+
             // ======================
             // Seed Categories
             // ======================
@@ -47,7 +47,8 @@ public static class SeedData
                         Description = "Apple smartphone with A17 Bionic chip",
                         Price = 1299.99m,
                         StockQuantity = 25,
-                        CategoryId = smartphones.Id
+                        CategoryId = smartphones.Id,
+                        Rating = "R"
                     },
                     new Product
                     {
@@ -55,7 +56,8 @@ public static class SeedData
                         Description = "Latest Samsung flagship smartphone",
                         Price = 1099.99m,
                         StockQuantity = 40,
-                        CategoryId = smartphones.Id
+                        CategoryId = smartphones.Id,
+                        Rating = "R"
                     },
                     new Product
                     {
@@ -63,7 +65,8 @@ public static class SeedData
                         Description = "High-end laptop for work and productivity",
                         Price = 1899.99m,
                         StockQuantity = 15,
-                        CategoryId = laptops.Id
+                        CategoryId = laptops.Id,
+                        Rating = "R"
                     },
                     new Product
                     {
@@ -71,7 +74,8 @@ public static class SeedData
                         Description = "Ultra-portable Apple laptop",
                         Price = 1199.99m,
                         StockQuantity = 20,
-                        CategoryId = laptops.Id
+                        CategoryId = laptops.Id,
+                        Rating = "R"
                     },
                     new Product
                     {
@@ -79,7 +83,8 @@ public static class SeedData
                         Description = "Noise-cancelling over-ear headphones",
                         Price = 399.99m,
                         StockQuantity = 60,
-                        CategoryId = headphones.Id
+                        CategoryId = headphones.Id,
+                        Rating = "R"
                     },
                     new Product
                     {
@@ -87,7 +92,8 @@ public static class SeedData
                         Description = "Professional gaming headset",
                         Price = 149.99m,
                         StockQuantity = 30,
-                        CategoryId = gaming.Id
+                        CategoryId = gaming.Id,
+                        Rating = "R"
                     }
                 );
 

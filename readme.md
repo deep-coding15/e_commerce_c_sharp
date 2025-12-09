@@ -111,6 +111,23 @@ Nous n'avons pas besoin du *seeding* si :
 La liaison de modèle [BindProperty]Associe les valeurs de formulaire et les chaînes de requête portant le même nom que la propriété. La liaison de modèle n'est pas sensible à la casse.
 [BindProperty(SupportsGet = true)]Est requis pour la liaison sur les requêtes *HTTP GET*. Pour des raisons de sécurité, vous devez autoriser la liaison *GET* des données de requête aux propriétés du modèle de page. Vérifiez les entrées utilisateur avant de les associer aux propriétés. 
 
+# Add a new field to a Razor Page (Database)
+Entity Framework Core (EF Core) is used to define the database schema based on the app's model class:
+- Add a new field to the model.
+- Migrate the new field schema change to the database.
+Using EF Code to automatically create and track a database:
+- Adds an *__EFMigrationsHistory table* to the database to track whether the schema of the database is in sync with the model classes it was generated from.
+- Throws an exception if the model classes aren't in sync with the database.
+- Automatic verification that the schema and model are in sync makes it easier to find inconsistent database code issues.
+*SqlException: Invalid column name 'Rating'* It is throws because the updated product model class being different than the schema of the Product table of the database : There's no *Rating* column in the database table.
+There are few approaches to resolving the error :
+1. Let's the Entity Framework automatically drop and re-create the database using the new model class schema. Existing data in the databse is lost. Drop the databse on schema changes and using an initializer to automatically seed the database with test data.
+2. Explicitly modify the schema of the existing database so that it matches the model classes.
+3. Use Entity Framework Core Migrations to update the database schema.
+In the *SeedData.cs* file, after adding the new Column and its value, go in the terminal and write :
+- *dotnet build* : for compiling the projet without launch.
+- *dotnet ef migrations add nomMigrations* : this command tells the framework to compare the *Product model* with the *Product database schema* and create code to migrate the database schema to the new model.
+- *dotnet ef database update* : this command tells the framework to apply the schema changes to the database and to preserve existing data.
 
 
 
@@ -122,6 +139,7 @@ La liaison de modèle [BindProperty]Associe les valeurs de formulaire et les cha
 5. Razor syntax reference for ASP.NET Core : https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-9.0#razor-reserved-keywords
 6. Expréssions Lambda : https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions
 7. Réquêtes LINQ : 
+8. Entity Framework Core : https://learn.microsoft.com/en-us/ef/core 
 
 # Commandes sur visual studio code
 - dotnet restore   : Restaurer les packages
