@@ -1,4 +1,4 @@
-@page
+@page "{searchString?}"
 @model E_commerce_c_charp.Pages_Product.IndexModel
 
 @{
@@ -10,6 +10,22 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form>
+    <p>
+        <span>
+            <label>Category: </label>
+            <select asp-for="ProductCategory" asp-items="Model.Category">
+                <option value="">All</option>
+            </select>
+        </span>
+        <span>
+            <label>Title: <input type="text" asp-for="SearchString"/></label>
+            <input type="submit" value="Filter"/>
+        </span>
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>

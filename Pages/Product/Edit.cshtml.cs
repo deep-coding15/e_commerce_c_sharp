@@ -20,8 +20,8 @@ namespace E_commerce_c_charp.Pages_Product
             _context = context;
         }
 
-        [BindProperty]
-        public Product Product { get; set; } = default!;
+        [BindProperty] //Permet la liaison de modèle
+        public Product _Product { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -35,7 +35,7 @@ namespace E_commerce_c_charp.Pages_Product
             {
                 return NotFound();
             }
-            Product = product;
+            _Product = product;
            ViewData["CategoryId"] = new SelectList(_context.Set<Category>(), "Id", "Id");
             return Page();
         }
@@ -49,7 +49,7 @@ namespace E_commerce_c_charp.Pages_Product
                 return Page();
             }
 
-            _context.Attach(Product).State = EntityState.Modified;
+            _context.Attach(_Product).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace E_commerce_c_charp.Pages_Product
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductExists(Product.Id))
+                if (!ProductExists(_Product.Id))
                 {
                     return NotFound();
                 }

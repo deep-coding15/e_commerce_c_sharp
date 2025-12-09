@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema; //pour utiliser Column(TypeName)
 
@@ -10,6 +11,7 @@ public class Product
     public string Description { get; set; } = null!;
     [Column(TypeName = "decimal(18,2)")] // Ajoutez cette ligne pour définir 2 décimales et une précision totale de 18 chiffres
     public decimal Price { get; set; }
+    [Display(Name = "Stock Quantity")]
     public int StockQuantity { get; set; }
 
     // Basic category system

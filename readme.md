@@ -104,16 +104,24 @@ Nous n'avons pas besoin du *seeding* si :
 - on va inserer des données manuellement. 
 - on travaille en production.
 - on a pas besoin de données par défaut. 
-- 
+
+# Update the pages
+
+# Ajout de la recherche
+La liaison de modèle [BindProperty]Associe les valeurs de formulaire et les chaînes de requête portant le même nom que la propriété. La liaison de modèle n'est pas sensible à la casse.
+[BindProperty(SupportsGet = true)]Est requis pour la liaison sur les requêtes *HTTP GET*. Pour des raisons de sécurité, vous devez autoriser la liaison *GET* des données de requête aux propriétés du modèle de page. Vérifiez les entrées utilisateur avant de les associer aux propriétés. 
+
 
 
 
 # References : 
-    1. Tutoriel guidé partie 4 : https://learn.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/sql?view=aspnetcore-9.0&tabs=visual-studio
-    2. Razor Pages architecture and concepts in ASP.NET Core : https://learn.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-9.0&tabs=visual-studio#layout
-    3. Dependency injection in ASP.NET Core : https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-9.0
-    4. Razor Pages with Entity Framework Core in ASP.NET Core - Tutorial 1 of 8 : https://learn.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?view=aspnetcore-9.0&tabs=visual-studio#asynchronous-code
-    5. Razor syntax reference for ASP.NET Core : https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-9.0#razor-reserved-keywords
+1. Tutoriel guidé partie 4 : https://learn.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/sql?view=aspnetcore-9.0&tabs=visual-studio
+2. Razor Pages architecture and concepts in ASP.NET Core : https://learn.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-9.0&tabs=visual-studio#layout
+3. Dependency injection in ASP.NET Core : https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-9.0
+4. Razor Pages with Entity Framework Core in ASP.NET Core - Tutorial 1 of 8 : https://learn.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?view=aspnetcore-9.0&tabs=visual-studio#asynchronous-code
+5. Razor syntax reference for ASP.NET Core : https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-9.0#razor-reserved-keywords
+6. Expréssions Lambda : https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions
+7. Réquêtes LINQ : 
 
 # Commandes sur visual studio code
 - dotnet restore   : Restaurer les packages
