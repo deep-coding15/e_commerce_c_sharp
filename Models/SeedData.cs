@@ -110,14 +110,14 @@ public static class SeedData
                     {
                         UserId = "user123",
                         CreatedAt = DateTime.Now.AddDays(-3),
-                        Status = Status.completed,
+                        Status = Status.Completed,
                         TotalAmount = 1499.99m
                     },
                     new Order
                     {
                         UserId = "user456",
                         CreatedAt = DateTime.Now.AddDays(-1),
-                        Status = Status.pending,
+                        Status = Status.Pending,
                         TotalAmount = 399.99m
                     }
                 );

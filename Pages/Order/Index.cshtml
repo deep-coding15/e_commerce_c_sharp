@@ -1,4 +1,4 @@
-@page
+@page "{OrderStatus?}"
 @model E_commerce_c_charp.Pages_Order.IndexModel
 
 @{
@@ -10,6 +10,15 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form>
+    <label>Status: </label>
+    <select asp-for="OrderStatus" asp-items="Model.SelectListsStatus">
+        <option value="">All</option>
+    </select>
+    <input type="submit" value="Filter" />
+</form>
+
 <table class="table">
     <thead>
         <tr>

@@ -150,6 +150,7 @@ Les annotations de données appliquées à la classe modifient le schéma. Ils n
 8. Entity Framework Core : https://learn.microsoft.com/en-us/ef/core 
 
 # Commandes sur visual studio code
+- dotnet clean : nettoyer le build
 - dotnet restore   : Restaurer les packages
 - dotnet build     : Compiler le projet sans le lancer
 - dotnet run       : Exécuter les Razor Pages
