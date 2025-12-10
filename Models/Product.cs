@@ -1,21 +1,27 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema; //pour utiliser Column(TypeName)
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Configuration; //pour utiliser Column(TypeName)
 
 namespace E_commerce_c_charp.Models;
 
 public class Product
 {
     public int Id { get; set; }
+    [StringLength(60, MinimumLength = 3), Required]
     public string Name { get; set; } = null!;
+    [StringLength(60, MinimumLength = 5), Required]
     public string Description { get; set; } = null!;
-    [Column(TypeName = "decimal(18,2)")] // Ajoutez cette ligne pour définir 2 décimales et une précision totale de 18 chiffres
+    // Ajoutez cette ligne pour définir 2 décimales et une précision totale de 18 chiffres
+    [Range(1, double.MaxValue), DataType(DataType.Currency), Column(TypeName = "decimal(18,2)"), IntegerValidator(MinValue = 0)]
     public decimal Price { get; set; }
-    [Display(Name = "Stock Quantity")]
+    [Display(Name = "Stock Quantity"), IntegerValidator(MinValue = 0)]
     public int StockQuantity { get; set; }
 
     // Basic category system
     public int CategoryId { get; set; }
+    [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$"), Required, StringLength(30)]
     public Category? Category { get; set; }
+    [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$"), StringLength(30), Required]
     public string Rating { get; set; } = string.Empty;
 }

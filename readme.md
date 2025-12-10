@@ -129,7 +129,15 @@ In the *SeedData.cs* file, after adding the new Column and its value, go in the 
 - *dotnet ef migrations add nomMigrations* : this command tells the framework to compare the *Product model* with the *Product database schema* and create code to migrate the database schema to the new model.
 - *dotnet ef database update* : this command tells the framework to apply the schema changes to the database and to preserve existing data.
 
-
+# Add Validation rule :
+The validation rules are enforced any time a user creates or edits a movie.
+- [Required] and [MinimumLength] : property must have a value. The user can enter white space.
+- [RegularExpression] : used to limit what characters can be input.
+- [Range] : used to constraint a value to within a specified range.
+- [StringLength] : used to set a maximum length of a string property, and optionnally its minimum length.
+- [DisplayFormat] : decris la façon dont le données sont affichés à l'écran.
+- [DataType] : decris la sémantique des données.
+Les annotations de données appliquées à la classe modifient le schéma. Ils ne provoquent pas d'exception de la part d'EF cependant, il est recommandé de créer une migration afin que le schéma soit cohérent avec le modèle.
 
 # References : 
 1. Tutoriel guidé partie 4 : https://learn.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/sql?view=aspnetcore-9.0&tabs=visual-studio
@@ -146,4 +154,9 @@ In the *SeedData.cs* file, after adding the new Column and its value, go in the 
 - dotnet build     : Compiler le projet sans le lancer
 - dotnet run       : Exécuter les Razor Pages
 - dotnet watch run : Hot reload => Il recompile à chaque sauvegarde
+- dotnet ef migrations add nomMigrations : 
+- dotnet ef migrations list : 
+- dotnet ef migrations remove : supprime le dernier fichier de migration
+- dotnet ef database update : applique la nouvelle migration à la base de données
+- dotnet ef database update 0(cas où c'est la première migration appliquée) <=> dotnet ef database update nomMigration : Cela supprimera les changements de structure de la base de données de la migration suivant cette migration et retirera l'entrée de la migration dans la table __EFMigrationsHistory. Il execute le Down de la migration suivante.
 
