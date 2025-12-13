@@ -1,0 +1,239 @@
+🛒 E-Commerce ASP.NET Core (Razor Pages + EF Core)
+📌 Description du projet
+
+Ce projet est une application E-Commerce développée avec ASP.NET Core Razor Pages et Entity Framework Core, suivant une approche progressive et minimaliste pour bien comprendre les bases avant d’aller plus loin.
+
+L’objectif est de mettre en place :
+
+une architecture propre,
+
+une base de données relationnelle solide,
+
+des entités claires (Produits, Catégories, Utilisateurs, Panier, Commandes),
+
+et les fondations nécessaires à un vrai projet professionnel.
+
+🧱 Stack technique
+
+.NET 9 / ASP.NET Core
+
+Razor Pages
+
+Entity Framework Core
+
+SQL Server / LocalDB
+
+EF Core Migrations
+
+Git / GitHub
+
+📂 Architecture actuelle du projet
+E_commerce_c_charp/
+│
+├── Data/
+│   └── E_commerce_c_charpContext.cs
+│
+├── Models/
+│   ├── Category.cs
+│   ├── Product.cs
+│   ├── User.cs
+│   ├── Cart.cs
+│   ├── CartItem.cs
+│   ├── Order.cs
+│   └── OrderItem.cs
+│
+├── Pages/
+│   ├── Product/
+│   │   ├── Index.cshtml
+│   │   ├── Create.cshtml
+│   │   ├── Edit.cshtml
+│   │   ├── Details.cshtml
+│   │   └── Delete.cshtml
+│   └── Index.cshtml
+│
+├── Migrations/
+│   └── InitialCreate.cs
+│
+├── Program.cs
+├── appsettings.json
+└── README.md
+
+🗄️ Base de données
+✔️ Base créée avec EF Core Migrations
+
+Migration initiale créée :
+
+dotnet ef migrations add InitialCreate
+
+
+Base générée automatiquement :
+
+dotnet ef database update
+
+✔️ Tables générées
+
+Category
+
+Product
+
+User
+
+Cart
+
+CartItem
+
+Order
+
+OrderItem
+
+__EFMigrationsHistory
+
+🧩 Modèles principaux
+📦 Product
+
+Nom
+
+Description
+
+Prix
+
+Quantité en stock
+
+Catégorie
+
+🗂️ Category
+
+Nom
+
+👤 User
+
+Email (validé avec DataAnnotations)
+
+Mot de passe (hashé)
+
+Nom
+
+Date de création
+
+Panier (1-1)
+
+Commandes (1-N)
+
+🛒 Cart / CartItem
+
+Un utilisateur possède un panier
+
+Un panier contient plusieurs produits avec quantité
+
+📄 Order / OrderItem
+
+Une commande appartient à un utilisateur
+
+Une commande contient plusieurs produits
+
+OrderItem joue le rôle de table de liaison avec :
+
+OrderId + Order
+
+ProductId + Product
+
+Quantité
+
+Prix unitaire au moment de l’achat
+
+🔗 Relations (EF Core)
+
+Category 1 → N Product
+
+User 1 → 1 Cart
+
+Cart 1 → N CartItem
+
+User 1 → N Order
+
+Order 1 → N OrderItem
+
+Product 1 → N OrderItem
+
+Toutes les relations sont implémentées avec :
+
+clés étrangères (Id)
+
+propriétés de navigation (Object)
+
+⚙️ Configuration
+🔐 Chaîne de connexion
+"ConnectionStrings": {
+  "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=E-commerce_c_charpDB;Trusted_Connection=True;TrustServerCertificate=True;"
+}
+
+🧠 DbContext
+builder.Services.AddDbContext<E_commerce_c_charpContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
+
+🧪 Validation des données
+
+Les modèles utilisent DataAnnotations :
+
+[Required]
+
+[StringLength]
+
+[MinLength]
+
+[Range]
+
+[RegularExpression]
+
+[Column(TypeName = "decimal(18,2)")]
+
+➡ Validation automatique côté serveur et Razor Pages.
+
+📄 Razor Pages générées
+
+Les pages CRUD pour Product ont été générées via :
+
+dotnet aspnet-codegenerator razorpage
+
+
+Incluant :
+
+Liste
+
+Création
+
+Édition
+
+Détails
+
+Suppression
+
+🚀 Objectifs atteints
+
+✔ Architecture EF Core propre
+✔ Relations bien normalisées
+✔ Migrations fonctionnelles
+✔ Connexion SQL Server opérationnelle
+✔ CRUD Razor Pages fonctionnel
+✔ Base solide pour la suite
+
+🔜 Prochaines étapes prévues
+
+🔐 Authentification & inscription utilisateur
+
+🛒 Gestion complète du panier
+
+📦 Validation de commande
+
+💳 Paiement (simulation)
+
+🧑‍💼 Rôles (Admin / Client)
+
+🎨 UI / UX
+
+🧪 Tests
+
+📌 Auteur
+
+Projet réalisé dans un objectif pédagogique et professionnel, en suivant les bonnes pratiques ASP.NET Core et EF Core.

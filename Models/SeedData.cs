@@ -100,6 +100,64 @@ public static class SeedData
                 context.SaveChanges();
             }
             
+            /* =========================
+            UTILISATEURS
+            ========================= */
+            if(!context.User.Any())
+            {                
+                context.User.AddRange(
+                    new User
+                    {
+                        Email = "client1@test.com",
+                        PasswordHash = "HASHED_PASSWORD_1",
+                        Nom = "Client One"
+                    },
+                    new User
+                    {
+                        Email = "client2@test.com",
+                        PasswordHash = "HASHED_PASSWORD_2",
+                        Nom = "Client Two"
+                    }
+                );
+                context.SaveChanges();
+            };
+
+        /* =========================
+                PANIER
+                ========================= */
+                var user1 = context.User.First(u => u.Email == "client1@test.com");
+            if(!context.Cart.Any())
+            {
+                context.Cart.Add(
+                    new Cart{
+                        UserId = user1.Id,
+                    }
+                );
+                context.SaveChanges();
+            }
+                var cart1 = context.Cart.First(c => c.UserId == user1.Id);
+            var product1 = context.Product.First(p => p.Name == "iPhone 15 Pro");
+            var product2 = context.Product.First(p => p.Name == "Sony WH-1000XM5");
+            if(!context.CartItem.Any())
+            {
+                context.CartItem.AddRange(
+                    new CartItem()
+                    {
+                        CartId = cart1.Id, 
+                        ProductId = product1.Id,
+                        Quantity = 1
+                    },
+                    new CartItem()
+                    {
+                        CartId = cart1.Id,
+                        ProductId = product2.Id,
+                        Quantity = 2
+                    }
+                );
+                context.SaveChanges();
+            }
+        
+
             // ======================
             // Seed Orders
             // ======================
@@ -108,14 +166,14 @@ public static class SeedData
                 context.Order.AddRange(
                     new Order
                     {
-                        UserId = "user123",
+                        UserId = 1,
                         CreatedAt = DateTime.Now.AddDays(-3),
                         Status = Status.Completed,
                         TotalAmount = 1499.99m
                     },
                     new Order
                     {
-                        UserId = "user456",
+                        UserId = 2,
                         CreatedAt = DateTime.Now.AddDays(-1),
                         Status = Status.Pending,
                         TotalAmount = 399.99m
@@ -132,8 +190,8 @@ public static class SeedData
             {
                 var iphone = context.Product.FirstOrDefault(p => p.Name == "iPhone 15 Pro");
                 var sonyHeadphones = context.Product.FirstOrDefault(p => p.Name == "Sony WH-1000XM5");
-                var order1 = context.Order.FirstOrDefault(o => o.UserId == "user123");
-                var order2 = context.Order.FirstOrDefault(o => o.UserId == "user456");
+                var order1 = context.Order.FirstOrDefault(o => o.UserId == 1);
+                var order2 = context.Order.FirstOrDefault(o => o.UserId == 2);
                 context.OrderItem.AddRange(
                     new OrderItem
                     {

@@ -51,6 +51,9 @@
     - dotnet aspnet-codegenerator razorpage --model Category --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/Category --referenceScriptLibraries --databaseProvider sqlserver
      
     - dotnet aspnet-codegenerator razorpage --model OrderItem --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/OrderItem --referenceScriptLibraries --databaseProvider sqlserver
+    - dotnet aspnet-codegenerator razorpage --model User --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/User --referenceScriptLibraries --databaseProvider sqlserver
+    - dotnet aspnet-codegenerator razorpage --model Cart --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/Cart --referenceScriptLibraries --databaseProvider sqlserver
+    - dotnet aspnet-codegenerator razorpage --model CartItem --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/CartItem --referenceScriptLibraries --databaseProvider sqlserver
 
 # Create the initial database schema using EF's migration feature :
 EF Core est responsable de la création et de la mise à jour de la structure (le schéma) de la base de données (SQL Server, SQLite, etc.) pour qu'elle corresponde à ces classes.
@@ -155,6 +158,8 @@ Les annotations de données appliquées à la classe modifient le schéma. Ils n
 - dotnet build     : Compiler le projet sans le lancer
 - dotnet run       : Exécuter les Razor Pages
 - dotnet watch run : Hot reload => Il recompile à chaque sauvegarde
+- dotnet ef migrations script : Générer le SQL complet de la base
+- dotnet ef mifrations script -o database.sql : Spécifie le nom du fichier où le code SQL sera généré.
 - dotnet ef migrations add nomMigrations : 
 - dotnet ef migrations list : 
 - dotnet ef migrations remove : supprime le dernier fichier de migration

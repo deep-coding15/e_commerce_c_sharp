@@ -15,4 +15,7 @@ public class E_commerce_c_charpContext : DbContext
     public DbSet<Order> Order { get; set; } = default!;
     public DbSet<Category> Category { get; set; } = default!;
     public DbSet<OrderItem> OrderItem { get; set; } = default!;
+    public DbSet<User> User { get; set; } = default!;
+    public DbSet<Cart> Cart { get; set; } = default!;
+    public DbSet<CartItem> CartItem { get; set; } = default!;
 }
