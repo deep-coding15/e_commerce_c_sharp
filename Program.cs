@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using E_commerce_c_charp.Data;
 using E_commerce_c_charp.Models;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,18 +12,33 @@ builder.Services.AddRazorPages();
 
 
 builder.Services.AddDbContext<E_commerce_c_charpContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found."))
+    options.UseSqlServer(builder.Configuration
+    .GetConnectionString("DefaultConnection") 
+    ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found."))
 );
 
 
-var app = builder.Build();
+// Identity
+builder.Services.AddIdentity<User, IdentityRole>(options =>
+{
+    options.Password.RequiredLength         = 6;
+    options.Password.RequireDigit           = true;
+    options.Password.RequireUppercase       = false;
+    options.Password.RequireNonAlphanumeric = false;
+})
+.AddEntityFrameworkStores<E_commerce_c_charpContext>()
+.AddDefaultTokenProviders();
 
+var app = builder.Build();
+//var userManager = ServiceProvider
 /**This is for seeding a database : the database will work with a minimum of items in it.*/
 using(var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    SeedData.Initialize(services);
+    await SeedData.Initialize(services);
 }
+
+// Middleware
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -38,6 +54,7 @@ app.UseHttpsRedirection();
 // Adds route matching to the middleware pipeline
 app.UseRouting();
 
+app.UseAuthentication();
 /* Authorizes a user to access secure resources. 
 This app doesn't use authorization, therefore this line could be removed. */
 app.UseAuthorization();

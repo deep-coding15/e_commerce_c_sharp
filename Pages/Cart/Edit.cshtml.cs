@@ -8,16 +8,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using E_commerce_c_charp.Data;
 using E_commerce_c_charp.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace E_commerce_c_charp.Pages_Cart
 {
     public class EditModel : PageModel
     {
         private readonly E_commerce_c_charp.Data.E_commerce_c_charpContext _context;
+        private readonly UserManager<User> _userManager;
 
-        public EditModel(E_commerce_c_charp.Data.E_commerce_c_charpContext context)
+        public EditModel(E_commerce_c_charp.Data.E_commerce_c_charpContext context, UserManager<User> userManager)
         {
-            _context = context;
+            this._context = context;
+            this._userManager = userManager;
         }
 
         [BindProperty]
@@ -36,7 +39,7 @@ namespace E_commerce_c_charp.Pages_Cart
                 return NotFound();
             }
             Cart = cart;
-           ViewData["UserId"] = new SelectList(_context.User, "Id", "Email");
+           ViewData["UserId"] = new SelectList(_userManager.Users, "Id", "Email");
             return Page();
         }
 

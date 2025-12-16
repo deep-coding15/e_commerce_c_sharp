@@ -8,7 +8,7 @@ public class Order
     public int Id { get; set; }
 
     [Display(Name = "User Id")]
-    public int UserId { get; set; } // Identity user
+    public string? UserId { get; set; } // Identity user
     public User? User {get; set;}
     [Column(TypeName = "decimal(18,2)"), Display(Name = "Total Amount"), Range(1, double.MaxValue)] // Ajoutez cette ligne pour définir 2 décimales et une précision totale de 18 chiffres
     public decimal TotalAmount { get; set; }

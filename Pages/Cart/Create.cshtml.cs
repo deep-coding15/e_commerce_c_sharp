@@ -7,21 +7,23 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using E_commerce_c_charp.Data;
 using E_commerce_c_charp.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace E_commerce_c_charp.Pages_Cart
 {
     public class CreateModel : PageModel
     {
         private readonly E_commerce_c_charp.Data.E_commerce_c_charpContext _context;
-
-        public CreateModel(E_commerce_c_charp.Data.E_commerce_c_charpContext context)
+        private readonly UserManager<User> _userManager;
+        public CreateModel(E_commerce_c_charp.Data.E_commerce_c_charpContext context, UserManager<User> userManager)
         {
-            _context = context;
+            this._context = context;
+            this._userManager = userManager;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["UserId"] = new SelectList(_context.User, "Id", "Email");
+        ViewData["UserId"] = new SelectList(_userManager.Users, "Id", "Email");
             return Page();
         }
 

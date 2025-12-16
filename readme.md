@@ -40,6 +40,8 @@
         - dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 9.0.0           --Needed for scaffolding
         - dotnet add package Microsoft.EntityFrameworkCore.Tools --version 9.0.0
         - dotnet add package Microsoft.EntityFrameworkCore --version 9.0.0
+        - dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 9.0.0
+        - dotnet add package Microsoft.AspNetCore.Identity.UI --version 9.0.0        
 
         - dotnet restore
 
@@ -54,6 +56,7 @@
     - dotnet aspnet-codegenerator razorpage --model User --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/User --referenceScriptLibraries --databaseProvider sqlserver
     - dotnet aspnet-codegenerator razorpage --model Cart --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/Cart --referenceScriptLibraries --databaseProvider sqlserver
     - dotnet aspnet-codegenerator razorpage --model CartItem --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/CartItem --referenceScriptLibraries --databaseProvider sqlserver
+    - dotnet aspnet-codegenerator identity --files "Account.Login;Account.Register" -dc E_commerce_c_charp.Data.E_commerce_c_charpContext
 
 # Create the initial database schema using EF's migration feature :
 EF Core est responsable de la création et de la mise à jour de la structure (le schéma) de la base de données (SQL Server, SQLite, etc.) pour qu'elle corresponde à ces classes.
@@ -141,6 +144,36 @@ The validation rules are enforced any time a user creates or edits a movie.
 - [DisplayFormat] : decris la façon dont le données sont affichés à l'écran.
 - [DataType] : decris la sémantique des données.
 Les annotations de données appliquées à la classe modifient le schéma. Ils ne provoquent pas d'exception de la part d'EF cependant, il est recommandé de créer une migration afin que le schéma soit cohérent avec le modèle.
+
+# Add Identity
+ASP.NET Core est une API qui prend en charge la fonctionnalité de connexion à l'interface utilisateur (UI).
+- Gère les utilisateurs 
+- les mots de passe
+- les données de profil
+- les rôles
+- les revendications
+- les jetons
+- la confirmation par e-mail, et plus encore.
+Les utilisateurs peuvent créer un compte avec les informations de connexion enregistrées dans Identity ou utiliser un fournisseur d'authentification externe( Facebook, Google, Microsoft Account et Twitter ). 
+On va utiliser Identity pour inscrire, connecter et déconnecter un utilisateur.
+ASP.NET Core Identity* ajoute une fonctionnalité d'authentification via l'interface utilisateur aux applications web ASP.NET Core.
+Pas besoin de refaire le user avec les attributs (Email, Id, Passwordhash) car Identity les gère automatiquement, on ajoute tout siplement les données métier.
+Suppression de *public DbSet<User> User { get; set; }*  dans le fichier *DbContext* Car Identity le crée(les utilisateurs) automatiquement dans la table  [AspNetUsers].
+- Créer utilisateur, modifier mot de passe [UserManager]
+- lister utilisateurs [UserManager.USers]
+- Authentification [Identity]
+- Tables metier [DbContext]
+# Scaffolded the identity
+    dotnet aspnet-codegenerator identity --useDefaultUI
+Ne jamais manipuler les users via DbContext directement.
+
+To change the IDENTITY property of a column, the column needs to be dropped and recreated
+
+# NETTOYER LE PROJET 
+dotnet clean
+dotnet restore
+dotnet build
+dotnet run
 
 # References : 
 1. Tutoriel guidé partie 4 : https://learn.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/sql?view=aspnetcore-9.0&tabs=visual-studio

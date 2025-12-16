@@ -1,12 +1,77 @@
+using System.Threading.Tasks;
 using E_commerce_c_charp.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_commerce_c_charp.Models;
 
 public static class SeedData
 {
-    public static void Initialize(IServiceProvider serviceProvider)
+    public static async Task Initialize(IServiceProvider serviceProvider)
     {
+        var userManager = serviceProvider.GetRequiredService<UserManager<User>>();
+        var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+        
+        // Rôles
+        string[] roles = {"Admin", "Client"};
+
+        foreach (var role in roles)
+        {
+            if(!await roleManager.RoleExistsAsync(role))
+            {
+                await roleManager.CreateAsync(new IdentityRole(role));
+            }
+        }
+
+        // Admin
+        var adminEmail = "admin@shop.com";
+        var admin = await userManager.FindByEmailAsync(adminEmail);
+
+        if(admin == null)
+        {
+            admin = new User
+            {
+                UserName  = adminEmail,
+                Email  = adminEmail,
+                Nom  = "Administrateur",
+                EmailConfirmed  = true
+            };
+            await userManager.CreateAsync(admin, "Admin@123");
+            await userManager.AddToRoleAsync(admin, "Admin");
+        } 
+
+        var user1Email = "client1@test.com";
+        var user1 = await userManager.FindByEmailAsync(user1Email);
+        
+        var user2Email = "client2@test.com";
+        var user2 = await userManager.FindByEmailAsync(user2Email);
+
+        // User
+        if(user1 == null)
+        {     
+            user1 = new User
+            {
+                UserName  = user1Email,
+                Email  = user1Email,
+                Nom  = "Client One",
+                EmailConfirmed  = true
+            };
+            await userManager.CreateAsync(user1, "Client@123");    
+            await userManager.AddToRoleAsync(user1, "Client");    
+        }  
+        if(user2 == null)
+        {     
+            user2 = new User
+            {
+                UserName  = user2Email,
+                Email  = user2Email,
+                Nom  = "Client Two",
+                EmailConfirmed  = true
+            };
+            await userManager.CreateAsync(user2, "Client@123");    
+            await userManager.AddToRoleAsync(user2, "Client");    
+        }  
+
         using (var context = new E_commerce_c_charpContext(
             serviceProvider.GetRequiredService<DbContextOptions<E_commerce_c_charpContext>>()
         ))
@@ -103,29 +168,11 @@ public static class SeedData
             /* =========================
             UTILISATEURS
             ========================= */
-            if(!context.User.Any())
-            {                
-                context.User.AddRange(
-                    new User
-                    {
-                        Email = "client1@test.com",
-                        PasswordHash = "HASHED_PASSWORD_1",
-                        Nom = "Client One"
-                    },
-                    new User
-                    {
-                        Email = "client2@test.com",
-                        PasswordHash = "HASHED_PASSWORD_2",
-                        Nom = "Client Two"
-                    }
-                );
-                context.SaveChanges();
-            };
-
+            
         /* =========================
                 PANIER
                 ========================= */
-                var user1 = context.User.First(u => u.Email == "client1@test.com");
+                //var user1 = await userManager.FindByEmailAsync("client1@test.com");
             if(!context.Cart.Any())
             {
                 context.Cart.Add(
@@ -166,14 +213,14 @@ public static class SeedData
                 context.Order.AddRange(
                     new Order
                     {
-                        UserId = 1,
+                        UserId = user1.Id,
                         CreatedAt = DateTime.Now.AddDays(-3),
                         Status = Status.Completed,
                         TotalAmount = 1499.99m
                     },
                     new Order
                     {
-                        UserId = 2,
+                        UserId = user2.Id,
                         CreatedAt = DateTime.Now.AddDays(-1),
                         Status = Status.Pending,
                         TotalAmount = 399.99m
@@ -190,8 +237,8 @@ public static class SeedData
             {
                 var iphone = context.Product.FirstOrDefault(p => p.Name == "iPhone 15 Pro");
                 var sonyHeadphones = context.Product.FirstOrDefault(p => p.Name == "Sony WH-1000XM5");
-                var order1 = context.Order.FirstOrDefault(o => o.UserId == 1);
-                var order2 = context.Order.FirstOrDefault(o => o.UserId == 2);
+                var order1 = context.Order.FirstOrDefault(o => o.UserId == user1.Id);
+                var order2 = context.Order.FirstOrDefault(o => o.UserId == user2.Id);
                 context.OrderItem.AddRange(
                     new OrderItem
                     {

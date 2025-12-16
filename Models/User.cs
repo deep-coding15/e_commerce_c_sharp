@@ -1,17 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace E_commerce_c_charp.Models;
-public class User
+public class User : IdentityUser
 {
-    public int Id { get; set; }
-    [DataType(DataType.EmailAddress)]
-    [Required, StringLength(100)]
-    [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", 
-        ErrorMessage = "Adresse email invalide")
-    ]
-    public string Email { get; set; } = null!;
-    [Required, StringLength(255)]
-    public string PasswordHash { get; set; } = null!;
     [Required, MinLength(3), StringLength(50)]
     [RegularExpression(@"^[a-zA-ZÀ-ÿ\s'-]+$", ErrorMessage = "Nom invalide")]
     public string Nom { get; set; } = null!;
