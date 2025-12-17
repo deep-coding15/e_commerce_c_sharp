@@ -646,64 +646,102 @@ Journal détaillé de la session incluant:
 
 ---
 
-## Prochaines étapes recommandées
+## Fonctionnalités en cours et à venir
 
-### Phase 2 - Fonctionnalités essentielles
+### 🔄 Fonctionnalités en cours (work in progress)
 
-1. **Panier d'achat fonctionnel**
-   - Modèle Cart et CartItem
-   - Ajout/suppression de produits
-   - Sauvegarde en session/base de données
-   - Mise à jour du badge compteur
+1. **Panier d'achat dynamique**
+   - [ ] Connexion entre le bouton "Ajouter au panier" et le modèle Cart/CartItem
+   - [ ] Mise à jour en temps réel du badge panier dans le header
+   - [ ] Gestion du panier pour utilisateurs invités vs connectés
 
-2. **Processus de checkout**
-   - Formulaire d'adresse de livraison
-   - Choix du mode de livraison
-   - Page de confirmation
+2. **Standardisation des layouts CRUD (Create/Edit/Delete)**
+   - [ ] Harmonisation visuelle des formulaires produits, catégories, commandes
+   - [ ] Ajout de validations côté client avec messages clairs
+   - [ ] Utilisation de composants Bootstrap cohérents (cards, form-floating)
 
-3. **Intégration paiement**
-   - Configuration Stripe
-   - Page de paiement sécurisée
-   - Gestion des webhooks
-   - Confirmation de paiement
+3. **Layout spécifique Identity (Login/Register)**
+   - [ ] Création d'un layout dédié pour les pages d'authentification
+   - [ ] Design centré, avec carte et illustration
+   - [ ] Messages d'erreur et de succès stylés
 
-4. **Gestion des commandes**
-   - Création de commande après paiement
-   - Suivi des statuts
-   - Historique utilisateur
-   - Emails de confirmation
+4. **Refactorisation du CSS**
+   - [ ] Extraction des styles spécifiques e-commerce dans un fichier séparé (ex: `ecommerce.css`)
+   - [ ] Nettoyage des styles inutilisés
+   - [ ] Ajout de commentaires structurés par section
 
-5. **Dashboard administrateur**
-   - Vue d'ensemble des ventes
-   - Statistiques
-   - Gestion des commandes
-   - Gestion du stock
+### 🚧 Fonctionnalités planifiées (prochaines étapes)
 
-### Améliorations techniques
+#### A. Fonctionnalités e-commerce core
+- [ ] **Création complète du modèle de panier (Cart/CartItem)**
+  - Propriété Cart liée à l'utilisateur
+  - Gestion des articles, quantités, prix totaux
 
-1. **Sécurité**
-   - Implémenter l'autorisation basée sur les rôles
-   - Ajouter des politiques d'accès
-   - Valider toutes les entrées utilisateur
-   - Implémenter CSRF protection
+- [ ] **Processus de checkout complet**
+  - Étapes: Panier → Adresse → Livraison → Paiement → Confirmation
+  - Sauvegarde de l'adresse de livraison et facturation
 
-2. **Performance**
-   - Mise en cache des données fréquentes
-   - Pagination efficace
-   - Optimisation des images
-   - Lazy loading
+- [ ] **Intégration d'un prestataire de paiement (Stripe)**
+  - Page de paiement sécurisée
+  - Gestion des retours et erreurs de paiement
+  - Webhooks pour confirmation de paiement
 
-3. **Qualité du code**
-   - Tests unitaires
-   - Gestion d'erreurs globale
-   - Logging structuré
-   - Validation côté client et serveur
+- [ ] **Système complet de commandes**
+  - Création de commande à partir du panier validé
+  - Gestion des statuts (Pending, Paid, Shipped, Delivered, Cancelled)
+  - Historique des commandes par utilisateur
 
-4. **UX/UI**
-   - Notifications toast
-   - Confirmation avant suppression
-   - Loading states
-   - Messages d'erreur user-friendly
+- [ ] **Gestion avancée du stock**
+  - Décrément du stock à chaque commande validée
+  - Alertes de stock bas
+  - Empêcher la commande si stock insuffisant
+
+#### B. Administration et reporting
+- [ ] **Dashboard administrateur**
+  - Vue d'ensemble des ventes (chiffre d'affaires, nombre de commandes)
+  - Meilleurs produits / catégories
+  - Nombre de nouveaux utilisateurs
+
+- [ ] **Gestion des utilisateurs et rôles**
+  - Création des rôles (Admin, Client)
+  - Ecran de gestion des rôles
+  - Attribution des rôles aux utilisateurs
+
+- [ ] **Rapports exportables**
+  - Export des commandes en CSV/Excel
+  - Export du catalogue produits
+
+#### C. Expérience utilisateur avancée
+- [ ] **Système d'avis et commentaires**
+  - Ajout d'avis par produit (note + commentaire)
+  - Modération des avis par admin
+
+- [ ] **Liste de souhaits (Wishlist)**
+  - Ajout/retrait de produits favoris
+  - Affichage dans une page dédiée
+
+- [ ] **Notifications et emails transactionnels**
+  - Email de confirmation de commande
+  - Email d'expédition
+  - Email de réinitialisation de mot de passe stylé
+
+- [ ] **Système de coupons et promotions**
+  - Codes promo (montant fixe ou pourcentage)
+  - Gestion des dates de validité
+
+#### D. Roadmap technique (Angular v2)
+- [ ] **Création d'une API REST complète**
+  - Endpoints sécurisés pour produits, panier, commandes, utilisateurs
+  - Utilisation de DTOs et AutoMapper
+
+- [ ] **Frontend Angular**
+  - Application SPA consommant l'API
+  - Authentification JWT
+  - State management avec NgRx
+
+- [ ] **PWA (Progressive Web App)**
+  - Mode offline basique
+  - Ajout à l'écran d'accueil
 
 ---
 
@@ -802,6 +840,6 @@ Le projet est maintenant prêt pour la Phase 2 avec l'implémentation du panier,
 
 ---
 
-**Dernière mise à jour:** 17 décembre 2025, 02:13 CET
+**Dernière mise à jour:** 17 décembre 2025, 02:26 CET
 **Auteur:** Session de développement assisté
-**Version:** 1.0
+**Version:** 1.1
