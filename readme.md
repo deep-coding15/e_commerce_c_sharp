@@ -164,7 +164,9 @@ Suppression de *public DbSet<User> User { get; set; }*  dans le fichier *DbConte
 - Authentification [Identity]
 - Tables metier [DbContext]
 # Scaffolded the identity
-    dotnet aspnet-codegenerator identity --useDefaultUI
+    - dotnet aspnet-codegenerator identity --useDefaultUI
+    - dotnet aspnet-codegenerator identity -dc E_Commerce_c_charp.Data.E_Commerce_c_charpContext --files "Account.Register;Account.Login;Account.Logout;Account.ResetPassword;Account.ForgotPassword"
+    - dotnet aspnet-codegenerator identity -dc E_Commerce_c_charp.Data.E_Commerce_c_charpContext --files "Account.ForgotPassword"
 Ne jamais manipuler les users via DbContext directement.
 
 To change the IDENTITY property of a column, the column needs to be dropped and recreated
@@ -173,7 +175,7 @@ To change the IDENTITY property of a column, the column needs to be dropped and 
 dotnet clean
 dotnet restore
 dotnet build
-dotnet run
+dotnet watch run
 
 # References : 
 1. Tutoriel guidé partie 4 : https://learn.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/sql?view=aspnetcore-9.0&tabs=visual-studio

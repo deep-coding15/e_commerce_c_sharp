@@ -1,52 +1,198 @@
-@page "{id:int}"
+@page
 @model E_commerce_c_charp.Pages_Product.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = Model.Product?.Name ?? "Détails produit";
 }
 
-<h1>Details</h1>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-page="/Index">Accueil</a></li>
+        <li class="breadcrumb-item"><a asp-page="./Index">Produits</a></li>
+        <li class="breadcrumb-item active">@Model.Product?.Name</li>
+    </ol>
+</nav>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.Price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Price)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.StockQuantity)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.StockQuantity)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.Category)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Category.Id)
-        </dd>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Rating)
-        </dd>
-    </dl>
+<div class="row">
+    <!-- Product Images -->
+    <div class="col-lg-6 mb-4">
+        <div class="card shadow-sm">
+            <img src="@(Model.Product?.ImageUrl ?? "https://via.placeholder.com/600x500?text=Product")" 
+                 class="card-img-top" 
+                 alt="@Model.Product?.Name"
+                 style="height: 500px; object-fit: contain; background: #f8f9fa;">
+        </div>
+        <!-- Thumbnails (optionnel) -->
+        <div class="row g-2 mt-2">
+            <div class="col-3">
+                <img src="@(Model.Product?.ImageUrl ?? "https://via.placeholder.com/150")" 
+                     class="img-thumbnail" 
+                     style="cursor: pointer;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Info -->
+    <div class="col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <!-- Category -->
+                <p class="text-muted mb-2">
+                    <i class="bi bi-tag"></i> 
+                    <a href="#" class="text-decoration-none">@Model.Product?.Category?.Name</a>
+                </p>
+
+                <!-- Product Name -->
+                <h1 class="h2 mb-3">@Model.Product?.Name</h1>
+
+                <!-- Rating -->
+                @* <div class="product-rating mb-3">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        @if (i <= Model.Product?.Rating)
+                        {
+                            <i class="bi bi-star-fill"></i>
+                        }
+                        else
+                        {
+                            <i class="bi bi-star"></i>
+                        }
+                    }
+                    <span class="ms-2">(@Model.Product?.Rating / 5)</span>
+                    <a href="#reviews" class="ms-2 text-decoration-none">Voir les avis</a>
+                </div> *@
+
+                <!-- Price -->
+                <div class="mb-4">
+                    <h2 class="text-primary mb-0">@Model.Product?.Price.ToString("C")</h2>
+                    <small class="text-muted">TVA incluse</small>
+                </div>
+
+                <!-- Stock Status -->
+                <div class="mb-4">
+                    @if (Model.Product?.StockQuantity > 10)
+                    {
+                        <span class="badge bg-success">
+                            <i class="bi bi-check-circle"></i> En stock (@Model.Product.StockQuantity unités)
+                        </span>
+                    }
+                    else if (Model.Product?.StockQuantity > 0)
+                    {
+                        <span class="badge bg-warning text-dark">
+                            <i class="bi bi-exclamation-triangle"></i> Stock limité (@Model.Product.StockQuantity unités)
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">
+                            <i class="bi bi-x-circle"></i> Rupture de stock
+                        </span>
+                    }
+                </div>
+
+                <!-- Description -->
+                <div class="mb-4">
+                    <h5>Description</h5>
+                    <p class="text-muted">@Model.Product?.Description</p>
+                </div>
+
+                <!-- Quantity Selector -->
+                @if (Model.Product?.StockQuantity > 0)
+                {
+                    <form method="post" class="mb-4">
+                        <div class="row g-3">
+                            <div class="col-auto">
+                                <label class="form-label">Quantité</label>
+                                <div class="input-group" style="width: 130px;">
+                                    <button class="btn btn-outline-secondary" type="button">
+                                        <i class="bi bi-dash"></i>
+                                    </button>
+                                    <input type="number" class="form-control text-center" value="1" min="1" max="@Model.Product.StockQuantity">
+                                    <button class="btn btn-outline-secondary" type="button">
+                                        <i class="bi bi-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="d-grid gap-2 mt-3">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="bi bi-cart-plus"></i> Ajouter au panier
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary">
+                                <i class="bi bi-heart"></i> Ajouter aux favoris
+                            </button>
+                        </div>
+                    </form>
+                }
+
+                <!-- Product Features -->
+                <div class="border-top pt-3 mt-3">
+                    <h6 class="mb-3">Informations produit</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="bi bi-truck text-primary"></i> 
+                            <strong>Livraison:</strong> Gratuite dès 50€
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-arrow-clockwise text-primary"></i> 
+                            <strong>Retours:</strong> 30 jours pour changer d'avis
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-shield-check text-primary"></i> 
+                            <strong>Garantie:</strong> 2 ans constructeur
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Actions -->
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="card mt-3 shadow-sm">
+                <div class="card-body">
+                    <h6 class="card-title">Actions administrateur</h6>
+                    <div class="btn-group w-100">
+                        <a asp-page="./Edit" asp-route-id="@Model.Product?.Id" class="btn btn-warning">
+                            <i class="bi bi-pencil"></i> Modifier
+                        </a>
+                        <a asp-page="./Delete" asp-route-id="@Model.Product?.Id" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Supprimer
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Product.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+
+<!-- Product Tabs (Description, Reviews, etc.) -->
+<div class="row mt-5">
+    <div class="col-12">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#description">Description détaillée</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#specifications">Caractéristiques</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#reviews">Avis clients</a>
+            </li>
+        </ul>
+        <div class="tab-content border border-top-0 p-4">
+            <div id="description" class="tab-pane active">
+                <p>@Model.Product?.Description</p>
+            </div>
+            <div id="specifications" class="tab-pane fade">
+                <p>Caractéristiques techniques à venir...</p>
+            </div>
+            <div id="reviews" class="tab-pane fade">
+                <p>Avis clients à venir...</p>
+            </div>
+        </div>
+    </div>
 </div>

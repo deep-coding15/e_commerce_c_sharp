@@ -54,7 +54,7 @@ public static class SeedData
                 UserName  = user1Email,
                 Email  = user1Email,
                 Nom  = "Client One",
-                EmailConfirmed  = true
+                EmailConfirmed  = true,
             };
             await userManager.CreateAsync(user1, "Client@123");    
             await userManager.AddToRoleAsync(user1, "Client");    

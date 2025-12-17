@@ -13,6 +13,9 @@ public class Product
     [StringLength(60, MinimumLength = 5), Required]
     public string Description { get; set; } = null!;
     // Ajoutez cette ligne pour définir 2 décimales et une précision totale de 18 chiffres
+    [StringLength(255, MinimumLength = 5)]
+    public string ImageUrl { get; set; } = null!;
+    // Ajoutez cette ligne pour définir 2 décimales et une précision totale de 18 chiffres
     [Range(1, double.MaxValue), DataType(DataType.Currency), Column(TypeName = "decimal(18,2)"), IntegerValidator(MinValue = 0)]
     public decimal Price { get; set; }
     [Display(Name = "Stock Quantity"), IntegerValidator(MinValue = 0)]
