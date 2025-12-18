@@ -1,8 +1,10 @@
 @page
-@model E_commerce_c_charp.Pages.Cart.Pages_Cart_Index
+@* @model E_commerce_c_charp.Pages.Cart.Pages_Cart_Index
+ *@
+@model E_commerce_c_charp.Pages_Cart.IndexModel
 @* E_commerce_c_charp.Pages_Cart.EditModel
  *@
- 
+
 @{
     ViewData["Title"] = "Mon Panier";
 }
@@ -40,41 +42,44 @@ else
         <div class="col-lg-8 mb-4">
             <div class="card shadow-sm">
                 <div class="card-header bg-white">
-                    <h5 class="mb-0">Articles (3)</h5>
+                    <h5 class="mb-0">Articles Model.NbArticles</h5>
                 </div>
                 <div class="card-body p-0">
                     <!-- Cart Item -->
-                    <div class="cart-item p-3 border-bottom">
-                        <div class="row align-items-center">
-                            <div class="col-md-2">
-                                <img src="https://via.placeholder.com/100" class="img-fluid rounded" alt="Product">
-                            </div>
-                            <div class="col-md-4">
-                                <h6 class="mb-1">Nom du produit</h6>
-                                <p class="text-muted small mb-0">Catégorie: Electronics</p>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="input-group input-group-sm">
-                                    <button class="btn btn-outline-secondary" type="button">
-                                        <i class="bi bi-dash"></i>
-                                    </button>
-                                    <input type="number" class="form-control text-center" value="1" min="1">
-                                    <button class="btn btn-outline-secondary" type="button">
-                                        <i class="bi bi-plus"></i>
+                    @foreach (var item in Model.Product)
+                    {
+                        <div class="cart-item p-3 border-bottom">
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <img src="@item.ImageUrl" class="img-fluid rounded" alt="Product">
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="mb-1">@item.Name</h6>
+                                    <p class="text-muted small mb-0">Catégorie: @item.Category.Name</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="input-group input-group-sm">
+                                        <button class="btn btn-outline-secondary" type="button">
+                                            <i class="bi bi-dash"></i>
+                                        </button>
+                                        <input type="number" class="form-control text-center" value="1" min="1">
+                                        <button class="btn btn-outline-secondary" type="button">
+                                            <i class="bi bi-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <strong class="text-primary">@item.Price €</strong>
+                                </div>
+                                <div class="col-md-2 text-end">
+                                    <button class="btn btn-sm btn-outline-danger" title="Supprimer">
+                                        <i class="bi bi-trash"></i>
                                     </button>
                                 </div>
                             </div>
-                            <div class="col-md-2 text-center">
-                                <strong class="text-primary">29,99 €</strong>
-                            </div>
-                            <div class="col-md-2 text-end">
-                                <button class="btn btn-sm btn-outline-danger" title="Supprimer">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </div>
                         </div>
-                    </div>
-                    <!-- Repeat for more items -->
+                        <!-- Repeat for more items -->
+                    }
                 </div>
             </div>
 
@@ -85,7 +90,6 @@ else
                 </a>
             </div>
         </div>
-
         <!-- Order Summary -->
         <div class="col-lg-4">
             <div class="card shadow-sm sticky-top" style="top: 20px;">

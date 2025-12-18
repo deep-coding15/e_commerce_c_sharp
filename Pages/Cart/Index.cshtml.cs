@@ -13,18 +13,29 @@ namespace E_commerce_c_charp.Pages_Cart
     public class IndexModel : PageModel
     {
         private readonly E_commerce_c_charp.Data.E_commerce_c_charpContext _context;
+        public IList<Product> Product { get; set; } = default!;
 
         public IndexModel(E_commerce_c_charp.Data.E_commerce_c_charpContext context)
         {
             _context = context;
         }
 
-        public IList<Cart> Cart { get;set; } = default!;
+        public IList<Cart> Cart { get; set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string UserId)
         {
             Cart = await _context.Cart
-                .Include(c => c.User).ToListAsync();
+        .Include(c => c.User)
+        .Where(u => u.UserId == UserId)
+        .ToListAsync();
+
+            Product = await _context.CartItem
+                .Where(ci => ci.Cart.UserId == UserId)
+                .Include(ci => ci.Product)
+                    .ThenInclude(p => p.Category)
+                .Select(ci => ci.Product)
+                .ToListAsync();
+            var NbArticles = Product.Count();
         }
     }
 }

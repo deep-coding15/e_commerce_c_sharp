@@ -10,6 +10,9 @@ using NSwag.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Antiforgery;
 using E_commerce_c_charp.Models.Requests;
+using System.Reflection.Metadata;
+using E_commerce_c_charp.EndPoints;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,24 +41,26 @@ builder.Services.AddAntiforgery(
 // Identity
 builder.Services.AddIdentity<User, IdentityRole>(options =>
 {
-    options.Password.RequiredLength         = 6;
-    options.Password.RequireDigit           = true;
-    options.Password.RequireUppercase       = false;
+    options.Password.RequiredLength = 6;
+    options.Password.RequireDigit = true;
+    options.Password.RequireUppercase = false;
     options.Password.RequireNonAlphanumeric = false;
-    options.SignIn.RequireConfirmedAccount  = false; // Désactive la confirmation
+    options.SignIn.RequireConfirmedAccount = false; // Désactive la confirmation
 })
 .AddEntityFrameworkStores<E_commerce_c_charpContext>()
 .AddDefaultTokenProviders();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.LoginPath        = "/Identity/Account/Login";
-    options.LogoutPath       = "/Identity/Account/Logout";
+    options.LoginPath = "/Identity/Account/Login";
+    options.LogoutPath = "/Identity/Account/Logout";
     options.AccessDeniedPath = "/Identity/Account/AccessDenied";
 });
 
 builder.Services.AddTransient<IEmailSender, E_commerce_c_charp.Services.NoOpEmailSender>();
 builder.Services.AddTransient<IEmailSender<User>, E_commerce_c_charp.Services.NoOpEmailSender>();
+
+builder.Services.AddSession();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddOpenApiDocument(config =>
@@ -111,6 +116,8 @@ app.UseAuthentication();
 This app doesn't use authorization, therefore this line could be removed. */
 app.UseAuthorization();
 
+app.UseSession(); // après UseRouting
+
 app.UseAntiforgery();
 
 app.MapStaticAssets();
@@ -136,41 +143,28 @@ var productItems = app.MapGroup("/api/Product");
 productItems.MapGet("Details/{id:int}", (int id) => Results.Redirect($"/Product/Details?id={id}"));
 productItems.MapGet("", () => Results.Redirect("/Product/Index"));
 
-app.MapGet("/Cart", () => Results.Redirect("/Cart/Index"));
+//app.MapGet("/Cart", () => Results.Redirect("/Cart/Index"));
 
-var orderItems = app.MapGroup("/api/Order");
+var apiItems = app.MapGroup("/api");
+var orderItems = apiItems.MapGroup("/Order");
 orderItems.MapGet("Details/{id:int}", (int id) => Results.Redirect($"/Order/Details?id={id}"));
 orderItems.MapGet("", () => Results.Redirect("/Order/Index"));
 
+app.MapCartEndpoints();
+app.MapCartEndpointsApi();
 
-var cartItems = app.MapGroup("/api/Cart");
-
-cartItems.MapPost("add", async (
-    [FromBody] AddToCartRequest req,
-    E_commerce_c_charpContext db,
-    UserManager<User> userManager,
-    HttpContext http) =>
-{
-    if (req is null)
-        return Results.BadRequest(new { success = false, message = "Produit invalide !" });
-    else
-    {
-        if (req.ProductId <= 0)
-            return Results.BadRequest(new { success = false, message = "Produit invalide !" });
-        if (req.Quantity <= 0)
-            return Results.BadRequest(new { success = false, message = "Quantité produit invalide !" });
-    }
-
-    cartItems.MapGet("Details/{id:int}", (int id) => Results.Redirect($"/Cart/Details?id={id}"));
-
-    var user = await userManager.GetUserAsync(http.User);
+   /*     if (http.User.Identity.IsAuthenticated)
+     * /
     if (user is null) return Results.Unauthorized();
 
     // 1 - Vérifier que le produit existe
+
     var product = await db.Product.FindAsync(req.ProductId);
     if (product is null)
         return Results.NotFound(new { success = false, message = "Produit introuvable." });
+    
     // 2 - Récupérer (ou créer) le panier du user 
+
     var cart = await db.Cart.Include(c => c.Items)
                     .FirstOrDefaultAsync(c => c.UserId == user.Id);
 
@@ -186,15 +180,28 @@ cartItems.MapPost("add", async (
         cart.Items.Add(new CartItem { ProductId = req.ProductId, Quantity = req.Quantity });
     else
         line.Quantity += req.Quantity;
-
+    
     // 4 - Persist
     await db.SaveChangesAsync();
 
     return Results.Ok(new { success = true });
 });
 
-cartItems.MapGet("", () => Results.Redirect("/Cart/Index"));
+// GET /api/Cart => /Cart/Index?UserId = {userId}
+cartItems.MapGet("", async(
+    UserManager<User> userManager,
+    HttpContext http
+) =>
+{
+    var user = await userManager.GetUserAsync(http.User);
 
+    if(user is null) return Results.Unauthorized();
+
+    return Results.Redirect($"/Cart/Index?UserId={user.Id}");
+});
+
+cartItems.MapGet("{UserId}", (string UserId) => Results.Redirect($"/Cart/Index?UserId={UserId}"));
+ */
 /* app.MapGet('', async () => await );
 app.MapPost('', async () => await );
 app.MapPut('', async () => await );
