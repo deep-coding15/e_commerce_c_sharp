@@ -41,9 +41,21 @@
         - dotnet add package Microsoft.EntityFrameworkCore.Tools --version 9.0.0
         - dotnet add package Microsoft.EntityFrameworkCore --version 9.0.0
         - dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 9.0.0
-        - dotnet add package Microsoft.AspNetCore.Identity.UI --version 9.0.0        
+        - dotnet add package Microsoft.AspNetCore.Identity.UI --version 9.0.0         
+        
+        # Installe le fournisseur de base de données temporaire (RAM). 
+        # Idéal pour tester l'API sans configurer de SQL Server ou PostgreSQL.
+        - dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 9.0.0
 
-        - dotnet restore
+        # Ajoute des outils de diagnostic pour le débogage. 
+        # Affiche des pages d'erreurs détaillées si une migration de base de données échoue au lancement.
+        - dotnet add package Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore --version 9.0.0
+        
+        # Génère automatiquement la documentation OpenAPI et l'interface de test Swagger UI.
+        # C'est l'alternative robuste à Swashbuckle pour documenter et tester vos APIs en .NET 9/10.
+        - dotnet add package NSwag.AspNetCore --version 14.6.3
+
+        - dotnet restore -- faire la mise à jour des réquêtes.
 
 # scaffold the models :
     - dotnet aspnet-codegenerator razorpage --model Product --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/Product --referenceScriptLibraries --databaseProvider sqlserver

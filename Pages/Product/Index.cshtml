@@ -192,7 +192,8 @@
                                         </a>
                                         @if (item.StockQuantity > 0)
                                         {
-                                            <button type="button" class="btn btn-primary" title="Ajouter au panier">
+                                            <button type="button" class="btn btn-primary ajouter-panier" title="Ajouter au panier"
+                                                data-product-id="@item.Id">
                                                 <i class="bi bi-cart-plus"></i>
                                             </button>
                                         }
@@ -223,3 +224,5 @@
         }
     </div>
 </div>
+
+<script src="~/js/scriptProduct.js"></script>

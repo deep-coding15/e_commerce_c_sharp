@@ -6,6 +6,10 @@ using E_commerce_c_charp.Services;
 using E_commerce_c_charp.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using NSwag.AspNetCore;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Antiforgery;
+using E_commerce_c_charp.Models.Requests;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,8 +19,19 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<E_commerce_c_charpContext>(options =>
     options.UseSqlServer(builder.Configuration
-    .GetConnectionString("DefaultConnection") 
+    .GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found."))
+);
+
+/* intercepte les exceptions liées à Entity Framework Core uniquement 
+    lorsque l'application tourne en mode Développement. */
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddAntiforgery(
+    options =>
+    {
+        options.HeaderName = "X-CSRF-TOKEN"; // Use a common header name
+    }
 );
 
 
@@ -42,10 +57,18 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddTransient<IEmailSender, E_commerce_c_charp.Services.NoOpEmailSender>();
 builder.Services.AddTransient<IEmailSender<User>, E_commerce_c_charp.Services.NoOpEmailSender>();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddOpenApiDocument(config =>
+{
+    config.DocumentName = "E commerce";
+    config.Title = "E commerce v1";
+    config.Version = "v1";
+});
+
 var app = builder.Build();
 //var userManager = ServiceProvider
 /**This is for seeding a database : the database will work with a minimum of items in it.*/
-using(var scope = app.Services.CreateScope())
+using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     await SeedData.Initialize(services);
@@ -60,6 +83,22 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+else
+{
+    app.UseDeveloperExceptionPage(); // Affiche l'erreur détaillée
+    /* Nécessite le package Diagnostics :  
+        Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore */
+    app.UseMigrationsEndPoint();     // Permet de cliquer sur "Apply Migrations" pour réparer l'erreur
+
+    app.UseOpenApi();
+    app.UseSwaggerUi(config =>
+    {
+        config.DocumentTitle = "E commerce App";
+        config.Path = "/swagger";
+        config.DocumentPath = "/swagger/{documentName}/swagger.json";
+        config.DocExpansion = "list";
+    });
+}
 
 // Redirects HTTP requests to HTTPS
 app.UseHttpsRedirection();
@@ -72,6 +111,8 @@ app.UseAuthentication();
 This app doesn't use authorization, therefore this line could be removed. */
 app.UseAuthorization();
 
+app.UseAntiforgery();
+
 app.MapStaticAssets();
 
 //Configures endpoint routing for Razor Pages.
@@ -81,4 +122,81 @@ app.MapRazorPages()
 // Redirection de la page d'accueil vers les produits
 app.MapGet("/", () => Results.Redirect("/Product/Index"));
 
+app.MapGet("/antiforgery/token", (IAntiforgery antiForgery, HttpContext context) =>
+{
+    var tokens = antiForgery.GetAndStoreTokens(context);
+    context.Response.Cookies.Append("XSRF-TOKEN", tokens.RequestToken!,
+    new CookieOptions { HttpOnly = false });
+    return Results.Ok();
+});
+
+app.MapGet("/api", () => Results.Redirect("/Product/Index"));
+
+var productItems = app.MapGroup("/api/Product");
+productItems.MapGet("Details/{id:int}", (int id) => Results.Redirect($"/Product/Details?id={id}"));
+productItems.MapGet("", () => Results.Redirect("/Product/Index"));
+
+app.MapGet("/Cart", () => Results.Redirect("/Cart/Index"));
+
+var orderItems = app.MapGroup("/api/Order");
+orderItems.MapGet("Details/{id:int}", (int id) => Results.Redirect($"/Order/Details?id={id}"));
+orderItems.MapGet("", () => Results.Redirect("/Order/Index"));
+
+
+var cartItems = app.MapGroup("/api/Cart");
+
+cartItems.MapPost("add", async (
+    [FromBody] AddToCartRequest req,
+    E_commerce_c_charpContext db,
+    UserManager<User> userManager,
+    HttpContext http) =>
+{
+    if (req is null)
+        return Results.BadRequest(new { success = false, message = "Produit invalide !" });
+    else
+    {
+        if (req.ProductId <= 0)
+            return Results.BadRequest(new { success = false, message = "Produit invalide !" });
+        if (req.Quantity <= 0)
+            return Results.BadRequest(new { success = false, message = "Quantité produit invalide !" });
+    }
+
+    cartItems.MapGet("Details/{id:int}", (int id) => Results.Redirect($"/Cart/Details?id={id}"));
+
+    var user = await userManager.GetUserAsync(http.User);
+    if (user is null) return Results.Unauthorized();
+
+    // 1 - Vérifier que le produit existe
+    var product = await db.Product.FindAsync(req.ProductId);
+    if (product is null)
+        return Results.NotFound(new { success = false, message = "Produit introuvable." });
+    // 2 - Récupérer (ou créer) le panier du user 
+    var cart = await db.Cart.Include(c => c.Items)
+                    .FirstOrDefaultAsync(c => c.UserId == user.Id);
+
+    if (cart is null)
+    {
+        cart = new Cart { UserId = user.Id, Items = new List<CartItem>() };
+        db.Cart.Add(cart);
+    }
+
+    // 3 - Ajouter ou Incrémenter la ligne
+    var line = cart.Items.FirstOrDefault(i => i.ProductId == req.ProductId);
+    if (line is null)
+        cart.Items.Add(new CartItem { ProductId = req.ProductId, Quantity = req.Quantity });
+    else
+        line.Quantity += req.Quantity;
+
+    // 4 - Persist
+    await db.SaveChangesAsync();
+
+    return Results.Ok(new { success = true });
+});
+
+cartItems.MapGet("", () => Results.Redirect("/Cart/Index"));
+
+/* app.MapGet('', async () => await );
+app.MapPost('', async () => await );
+app.MapPut('', async () => await );
+app.MapDelete('', async () => await ); */
 app.Run();
