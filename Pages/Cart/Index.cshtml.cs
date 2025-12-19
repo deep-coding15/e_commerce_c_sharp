@@ -19,7 +19,9 @@ namespace E_commerce_c_charp.Pages_Cart
         public IList<CartItem> CartItem { get; set; } = default!;
         public int NbArticles { get; set; } = 0; 
         public int NbProducts { get; set; } = 0;
-        public decimal PrixTotal { get; set; } = 0;
+        public decimal PrixHT { get; set; } = 0;
+        public decimal PrixTva { get; set; } = 0;
+        public decimal PrixTTC { get; set; } = 0;
 
         public IndexModel(E_commerce_c_charp.Data.E_commerce_c_charpContext context)
         {
@@ -56,9 +58,9 @@ namespace E_commerce_c_charp.Pages_Cart
             }).ToList();
 
             NbArticles = CartItem.Distinct().Count();
-            //NbProducts = cartItems.Distinct(ci => ci.ProductId).Sum(ci => ci.Quantity);
-            PrixTotal = CartItem.Sum(ci => ci.Quantity * ci.Product.Price);
-
+            PrixHT = CartItem.Sum(ci => ci.Quantity * ci.Product.Price);
+            PrixTva = Order.TVA * PrixHT;
+            PrixTTC = PrixHT + PrixTva;
         }
     }
 }

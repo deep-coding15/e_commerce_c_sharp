@@ -98,7 +98,7 @@ else
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-2">
                         <span>Sous-total</span>
-                        <strong>89,97 €</strong>
+                        <strong>@Model.PrixHT €</strong>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
                         <span>Livraison</span>
@@ -106,12 +106,12 @@ else
                     </div>
                     <div class="d-flex justify-content-between mb-2">
                         <span>TVA (20%)</span>
-                        <strong>17,99 €</strong>
+                        <strong>@Model.PrixTva €</strong>
                     </div>
                     <hr>
                     <div class="d-flex justify-content-between mb-3">
                         <h5>Total</h5>
-                        <h5 class="text-primary">107,96 €</h5>
+                        <h5 class="text-primary">@Model.PrixTTC €</h5>
                     </div>
 
                     <!-- Promo Code -->

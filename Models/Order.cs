@@ -12,7 +12,7 @@ public class Order
     public User? User {get; set;}
     [Column(TypeName = "decimal(18,2)"), Display(Name = "Total Amount"), Range(1, double.MaxValue)] // Ajoutez cette ligne pour définir 2 décimales et une précision totale de 18 chiffres
     public decimal TotalAmount { get; set; }
-    public double TVA = 0.2;
+    public static decimal TVA = 0.2M;
     [Required, EnumDataType(typeof(Status), ErrorMessage = "Le status est invalide.")]
     public Status Status { get; set; } = Status.Pending;
     

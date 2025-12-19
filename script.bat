@@ -23,6 +23,6 @@ dotnet restore "%csprojFile%"
 dotnet build "%csprojFile%"
 
 :: Exécute l'application
-dotnet run --project "%csprojFile%"
+dotnet watch run --project "%csprojFile%"
 
 endlocal
