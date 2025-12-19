@@ -47,6 +47,41 @@ public static class CartEndpointsApi
             return Results.Ok(new { success = true });
         });
 
+        cartItems.MapPost("suppr", async (
+            [FromBody] AddToCartRequest req,
+            E_commerce_c_charpContext db,
+            UserManager<User> userManager,
+            HttpContext http) => {
+            if (req is null || req.ProductId <= 0 || req.Quantity <= 0)
+                return Results.BadRequest(new { success = false, message = "Produit invalide !" });
+
+            var user = await userManager.GetUserAsync(http.User);
+            if (user is null) return Results.Unauthorized();
+
+            var product = await db.Product.FindAsync(req.ProductId);
+            if (product is null)
+                return Results.NotFound(new { success = false, message = "Produit introuvable." });
+
+            var cart = await db.Cart.Include(c => c.Items)
+                .FirstOrDefaultAsync(c => c.UserId == user.Id);
+
+            if (cart is null)
+            {
+                cart = new Cart { UserId = user.Id, Items = new List<CartItem>() };
+                db.Cart.Add(cart);
+            }
+
+            var line = cart.Items.FirstOrDefault(i => i.ProductId == req.ProductId);
+            if (line is null)
+                cart.Items.Add(new CartItem { ProductId = req.ProductId, Quantity = req.Quantity });
+            else
+                line.Quantity -= req.Quantity;
+
+            await db.SaveChangesAsync();
+
+            return Results.Ok(new { success = true });
+        });
+
         cartItems.MapGet("", async (
             UserManager<User> userManager,
             HttpContext http
