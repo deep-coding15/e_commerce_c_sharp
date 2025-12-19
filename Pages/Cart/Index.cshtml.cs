@@ -55,7 +55,7 @@ namespace E_commerce_c_charp.Pages_Cart
                 Quantity = ci.Quantity
             }).ToList();
 
-            NbArticles = CartItem.Sum(ci => ci.Quantity);
+            NbArticles = CartItem.Distinct().Count();
             //NbProducts = cartItems.Distinct(ci => ci.ProductId).Sum(ci => ci.Quantity);
             PrixTotal = CartItem.Sum(ci => ci.Quantity * ci.Product.Price);
 

@@ -6,6 +6,7 @@ using E_commerce_c_charp.Data;
 using E_commerce_c_charp.Models.Requests;
 
 namespace E_commerce_c_charp.EndPoints;
+
 public static class CartEndpointsApi
 {
     public static void MapCartEndpointsApi(this WebApplication app)
@@ -16,7 +17,8 @@ public static class CartEndpointsApi
             [FromBody] AddToCartRequest req,
             E_commerce_c_charpContext db,
             UserManager<User> userManager,
-            HttpContext http) => {
+            HttpContext http) =>
+        {
             if (req is null || req.ProductId <= 0 || req.Quantity <= 0)
                 return Results.BadRequest(new { success = false, message = "Produit invalide !" });
 
@@ -51,8 +53,45 @@ public static class CartEndpointsApi
             [FromBody] AddToCartRequest req,
             E_commerce_c_charpContext db,
             UserManager<User> userManager,
-            HttpContext http) => {
+            HttpContext http) =>
+        {
             if (req is null || req.ProductId <= 0 || req.Quantity <= 0)
+                return Results.BadRequest(new { success = false, message = "Produit invalide !" });
+
+            var user = await userManager.GetUserAsync(http.User);
+            if (user is null) return Results.Unauthorized();
+
+            var product = await db.Product.FindAsync(req.ProductId);
+            if (product is null)
+                return Results.NotFound(new { success = false, message = "Produit introuvable." });
+
+            var cart = await db.Cart.Include(c => c.Items)
+                .FirstOrDefaultAsync(c => c.UserId == user.Id);
+
+            if (cart is null)
+            {
+                cart = new Cart { UserId = user.Id, Items = new List<CartItem>() };
+                db.Cart.Add(cart);
+            }
+
+            var line = cart.Items.FirstOrDefault(i => i.ProductId == req.ProductId);
+            if (line is not null)
+                line.Quantity -= req.Quantity;
+            /* else
+                cart.Items.Add(new CartItem { ProductId = req.ProductId, Quantity = req.Quantity });
+ */
+            await db.SaveChangesAsync();
+
+            return Results.Ok(new { success = true });
+        });
+
+        cartItems.MapPost("handleProduct", async (
+            [FromBody] AddToCartRequest req,
+            E_commerce_c_charpContext db,
+            UserManager<User> userManager,
+            HttpContext http) =>
+        {
+            if (req is null || req.ProductId <= 0 || req.Quantity < 0)
                 return Results.BadRequest(new { success = false, message = "Produit invalide !" });
 
             var user = await userManager.GetUserAsync(http.User);
@@ -75,7 +114,44 @@ public static class CartEndpointsApi
             if (line is null)
                 cart.Items.Add(new CartItem { ProductId = req.ProductId, Quantity = req.Quantity });
             else
-                line.Quantity -= req.Quantity;
+                line.Quantity = (req.Quantity <= 0) ? 0 : req.Quantity;
+
+            await db.SaveChangesAsync();
+
+            return Results.Ok(new { success = true });
+        });
+
+        cartItems.MapPost("remove", async (
+            [FromBody] RemoveToCartRequest req,
+            E_commerce_c_charpContext db,
+            UserManager<User> userManager,
+            HttpContext http) =>
+        {
+            if (req is null || req.ProductId <= 0)
+                return Results.BadRequest(new { success = false, message = "Produit invalide !" });
+
+            var user = await userManager.GetUserAsync(http.User);
+            if (user is null) return Results.Unauthorized();
+
+            var product = await db.Product.FindAsync(req.ProductId);
+            if (product is null)
+                return Results.NotFound(new { success = false, message = "Produit introuvable." });
+
+            var cart = await db.Cart.Include(c => c.Items)
+                .FirstOrDefaultAsync(c => c.UserId == user.Id);
+
+            if (cart is null)
+            {
+                cart = new Cart { UserId = user.Id, Items = new List<CartItem>() };
+                db.Cart.Add(cart);
+            }
+
+            // Supprime le produit en base de données
+            var line = cart.Items.FirstOrDefault(i => i.ProductId == req.ProductId);
+            if (line != null)
+            {
+                cart.Items.Remove(line);
+            }
 
             await db.SaveChangesAsync();
 
