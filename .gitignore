@@ -9,6 +9,7 @@ obj/
 *.ldf
 *.sqlite
 .vs
+.vscode
 .github
 .config
 appsettings.Development.json

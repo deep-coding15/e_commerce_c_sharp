@@ -68,6 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
             item.remove();
         });
     });
+
+    const commande = document.getElementById('commande');
+    //console.log('commande: ', commande);
+    commande.addEventListener('click', (e) => {
+        //console.log('rovneovn');
+        window.location.href = '/Checkout';
+    });
 });
 
 /** Bouton Plus : delta = 1
@@ -197,3 +204,36 @@ async function supprimerProductTocart(ProductId) {
         alert("Erreur réseau");
     }
 }
+
+/* async function commande() {
+    const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+    try {
+        var res = await fetch('/api/Cart/remove', {
+            method: "GET",
+            credentials: "same-origin",
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': token
+            },
+            //body: JSON.stringify({ ProductId: Number(ProductId) })
+        });
+        const contentType = res.headers.get("content-type") || "";
+
+        const raw = await res.text();
+
+        let data = null;
+
+        if (contentType.includes("application/json")) {
+            data = JSON.parse(raw);
+        } else {
+            console.error("Réponse non JSON: ", res.status, raw);
+            throw new Error("Réponse serveur non-JSON");
+        }
+
+        //const data =  await res.json();
+        if (!res.ok) {
+            alert(data?.message ?? `Erreur HTTP ${res.status}`);
+            return;
+        }
+    }
+}; */

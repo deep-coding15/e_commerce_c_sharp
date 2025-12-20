@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using E_commerce_c_charp.Data;
 using E_commerce_c_charp.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+
 namespace E_commerce_c_charp.Pages_Product
 {
     public class IndexModel : PageModel

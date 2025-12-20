@@ -138,6 +138,7 @@ app.MapGet("/antiforgery/token", (IAntiforgery antiForgery, HttpContext context)
 });
 
 app.MapGet("/api", () => Results.Redirect("/Product/Index"));
+app.MapGet("/Checkout", () => Results.Redirect("/Checkout/Index"));
 
 var productItems = app.MapGroup("/api/Product");
 productItems.MapGet("Details/{id:int}", (int id) => Results.Redirect($"/Product/Details?id={id}"));
@@ -152,58 +153,11 @@ orderItems.MapGet("", () => Results.Redirect("/Order/Index"));
 
 app.MapCartEndpoints();
 app.MapCartEndpointsApi();
+app.MapOrderEndpointsApi();
 
-   /*     if (http.User.Identity.IsAuthenticated)
-     * /
-    if (user is null) return Results.Unauthorized();
-
-    // 1 - Vérifier que le produit existe
-
-    var product = await db.Product.FindAsync(req.ProductId);
-    if (product is null)
-        return Results.NotFound(new { success = false, message = "Produit introuvable." });
-    
-    // 2 - Récupérer (ou créer) le panier du user 
-
-    var cart = await db.Cart.Include(c => c.Items)
-                    .FirstOrDefaultAsync(c => c.UserId == user.Id);
-
-    if (cart is null)
-    {
-        cart = new Cart { UserId = user.Id, Items = new List<CartItem>() };
-        db.Cart.Add(cart);
-    }
-
-    // 3 - Ajouter ou Incrémenter la ligne
-    var line = cart.Items.FirstOrDefault(i => i.ProductId == req.ProductId);
-    if (line is null)
-        cart.Items.Add(new CartItem { ProductId = req.ProductId, Quantity = req.Quantity });
-    else
-        line.Quantity += req.Quantity;
-    
-    // 4 - Persist
-    await db.SaveChangesAsync();
-
-    return Results.Ok(new { success = true });
-});
-
-// GET /api/Cart => /Cart/Index?UserId = {userId}
-cartItems.MapGet("", async(
-    UserManager<User> userManager,
-    HttpContext http
-) =>
-{
-    var user = await userManager.GetUserAsync(http.User);
-
-    if(user is null) return Results.Unauthorized();
-
-    return Results.Redirect($"/Cart/Index?UserId={user.Id}");
-});
-
-cartItems.MapGet("{UserId}", (string UserId) => Results.Redirect($"/Cart/Index?UserId={UserId}"));
- */
 /* app.MapGet('', async () => await );
 app.MapPost('', async () => await );
 app.MapPut('', async () => await );
 app.MapDelete('', async () => await ); */
+
 app.Run();
