@@ -30,12 +30,27 @@ public static class CartEndpointsApi
                 return Results.NotFound(new { success = false, message = "Produit introuvable." });
 
             var cart = await db.Cart.Include(c => c.Items)
+                .ThenInclude(i => i.Product)
                 .FirstOrDefaultAsync(c => c.UserId == user.Id);
 
             if (cart is null)
             {
                 cart = new Cart { UserId = user.Id, Items = new List<CartItem>() };
                 db.Cart.Add(cart);
+
+                cart.Items.Add(new CartItem { ProductId = req.ProductId, Quantity = req.Quantity });
+
+                var prixHT  = product.Price;
+                var prixTVA = prixHT * Order.TVA;
+                var prixTTC = prixHT + prixTVA;
+
+                return Results.Ok(new
+                {
+                    success = true,
+                    PrixHT  = prixHT,
+                    PrixTVA = prixTVA,
+                    PrixTTC = prixTTC,
+                });
             }
 
             var line = cart.Items.FirstOrDefault(i => i.ProductId == req.ProductId);
@@ -46,7 +61,20 @@ public static class CartEndpointsApi
 
             await db.SaveChangesAsync();
 
-            return Results.Ok(new { success = true });
+            var PrixHT    = cart.Items
+                .Where(ci => ci.Product != null)
+                .Sum(ci   => (ci?.Quantity ?? 0) * (ci?.Product?.Price ?? 0m));
+            var PrixTVA   = PrixHT * Order.TVA;
+            var PrixTTC   = PrixHT + PrixTVA;
+
+            var result = new
+            {
+                success = true,
+                PrixHT,
+                PrixTVA,
+                PrixTTC,
+            };
+            return Results.Ok(result);
         });
 
         cartItems.MapPost("suppr", async (
@@ -66,12 +94,21 @@ public static class CartEndpointsApi
                 return Results.NotFound(new { success = false, message = "Produit introuvable." });
 
             var cart = await db.Cart.Include(c => c.Items)
+                .ThenInclude(i => i.Product)
                 .FirstOrDefaultAsync(c => c.UserId == user.Id);
 
             if (cart is null)
             {
                 cart = new Cart { UserId = user.Id, Items = new List<CartItem>() };
                 db.Cart.Add(cart);
+
+                return Results.Ok(new
+                {
+                    success = true,
+                    PrixHT  = 0,
+                    PrixTVA = 0,
+                    PrixTTC = 0,
+                });
             }
 
             var line = cart.Items.FirstOrDefault(i => i.ProductId == req.ProductId);
@@ -82,7 +119,20 @@ public static class CartEndpointsApi
  */
             await db.SaveChangesAsync();
 
-            return Results.Ok(new { success = true });
+            var PrixHT    = cart.Items
+                .Where(ci => ci.Product != null)
+                .Sum(ci   => (ci?.Quantity ?? 0) * (ci?.Product?.Price ?? 0m));
+            var PrixTVA   = PrixHT * Order.TVA;
+            var PrixTTC   = PrixHT + PrixTVA;
+
+            var result = new
+            {
+                success = true,
+                PrixHT,
+                PrixTVA,
+                PrixTTC,
+            };
+            return Results.Ok(result);
         });
 
         cartItems.MapPost("handleProduct", async (
@@ -102,6 +152,7 @@ public static class CartEndpointsApi
                 return Results.NotFound(new { success = false, message = "Produit introuvable." });
 
             var cart = await db.Cart.Include(c => c.Items)
+                .ThenInclude(i => i.Product)
                 .FirstOrDefaultAsync(c => c.UserId == user.Id);
 
             if (cart is null)
@@ -118,7 +169,21 @@ public static class CartEndpointsApi
 
             await db.SaveChangesAsync();
 
-            return Results.Ok(new { success = true });
+            var PrixHT    = cart.Items
+                .Where(ci => ci.Product != null)
+                .Sum(ci   => (ci?.Quantity ?? 0) * (ci?.Product?.Price ?? 0m));
+            var PrixTVA   = PrixHT * Order.TVA;
+            var PrixTTC   = PrixHT + PrixTVA;
+
+            var result = new
+            {
+                success = true,
+                PrixHT,
+                PrixTVA,
+                PrixTTC,
+            };
+            return Results.Ok(result);
+
         });
 
         cartItems.MapPost("remove", async (
@@ -138,12 +203,21 @@ public static class CartEndpointsApi
                 return Results.NotFound(new { success = false, message = "Produit introuvable." });
 
             var cart = await db.Cart.Include(c => c.Items)
+                .ThenInclude(i => i.Product)
                 .FirstOrDefaultAsync(c => c.UserId == user.Id);
 
             if (cart is null)
             {
                 cart = new Cart { UserId = user.Id, Items = new List<CartItem>() };
                 db.Cart.Add(cart);
+                
+                return Results.Ok(new
+                {
+                    success = true,
+                    PrixHT  = 0,
+                    PrixTVA = 0,
+                    PrixTTC = 0,
+                });
             }
 
             // Supprime le produit en base de données
@@ -155,7 +229,20 @@ public static class CartEndpointsApi
 
             await db.SaveChangesAsync();
 
-            return Results.Ok(new { success = true });
+            var PrixHT    = cart.Items
+                .Where(ci => ci.Product != null)
+                .Sum(ci   => (ci?.Quantity ?? 0) * (ci?.Product?.Price ?? 0m));
+            var PrixTVA   = PrixHT * Order.TVA;
+            var PrixTTC   = PrixHT + PrixTVA;
+
+            var result = new
+            {
+                success = true,
+                PrixHT,
+                PrixTVA,
+                PrixTTC,
+            };
+            return Results.Ok(result);
         });
 
         cartItems.MapGet("", async (

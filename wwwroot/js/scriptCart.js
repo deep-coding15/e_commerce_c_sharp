@@ -31,22 +31,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         //se déclenche uniquement quand le champ perd le focus après une modification 
-        input.addEventListener('input', (e) => {
-            //console.log('valeur: ', e.data);
-            if (e.data == null || e.data <= 0) {
-                handleProductToCart(id, 0, 0);
-                this.value = 0;
-            }
-            else
-                handleProductToCart(id, e.data, 0);
-        });
-        
-        // je veux que apres chaque after focus, on verifie si la valeur est inferieur a 1 et on le supprime
         input.addEventListener('change', (e) => {
-            console.log('input value: ', e.data);
-            if(addEventListener.data < 1)
-                supprimerProductTocart(id);
+            const value = parseInt(e.target.value, 10) || 0; // récupère la valeur saisie
+
+            if (value <= 0) {
+                handleProductToCart(id, 0, 0);
+                e.target.value = 0;
+            } else {
+                handleProductToCart(id, value, 0);
+            }
         });
+
+
+        // je veux que apres chaque after focus, on verifie si la valeur est inferieur a 1 et on le supprime
+        /* input.addEventListener('change', (e) => {
+            console.log('input value: ', e.data);
+            if (addEventListener.data < 1)
+                supprimerProductTocart(id);
+        }); */
         /* if(input.value){
         } */
     });
@@ -68,6 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+/** Bouton Plus : delta = 1
+/* Bouton Moins : delta = -1
+/* Input Number : delta = 0 
+ */
 async function handleProductToCart(ProductId, Quantity, delta) {
     const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
     try {
@@ -128,6 +134,10 @@ async function handleProductToCart(ProductId, Quantity, delta) {
 
         if (res.ok && data.success) {
             alert(data?.message ?? `Code HTTP ${res.status}`);
+            console.log('result: ', data.success, data.prixTVA, data.prixHT, data.prixTTC);
+            document.getElementById('prix-ht').innerText = data.prixHT;
+            document.getElementById('prix-tva').innerText = data.prixTVA;
+            document.getElementById('prix-ttc').innerText = data.prixTTC;
         }
         else {
             alert(data.message || 'Erreur lors de l\'ajout');
@@ -172,6 +182,11 @@ async function supprimerProductTocart(ProductId) {
         }
         if (res.ok && data.success) {
             alert(data?.message ?? `Code HTTP ${res.status}`);
+            console.log('data: ', data);
+            console.log('result: ', data.success, data.prixTVA, data.prixHT, data.prixTTC);
+            document.getElementById('prix-ht').innerText = data.prixHT;
+            document.getElementById('prix-tva').innerText = data.prixTVA;
+            document.getElementById('prix-ttc').innerText = data.prixTTC;
         }
         else {
             alert(data.message || 'Erreur lors de la suppression');
