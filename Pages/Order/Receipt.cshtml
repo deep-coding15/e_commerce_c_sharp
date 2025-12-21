@@ -1,0 +1,67 @@
+@page "{id:int}"
+@model E_commerce_c_charp.Pages.Order.ReceiptModel
+
+@{
+    ViewData["Title"] = "Reçu de commande";
+}
+
+<h2>Reçu de commande #@Model.Order.Id</h2>
+
+<p>Date : @Model.Order.CreatedAt.ToLocalTime()</p>
+
+<h4>Client</h4>
+<p><strong>Nom :</strong> @Model.Order.User.Nom</p>
+<p><strong>Nom Utilisateur :</strong> @Model.Order.User.UserName</p>
+<p><strong>Email :</strong> @Model.Order.User.Email</p>
+<p><strong>Téléphone :</strong> @Model.Order.User.PhoneNumber</p>
+@* 
+<p><strong>Adresse :</strong> @Model.Order.User.Address, @Model.Order.User.City</p>
+ *@
+
+<hr />
+
+<h4>Détails de la commande</h4>
+
+@if (Model.Order.Items != null && Model.Order.Items.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Produit</th>
+                <th>Qté</th>
+                <th>PU</th>
+                <th>Total ligne</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Order.Items)
+        {
+            <tr>
+                <td>@item.Product?.Name</td>
+                <td>@item.Quantity</td>
+                <td>@item.UnitPrice@* .ToString("0.00") *@ €</td>
+                <td>@(item.Quantity * item.Product.Price)@* .ToString("0.00") *@ €</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <div class="text-end">
+        <p><strong>Total TTC :</strong> @Model.Order.TotalAmount@* .ToString("0.00") *@ €</p>
+    </div>
+}
+else
+{
+    <p>Aucun article dans cette commande.</p>
+}
+
+<p>Merci pour votre commande.</p>
+
+
+<form method="get" asp-page-handler="Download">
+    <input type="hidden" name="id" value="@Model.Order.Id" />
+    <button type="submit" class="btn btn-secondary">
+        Télécharger le reçu
+    </button>
+</form>
+

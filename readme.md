@@ -54,6 +54,7 @@
         # Génère automatiquement la documentation OpenAPI et l'interface de test Swagger UI.
         # C'est l'alternative robuste à Swashbuckle pour documenter et tester vos APIs en .NET 9/10.
         - dotnet add package NSwag.AspNetCore --version 14.6.3
+        - dotnet add package AutoMapper --version 16.0.0
 
         - dotnet restore -- faire la mise à jour des réquêtes.
 

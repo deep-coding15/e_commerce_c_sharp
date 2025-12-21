@@ -83,4 +83,10 @@ else
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const validerCommande = document.getElementById('valider-commande');
+            concole.log('valider commande : ', validerCommande);
+        });
+    </script>
 }
