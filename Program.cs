@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Antiforgery;
 using E_commerce_c_charp.Models.Requests;
 using System.Reflection.Metadata;
 using E_commerce_c_charp.EndPoints;
+using AutoMapper;
+using E_commerce_c_charp.Mapping;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -69,6 +71,14 @@ builder.Services.AddOpenApiDocument(config =>
     config.Title = "E commerce v1";
     config.Version = "v1";
 });
+
+// Cela permet ensuite d’injecter IMapper dans les PageModel.
+builder.Services.AddAutoMapper(config =>
+{
+    // Ici on ajoute  les profils
+    config.AddProfile<E_commerce_c_charp.Mapping.ProfileOrder>();
+}); 
+//builder.Services.AddAutoMapper(typeof(ProfileOrder)); 
 
 var app = builder.Build();
 //var userManager = ServiceProvider

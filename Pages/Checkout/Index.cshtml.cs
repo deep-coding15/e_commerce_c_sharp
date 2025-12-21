@@ -6,6 +6,8 @@ using E_commerce_c_charp.ViewModels;
 using E_commerce_c_charp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using AutoMapper;
+using System.Net;
 
 namespace E_commerce_c_charp.Pages.Checkout
 {
@@ -13,9 +15,11 @@ namespace E_commerce_c_charp.Pages.Checkout
     {
         private readonly E_commerce_c_charpContext _context;
         private readonly UserManager<User> _userManager;
+        private readonly IMapper _mapper;
 
-        public IndexModel(E_commerce_c_charpContext context, UserManager<User> userManager)
+        public IndexModel(E_commerce_c_charpContext context, UserManager<User> userManager, IMapper mapper)
         {
+            _mapper = mapper;
             _context = context;
             _userManager = userManager;
         }
@@ -51,7 +55,7 @@ namespace E_commerce_c_charp.Pages.Checkout
                     // TotalPrice est calculé automatiquement
                 })
                 .ToList();
-            
+
             Order.FullName = user.UserName;
             Order.Email = user.Email;
             Order.Address = /* user.Address ?? */ "";
@@ -62,7 +66,7 @@ namespace E_commerce_c_charp.Pages.Checkout
             return Page();
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {
             if (!ModelState.IsValid)
             {
@@ -71,9 +75,79 @@ namespace E_commerce_c_charp.Pages.Checkout
                 return Page();
             }
 
-            // TODO : sauvegarder la commande (Order) en base, vider le panier, etc.
+            var user = await _userManager.GetUserAsync(User); //ici, user = httpcontext.User
+            if (user is null)
+                return RedirectToPage("/Account/Login"); // à adapter
 
-            return RedirectToPage("/Orders/Success");
+            var cart = await _context.Cart
+                            .Include(i => i.Items)
+                                .ThenInclude(u => u.Product)
+                            .FirstOrDefaultAsync(c => c.UserId == user.Id);
+
+            if (cart is null || cart.Items == null || !cart.Items.Any())
+            {
+                // panier vide : à toi de décider quoi faire (rediriger, message, etc.)
+                Order.Items = new List<CartItemViewModel>();
+                return Page(); // Panier vide
+            }
+
+            Order.Items = cart.Items
+                .Select(ci => new CartItemViewModel
+                {
+                    Product = ci.Product,
+                    Quantity = ci.Quantity
+                    // TotalPrice est calculé automatiquement
+                })
+                .ToList();
+
+            // recalcul des totaux AVANT le mapping
+            ComputeTotals();
+            Console.WriteLine($"VM PrixHT={Order.PrixHT}, TVA={Order.PrixTVA}, TTC={Order.PrixTTC}");
+
+            // 1. Mapper CheckoutViewModel -> Order
+            var order       = _mapper.Map<E_commerce_c_charp.Models.Order>(Order);
+            order.UserId    = user.Id;
+            order.CreatedAt = DateTime.UtcNow;
+            order.Status    = Status.Pending;
+
+            // 2. Mapper les lignes : CheckoutViewModel.Items -> Order.Items
+            order.Items     = Order.Items
+                            .Select(i => _mapper.Map<E_commerce_c_charp.Models.OrderItem>(i)).ToList();
+
+            // 3. Sauvegarder en BDD
+            _context.Order.Add(order);
+            await _context.SaveChangesAsync();
+
+            // TODO : sauvegarder la commande (Order) en base, vider le panier, etc.
+            // 1. Créer et sauvegarder la commande en BDD
+            /* var order = new Order
+            {
+                UserId        = user.Id,
+                FullName      = Order.FullName,
+                Address       = Order.Address,
+                City          = Order.City,
+                Phone         = Order.Phone,
+                PrixHT        = Order.PrixHT,
+                PrixTVA       = Order.PrixTVA,
+                PrixTTC       = Order.PrixTTC,
+                CreatedAt     = DateTime.UtcNow,
+                Items         = Order.Items.Select(i => new OrderItem
+                {
+                    ProductId = i.Product!.Id,
+                    Quantity  = i.Quantity,
+                    UnitPrice = i.Product.Price
+                }).ToList()
+            };
+
+            _context.Orders.Add(order);
+            await _context.SaveChangesAsync();
+ */
+            // 2. Vider le panier (optionnel)
+            // ...
+
+            // 3. Rediriger vers la page de reçu avec l'Id de la commande
+            return RedirectToPage("/Order/Receipt", new { id = order.Id });
+            //return RedirectToPage("/Orders/Success");
         }
 
         private void ComputeTotals()
