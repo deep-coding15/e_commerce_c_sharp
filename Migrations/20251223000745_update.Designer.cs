@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_commerce_c_charp.Migrations
 {
     [DbContext(typeof(E_commerce_c_charpContext))]
-    [Migration("20251220203630_UpdateOrderColumnForReceipt")]
-    partial class UpdateOrderColumnForReceipt
+    [Migration("20251223000745_update")]
+    partial class update
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

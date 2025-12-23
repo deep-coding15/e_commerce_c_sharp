@@ -1,173 +1,278 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-using E_commerce_c_charp.Data;
-using E_commerce_c_charp.Services;
-using E_commerce_c_charp.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using NSwag.AspNetCore;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Antiforgery;
-using E_commerce_c_charp.Models.Requests;
-using System.Reflection.Metadata;
-using E_commerce_c_charp.EndPoints;
-using AutoMapper;
-using E_commerce_c_charp.Mapping;
+// ====================================================================================================
+// IMPORTS / USING STATEMENTS - Importe les bibliothèques nécessaires
+// ====================================================================================================
+using Microsoft.EntityFrameworkCore; // Pour Entity Framework Core (ORM pour la base de données)
+using Microsoft.Extensions.DependencyInjection; // Pour l'injection de dépendances
+using Microsoft.Extensions.Options; // Pour la configuration des options
+using E_commerce_c_charp.Data; // Namespace contenant le contexte de base de données
+using E_commerce_c_charp.Services; // Namespace contenant les services personnalisés
+using E_commerce_c_charp.Models; // Namespace contenant les modèles (User, Product, etc.)
+using Microsoft.AspNetCore.Identity; // Système d'authentification et d'autorisation ASP.NET Core
+using Microsoft.AspNetCore.Identity.UI.Services; // Interface IEmailSender pour les emails Identity
+using NSwag.AspNetCore; // Pour générer la documentation Swagger/OpenAPI
+using Microsoft.AspNetCore.Mvc; // Contrôleurs MVC et résultats HTTP
+using Microsoft.AspNetCore.Antiforgery; // Protection CSRF (Cross-Site Request Forgery)
+using E_commerce_c_charp.Models.Requests; // Modèles pour les requêtes API
+using System.Reflection.Metadata; // Métadonnées .NET (peut-être pour la réflexion)
+using E_commerce_c_charp.EndPoints; // Endpoints minimal API personnalisés
+using AutoMapper; // Bibliothèque pour mapper les objets (DTO → Entity)
+using E_commerce_c_charp.Mapping; // Profils AutoMapper personnalisés
+using Serilog;
+using Serilog.AspNetCore;
 
+// ====================================================================================================
+// CRÉATION DE L'APPLICATION - Point d'entrée principal
+// ====================================================================================================
+var builder = WebApplication.CreateBuilder(args); // Crée le constructeur d'application web
 
-var builder = WebApplication.CreateBuilder(args);
+// ====================================================================================================
+// SERVICES - Enregistrement des services dans le conteneur DI (Dependency Injection)
+// ====================================================================================================
 
-// Add services to the container.
-builder.Services.AddRazorPages();
+// 1. RAZOR PAGES - Active les pages Razor (pages .cshtml avec code-behind)
+builder.Services.AddRazorPages(); // Permet d'utiliser les pages comme /Product/Index.cshtml
 
-
+// 2. BASE DE DONNÉES - Configuration du contexte EF Core
 builder.Services.AddDbContext<E_commerce_c_charpContext>(options =>
+    // Configure le contexte pour utiliser SQL Server
     options.UseSqlServer(builder.Configuration
-    .GetConnectionString("DefaultConnection")
-    ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found."))
-);
+        .GetConnectionString("DefaultConnection") // Récupère la chaîne de connexion depuis appsettings.json
+        ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found."))); // Erreur si pas trouvée
 
-/* intercepte les exceptions liées à Entity Framework Core uniquement 
-    lorsque l'application tourne en mode Développement. */
+//builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<E_commerce_c_charpContext>();
+
+
+
+// 3. FILTRE D'EXCEPTIONS DB - UNIQUEMENT EN DÉVELOPPEMENT
+/* Intercepte les exceptions liées à Entity Framework Core uniquement 
+   lorsque l'application tourne en mode Développement. Affiche une page 
+   avec "Apply Migrations" pour réparer facilement les erreurs DB */
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+// 4. PROTECTION CSRF - Sécurité contre les attaques CSRF
 builder.Services.AddAntiforgery(
     options =>
     {
-        options.HeaderName = "X-CSRF-TOKEN"; // Use a common header name
-    }
-);
+        options.HeaderName = "X-CSRF-TOKEN"; // Nom de l'en-tête HTTP utilisé pour les tokens CSRF
+        // Les formulaires enverront ce token dans l'en-tête pour validation
+    });
 
-
-// Identity
+// ====================================================================================================
+// IDENTITY - Système d'authentification complet
+// ====================================================================================================
 builder.Services.AddIdentity<User, IdentityRole>(options =>
 {
-    options.Password.RequiredLength = 6;
-    options.Password.RequireDigit = true;
-    options.Password.RequireUppercase = false;
-    options.Password.RequireNonAlphanumeric = false;
-    options.SignIn.RequireConfirmedAccount = false; // Désactive la confirmation
-})
-.AddEntityFrameworkStores<E_commerce_c_charpContext>()
-.AddDefaultTokenProviders();
+    // RÈGLES DE MOT DE PASSE - Personnalisation des exigences
+    options.Password.RequiredLength = 6; // Minimum 6 caractères
+    options.Password.RequireDigit = true; // Au moins 1 chiffre obligatoire
+    options.Password.RequireUppercase = false; // PAS de majuscule obligatoire
+    options.Password.RequireNonAlphanumeric = false; // PAS de caractère spécial obligatoire
 
+    // Confirmation du compte par email (IMPORTANT pour ForgotPassword)
+    options.SignIn.RequireConfirmedAccount = true; // L'utilisateur doit confirmer son email
+})
+.AddEntityFrameworkStores<E_commerce_c_charpContext>() // Stocke les users/roles dans la DB EF Core
+.AddDefaultTokenProviders() // Génère les tokens pour reset password, confirmation email, etc.
+.AddRoles<IdentityRole>(); // Ajoute la gestion des rôles
+
+// 5. COOKIES D'AUTHENTIFICATION - Chemins des pages Identity
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.LoginPath = "/Identity/Account/Login";
-    options.LogoutPath = "/Identity/Account/Logout";
-    options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+    options.LoginPath = "/Identity/Account/Login"; // Redirige ici si non connecté
+    options.LogoutPath = "/Identity/Account/Logout"; // Page de déconnexion
+    options.AccessDeniedPath = "/Identity/Account/AccessDenied"; // Accès refusé
 });
 
-builder.Services.AddTransient<IEmailSender, E_commerce_c_charp.Services.NoOpEmailSender>();
-builder.Services.AddTransient<IEmailSender<User>, E_commerce_c_charp.Services.NoOpEmailSender>();
+// 6. SERVICES EMAIL - CRITIQUE POUR FORGOT PASSWORD
+//builder.Services.AddScoped<IEmailSender, EmailSender>(); // Version réelle (commentée)
+builder.Services.AddTransient<IEmailSender, SmtpEmailSender>();
+// Deuxième enregistrement pour la version générique avec User
+builder.Services.AddTransient<IEmailSender<User>, SmtpEmailSender>();
 
-builder.Services.AddSession();
+// builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
 
-builder.Services.AddEndpointsApiExplorer();
+// 7. SESSIONS - Stockage temporaire de données (panier par exemple)
+builder.Services.AddSession(); // Active les sessions utilisateur
+
+// 8. DOCUMENTATION API - Swagger/OpenAPI
+builder.Services.AddEndpointsApiExplorer(); // Explore les endpoints pour la doc
 builder.Services.AddOpenApiDocument(config =>
 {
-    config.DocumentName = "E commerce";
-    config.Title = "E commerce v1";
-    config.Version = "v1";
+    config.DocumentName = "E commerce"; // Nom du document Swagger
+    config.Title = "E commerce v1"; // Titre affiché
+    config.Version = "v1"; // Version de l'API
 });
 
-// Cela permet ensuite d’injecter IMapper dans les PageModel.
+// 9. AUTOMAPPER - Mapping automatique des objets
 builder.Services.AddAutoMapper(config =>
 {
-    // Ici on ajoute  les profils
+    // Ajoute le profil de mapping spécifique aux commandes
     config.AddProfile<E_commerce_c_charp.Mapping.ProfileOrder>();
-}); 
-//builder.Services.AddAutoMapper(typeof(ProfileOrder)); 
+});
 
-var app = builder.Build();
-//var userManager = ServiceProvider
-/**This is for seeding a database : the database will work with a minimum of items in it.*/
+//Active la journalisation
+builder.Logging.AddConsole();
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console(
+        restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Debug
+    ).WriteTo.File(
+        "Logs/log-.txt", 
+        rollingInterval: RollingInterval.Day,
+        restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Warning
+    ).CreateLogger();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog();
+//builder.Services.AddSerilog();
+// ====================================================================================================
+// CONSTRUCTION ET INITIALISATION
+// ====================================================================================================
+var app = builder.Build(); // Construit l'application finale
+
+// SEEDING - Initialise la base de données avec des données de test
+/** Crée un scope temporaire pour accéder aux services et initialiser la DB */
 using (var scope = app.Services.CreateScope())
 {
-    var services = scope.ServiceProvider;
-    await SeedData.Initialize(services);
+    var services = scope.ServiceProvider; // Récupère le provider de services
+    await SeedData.Initialize(services); // Appelle la méthode d'initialisation
 }
 
-// Middleware
+// ====================================================================================================
+// MIDDLEWARE PIPELINE - Ordre CRITIQUE (chaque middleware traite la requête dans l'ordre)
+// ====================================================================================================
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+// 10. GESTION DES ERREURS - Différent selon l'environnement
+if (!app.Environment.IsDevelopment()) // Production
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    app.UseExceptionHandler("/Error"); // Page d'erreur générique
+    app.UseHsts(); // Sécurité HTTPS stricte (30 jours par défaut)
 }
-else
+else // Développement
 {
-    app.UseDeveloperExceptionPage(); // Affiche l'erreur détaillée
-    /* Nécessite le package Diagnostics :  
-        Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore */
-    app.UseMigrationsEndPoint();     // Permet de cliquer sur "Apply Migrations" pour réparer l'erreur
+    app.UseDeveloperExceptionPage(); // Affiche les détails complets des erreurs
+    /* Page pour gérer les migrations DB automatiquement */
+    app.UseMigrationsEndPoint();
 
-    app.UseOpenApi();
+    // Swagger UNIQUEMENT en développement
+    app.UseOpenApi(); // Génère les fichiers OpenAPI
     app.UseSwaggerUi(config =>
     {
-        config.DocumentTitle = "E commerce App";
-        config.Path = "/swagger";
-        config.DocumentPath = "/swagger/{documentName}/swagger.json";
-        config.DocExpansion = "list";
+        config.DocumentTitle = "E commerce App"; // Titre Swagger
+        config.Path = "/swagger"; // URL d'accès : /swagger
+        config.DocumentPath = "/swagger/{documentName}/swagger.json"; // Chemin JSON
+        config.DocExpansion = "list"; // État par défaut des sections
     });
 }
 
-// Redirects HTTP requests to HTTPS
-app.UseHttpsRedirection();
+// 11. SÉCURITÉ HTTPS
+app.UseHttpsRedirection(); // Force HTTPS (redirige http → https)
 
-// Adds route matching to the middleware pipeline
-app.UseRouting();
+// 12. ROUTING - Associe les URLs aux contrôleurs/pages
+app.UseRouting(); // **ORDRE IMPORTANT** avant Authentication
 
-app.UseAuthentication();
-/* Authorizes a user to access secure resources. 
-This app doesn't use authorization, therefore this line could be removed. */
-app.UseAuthorization();
+// 13. AUTHENTIFICATION - Vérifie l'identité de l'utilisateur
+app.UseAuthentication(); // **DOIT être AVANT UseAuthorization**
 
-app.UseSession(); // après UseRouting
+// 14. AUTORISATION - Vérifie les permissions
+app.UseAuthorization(); // **DOIT être APRÈS UseAuthentication**
 
-app.UseAntiforgery();
+// 15. SESSIONS - Active après le routage
+app.UseSession(); // **ORDRE IMPORTANT**
 
-app.MapStaticAssets();
+// 16. CSRF - Protection après authentification
+app.UseAntiforgery(); // Valide les tokens CSRF
 
-//Configures endpoint routing for Razor Pages.
+// 17. FICHIERS STATIQUES
+app.MapStaticAssets(); // CSS, JS, images (wwwroot)
+
+// 18. RAZOR PAGES - Routage des pages .cshtml
 app.MapRazorPages()
-   .WithStaticAssets(); //Optimize the delivery of static assets in an app, such as HTML, CSS, images, and JavaScript. 
+   .WithStaticAssets(); // Optimise les fichiers statiques
 
-// Redirection de la page d'accueil vers les produits
+// ====================================================================================================
+// ENDPOINTS PERSONNALISES - Redirections et API
+// ====================================================================================================
+
+// Page d'accueil → Liste des produits
 app.MapGet("/", () => Results.Redirect("/Product/Index"));
 
+// API TOKEN CSRF - Génère et stocke le token dans un cookie
 app.MapGet("/antiforgery/token", (IAntiforgery antiForgery, HttpContext context) =>
 {
-    var tokens = antiForgery.GetAndStoreTokens(context);
+    var tokens = antiForgery.GetAndStoreTokens(context); // Génère les tokens
+    // Stocke le token dans un cookie accessible au JavaScript (HttpOnly=false)
     context.Response.Cookies.Append("XSRF-TOKEN", tokens.RequestToken!,
-    new CookieOptions { HttpOnly = false });
-    return Results.Ok();
+    new CookieOptions { HttpOnly = false }); // JavaScript peut le lire
+    return Results.Ok(); // Réponse 200 OK
 });
 
+// Redirections API générales
 app.MapGet("/api", () => Results.Redirect("/Product/Index"));
 app.MapGet("/Checkout", () => Results.Redirect("/Checkout/Index"));
 
+// GROUPE PRODUITS - /api/Product
 var productItems = app.MapGroup("/api/Product");
 productItems.MapGet("Details/{id:int}", (int id) => Results.Redirect($"/Product/Details?id={id}"));
 productItems.MapGet("", () => Results.Redirect("/Product/Index"));
 
-//app.MapGet("/Cart", () => Results.Redirect("/Cart/Index"));
-
+// GROUPE API PRINCIPAL
 var apiItems = app.MapGroup("/api");
-var orderItems = apiItems.MapGroup("/Order");
+var orderItems = apiItems.MapGroup("/Order"); // /api/Order
 orderItems.MapGet("Details/{id:int}", (int id) => Results.Redirect($"/Order/Details?id={id}"));
-//orderItems.MapGet("", () => Results.Redirect("/Order/Index"));
 
-app.MapCartEndpoints();
-app.MapCartEndpointsApi();
-app.MapOrderEndpointsApi();
+// ENDPOINTS PERSONNALISÉS - Méthodes extension dans d'autres fichiers
+app.MapCartEndpoints();     // Panier (pages Razor)
+app.MapCartEndpointsApi();  // Panier (API JSON)
+app.MapOrderEndpointsApi(); // Commandes (API JSON)
 
-/* app.MapGet('', async () => await );
-app.MapPost('', async () => await );
-app.MapPut('', async () => await );
-app.MapDelete('', async () => await ); */
+app.MapGet("/forgotpasswordconfirmation", () =>
+{
+    var html = @"
+        <h1>Forgot password confirmation</h1>
+        <p>Please check your email to reset your password.</p>";
+    return Results.Content(html, "text/html");
+});
 
-app.Run();
+app.MapGet("/test-email", async (IEmailSender emailSender) =>
+{
+    try
+    {
+        await emailSender.SendEmailAsync(
+            email: "tsafackmerveille15@gmail.com",
+            subject: "Test email",
+            htmlMessage: "<h1>Ceci est un test d'email</h1><p>Si vous voyez ce message, l'envoi d'email fonctionne !</p>"
+        );
+        return Results.Ok("Email envoyé avec succès !");
+    }
+    catch (Exception ex)
+    {
+        return Results.Problem($"Erreur lors de l'envoi de l'email : {ex.Message}");
+    }
+});
+
+/* app.MapGet("/test-forgotpassword", async (IEmailSender<User> emailSender) =>
+{
+    try
+    {
+        var user = new User { UserName = "Test" };
+
+        await emailSender.SendPasswordResetLinkAsync(
+            user: user,
+            email: "tsafackmerveille15@gmail.com"//, 
+            //resetLink: "http://localhost:5283/Identity/Account/ForgotPasswordConfirmation"
+        );
+
+        return Results.Ok("Email de réinitialisation envoyé avec succès !");
+    }
+    catch (Exception ex)
+    {
+        return Results.Problem($"Erreur lors de l'envoi de l'email : {ex.Message}");
+    }
+});
+ */
+
+// ====================================================================================================
+// DÉMARRAGE
+// ====================================================================================================
+app.Run(); // Lance le serveur Kestrel

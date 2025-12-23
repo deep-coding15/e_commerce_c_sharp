@@ -113,6 +113,11 @@ namespace E_commerce_c_charp.Areas.Identity.Pages.Account
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                _logger.LogInformation("Login result: Succeeded={Succeeded}, LockedOut={LockedOut}, Requires2FA={Requires2FA}, IsNotAllowed={IsNotAllowed}",
+                    result.Succeeded,
+                    result.IsLockedOut,
+                    result.RequiresTwoFactor,
+                    result.IsNotAllowed);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");

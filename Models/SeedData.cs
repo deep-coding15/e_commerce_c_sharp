@@ -113,7 +113,8 @@ public static class SeedData
                         Price = 1299.99m,
                         StockQuantity = 25,
                         CategoryId = smartphones.Id,
-                        Rating = "R"
+                        Rating = "R",
+                        ImageUrl = ""
                     },
                     new Product
                     {
@@ -122,7 +123,8 @@ public static class SeedData
                         Price = 1099.99m,
                         StockQuantity = 40,
                         CategoryId = smartphones.Id,
-                        Rating = "R"
+                        Rating = "R",
+                        ImageUrl = ""
                     },
                     new Product
                     {
@@ -131,7 +133,8 @@ public static class SeedData
                         Price = 1899.99m,
                         StockQuantity = 15,
                         CategoryId = laptops.Id,
-                        Rating = "R"
+                        Rating = "R",
+                        ImageUrl = ""
                     },
                     new Product
                     {
@@ -140,7 +143,8 @@ public static class SeedData
                         Price = 1199.99m,
                         StockQuantity = 20,
                         CategoryId = laptops.Id,
-                        Rating = "R"
+                        Rating = "R",
+                        ImageUrl = ""
                     },
                     new Product
                     {
@@ -149,7 +153,8 @@ public static class SeedData
                         Price = 399.99m,
                         StockQuantity = 60,
                         CategoryId = headphones.Id,
-                        Rating = "R"
+                        Rating = "R",
+                        ImageUrl = ""
                     },
                     new Product
                     {
@@ -158,7 +163,8 @@ public static class SeedData
                         Price = 149.99m,
                         StockQuantity = 30,
                         CategoryId = gaming.Id,
-                        Rating = "R"
+                        Rating = "R",
+                        ImageUrl = ""
                     }
                 );
 

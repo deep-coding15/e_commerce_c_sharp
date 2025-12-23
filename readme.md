@@ -178,12 +178,40 @@ Suppression de *public DbSet<User> User { get; set; }*  dans le fichier *DbConte
 - Authentification [Identity]
 - Tables metier [DbContext]
 # Scaffolded the identity
+    - dotnet aspnet-codegenerator identity -dc E_Commerce_c_charp.Data.E_Commerce_c_charpContext --force
     - dotnet aspnet-codegenerator identity --useDefaultUI
     - dotnet aspnet-codegenerator identity -dc E_Commerce_c_charp.Data.E_Commerce_c_charpContext --files "Account.Register;Account.Login;Account.Logout;Account.ResetPassword;Account.ForgotPassword"
     - dotnet aspnet-codegenerator identity -dc E_Commerce_c_charp.Data.E_Commerce_c_charpContext --files "Account.ForgotPassword"
+    - dotnet aspnet-codegenerator identity -dc E_Commerce_c_charp.Data.E_Commerce_c_charpContext --files "Account.ForgotPassword;Account.ForgotPasswordConfirmation;Account.ResetPassword;Account.ResetPasswordConfirmation" --force
 Ne jamais manipuler les users via DbContext directement.
 
 To change the IDENTITY property of a column, the column needs to be dropped and recreated
+
+# Mettre le mot de passe google dans les user secrets
+Dans powershell : [guid]::NewGuid()
+dotnet user-secrets set "Email:Smtp:Password" "votre_mot_de_passe_application"
+dotnet user-secrets list
+
+# Serilog & ASP.NET Core
+# Niveaux de Log dans ASP.NET Core et Serilog
+Les niveaux de log sont utilisés pour classer les messages selon leur importance. Voici les principaux niveaux, du plus bas (le plus détaillé) au plus haut (le plus critique) :
+- **Trace**  
+  Pour les informations très détaillées, généralement utilisées uniquement pour le débogage avancé.
+- **Debug**  
+  Pour les informations de débogage, utiles pendant le développement.
+- **Information**  
+  Pour les messages généraux sur le fonctionnement normal de l’application.
+- **Warning**  
+  Pour les avertissements sur des situations potentiellement problématiques, mais qui ne bloquent pas l’application.
+- **Error**  
+  Pour les erreurs qui ont empêché une opération de se terminer correctement.
+- **Critical**  
+  Pour les erreurs critiques qui ont causé l’arrêt ou un dysfonctionnement majeur de l’application.
+- **None**  
+  Pour désactiver complètement la journalisation.
+
+> Chaque niveau inclut tous les niveaux supérieurs. Par exemple, si tu définis le niveau minimum à "Warning", tu verras aussi les "Error" et "Critical", mais pas les "Information", "Debug" ou "Trace".
+
 
 # NETTOYER LE PROJET 
 dotnet clean

@@ -13,3 +13,7 @@ obj/
 .github
 .config
 appsettings.Development.json
+# Secrets et fichiers sensibles
+appsettings.*.json
+secrets.json
+*.usersecrets.json
