@@ -21,7 +21,8 @@ public static class OrderEndpointsApi
             var user = await userManager.GetUserAsync(http.User);
             if (user is null) return Results.Unauthorized();
 
-            return Results.Redirect($"/Order/Index?UserId={user.Id}");
+            //return Results.Redirect($"/Order/Index?UserId={user.Id}");
+            return Results.Redirect($"/Order/Index");
         });
 
         /* cartItems.MapGet("Details/{id:int}", (int id) => Results.Redirect($"/Cart/Details?id={id}"));

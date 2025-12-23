@@ -110,12 +110,16 @@ builder.Services.AddAutoMapper(config =>
     config.AddProfile<E_commerce_c_charp.Mapping.ProfileOrder>();
 });
 
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddHttpClient();
+
 //Active la journalisation
 builder.Logging.AddConsole();
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console(
-        restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Debug
+        restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Debug,
+        theme: Serilog.Sinks.SystemConsole.Themes.AnsiConsoleTheme.Code
     ).WriteTo.File(
         "Logs/log-.txt", 
         rollingInterval: RollingInterval.Day,
@@ -123,8 +127,9 @@ Log.Logger = new LoggerConfiguration()
     ).CreateLogger();
 
 builder.Logging.ClearProviders();
-builder.Logging.AddSerilog();
-//builder.Services.AddSerilog();
+//builder.Logging.AddSerilog();
+builder.Services.AddSerilog();
+
 // ====================================================================================================
 // CONSTRUCTION ET INITIALISATION
 // ====================================================================================================

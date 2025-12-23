@@ -13,6 +13,35 @@ public static class CartEndpointsApi
     {
         var cartItems = app.MapGroup("/api/Cart");
 
+        cartItems.MapGet("", async (
+            UserManager<User> userManager,
+            HttpContext http,
+            IHttpContextAccessor httpContextAccessor, // ou HttpContext dans ce cas précis
+            E_commerce_c_charpContext db
+        ) =>
+        {
+            var user = await userManager.GetUserAsync(http.User);
+            if (user is null) return Results.Unauthorized();
+
+            var cart = await db.Cart
+                .Where(c => c.UserId == user.Id)
+                .Include(c => c.Items)
+                .FirstOrDefaultAsync();
+
+            if (cart is null)
+            {
+                return Results.Ok(new List<CartItem>());
+            }
+
+            return Results.Ok(cart.Items);
+
+            // Récupérer le panier lié à l’utilisateur dans la DB ou session
+            // var cart = await GetCartForUserAsync(user); // à implémenter
+
+            // return Results.Ok(cart); // retourne le contenu du panier
+            // return Results.Redirect($"/Cart/Index?UserId={user.Id}");
+        });
+
         cartItems.MapPost("add", async (
             [FromBody] AddToCartRequest req,
             E_commerce_c_charpContext db,
@@ -35,7 +64,7 @@ public static class CartEndpointsApi
 
             if (cart is null)
             {
-                cart = new Cart { UserId = user.Id, Items = new List<CartItem>() };
+                cart = new Cart { UserId = user.Id, Items = new List<CartItem>(), IsActive = true };
                 db.Cart.Add(cart);
 
                 cart.Items.Add(new CartItem { ProductId = req.ProductId, Quantity = req.Quantity });
@@ -43,6 +72,8 @@ public static class CartEndpointsApi
                 var prixHT  = product.Price;
                 var prixTVA = prixHT * Order.TVA;
                 var prixTTC = prixHT + prixTVA;
+
+                await db.SaveChangesAsync();
 
                 return Results.Ok(new
                 {
@@ -101,6 +132,7 @@ public static class CartEndpointsApi
             {
                 cart = new Cart { UserId = user.Id, Items = new List<CartItem>() };
                 db.Cart.Add(cart);
+                await db.SaveChangesAsync();
 
                 return Results.Ok(new
                 {
@@ -159,6 +191,7 @@ public static class CartEndpointsApi
             {
                 cart = new Cart { UserId = user.Id, Items = new List<CartItem>() };
                 db.Cart.Add(cart);
+                await db.SaveChangesAsync();
             }
 
             var line = cart.Items.FirstOrDefault(i => i.ProductId == req.ProductId);
@@ -210,6 +243,7 @@ public static class CartEndpointsApi
             {
                 cart = new Cart { UserId = user.Id, Items = new List<CartItem>() };
                 db.Cart.Add(cart);
+                await db.SaveChangesAsync();
                 
                 return Results.Ok(new
                 {
@@ -243,17 +277,6 @@ public static class CartEndpointsApi
                 PrixTTC,
             };
             return Results.Ok(result);
-        });
-
-        cartItems.MapGet("", async (
-            UserManager<User> userManager,
-            HttpContext http
-        ) =>
-        {
-            var user = await userManager.GetUserAsync(http.User);
-            if (user is null) return Results.Unauthorized();
-
-            return Results.Redirect($"/Cart/Index?UserId={user.Id}");
         });
 
         cartItems.MapGet("Details/{id:int}", (int id) => Results.Redirect($"/Cart/Details?id={id}"));

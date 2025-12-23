@@ -34,6 +34,7 @@ public static class CartEndpoints
             {
                 cart = new Cart { UserId = user.Id, Items = new List<CartItem>() };
                 db.Cart.Add(cart);
+                await db.SaveChangesAsync();
             }
 
             var line = cart.Items.FirstOrDefault(i => i.ProductId == req.ProductId);
@@ -49,13 +50,28 @@ public static class CartEndpoints
 
         app.MapGet("/Cart", async (
             UserManager<User> userManager,
-            HttpContext http
+            HttpContext http,
+            E_commerce_c_charpContext db
         ) =>
         {
             var user = await userManager.GetUserAsync(http.User);
             if (user is null) return Results.Unauthorized();
+            var cart = await db.Cart
+                .Where(c => c.UserId == user.Id)
+                .Include(c => c.Items)
+                .FirstOrDefaultAsync();
 
-            return Results.Redirect($"/Cart/Index?UserId={user.Id}");
+            if (cart is null)
+            {
+                cart = new Cart { UserId = user.Id, Items = new List<CartItem>(), IsActive = true };
+                db.Cart.Add(cart);
+
+                await db.SaveChangesAsync();
+
+                return Results.Redirect($"/Cart/Index");
+            }
+
+            return Results.Redirect($"/Cart/Index");
         });
 
         app.MapGet("/Cart/Details/{id:int}", (int id) => Results.Redirect($"/Cart/Details?id={id}"));

@@ -69,8 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    //const commande = document.querySelector('button[id="commande"]');
     const commande = document.getElementById('commande');
-    //console.log('commande: ', commande);
+    console.log('commande: ', commande);
     commande.addEventListener('click', (e) => {
         //console.log('rovneovn');
         window.location.href = '/Checkout';
