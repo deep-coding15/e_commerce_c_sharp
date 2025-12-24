@@ -108,63 +108,69 @@ public static class SeedData
                 context.Product.AddRange(
                     new Product
                     {
-                        Name = "iPhone 15 Pro",
-                        Description = "Apple smartphone with A17 Bionic chip",
-                        Price = 1299.99m,
+                        Sku           = "PHO-APP-IP15PRO",
+                        Name          = "iPhone 15 Pro",
+                        Description   = "Apple smartphone with A17 Bionic chip",
+                        Price         = 1299.99m,
                         StockQuantity = 25,
-                        CategoryId = smartphones.Id,
-                        Rating = "R",
-                        ImageUrl = ""
+                        CategoryId    = smartphones.Id,
+                        Rating        = "R",
+                        ImageUrl      = ""
                     },
                     new Product
                     {
-                        Name = "Samsung Galaxy S24",
-                        Description = "Latest Samsung flagship smartphone",
-                        Price = 1099.99m,
+                        Sku           = "PHO-SAM-GALS24",
+                        Name          = "Samsung Galaxy S24",
+                        Description   = "Latest Samsung flagship smartphone",
+                        Price         = 1099.99m,
                         StockQuantity = 40,
-                        CategoryId = smartphones.Id,
-                        Rating = "R",
-                        ImageUrl = ""
+                        CategoryId    = smartphones.Id,
+                        Rating        = "R",
+                        ImageUrl      = ""
                     },
                     new Product
                     {
-                        Name = "Dell XPS 15",
-                        Description = "High-end laptop for work and productivity",
-                        Price = 1899.99m,
+                        Sku           = "LAP-DEL-XPS15",
+                        Name          = "Dell XPS 15",
+                        Description   = "High-end laptop for work and productivity",
+                        Price         = 1899.99m,
                         StockQuantity = 15,
-                        CategoryId = laptops.Id,
-                        Rating = "R",
-                        ImageUrl = ""
+                        CategoryId    = laptops.Id,
+                        Rating        = "R",
+                        ImageUrl      = ""
                     },
                     new Product
                     {
-                        Name = "MacBook Air M3",
-                        Description = "Ultra-portable Apple laptop",
-                        Price = 1199.99m,
+                        Sku           = "LAP-APP-MBAIRM3",
+                        Name          = "MacBook Air M3",
+                        Description   = "Ultra-portable Apple laptop",
+                        Price         = 1199.99m,
                         StockQuantity = 20,
-                        CategoryId = laptops.Id,
-                        Rating = "R",
-                        ImageUrl = ""
+                        CategoryId    = laptops.Id,
+                        Rating        = "R",
+                        ImageUrl      = ""
                     },
                     new Product
                     {
-                        Name = "Sony WH-1000XM5",
-                        Description = "Noise-cancelling over-ear headphones",
-                        Price = 399.99m,
+                        Sku           = "HEAD-SON-WH1000XM5",
+                        Name          = "Sony WH-1000XM5",
+                        Description   = "Noise-cancelling over-ear headphones",
+                        Price         = 399.99m,
                         StockQuantity = 60,
-                        CategoryId = headphones.Id,
-                        Rating = "R",
-                        ImageUrl = ""
+                        CategoryId    = headphones.Id,
+                        Rating        = "R",
+                        ImageUrl      = ""
                     },
                     new Product
                     {
-                        Name = "Logitech G Pro X",
-                        Description = "Professional gaming headset",
-                        Price = 149.99m,
+                        Sku           = "HEAD-LOG-GPROX",
+                        Name          = "Logitech G Pro X",
+                        Description   = "Professional gaming headset",
+                        Price         = 149.99m,
                         StockQuantity = 30,
-                        CategoryId = gaming.Id,
-                        Rating = "R",
-                        ImageUrl = ""
+                        CategoryId    = gaming.Id,
+                        Rating        = "R",
+                        ImageUrl      = ""
                     }
                 );
 
@@ -219,6 +225,7 @@ public static class SeedData
                 context.Order.AddRange(
                     new Order
                     {
+                        OrderNumber = "#00001",
                         UserId = user1.Id,
                         CreatedAt = DateTime.Now.AddDays(-3),
                         Status = Status.Completed,
@@ -226,6 +233,7 @@ public static class SeedData
                     },
                     new Order
                     {
+                        OrderNumber = "#00002",
                         UserId = user2.Id,
                         CreatedAt = DateTime.Now.AddDays(-1),
                         Status = Status.Pending,

@@ -10,8 +10,10 @@ public class OrderItem
 
     public int ProductId { get; set; }
     public Product? Product { get; set; }
+    
     [Range(0, int.MaxValue), Required]
     public int Quantity { get; set; }
+    
     [Column(TypeName = "decimal(18,2)"), Range(0, int.MaxValue), Required] // Ajoutez cette ligne pour définir 2 décimales et une précision totale de 18 chiffres
     public decimal UnitPrice { get; set; }
 }
