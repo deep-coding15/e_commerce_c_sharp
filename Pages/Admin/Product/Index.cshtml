@@ -1,0 +1,124 @@
+@page
+@model E_commerce_c_charp.Pages_Admin_Product.IndexModel
+@{ Layout = "_LayoutAdmin"; }
+
+@{
+    ViewData["Title"] = "Produits - Admin";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div class="w-50 me-3">
+        <form method="get">
+            <div class="input-group">
+                <span class="input-group-text bg-white border-end-0">
+                    <i class="bi bi-search"></i>
+                </span>
+                <input type="text"
+                       name="Search"
+                       value="@Model.Search"
+                       class="form-control border-start-0"
+                       placeholder="Rechercher un produit..." />
+            </div>
+        </form>
+    </div>
+    <div>
+        <a asp-page="Create" class="btn btn-primary">
+            <i class="bi bi-plus-lg me-1"></i> Ajouter un produit
+        </a>
+    </div>
+</div>
+
+<div class="row mb-4 g-3">
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <small class="text-muted">Total produits</small>
+                <h4 class="mb-0">@Model.TotalProducts</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <small class="text-muted">En vedette</small>
+                <h4 class="mb-0">@Model.FeaturedCount</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <small class="text-muted">Stock total</small>
+                <h4 class="mb-0">@Model.TotalStock</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <small class="text-muted">Valeur stock</small>
+                <h4 class="mb-0">@Model.StockValue.ToString("0.00") €</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-0">
+        <table class="table mb-0 align-middle">
+            <thead class="bg-light">
+                <tr>
+                    <th class="ps-4">Image</th>
+                    <th>Nom</th>
+                    <th>Catégorie</th>
+                    <th>Prix</th>
+                    <th>Stock</th>
+                    <th>Statut</th>
+                    <th class="text-end pe-4">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+@foreach (var item in Model.Products)
+{
+                <tr>
+                    <td class="ps-4">
+                        <img src="@item.ImageUrl"
+                             alt="@item.Name"
+                             class="rounded"
+                             style="width:60px;height:60px;object-fit:cover;" />
+                    </td>
+                    <td>
+                        <div>@item.Name</div>
+                        <small class="text-muted">@item.Brand</small>
+                    </td>
+                    <td>@item.Category?.Name</td>
+                    <td>@item.Price.ToString("0.00") €</td>
+                    <td class="text-success">@item.StockQuantity</td>
+                    <td>
+                        @if (item.IsFeatured)
+                        {
+                            <span class="badge bg-primary-subtle text-primary border border-primary-subtle">
+                                Vedette
+                            </span>
+                        }
+                    </td>
+                    <td class="text-end pe-4">
+                        <a asp-page="Edit" asp-route-id="@item.Id"
+                           class="btn btn-sm btn-link text-primary">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                        <a asp-page="Details" asp-route-id="@item.Id"
+                           class="btn btn-sm btn-link text-secondary">
+                            <i class="bi bi-eye"></i>
+                        </a>
+                        <a asp-page="Delete" asp-route-id="@item.Id"
+                           class="btn btn-sm btn-link text-danger">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+}
+            </tbody>
+        </table>
+    </div>
+</div>

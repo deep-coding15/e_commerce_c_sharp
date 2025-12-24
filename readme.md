@@ -70,6 +70,7 @@
     - dotnet aspnet-codegenerator razorpage --model Cart --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/Cart --referenceScriptLibraries --databaseProvider sqlserver
     - dotnet aspnet-codegenerator razorpage --model CartItem --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/CartItem --referenceScriptLibraries --databaseProvider sqlserver
     - dotnet aspnet-codegenerator razorpage --viewModel Checkout --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/Checkout --referenceScriptLibraries --databaseProvider sqlserver
+    - dotnet aspnet-codegenerator razorpage --model Product --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/Admin/Product --referenceScriptLibraries --databaseProvider sqlserver
     - dotnet aspnet-codegenerator identity --files "Account.Login;Account.Register" -dc E_commerce_c_charp.Data.E_commerce_c_charpContext
 
 # Create the initial database schema using EF's migration feature :

@@ -38,6 +38,8 @@ public class Product
     
     [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$"), Required, StringLength(30)]
     public Category? Category { get; set; }
+
+    public bool IsFeatured { get; set; }   // pour le badge "Vedette"
     
     // Optionnel : rating texte (ex: "4.5/5")
     [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$"), StringLength(30), Required]

@@ -4,6 +4,7 @@ using E_commerce_c_charp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_commerce_c_charp.Migrations
 {
     [DbContext(typeof(E_commerce_c_charpContext))]
-    partial class E_commerce_c_charpContextModelSnapshot : ModelSnapshot
+    [Migration("20251224164447_ajout_Is_Feature_Column_In_Product_Table")]
+    partial class ajout_Is_Feature_Column_In_Product_Table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -30,7 +30,11 @@ var builder = WebApplication.CreateBuilder(args); // Crée le constructeur d'app
 // ====================================================================================================
 
 // 1. RAZOR PAGES - Active les pages Razor (pages .cshtml avec code-behind)
-builder.Services.AddRazorPages(); // Permet d'utiliser les pages comme /Product/Index.cshtml
+builder.Services.AddRazorPages(options =>
+{
+    // Sécurise tout le dossier Admin pour le rôle "Admin"
+    options.Conventions.AuthorizeFolder("/Admin", "RequireAdminRole");
+}); // Permet d'utiliser les pages comme /Product/Index.cshtml
 
 // 2. BASE DE DONNÉES - Configuration du contexte EF Core
 builder.Services.AddDbContext<E_commerce_c_charpContext>(options =>
@@ -74,6 +78,11 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
 .AddEntityFrameworkStores<E_commerce_c_charpContext>() // Stocke les users/roles dans la DB EF Core
 .AddDefaultTokenProviders() // Génère les tokens pour reset password, confirmation email, etc.
 .AddRoles<IdentityRole>(); // Ajoute la gestion des rôles
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+});
 
 // 5. COOKIES D'AUTHENTIFICATION - Chemins des pages Identity
 builder.Services.ConfigureApplicationCookie(options =>
