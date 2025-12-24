@@ -1,0 +1,132 @@
+@page
+@model E_commerce_c_charp.Pages_Order.IndexModel
+@{
+    ViewData["Title"] = "Mes Commandes";
+}
+
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="section-title">
+            <i class="bi bi-box-seam"></i> Mes Commandes
+        </h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-page="/Index">Accueil</a></li>
+                <li class="breadcrumb-item active">Commandes</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<!-- Filters -->
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-3">
+                <label class="form-label">Statut</label>
+                <select class="form-select" name="status" @* asp-for="Status" *@>
+                    <option value="">Tous</option>
+                    <option value="Pending">En attente</option>
+                    <option value="Processing">En traitement</option>
+                    <option value="Shipped">Expédiée</option>
+                    <option value="Delivered">Livrée</option>
+                    <option value="Cancelled">Annulée</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Date de début</label>
+                <input type="date" class="form-control" name="startDate" @* asp-for="StartDate" *@>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Date de fin</label>
+                <input type="date" class="form-control" name="endDate" @* asp-for="EndDate" *@>
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="bi bi-filter"></i> Filtrer
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (false @* !Model.Orders.Any() *@)
+{
+    <div class="empty-state">
+        <i class="bi bi-inbox"></i>
+        <h3>Aucune commande</h3>
+        <p>Vous n'avez pas encore passé de commande</p>
+        <a asp-page="/Product/Index" class="btn btn-primary mt-3">
+            <i class="bi bi-shop"></i> Découvrir nos produits
+        </a>
+    </div>
+}
+else
+{
+    <div class="row g-4">
+        @* @foreach (var order in Model.Order)
+        {
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div>
+                                        <h5 class="mb-1">
+                                            Commande #@order.Id
+                                            <span class="badge bg-warning text-dark ms-2">@order.Status</span>
+                                        </h5>
+                                        <p class="text-muted small mb-0">
+                                            <i class="bi bi-calendar"></i> Passée le @order.CreatedAt.ToString("dd MMMM yyyy")
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Order Items Preview -->
+                                <div class="d-flex gap-2 mb-3">
+                                    @for (int i = 0; i < Math.Min(order.Items.Count, 3); i++)
+                                    {
+                                        <img src="https://via.placeholder.com/60" class="rounded" @* alt="@order.Items[i].ProductName * @">
+                                    }
+                                    @if (order.Items.Count > 3)
+                                    {
+                                        <div class="d-flex align-items-center justify-content-center border rounded" style="width: 60px; height: 60px;">
+                                            <span class="text-muted">+@(order.Items.Count - 3)</span>
+                                        </div>
+                                    }
+                                </div>
+
+                                <!-- Shipping Info -->
+                                <p class="small text-muted mb-2">
+                                    <i class="bi bi-geo-alt"></i> 
+                                    @* <strong>Livraison:</strong> @order.ShippingAddress * @
+                                    <strong>Livraison:</strong> @order.Address
+                                </p>
+                                <p class="small text-muted mb-0">
+                                    <i class="bi bi-truck"></i> 
+                                    <strong>Livraison estimée:</strong> @* @order.EstimatedDelivery.ToString("dd-MM-yyyy") * @
+                                </p>
+                            </div>
+
+                            <div class="col-md-4 text-md-end">
+                                <h4 class="text-primary mb-3">@order.TotalAmount €</h4>
+                                <div class="d-grid gap-2">
+                                    <a asp-page="./Details" asp-route-id="@order.Id" class="btn btn-primary btn-sm">
+                                        <i class="bi bi-eye"></i> Voir les détails
+                                    </a>
+                                    <button class="btn btn-outline-secondary btn-sm">
+                                        <i class="bi bi-arrow-clockwise"></i> Renouveler
+                                    </button>
+                                    <button class="btn btn-outline-danger btn-sm">
+                                        <i class="bi bi-x-circle"></i> Annuler
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        } *@
+    </div>
+}

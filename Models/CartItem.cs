@@ -13,6 +13,7 @@ public class CartItem
     public Cart Cart { get; set; } = null!;
 
     public int Quantity { get; set; }
+    
     [Range(1, double.MaxValue), DataType(DataType.Currency), Column(TypeName = "decimal(18,2)"), 
     DisplayName("Unit Price"), IntegerValidator(MinValue = 0)]
     public decimal UnitPrice { get; set; }

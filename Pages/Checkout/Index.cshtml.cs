@@ -105,45 +105,22 @@ namespace E_commerce_c_charp.Pages.Checkout
             Console.WriteLine($"VM PrixHT={Order.PrixHT}, TVA={Order.PrixTVA}, TTC={Order.PrixTTC}");
 
             // 1. Mapper CheckoutViewModel -> Order
-            var order       = _mapper.Map<E_commerce_c_charp.Models.Order>(Order);
-            order.UserId    = user.Id;
+            var order = _mapper.Map<E_commerce_c_charp.Models.Order>(Order);
+            order.UserId = user.Id;
             order.CreatedAt = DateTime.UtcNow;
-            order.Status    = Status.Pending;
+            order.Status = Status.Pending;
 
             // 2. Mapper les lignes : CheckoutViewModel.Items -> Order.Items
-            order.Items     = Order.Items
+            order.Items = Order.Items
                             .Select(i => _mapper.Map<E_commerce_c_charp.Models.OrderItem>(i)).ToList();
 
             // 3. Sauvegarder en BDD
             _context.Order.Add(order);
             await _context.SaveChangesAsync();
 
-            // TODO : sauvegarder la commande (Order) en base, vider le panier, etc.
-            // 1. Créer et sauvegarder la commande en BDD
-            /* var order = new Order
-            {
-                UserId        = user.Id,
-                FullName      = Order.FullName,
-                Address       = Order.Address,
-                City          = Order.City,
-                Phone         = Order.Phone,
-                PrixHT        = Order.PrixHT,
-                PrixTVA       = Order.PrixTVA,
-                PrixTTC       = Order.PrixTTC,
-                CreatedAt     = DateTime.UtcNow,
-                Items         = Order.Items.Select(i => new OrderItem
-                {
-                    ProductId = i.Product!.Id,
-                    Quantity  = i.Quantity,
-                    UnitPrice = i.Product.Price
-                }).ToList()
-            };
-
-            _context.Orders.Add(order);
-            await _context.SaveChangesAsync();
- */
-            // 2. Vider le panier (optionnel)
-            // ...
+            // 2. Vider le panier 
+            // Deletes everything in the Cart table directly in the database with a filter
+            await _context.Cart.Where(c => c.UserId == user.Id).ExecuteDeleteAsync();
 
             // 3. Rediriger vers la page de reçu avec l'Id de la commande
             return RedirectToPage("/Order/Receipt", new { id = order.Id });

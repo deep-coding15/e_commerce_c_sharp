@@ -6,6 +6,8 @@ namespace E_commerce_c_charp.Models;
 public class Order
 {
     public int Id { get; set; }
+    
+    public string OrderNumber { get; set; } //#00001
 
     [Display(Name = "User Id")]
     public string? UserId { get; set; }
@@ -28,6 +30,7 @@ public class Order
     public string FullName { get; set; } = "";
     public string Email    { get; set; } = "";
     public string Address  { get; set; } = "";
+    public DateTime EstimatedDelivery { get; set; }
     public string City     { get; set; } = "";
     public string Phone    { get; set; } = "";
 

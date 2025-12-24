@@ -16,7 +16,7 @@ namespace E_commerce_c_charp.Pages_Cart
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly HttpClient _httpClient;
-        private readonly E_commerce_c_charp.Data.E_commerce_c_charpContext _context;
+        private readonly E_commerce_c_charpContext _context;
         private readonly UserManager<User> _userManager;
         public IList<Product> Product { get; set; } = default!;
         public IList<CartItemViewModel> CartItemViewModel { get; set; } = default!;
@@ -29,7 +29,7 @@ namespace E_commerce_c_charp.Pages_Cart
         public decimal PrixTTC { get; set; } = 0;
 
         public IndexModel(
-            E_commerce_c_charp.Data.E_commerce_c_charpContext context,
+            E_commerce_c_charpContext context,
             IHttpContextAccessor httpContextAccessor,
             IHttpClientFactory clientFactory,
             UserManager<User> userManager
