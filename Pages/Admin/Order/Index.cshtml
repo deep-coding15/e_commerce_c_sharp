@@ -1,0 +1,164 @@
+@page
+@model E_commerce_c_charp.Pages_Admin_Order.IndexModel
+@{ Layout = "_LayoutAdmin"; }
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Entête : filtre + export -->
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h5 class="mb-2">Gestion des commandes</h5>
+        <form method="get" class="d-flex align-items-center gap-2">
+            <select asp-for="FilterStatus" asp-items="Model.StatusOptions" class="form-select form-select-sm"
+                onchange="this.form.submit()">
+                <option value="">Tous les filtres</option>
+            </select>
+        </form>
+    </div>
+        <form method="get" asp-page-handler="ExportCsv">
+        <!-- Indique explicitement quel handler appeler lors de la soumission GET -->
+        <input type="hidden" name="handler" value="ExportCsv" />
+
+        <!-- On injecte la valeur actuelle du filtre -->
+        <input type="hidden" name="FilterStatus" value="@Model.FilterStatus" />
+
+        <button type="submit" class="btn btn-success">
+            Exporter CSV
+        </button>
+    </form>
+</div>
+
+<!-- Cartes de résumé -->
+<div class="row g-3 mb-4">
+    <div class="col-md">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <div class="text-muted small mb-1">En attente</div>
+                <div class="h4 mb-0">@Model.CountPending</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <div class="text-muted small mb-1">Complétées</div>
+                <div class="h4 mb-0">@Model.CountCompleted</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <div class="text-muted small mb-1">Annulées</div>
+                <div class="h4 mb-0">@Model.CountCancelled</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <div class="text-muted small mb-1">Expédiées</div>
+                <div class="h4 mb-0">@Model.CountDelivered</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tableau des commandes -->
+<div class="card shadow-sm border-0">
+    <div class="table-responsive">
+
+        <table class="table align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Orders[0].Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Orders[0].CreatedAt)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Orders[0].Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Orders[0].ItemsCount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Orders[0].Total)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Orders[0].Status)
+                    </th>
+                    @* <th>
+                @Html.DisplayNameFor(model => model.Orders[0].User.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Orders[0].User.Email)
+            </th> *@
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.Orders.Any())
+                {
+                    <tr>
+                        <td colspan="7" class="text-center text-muted py-4">
+                            Aucune commande trouvée.
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    @foreach (var item in Model.Orders)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedAt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ItemsCount) article(s)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Total) MAD
+                            </td>
+                            @* <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td> *@
+                            <td>
+                                <form method="post" asp-page-handler="ChangeStatus" class="d-flex align-items-center gap-1">
+                                    <input type="hidden" name="orderId" value="@item.Id" />
+                                    <select name="status"
+                                        class="form-select form-select-sm status-badge-@item.Status.ToString().ToLower()"
+                                        onchange="this.form.submit()">
+                                        @foreach (var opt in Model.StatusOptions)
+                                        {
+                                            <option value="@opt.Value" selected="@(opt.Value == item.Status.ToString())">
+                                                @opt.Text
+                                            </option>
+                                        }
+                                    </select>
+                                </form>
+                            </td>
+                            <td class="text-center pe-4">
+                                <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-sm btn-link text-primary">
+                                    <i class="bi bi-pencil"></i>
+                                </a> 
+                                <a asp-page="./Details" asp-route-id="@item.Id"class="btn btn-sm btn-link text-secondary">
+                                    <i class="bi bi-eye"></i>
+                                </a> 
+                                <a asp-page="./Delete" asp-route-id="@item.Id"class="btn btn-sm btn-link text-danger">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
