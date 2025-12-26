@@ -22,11 +22,13 @@ namespace E_commerce_c_charp.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<User> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly UserManager<User> _userManager;
 
-        public LoginModel(SignInManager<User> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<User> signInManager, ILogger<LoginModel> logger, UserManager<User> userManager)
         {
-            _signInManager = signInManager;
             _logger = logger;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         /// <summary>
@@ -113,13 +115,20 @@ namespace E_commerce_c_charp.Areas.Identity.Pages.Account
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
-                _logger.LogInformation("Login result: Succeeded={Succeeded}, LockedOut={LockedOut}, Requires2FA={Requires2FA}, IsNotAllowed={IsNotAllowed}",
+                _logger.LogWarning("Login result: Succeeded={Succeeded}, LockedOut={LockedOut}, Requires2FA={Requires2FA}, IsNotAllowed={IsNotAllowed}",
                     result.Succeeded,
                     result.IsLockedOut,
                     result.RequiresTwoFactor,
                     result.IsNotAllowed);
                 if (result.Succeeded)
                 {
+                    var user  = await _userManager.FindByEmailAsync(Input.Email);
+                    var roles = await _userManager.GetRolesAsync(user);
+
+                    if(roles.Contains("Admin")){
+                        return Redirect("~/Admin/Product/Index");
+                    }
+
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }

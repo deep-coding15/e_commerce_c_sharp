@@ -45,19 +45,19 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Admin/Products") == true ? "active" : "")"
-                           asp-page="/Admin/Products/Index">
+                           asp-page="/Admin/Product/Index">
                             <i class="bi bi-box-seam"></i> Produits
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Admin/Orders") == true ? "active" : "")"
-                           asp-page="/Admin/Orders/Index">
+                           asp-page="/Admin/Order/Index">
                             <i class="bi bi-receipt"></i> Commandes
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Admin/Users") == true ? "active" : "")"
-                           asp-page="/Admin/Users/Index">
+                           asp-page="/Admin/User/Index">
                             <i class="bi bi-people"></i> Utilisateurs
                         </a>
                     </li>
