@@ -37,7 +37,7 @@ public class Product
     public int CategoryId { get; set; }
     
     [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$"), Required, StringLength(30)]
-    public Category? Category { get; set; }
+    public Category Category { get; set; } = default!;
 
     public bool IsFeatured { get; set; }   // pour le badge "Vedette"
     

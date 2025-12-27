@@ -1,0 +1,1846 @@
+2025-12-27 00:01:25.824 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+[Exception.ToString() failed: Unable to cast object of type 'System.Attribute[]' to type 'System.Runtime.CompilerServices.StateMachineAttribute[]'.] Original exception type: System.NullReferenceException
+2025-12-27 00:01:25.860 +01:00 [ERR] An exception was thrown attempting to display the error page.
+System.TypeLoadException: Could not resolve type 'E_commerce_c_charp.Pages.Admin.OrderItem.Pages_Admin_OrderItem_Index+<ExecuteAsync>d__11#4' in assembly 'E-commerce_c_charp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'.
+   at System.Reflection.TypeNameResolver.GetTypeFromDefaultAssemblies(String typeName, ReadOnlySpan`1 nestedTypeNames, TypeName parsedName)
+   at System.Reflection.TypeNameResolver.GetType(String escapedTypeName, ReadOnlySpan`1 nestedTypeNames, TypeName parsedName)
+   at System.Reflection.TypeNameResolver.Resolve(TypeName typeName)
+   at System.Reflection.TypeNameResolver.GetTypeHelper(Char* pTypeName, RuntimeAssembly requestingAssembly, Boolean throwOnError, Boolean requireAssemblyQualifiedName)
+   at System.Reflection.CustomAttribute.<CreateCustomAttributeInstance>g____PInvoke|30_0(QCallModule __pModule_native, ObjectHandleOnStack __type_native, ObjectHandleOnStack __pCtor_native, IntPtr* __ppBlob_native, IntPtr __pEndBlob_native, Int32* __pcNamedArgs_native, ObjectHandleOnStack __instance_native)
+   at System.Reflection.CustomAttribute.AddCustomAttributes(ListBuilder`1& attributes, RuntimeModule decoratedModule, Int32 decoratedMetadataToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, ListBuilder`1 derivedAttributes)
+   at System.Reflection.CustomAttribute.GetCustomAttributes(RuntimeMethodInfo method, RuntimeType caType, Boolean inherit)
+   at System.Attribute.GetCustomAttributes(MemberInfo element, Type attributeType, Boolean inherit)
+   at System.Reflection.CustomAttributeExtensions.GetCustomAttributes[T](MemberInfo element)
+   at Microsoft.Extensions.StackTrace.Sources.StackTraceHelper.TryResolveStateMachineMethod(MethodBase& method, Type& declaringType)
+   at Microsoft.Extensions.StackTrace.Sources.StackTraceHelper.GetMethodDisplayString(MethodBase method)
+   at Microsoft.Extensions.StackTrace.Sources.StackTraceHelper.GetFrames(Exception exception, AggregateException& error)
+   at Microsoft.Extensions.StackTrace.Sources.ExceptionDetailsProvider.GetStackFrames(Exception original)
+   at Microsoft.Extensions.StackTrace.Sources.ExceptionDetailsProvider.GetDetails(Exception exception)+MoveNext()
+   at Microsoft.AspNetCore.Diagnostics.RazorViews.ErrorPage.ExecuteAsync()
+   at Microsoft.Extensions.RazorViews.BaseView.ExecuteAsync(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseDeveloperPageExceptionFilter.HandleExceptionAsync(ErrorContext errorContext, Func`2 next)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 00:01:25.863 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+[Exception.ToString() failed: Unable to cast object of type 'System.Attribute[]' to type 'System.Runtime.CompilerServices.StateMachineAttribute[]'.] Original exception type: System.NullReferenceException
+2025-12-27 00:01:25.865 +01:00 [ERR] An exception was thrown attempting to display the error page.
+System.TypeLoadException: Could not resolve type 'E_commerce_c_charp.Pages.Admin.OrderItem.Pages_Admin_OrderItem_Index+<ExecuteAsync>d__11#4' in assembly 'E-commerce_c_charp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'.
+   at System.Reflection.TypeNameResolver.GetTypeFromDefaultAssemblies(String typeName, ReadOnlySpan`1 nestedTypeNames, TypeName parsedName)
+   at System.Reflection.TypeNameResolver.GetType(String escapedTypeName, ReadOnlySpan`1 nestedTypeNames, TypeName parsedName)
+   at System.Reflection.TypeNameResolver.Resolve(TypeName typeName)
+   at System.Reflection.TypeNameResolver.GetTypeHelper(Char* pTypeName, RuntimeAssembly requestingAssembly, Boolean throwOnError, Boolean requireAssemblyQualifiedName)
+   at System.Reflection.CustomAttribute.<CreateCustomAttributeInstance>g____PInvoke|30_0(QCallModule __pModule_native, ObjectHandleOnStack __type_native, ObjectHandleOnStack __pCtor_native, IntPtr* __ppBlob_native, IntPtr __pEndBlob_native, Int32* __pcNamedArgs_native, ObjectHandleOnStack __instance_native)
+   at System.Reflection.CustomAttribute.AddCustomAttributes(ListBuilder`1& attributes, RuntimeModule decoratedModule, Int32 decoratedMetadataToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, ListBuilder`1 derivedAttributes)
+   at System.Reflection.CustomAttribute.GetCustomAttributes(RuntimeMethodInfo method, RuntimeType caType, Boolean inherit)
+   at System.Attribute.GetCustomAttributes(MemberInfo element, Type attributeType, Boolean inherit)
+   at System.Reflection.CustomAttributeExtensions.GetCustomAttributes[T](MemberInfo element)
+   at Microsoft.Extensions.StackTrace.Sources.StackTraceHelper.TryResolveStateMachineMethod(MethodBase& method, Type& declaringType)
+   at Microsoft.Extensions.StackTrace.Sources.StackTraceHelper.GetMethodDisplayString(MethodBase method)
+   at Microsoft.Extensions.StackTrace.Sources.StackTraceHelper.GetFrames(Exception exception, AggregateException& error)
+   at Microsoft.Extensions.StackTrace.Sources.ExceptionDetailsProvider.GetStackFrames(Exception original)
+   at Microsoft.Extensions.StackTrace.Sources.ExceptionDetailsProvider.GetDetails(Exception exception)+MoveNext()
+   at Microsoft.AspNetCore.Diagnostics.RazorViews.ErrorPage.ExecuteAsync()
+   at Microsoft.Extensions.RazorViews.BaseView.ExecuteAsync(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseDeveloperPageExceptionFilter.HandleExceptionAsync(ErrorContext errorContext, Func`2 next)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 00:01:25.869 +01:00 [ERR] Connection id "0HNI4P11GI150", Request id "0HNI4P11GI150:00000003": An unhandled exception was thrown by the application.
+[Exception.ToString() failed: Unable to cast object of type 'System.Attribute[]' to type 'System.Runtime.CompilerServices.StateMachineAttribute[]'.] Original exception type: System.NullReferenceException
+2025-12-27 00:01:47.693 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+[Exception.ToString() failed: Unable to cast object of type 'System.Attribute[]' to type 'System.Runtime.CompilerServices.StateMachineAttribute[]'.] Original exception type: System.NullReferenceException
+2025-12-27 00:01:47.698 +01:00 [ERR] An exception was thrown attempting to display the error page.
+System.TypeLoadException: Could not resolve type 'E_commerce_c_charp.Pages.Admin.OrderItem.Pages_Admin_OrderItem_Index+<ExecuteAsync>d__11#4' in assembly 'E-commerce_c_charp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'.
+   at System.Reflection.TypeNameResolver.GetTypeFromDefaultAssemblies(String typeName, ReadOnlySpan`1 nestedTypeNames, TypeName parsedName)
+   at System.Reflection.TypeNameResolver.GetType(String escapedTypeName, ReadOnlySpan`1 nestedTypeNames, TypeName parsedName)
+   at System.Reflection.TypeNameResolver.Resolve(TypeName typeName)
+   at System.Reflection.TypeNameResolver.GetTypeHelper(Char* pTypeName, RuntimeAssembly requestingAssembly, Boolean throwOnError, Boolean requireAssemblyQualifiedName)
+   at System.Reflection.CustomAttribute.<CreateCustomAttributeInstance>g____PInvoke|30_0(QCallModule __pModule_native, ObjectHandleOnStack __type_native, ObjectHandleOnStack __pCtor_native, IntPtr* __ppBlob_native, IntPtr __pEndBlob_native, Int32* __pcNamedArgs_native, ObjectHandleOnStack __instance_native)
+   at System.Reflection.CustomAttribute.AddCustomAttributes(ListBuilder`1& attributes, RuntimeModule decoratedModule, Int32 decoratedMetadataToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, ListBuilder`1 derivedAttributes)
+   at System.Reflection.CustomAttribute.GetCustomAttributes(RuntimeMethodInfo method, RuntimeType caType, Boolean inherit)
+   at System.Attribute.GetCustomAttributes(MemberInfo element, Type attributeType, Boolean inherit)
+   at System.Reflection.CustomAttributeExtensions.GetCustomAttributes[T](MemberInfo element)
+   at Microsoft.Extensions.StackTrace.Sources.StackTraceHelper.TryResolveStateMachineMethod(MethodBase& method, Type& declaringType)
+   at Microsoft.Extensions.StackTrace.Sources.StackTraceHelper.GetMethodDisplayString(MethodBase method)
+   at Microsoft.Extensions.StackTrace.Sources.StackTraceHelper.GetFrames(Exception exception, AggregateException& error)
+   at Microsoft.Extensions.StackTrace.Sources.ExceptionDetailsProvider.GetStackFrames(Exception original)
+   at Microsoft.Extensions.StackTrace.Sources.ExceptionDetailsProvider.GetDetails(Exception exception)+MoveNext()
+   at Microsoft.AspNetCore.Diagnostics.RazorViews.ErrorPage.ExecuteAsync()
+   at Microsoft.Extensions.RazorViews.BaseView.ExecuteAsync(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseDeveloperPageExceptionFilter.HandleExceptionAsync(ErrorContext errorContext, Func`2 next)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 00:01:47.705 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+[Exception.ToString() failed: Unable to cast object of type 'System.Attribute[]' to type 'System.Runtime.CompilerServices.StateMachineAttribute[]'.] Original exception type: System.NullReferenceException
+2025-12-27 00:01:47.707 +01:00 [ERR] An exception was thrown attempting to display the error page.
+System.TypeLoadException: Could not resolve type 'E_commerce_c_charp.Pages.Admin.OrderItem.Pages_Admin_OrderItem_Index+<ExecuteAsync>d__11#4' in assembly 'E-commerce_c_charp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'.
+   at System.Reflection.TypeNameResolver.GetTypeFromDefaultAssemblies(String typeName, ReadOnlySpan`1 nestedTypeNames, TypeName parsedName)
+   at System.Reflection.TypeNameResolver.GetType(String escapedTypeName, ReadOnlySpan`1 nestedTypeNames, TypeName parsedName)
+   at System.Reflection.TypeNameResolver.Resolve(TypeName typeName)
+   at System.Reflection.TypeNameResolver.GetTypeHelper(Char* pTypeName, RuntimeAssembly requestingAssembly, Boolean throwOnError, Boolean requireAssemblyQualifiedName)
+   at System.Reflection.CustomAttribute.<CreateCustomAttributeInstance>g____PInvoke|30_0(QCallModule __pModule_native, ObjectHandleOnStack __type_native, ObjectHandleOnStack __pCtor_native, IntPtr* __ppBlob_native, IntPtr __pEndBlob_native, Int32* __pcNamedArgs_native, ObjectHandleOnStack __instance_native)
+   at System.Reflection.CustomAttribute.AddCustomAttributes(ListBuilder`1& attributes, RuntimeModule decoratedModule, Int32 decoratedMetadataToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, ListBuilder`1 derivedAttributes)
+   at System.Reflection.CustomAttribute.GetCustomAttributes(RuntimeMethodInfo method, RuntimeType caType, Boolean inherit)
+   at System.Attribute.GetCustomAttributes(MemberInfo element, Type attributeType, Boolean inherit)
+   at System.Reflection.CustomAttributeExtensions.GetCustomAttributes[T](MemberInfo element)
+   at Microsoft.Extensions.StackTrace.Sources.StackTraceHelper.TryResolveStateMachineMethod(MethodBase& method, Type& declaringType)
+   at Microsoft.Extensions.StackTrace.Sources.StackTraceHelper.GetMethodDisplayString(MethodBase method)
+   at Microsoft.Extensions.StackTrace.Sources.StackTraceHelper.GetFrames(Exception exception, AggregateException& error)
+   at Microsoft.Extensions.StackTrace.Sources.ExceptionDetailsProvider.GetStackFrames(Exception original)
+   at Microsoft.Extensions.StackTrace.Sources.ExceptionDetailsProvider.GetDetails(Exception exception)+MoveNext()
+   at Microsoft.AspNetCore.Diagnostics.RazorViews.ErrorPage.ExecuteAsync()
+   at Microsoft.Extensions.RazorViews.BaseView.ExecuteAsync(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseDeveloperPageExceptionFilter.HandleExceptionAsync(ErrorContext errorContext, Func`2 next)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 00:01:47.717 +01:00 [ERR] Connection id "0HNI4P11GI150", Request id "0HNI4P11GI150:00000004": An unhandled exception was thrown by the application.
+[Exception.ToString() failed: Unable to cast object of type 'System.Attribute[]' to type 'System.Runtime.CompilerServices.StateMachineAttribute[]'.] Original exception type: System.NullReferenceException
+2025-12-27 00:03:08.895 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 00:03:08.952 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 00:03:08.953 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 00:03:13.781 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-12-27 00:03:14.279 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2025-12-27 00:03:44.079 +01:00 [WRN] {"VentesParCategory":{"E_commerce_c_charp.Models.Category":12,"E_commerce_c_charp.Models.Category":5},"NombreCommandesLivrés":0.0,"PrixMoyenDesCommandes":0.0,"NombreProduitsEnStock":0.0,"NombreProduitsEnFaibleStock":0.0,"NombreProduitsEnRuptureDeStock":0.0}
+2025-12-27 00:03:44.079 +01:00 [WRN] 0
+2025-12-27 00:03:52.167 +01:00 [WRN] {"VentesParCategory":{"E_commerce_c_charp.Models.Category":12,"E_commerce_c_charp.Models.Category":5},"NombreCommandesLivrés":0.0,"PrixMoyenDesCommandes":0.0,"NombreProduitsEnStock":0.0,"NombreProduitsEnFaibleStock":0.0,"NombreProduitsEnRuptureDeStock":0.0}
+2025-12-27 00:03:52.167 +01:00 [WRN] 0
+2025-12-27 00:05:03.532 +01:00 [WRN] {"VentesParCategory":{"E_commerce_c_charp.Models.Category":12,"E_commerce_c_charp.Models.Category":5},"NombreCommandesLivrés":0.0,"PrixMoyenDesCommandes":0.0,"NombreProduitsEnStock":0.0,"NombreProduitsEnFaibleStock":0.0,"NombreProduitsEnRuptureDeStock":0.0}
+2025-12-27 00:05:03.532 +01:00 [WRN] 0
+2025-12-27 00:05:22.026 +01:00 [WRN] {"E_commerce_c_charp.Models.Category":12,"E_commerce_c_charp.Models.Category":5}
+2025-12-27 00:05:22.026 +01:00 [WRN] 0
+2025-12-27 00:05:38.269 +01:00 [WRN] order: 
+2025-12-27 00:05:38.269 +01:00 [WRN] 0
+2025-12-27 00:05:38.387 +01:00 [WRN] order: 
+2025-12-27 00:05:38.387 +01:00 [WRN] 0
+2025-12-27 00:05:41.397 +01:00 [WRN] order: 
+2025-12-27 00:05:41.397 +01:00 [WRN] 0
+2025-12-27 00:06:10.534 +01:00 [WRN] order: {"E_commerce_c_charp.Models.Category":12,"E_commerce_c_charp.Models.Category":5}
+2025-12-27 00:06:10.534 +01:00 [WRN] 0
+2025-12-27 00:06:10.599 +01:00 [WRN] order: {"E_commerce_c_charp.Models.Category":12,"E_commerce_c_charp.Models.Category":5}
+2025-12-27 00:06:10.599 +01:00 [WRN] 0
+2025-12-27 00:06:11.752 +01:00 [WRN] order: {"E_commerce_c_charp.Models.Category":12,"E_commerce_c_charp.Models.Category":5}
+2025-12-27 00:06:11.752 +01:00 [WRN] 0
+2025-12-27 00:06:13.869 +01:00 [WRN] order: {"E_commerce_c_charp.Models.Category":12,"E_commerce_c_charp.Models.Category":5}
+2025-12-27 00:06:13.869 +01:00 [WRN] 0
+2025-12-27 00:06:51.022 +01:00 [WRN] order: {"E_commerce_c_charp.Models.Category":12,"E_commerce_c_charp.Models.Category":5}
+2025-12-27 00:06:51.022 +01:00 [WRN] order: {"E_commerce_c_charp.Models.Category":12,"E_commerce_c_charp.Models.Category":5}
+2025-12-27 00:06:51.022 +01:00 [WRN] 0
+2025-12-27 00:06:54.109 +01:00 [WRN] order: {"E_commerce_c_charp.Models.Category":12,"E_commerce_c_charp.Models.Category":5}
+2025-12-27 00:06:54.109 +01:00 [WRN] 0
+2025-12-27 00:07:02.200 +01:00 [WRN] order: {"E_commerce_c_charp.Models.Category":12,"E_commerce_c_charp.Models.Category":5}
+2025-12-27 00:07:02.200 +01:00 [WRN] 0
+2025-12-27 00:07:03.080 +01:00 [WRN] order: {"E_commerce_c_charp.Models.Category":12,"E_commerce_c_charp.Models.Category":5}
+2025-12-27 00:07:03.080 +01:00 [WRN] 0
+2025-12-27 00:07:06.941 +01:00 [WRN] order: {"E_commerce_c_charp.Models.Category":12,"E_commerce_c_charp.Models.Category":5}
+2025-12-27 00:07:06.941 +01:00 [WRN] 0
+2025-12-27 00:08:40.135 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:08:40.135 +01:00 [WRN] 0
+2025-12-27 00:08:41.829 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:08:41.829 +01:00 [WRN] 0
+2025-12-27 00:08:45.348 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:08:45.349 +01:00 [WRN] 0
+2025-12-27 00:09:20.002 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:09:20.003 +01:00 [WRN] 0
+2025-12-27 00:09:23.446 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:09:23.446 +01:00 [WRN] 0
+2025-12-27 00:14:20.250 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:14:20.250 +01:00 [WRN] 0
+2025-12-27 00:15:00.221 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:15:00.221 +01:00 [WRN] 0
+2025-12-27 00:15:01.391 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:15:01.391 +01:00 [WRN] 0
+2025-12-27 00:15:04.513 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:15:04.513 +01:00 [WRN] 0
+2025-12-27 00:15:19.253 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:15:19.253 +01:00 [WRN] 0
+2025-12-27 00:16:08.735 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:16:08.735 +01:00 [WRN] 0
+2025-12-27 00:16:11.191 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:16:11.191 +01:00 [WRN] 0
+2025-12-27 00:16:23.852 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:16:23.852 +01:00 [WRN] 0
+2025-12-27 00:16:24.127 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:16:24.127 +01:00 [WRN] 0
+2025-12-27 00:16:28.609 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:16:28.609 +01:00 [WRN] 0
+2025-12-27 00:16:29.150 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:16:29.150 +01:00 [WRN] 0
+2025-12-27 00:16:29.189 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:16:29.189 +01:00 [WRN] 0
+2025-12-27 00:16:32.955 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:16:32.955 +01:00 [WRN] 0
+2025-12-27 00:16:37.165 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:16:37.165 +01:00 [WRN] 0
+2025-12-27 00:16:40.055 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:16:40.055 +01:00 [WRN] 0
+2025-12-27 00:17:02.422 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:17:02.422 +01:00 [WRN] 0
+2025-12-27 00:17:02.428 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Runtime.CompilerServices.HotReloadException: Tentative d’appel d’une implémentation de méthode supprimée. Cela peut se produire lorsqu’une méthode est supprimée ou lorsque son nom ou sa signature est modifié pendant l’exécution de l’application.
+   at E_commerce_c_charp.ViewModels.Admin.OrderItemViewModel.set_NombreCommandesLivrés(Double value)
+   at E_commerce_c_charp.Pages_Admin_OrderItem.IndexModel.OnGetAsync()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.ExecutorFactory.NonGenericTaskHandlerMethod.Execute(Object receiver, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeHandlerMethodAsync()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeNextPageFilterAsync()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.Rethrow(PageHandlerExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 00:17:18.318 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:17:18.318 +01:00 [WRN] 0
+2025-12-27 00:17:43.382 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:17:43.382 +01:00 [WRN] nombreCommandesLivrees.ToJson()
+2025-12-27 00:17:49.353 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:17:49.353 +01:00 [WRN] 0
+2025-12-27 00:17:55.918 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:17:55.918 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:18:01.878 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:18:01.878 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:18:37.475 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:18:37.475 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:18:37.690 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:18:37.690 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:18:37.815 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:18:37.816 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:18:37.970 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:18:37.970 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:18:45.523 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:18:45.523 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:18:53.572 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:18:53.572 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:19:10.043 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:19:10.043 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:19:29.426 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:19:29.426 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:19:47.801 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:19:47.801 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:19:52.846 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:19:52.846 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:19:56.609 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:19:56.609 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:20:03.561 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:20:03.561 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:20:09.824 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:20:09.824 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:20:23.504 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 00:20:23.504 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 00:20:39.718 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:16:28.768 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:16:32.452 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:16:32.452 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:16:32.453 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:16:32.453 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:16:34.385 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:16:34.385 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:16:34.385 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:16:34.385 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:16:53.681 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:16:53.681 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:16:53.681 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:16:53.681 +01:00 [WRN] nb produits en stock livrees: 0
+2025-12-27 01:16:59.050 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:16:59.050 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:16:59.050 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:16:59.050 +01:00 [WRN] nb produits en stock: 0
+2025-12-27 01:17:11.903 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:17:11.903 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:17:11.903 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:17:11.903 +01:00 [WRN] nb produits en stock: 4
+2025-12-27 01:17:11.904 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:17:11.904 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:17:24.034 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:17:24.034 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:17:24.034 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:17:24.034 +01:00 [WRN] nb produits en stock: 4
+2025-12-27 01:17:24.034 +01:00 [WRN] nb produits en faible stock: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:17:24.034 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:17:32.698 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:17:32.698 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:17:32.698 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:17:32.698 +01:00 [WRN] nb produits en stock: 4
+2025-12-27 01:17:32.699 +01:00 [WRN] nb produits en faible stock: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:17:32.699 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:17:49.385 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:17:49.385 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:17:49.385 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:17:49.385 +01:00 [WRN] nb produits en stock: 4
+2025-12-27 01:17:49.385 +01:00 [WRN] nb produits en faible stock: 2
+2025-12-27 01:17:49.385 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:17:49.970 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:17:49.970 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:17:49.970 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:17:49.970 +01:00 [WRN] nb produits en stock: 4
+2025-12-27 01:17:49.970 +01:00 [WRN] nb produits en faible stock: 2
+2025-12-27 01:17:49.970 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:19:12.732 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:19:12.733 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:19:12.733 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:19:12.733 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:19:12.733 +01:00 [WRN] nb produits en faible stock: 2
+2025-12-27 01:19:12.733 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:19:28.819 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:19:28.819 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:19:28.819 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:19:28.819 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:19:28.819 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:19:28.819 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:19:29.191 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:19:29.191 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:19:29.191 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:19:29.191 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:19:29.191 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:19:29.191 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:19:56.713 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: Token 213757d is not valid in the scope of module System.ModuleHandle. (Parameter 'typeToken')
+   at System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   at System.Reflection.CustomAttribute.FilterCustomAttributeRecord(MetadataToken caCtorToken, MetadataImport& scope, RuntimeModule decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, ListBuilder`1& derivedAttributes, RuntimeType& attributeType, IRuntimeMethodInfo& ctorWithParameters, Boolean& isVarArg)
+   at System.Reflection.CustomAttribute.IsCustomAttributeDefined(RuntimeModule decoratedModule, Int32 decoratedMetadataToken, RuntimeType attributeFilterType, Int32 attributeCtorToken, Boolean mustBeInheritable)
+   at Microsoft.Extensions.Internal.PropertyActivator`1.<>c__DisplayClass11_0.<GetActivatableProperties>b__0(PropertyInfo property)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray(ReadOnlySpan`1 source, Func`2 predicate, Func`2 selector)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 01:20:38.907 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: Token 2137280 is not valid in the scope of module System.ModuleHandle. (Parameter 'typeToken')
+   at System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   at System.Reflection.CustomAttribute.FilterCustomAttributeRecord(MetadataToken caCtorToken, MetadataImport& scope, RuntimeModule decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, ListBuilder`1& derivedAttributes, RuntimeType& attributeType, IRuntimeMethodInfo& ctorWithParameters, Boolean& isVarArg)
+   at System.Reflection.CustomAttribute.IsCustomAttributeDefined(RuntimeModule decoratedModule, Int32 decoratedMetadataToken, RuntimeType attributeFilterType, Int32 attributeCtorToken, Boolean mustBeInheritable)
+   at Microsoft.Extensions.Internal.PropertyActivator`1.<>c__DisplayClass11_0.<GetActivatableProperties>b__0(PropertyInfo property)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray(ReadOnlySpan`1 source, Func`2 predicate, Func`2 selector)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 01:20:42.796 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: Token 22a0600 is not valid in the scope of module System.ModuleHandle. (Parameter 'typeToken')
+   at System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   at System.Reflection.CustomAttribute.FilterCustomAttributeRecord(MetadataToken caCtorToken, MetadataImport& scope, RuntimeModule decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, ListBuilder`1& derivedAttributes, RuntimeType& attributeType, IRuntimeMethodInfo& ctorWithParameters, Boolean& isVarArg)
+   at System.Reflection.CustomAttribute.IsCustomAttributeDefined(RuntimeModule decoratedModule, Int32 decoratedMetadataToken, RuntimeType attributeFilterType, Int32 attributeCtorToken, Boolean mustBeInheritable)
+   at Microsoft.Extensions.Internal.PropertyActivator`1.<>c__DisplayClass11_0.<GetActivatableProperties>b__0(PropertyInfo property)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray(ReadOnlySpan`1 source, Func`2 predicate, Func`2 selector)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 01:21:05.201 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:21:05.201 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:21:05.201 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:21:05.201 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:21:05.201 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:21:05.201 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:21:07.554 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: Token 2075e28 is not valid in the scope of module System.ModuleHandle. (Parameter 'typeToken')
+   at System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   at System.Reflection.CustomAttribute.FilterCustomAttributeRecord(MetadataToken caCtorToken, MetadataImport& scope, RuntimeModule decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, ListBuilder`1& derivedAttributes, RuntimeType& attributeType, IRuntimeMethodInfo& ctorWithParameters, Boolean& isVarArg)
+   at System.Reflection.CustomAttribute.IsCustomAttributeDefined(RuntimeModule decoratedModule, Int32 decoratedMetadataToken, RuntimeType attributeFilterType, Int32 attributeCtorToken, Boolean mustBeInheritable)
+   at Microsoft.Extensions.Internal.PropertyActivator`1.<>c__DisplayClass11_0.<GetActivatableProperties>b__0(PropertyInfo property)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray(ReadOnlySpan`1 source, Func`2 predicate, Func`2 selector)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 01:22:42.771 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: Token 2075e28 is not valid in the scope of module System.ModuleHandle. (Parameter 'typeToken')
+   at System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   at System.Reflection.CustomAttribute.FilterCustomAttributeRecord(MetadataToken caCtorToken, MetadataImport& scope, RuntimeModule decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, ListBuilder`1& derivedAttributes, RuntimeType& attributeType, IRuntimeMethodInfo& ctorWithParameters, Boolean& isVarArg)
+   at System.Reflection.CustomAttribute.IsCustomAttributeDefined(RuntimeModule decoratedModule, Int32 decoratedMetadataToken, RuntimeType attributeFilterType, Int32 attributeCtorToken, Boolean mustBeInheritable)
+   at Microsoft.Extensions.Internal.PropertyActivator`1.<>c__DisplayClass11_0.<GetActivatableProperties>b__0(PropertyInfo property)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray(ReadOnlySpan`1 source, Func`2 predicate, Func`2 selector)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 01:22:45.685 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: Token 2075e28 is not valid in the scope of module System.ModuleHandle. (Parameter 'typeToken')
+   at System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   at System.Reflection.CustomAttribute.FilterCustomAttributeRecord(MetadataToken caCtorToken, MetadataImport& scope, RuntimeModule decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, ListBuilder`1& derivedAttributes, RuntimeType& attributeType, IRuntimeMethodInfo& ctorWithParameters, Boolean& isVarArg)
+   at System.Reflection.CustomAttribute.IsCustomAttributeDefined(RuntimeModule decoratedModule, Int32 decoratedMetadataToken, RuntimeType attributeFilterType, Int32 attributeCtorToken, Boolean mustBeInheritable)
+   at Microsoft.Extensions.Internal.PropertyActivator`1.<>c__DisplayClass11_0.<GetActivatableProperties>b__0(PropertyInfo property)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray(ReadOnlySpan`1 source, Func`2 predicate, Func`2 selector)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 01:23:09.073 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: Token 2075e28 is not valid in the scope of module System.ModuleHandle. (Parameter 'typeToken')
+   at System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   at System.Reflection.CustomAttribute.FilterCustomAttributeRecord(MetadataToken caCtorToken, MetadataImport& scope, RuntimeModule decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, ListBuilder`1& derivedAttributes, RuntimeType& attributeType, IRuntimeMethodInfo& ctorWithParameters, Boolean& isVarArg)
+   at System.Reflection.CustomAttribute.IsCustomAttributeDefined(RuntimeModule decoratedModule, Int32 decoratedMetadataToken, RuntimeType attributeFilterType, Int32 attributeCtorToken, Boolean mustBeInheritable)
+   at Microsoft.Extensions.Internal.PropertyActivator`1.<>c__DisplayClass11_0.<GetActivatableProperties>b__0(PropertyInfo property)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray(ReadOnlySpan`1 source, Func`2 predicate, Func`2 selector)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 01:23:18.484 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: Token 2075e28 is not valid in the scope of module System.ModuleHandle. (Parameter 'typeToken')
+   at System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   at System.Reflection.CustomAttribute.FilterCustomAttributeRecord(MetadataToken caCtorToken, MetadataImport& scope, RuntimeModule decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, ListBuilder`1& derivedAttributes, RuntimeType& attributeType, IRuntimeMethodInfo& ctorWithParameters, Boolean& isVarArg)
+   at System.Reflection.CustomAttribute.IsCustomAttributeDefined(RuntimeModule decoratedModule, Int32 decoratedMetadataToken, RuntimeType attributeFilterType, Int32 attributeCtorToken, Boolean mustBeInheritable)
+   at Microsoft.Extensions.Internal.PropertyActivator`1.<>c__DisplayClass11_0.<GetActivatableProperties>b__0(PropertyInfo property)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray(ReadOnlySpan`1 source, Func`2 predicate, Func`2 selector)
+   at System.Linq.Enumerable.ArrayWhereSelectIterator`2.ToArray()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 01:26:18.542 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 01:26:18.611 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 01:26:18.611 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 01:26:23.186 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-12-27 01:26:24.002 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2025-12-27 01:26:38.435 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:26:38.435 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:26:38.437 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:26:38.437 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:26:38.437 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:26:38.437 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:27:52.069 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:27:52.069 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:27:52.069 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:27:52.069 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:27:52.069 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:27:52.069 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:28:07.079 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:28:07.080 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:28:07.080 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:28:07.080 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:28:07.080 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:28:07.080 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:28:32.218 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:28:32.218 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:28:32.218 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:28:32.219 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:28:32.219 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:28:32.219 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:28:32.324 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:28:32.324 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:28:32.325 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:28:32.325 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:28:32.325 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:28:32.325 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:28:39.534 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:28:39.536 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:28:39.536 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:28:39.536 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:28:39.537 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:28:39.537 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:28:43.845 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:28:43.845 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:28:43.845 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:28:43.845 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:28:43.845 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:28:43.845 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:28:56.984 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:28:56.984 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:28:56.984 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:28:56.984 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:28:56.984 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:28:56.984 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:29:02.465 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:29:02.465 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:29:02.465 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:29:02.465 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:29:02.465 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:29:02.465 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:29:06.547 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:29:06.548 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:29:06.548 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:29:06.548 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:29:06.548 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:29:06.548 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:29:07.487 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:29:07.487 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:29:07.487 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:29:07.488 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:29:07.488 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:29:07.488 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:29:25.700 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:29:25.700 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:29:25.700 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:29:25.700 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:29:25.700 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:29:25.700 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:29:45.463 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:29:45.463 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:29:45.463 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:29:45.463 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:29:45.463 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:29:45.463 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:30:04.733 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:30:04.733 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:30:04.733 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:30:04.733 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:30:04.733 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:30:04.733 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:30:07.890 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:30:07.890 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:30:07.890 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:30:07.890 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:30:07.890 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:30:07.890 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:30:08.399 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:30:08.399 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:30:08.399 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:30:08.399 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:30:08.399 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:30:08.399 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:30:08.927 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:30:08.927 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:30:08.927 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:30:08.927 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:30:08.927 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:30:08.927 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:30:27.645 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:30:27.645 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:30:27.645 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:30:27.645 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:30:27.645 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:30:27.645 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:30:30.639 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:30:30.639 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:30:30.639 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:30:30.639 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:30:30.639 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:30:30.639 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:30:54.930 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:30:54.931 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:30:54.931 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:30:54.931 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:30:54.931 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:30:54.931 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:30:55.221 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:30:55.221 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:30:55.221 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:30:55.221 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:30:55.221 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:30:55.221 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:31:00.964 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:31:00.964 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:31:00.964 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:31:00.964 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:31:00.965 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:31:00.965 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:31:06.164 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:31:06.164 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:31:06.165 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:31:06.165 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:31:06.165 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:31:06.165 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:35:05.521 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:35:05.521 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:35:05.521 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:35:05.521 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:35:05.521 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:35:05.521 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:35:15.778 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:35:15.778 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:35:15.778 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:35:15.778 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:35:15.778 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:35:15.778 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:35:22.862 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:35:22.862 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:35:22.862 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:35:22.862 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:35:22.862 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:35:22.862 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:35:25.409 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:35:25.409 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:35:25.409 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:35:25.409 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:35:25.409 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:35:25.409 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:35:28.523 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:35:28.523 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:35:28.524 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:35:28.524 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:35:28.524 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:35:28.524 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:38:49.134 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:38:49.134 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:38:49.134 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:38:49.134 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:38:49.134 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:38:49.134 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:38:51.849 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:38:51.849 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:38:51.849 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:38:51.849 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:38:51.849 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:38:51.849 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:39:18.633 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:39:18.633 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:39:18.633 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:39:18.633 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:39:18.633 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:39:18.633 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:39:25.203 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:39:25.203 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:39:25.204 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:39:25.204 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:39:25.204 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:39:25.204 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:39:48.215 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:39:48.215 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:39:48.215 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:39:48.215 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:39:48.215 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:39:48.215 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:39:48.288 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:39:48.288 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:39:48.288 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:39:48.288 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:39:48.288 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:39:48.288 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:40:12.230 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:40:12.230 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:40:12.230 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:40:12.230 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:40:12.231 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:40:12.231 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:40:12.369 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:40:12.369 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:40:12.369 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:40:12.369 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:40:12.369 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:40:12.369 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:40:38.622 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:40:38.622 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:40:38.622 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:40:38.622 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:40:38.622 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:40:38.622 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:40:54.794 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:40:54.795 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:40:54.795 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:40:54.795 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:40:54.795 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:40:54.795 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:40:54.948 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:40:54.948 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:40:54.948 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:40:54.948 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:40:54.948 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:40:54.948 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:40:56.781 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:40:56.781 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:40:56.781 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:40:56.781 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:40:56.781 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:40:56.781 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:40:56.783 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:40:56.784 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:40:56.784 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:40:56.784 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:40:56.784 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:40:56.784 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:41:00.614 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:41:00.614 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:41:00.614 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:41:00.614 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:41:00.614 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:41:00.614 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:41:17.989 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:41:17.989 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:41:17.989 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:41:17.989 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:41:17.989 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:41:17.989 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:41:18.087 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:41:18.087 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:41:18.087 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:41:18.087 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:41:18.088 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:41:18.088 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:41:21.025 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:41:21.025 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:41:21.025 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:41:21.025 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:41:21.025 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:41:21.025 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:41:27.395 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:41:27.395 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:41:27.395 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:41:27.395 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:41:27.395 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:41:27.395 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:41:27.799 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:41:27.799 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:41:27.799 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:41:27.799 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:41:27.799 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:41:27.799 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:41:43.678 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:41:43.678 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:41:43.678 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:41:43.678 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:41:43.678 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:41:43.678 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:41:46.154 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:41:46.154 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:41:46.154 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:41:46.154 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:41:46.154 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:41:46.154 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:41:46.819 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:41:46.819 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:41:46.819 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:41:46.819 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:41:46.819 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:41:46.819 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:42:01.613 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:42:01.613 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:42:01.613 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:42:01.613 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:42:01.613 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:42:01.613 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:42:01.613 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:42:01.613 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:42:01.613 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:42:01.613 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:42:01.613 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:42:01.613 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:42:05.085 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:42:05.086 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:42:05.086 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:42:05.086 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:42:05.086 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:42:05.086 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:42:05.213 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:42:05.213 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:42:05.213 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:42:05.213 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:42:05.213 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:42:05.213 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:42:11.378 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:42:11.378 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:42:11.379 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:42:11.379 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:42:11.379 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:42:11.379 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:42:11.710 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:42:11.710 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:42:11.710 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:42:11.710 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:42:11.710 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:42:11.710 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:42:14.261 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:42:14.261 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:42:14.261 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:42:14.261 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:42:14.261 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:42:14.261 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:42:18.842 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:42:18.842 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:42:18.842 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:42:18.842 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:42:18.842 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:42:18.842 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:43:02.253 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:43:02.253 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:43:02.253 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:43:02.253 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:43:02.253 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:43:02.253 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:43:05.908 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:43:05.908 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:43:05.908 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:43:05.908 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:43:05.908 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:43:05.908 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:43:10.184 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:43:10.185 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:43:10.185 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:43:10.185 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:43:10.185 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:43:10.185 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:43:27.758 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:43:27.758 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:43:27.758 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:43:27.758 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:43:27.758 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:43:27.758 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:43:47.390 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:43:47.390 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:43:47.390 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:43:47.390 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:43:47.390 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:43:47.390 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:43:49.734 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:43:49.734 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:43:49.734 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:43:49.734 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:43:49.734 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:43:49.734 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:43:49.864 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:43:49.864 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:43:49.864 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:43:49.864 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:43:49.864 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:43:49.864 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:44:20.759 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:44:20.759 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:44:20.759 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:44:20.759 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:44:20.759 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:44:20.759 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:44:27.532 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:44:27.532 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:44:27.532 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:44:27.532 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:44:27.532 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:44:27.532 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:44:49.471 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:44:49.471 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:44:49.471 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:44:49.471 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:44:49.471 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:44:49.471 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:47:08.847 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:47:08.847 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:47:08.847 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:47:08.848 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:47:08.848 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:47:08.848 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:47:16.424 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:47:16.425 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:47:16.425 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:47:16.425 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:47:16.425 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:47:16.425 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:47:23.819 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:47:23.820 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:47:23.820 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:47:23.820 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:47:23.820 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:47:23.820 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:47:26.989 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:47:26.989 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:47:26.989 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:47:26.989 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:47:26.989 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:47:26.989 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:47:29.288 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:47:29.288 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:47:29.288 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:47:29.289 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:47:29.289 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:47:29.289 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:47:33.611 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:47:33.611 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:47:33.611 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:47:33.611 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:47:33.611 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:47:33.611 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:48:44.433 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:48:44.433 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:48:44.433 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:48:44.433 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:48:44.433 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:48:44.433 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:48:44.483 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:48:44.483 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:48:44.483 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:48:44.483 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:48:44.483 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:48:44.483 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:48:52.762 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:48:52.762 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:48:52.762 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:48:52.762 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:48:52.762 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:48:52.762 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:51:28.478 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:51:28.478 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:51:28.478 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:51:28.478 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:51:28.478 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:51:28.478 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:51:44.548 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:51:44.548 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:51:44.548 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:51:44.548 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:51:44.548 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:51:44.548 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:51:51.584 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:51:51.584 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:51:51.584 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:51:51.584 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:51:51.584 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:51:51.584 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:51:55.933 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:51:55.933 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:51:55.933 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:51:55.933 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:51:55.933 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:51:55.933 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:52:17.737 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:52:17.738 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:52:17.738 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:52:17.738 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:52:17.738 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:52:17.738 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:52:22.913 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:52:22.913 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:52:22.914 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:52:22.914 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:52:22.914 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:52:22.914 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:55:02.923 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:55:02.923 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:55:02.923 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:55:02.923 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:55:02.923 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:55:02.923 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:55:14.764 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:55:14.765 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:55:14.765 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:55:14.765 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:55:14.765 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:55:14.765 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:55:20.322 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:55:20.322 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:55:20.322 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:55:20.322 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:55:20.322 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:55:20.322 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:55:24.403 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:55:24.403 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:55:24.403 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:55:24.403 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:55:24.403 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:55:24.403 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:55:35.578 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:55:35.578 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:55:35.578 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:55:35.578 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:55:35.578 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:55:35.578 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:55:43.449 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:55:43.449 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:55:43.449 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:55:43.449 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:55:43.449 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:55:43.449 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:55:43.532 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:55:43.532 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:55:43.532 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:55:43.532 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:55:43.532 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:55:43.532 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:55:56.584 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:55:56.584 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:55:56.584 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:55:56.584 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:55:56.584 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:55:56.584 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:55:56.685 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:55:56.685 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:55:56.685 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:55:56.685 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:55:56.685 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:55:56.685 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:56:16.833 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:56:16.833 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:56:16.833 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:56:16.833 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:56:16.833 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:56:16.833 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:56:23.715 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:56:23.715 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:56:23.715 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:56:23.715 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:56:23.715 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:56:23.715 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:56:26.879 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:56:26.879 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:56:26.879 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:56:26.879 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:56:26.879 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:56:26.879 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:56:37.419 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:56:37.419 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:56:37.419 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:56:37.419 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:56:37.420 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:56:37.420 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:56:43.825 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:56:43.825 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:56:43.825 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:56:43.825 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:56:43.825 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:56:43.825 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:56:52.544 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:56:52.544 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:56:52.544 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:56:52.544 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:56:52.544 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:56:52.544 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:56:52.616 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:56:52.616 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:56:52.616 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:56:52.616 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:56:52.617 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:56:52.617 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:57:07.441 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:57:07.441 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:57:07.441 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:57:07.441 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:57:07.441 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:57:07.441 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:59:52.049 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:59:52.049 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:59:52.049 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:59:52.049 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:59:52.049 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:59:52.049 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 01:59:58.372 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 01:59:58.372 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 01:59:58.372 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 01:59:58.373 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 01:59:58.373 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 01:59:58.373 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:00:00.631 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:00:00.631 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:00:00.631 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:00:00.631 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:00:00.631 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:00:00.631 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:00:06.446 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:00:06.446 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:00:06.446 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:00:06.446 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:00:06.446 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:00:06.446 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:00:09.535 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:00:09.535 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:00:09.535 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:00:09.535 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:00:09.535 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:00:09.535 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:00:14.260 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:00:14.260 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:00:14.260 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:00:14.260 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:00:14.260 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:00:14.260 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:00:15.938 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:00:15.939 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:00:15.939 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:00:15.939 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:00:15.939 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:00:15.939 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:01:39.827 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:01:39.827 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:01:39.827 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:01:39.827 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:01:39.827 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:01:39.827 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:01:39.830 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:01:39.831 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:01:39.831 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:01:39.831 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:01:39.831 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:01:39.831 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:01:46.558 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:01:46.558 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:01:46.558 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:01:46.558 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:01:46.558 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:01:46.558 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:01:46.584 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:01:46.584 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:01:46.585 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:01:46.585 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:01:46.585 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:01:46.585 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:01:49.513 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:01:49.513 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:01:49.513 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:01:49.513 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:01:49.513 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:01:49.513 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:03:27.926 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:03:27.926 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:03:27.926 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:03:27.926 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:03:27.926 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:03:27.926 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:03:34.449 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:03:34.449 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:03:34.449 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:03:34.449 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:03:34.449 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:03:34.449 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:03:37.277 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:03:37.277 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:03:37.278 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:03:37.278 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:03:37.278 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:03:37.278 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:03:38.101 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:03:38.101 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:03:38.101 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:03:38.101 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:03:38.101 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:03:38.101 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:03:38.609 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:03:38.609 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:03:38.609 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:03:38.609 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:03:38.609 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:03:38.609 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:03:38.851 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:03:38.851 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:03:38.851 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:03:38.851 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:03:38.851 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:03:38.851 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:03:39.080 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:03:39.080 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:03:39.080 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:03:39.080 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:03:39.080 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:03:39.080 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:05:04.272 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:05:04.272 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:05:04.272 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:05:04.272 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:05:04.272 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:05:04.272 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:05:09.142 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:05:09.142 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:05:09.142 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:05:09.142 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:05:09.142 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:05:09.142 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:05:09.221 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:05:09.221 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:05:09.221 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:05:09.221 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:05:09.221 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:05:09.221 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:05:31.636 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:05:31.636 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:05:31.636 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:05:31.636 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:05:31.636 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:05:31.636 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:05:34.923 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:05:34.923 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:05:34.923 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:05:34.923 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:05:34.923 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:05:34.923 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:06:56.522 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:06:56.522 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:06:56.522 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:06:56.522 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:06:56.522 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:06:56.522 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:06:56.649 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:06:56.649 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:06:56.649 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:06:56.649 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:06:56.649 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:06:56.649 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:07:42.516 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:07:42.516 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:07:42.516 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:07:42.516 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:07:42.516 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:07:42.516 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:07:42.598 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:07:42.598 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:07:42.599 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:07:42.599 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:07:42.599 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:07:42.599 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:08:05.346 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:08:05.346 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:08:05.346 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:08:05.346 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:08:05.346 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:08:05.346 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:08:05.941 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:08:05.941 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:08:05.941 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:08:05.941 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:08:05.941 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:08:05.941 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:08:11.041 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:08:11.041 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:08:11.041 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:08:11.041 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:08:11.041 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:08:11.041 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:08:27.652 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:08:27.653 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:08:27.653 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:08:27.653 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:08:27.653 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:08:27.653 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:08:32.932 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:08:32.932 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:08:32.932 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:08:32.932 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:08:32.932 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:08:32.932 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:09:04.496 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:09:04.496 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:09:04.496 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:09:04.496 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:09:04.496 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:09:04.496 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:09:09.800 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:09:09.800 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:09:09.800 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:09:09.800 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:09:09.800 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:09:09.800 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:09:10.226 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:09:10.226 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:09:10.226 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:09:10.226 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:09:10.226 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:09:10.226 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:09:20.334 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:09:20.334 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:09:20.334 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:09:20.334 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:09:20.334 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:09:20.334 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:09:23.769 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:09:23.770 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:09:23.770 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:09:23.770 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:09:23.770 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:09:23.770 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:09:28.069 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:09:28.069 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:09:28.069 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:09:28.069 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:09:28.069 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:09:28.069 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:09:37.519 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:09:37.519 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:09:37.519 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:09:37.519 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:09:37.519 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:09:37.519 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:09:37.589 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:09:37.589 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:09:37.589 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:09:37.589 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:09:37.589 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:09:37.589 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:09:43.447 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:09:43.447 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:09:43.447 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:09:43.447 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:09:43.447 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:09:43.447 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:10:13.086 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:10:13.086 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:10:13.086 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:10:13.086 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:10:13.086 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:10:13.086 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:10:16.548 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:10:16.548 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:10:16.548 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:10:16.548 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:10:16.548 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:10:16.548 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:10:26.172 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:10:26.172 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:10:26.172 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:10:26.172 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:10:26.172 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:10:26.172 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:14:05.844 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 02:14:05.906 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 02:14:05.906 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 02:14:10.304 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-12-27 02:14:11.195 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2025-12-27 02:14:31.270 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:14:31.271 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:14:31.273 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:14:31.273 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:14:31.273 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:14:31.273 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:15:34.175 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:15:34.175 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:15:34.175 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:15:34.175 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:15:34.176 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:15:34.176 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:15:38.969 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:15:38.969 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:15:38.969 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:15:38.969 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:15:38.969 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:15:38.969 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:15:40.822 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:15:40.822 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:15:40.822 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:15:40.822 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:15:40.822 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:15:40.822 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:19:39.131 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 02:19:39.132 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 02:19:39.132 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 02:19:39.132 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 02:19:39.132 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 02:19:39.132 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 02:19:40.762 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2025-12-27 02:19:40.893 +01:00 [WRN] [{"Id":"bfe1c799-6e6a-4d80-8679-c395bf9e8c5c","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-22T22:27:07.000166Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":3},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"5ecac18f-f60b-43a2-90b8-e8de88f957e9","Name":"hi@hello.ma","Email":"hi@hello.ma","Role":"Client","RegistrationDate":"2025-12-23T09:02:13.4173603Z","IsActive":true,"OrdersCount":0},{"Id":"66e96336-7e55-4299-907b-ccadede03ca6","Name":"client1@test.com","Email":"client1@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:19.7187251Z","IsActive":true,"OrdersCount":0},{"Id":"9e251481-a774-422e-982d-e15f2f4ef48e","Name":"client2@test.com","Email":"client2@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:21.2625812Z","IsActive":true,"OrdersCount":1}]
+2025-12-27 11:22:33.116 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 11:22:33.172 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 11:22:33.172 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 11:22:40.869 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-12-27 11:22:41.969 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2025-12-27 11:25:26.128 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 11:25:26.179 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 11:25:26.179 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 11:30:47.473 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 11:30:47.562 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 11:30:47.563 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 11:30:57.551 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-12-27 11:30:59.011 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2025-12-27 11:37:20.622 +01:00 [WRN] Login result: Succeeded=true, LockedOut=false, Requires2FA=false, IsNotAllowed=false
+2025-12-27 11:38:38.052 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2025-12-27 11:38:38.203 +01:00 [WRN] [{"Id":"bfe1c799-6e6a-4d80-8679-c395bf9e8c5c","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-22T22:27:07.000166Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":3},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"5ecac18f-f60b-43a2-90b8-e8de88f957e9","Name":"hi@hello.ma","Email":"hi@hello.ma","Role":"Client","RegistrationDate":"2025-12-23T09:02:13.4173603Z","IsActive":true,"OrdersCount":0},{"Id":"66e96336-7e55-4299-907b-ccadede03ca6","Name":"client1@test.com","Email":"client1@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:19.7187251Z","IsActive":true,"OrdersCount":0},{"Id":"9e251481-a774-422e-982d-e15f2f4ef48e","Name":"client2@test.com","Email":"client2@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:21.2625812Z","IsActive":true,"OrdersCount":1}]
+2025-12-27 11:38:40.261 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 11:38:40.261 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 11:38:40.263 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 11:38:40.264 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 11:38:40.264 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 11:38:40.264 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 11:59:59.547 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 11:59:59.589 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 11:59:59.589 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 12:00:03.219 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-12-27 12:00:04.027 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2025-12-27 12:17:37.059 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'E_commerce_c_charp.Pages_Admin_Dashboard.IndexModel'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Antiforgery.Internal.AntiforgeryMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 12:17:51.317 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'E_commerce_c_charp.Pages_Admin_Dashboard.IndexModel'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Antiforgery.Internal.AntiforgeryMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 12:18:03.755 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'E_commerce_c_charp.Pages_Admin_Dashboard.IndexModel'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Antiforgery.Internal.AntiforgeryMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 12:18:27.346 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'E_commerce_c_charp.Pages_Admin_Dashboard.IndexModel'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Antiforgery.Internal.AntiforgeryMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 12:18:30.482 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'E_commerce_c_charp.Pages_Admin_Dashboard.IndexModel'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Antiforgery.Internal.AntiforgeryMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 12:18:33.028 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'E_commerce_c_charp.Pages_Admin_Dashboard.IndexModel'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Antiforgery.Internal.AntiforgeryMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 12:18:35.557 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'E_commerce_c_charp.Pages_Admin_Dashboard.IndexModel'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Antiforgery.Internal.AntiforgeryMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 12:18:49.390 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'E_commerce_c_charp.Pages_Admin_Dashboard.IndexModel'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Antiforgery.Internal.AntiforgeryMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 12:18:56.740 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'E_commerce_c_charp.Pages_Admin_Dashboard.IndexModel'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Antiforgery.Internal.AntiforgeryMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 12:20:38.304 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 12:20:38.349 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 12:20:38.351 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 12:20:41.687 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-12-27 12:20:42.223 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2025-12-27 12:20:50.698 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'E_commerce_c_charp.Pages_Admin_Dashboard.IndexModel'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method483(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.<>c__DisplayClass3_0.<CreateModelFactory>b__0(PageContext pageContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.CreateInstance()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 12:21:12.447 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2025-12-27 12:21:12.505 +01:00 [WRN] [{"Id":"bfe1c799-6e6a-4d80-8679-c395bf9e8c5c","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-22T22:27:07.000166Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":3},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"5ecac18f-f60b-43a2-90b8-e8de88f957e9","Name":"hi@hello.ma","Email":"hi@hello.ma","Role":"Client","RegistrationDate":"2025-12-23T09:02:13.4173603Z","IsActive":true,"OrdersCount":0},{"Id":"66e96336-7e55-4299-907b-ccadede03ca6","Name":"client1@test.com","Email":"client1@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:19.7187251Z","IsActive":true,"OrdersCount":0},{"Id":"9e251481-a774-422e-982d-e15f2f4ef48e","Name":"client2@test.com","Email":"client2@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:21.2625812Z","IsActive":true,"OrdersCount":1}]
+2025-12-27 12:21:13.825 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 12:21:13.825 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 12:21:13.826 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 12:21:13.826 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 12:21:13.826 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 12:21:13.826 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 12:21:17.472 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'E_commerce_c_charp.Pages_Admin_Dashboard.IndexModel'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method778(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.<>c__DisplayClass3_0.<CreateModelFactory>b__0(PageContext pageContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.CreateInstance()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 12:21:22.501 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'E_commerce_c_charp.Pages_Admin_Dashboard.IndexModel'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method483(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.<>c__DisplayClass3_0.<CreateModelFactory>b__0(PageContext pageContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.CreateInstance()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 12:21:22.521 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'E_commerce_c_charp.Pages_Admin_Dashboard.IndexModel'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method778(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.<>c__DisplayClass3_0.<CreateModelFactory>b__0(PageContext pageContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.CreateInstance()
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 12:23:41.105 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 12:23:41.146 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 12:23:41.146 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 12:23:44.341 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-12-27 12:23:44.859 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2025-12-27 12:23:59.485 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:25:06.639 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:25:08.785 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:25:09.662 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:25:10.322 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:25:27.892 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:25:28.088 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:25:36.638 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:25:50.397 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:26:01.433 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:26:13.820 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:26:18.255 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:26:26.284 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:26:35.774 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:26:45.974 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:26:46.212 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:27:16.444 +01:00 [WRN] order: System.Collections.Generic.Dictionary`2[System.String,System.Int32]
+2025-12-27 12:27:46.112 +01:00 [WRN] order: <>f__AnonymousDelegate0`2[Newtonsoft.Json.Formatting,System.String]
+2025-12-27 12:28:29.133 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 12:28:29.176 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 12:28:29.176 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 12:28:32.311 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-12-27 12:28:33.036 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2025-12-27 12:28:44.901 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:29:59.052 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:30:21.597 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:30:27.147 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:30:29.118 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:31:00.040 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:31:13.383 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:31:41.123 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:31:43.125 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:31:43.470 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:31:47.437 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:31:48.217 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:31:52.417 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:32:11.699 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:32:16.790 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:32:23.417 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:32:27.059 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:32:30.072 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:32:32.234 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:32:34.721 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:32:40.548 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:33:07.333 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:33:11.030 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:43:35.967 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:47:59.180 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 12:47:59.180 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 12:47:59.180 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 12:47:59.180 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 12:47:59.180 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 12:47:59.181 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 12:48:02.502 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:48:04.851 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 12:48:04.851 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 12:48:04.851 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 12:48:04.851 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 12:48:04.851 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 12:48:04.851 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 12:52:11.301 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:52:30.381 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:53:29.335 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:53:55.906 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:54:59.639 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:55:19.332 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:55:33.090 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:55:35.562 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:55:56.538 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:56:11.255 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:56:32.814 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:56:56.708 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:57:07.968 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:57:33.088 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:57:36.525 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:57:47.434 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:58:09.660 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:58:13.949 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:58:22.299 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:58:26.489 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:58:33.471 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 12:58:39.775 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 13:03:23.356 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 13:03:23.399 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 13:03:23.399 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-27 13:03:26.806 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-12-27 13:03:27.265 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2025-12-27 13:03:43.950 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Delivered":1}
+2025-12-27 13:03:53.426 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2025-12-27 13:03:53.463 +01:00 [WRN] [{"Id":"bfe1c799-6e6a-4d80-8679-c395bf9e8c5c","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-22T22:27:07.000166Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":3},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"5ecac18f-f60b-43a2-90b8-e8de88f957e9","Name":"hi@hello.ma","Email":"hi@hello.ma","Role":"Client","RegistrationDate":"2025-12-23T09:02:13.4173603Z","IsActive":true,"OrdersCount":0},{"Id":"66e96336-7e55-4299-907b-ccadede03ca6","Name":"client1@test.com","Email":"client1@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:19.7187251Z","IsActive":true,"OrdersCount":0},{"Id":"9e251481-a774-422e-982d-e15f2f4ef48e","Name":"client2@test.com","Email":"client2@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:21.2625812Z","IsActive":true,"OrdersCount":1}]
+2025-12-27 13:03:57.352 +01:00 [WRN] order: {"Smartphones":12,"Headphones":5}
+2025-12-27 13:03:57.353 +01:00 [WRN] nb commande livrees: 0
+2025-12-27 13:03:57.354 +01:00 [WRN] prix moyen commande: 4559.952500
+2025-12-27 13:03:57.354 +01:00 [WRN] nb produits en stock: 5
+2025-12-27 13:03:57.354 +01:00 [WRN] nb produits en faible stock: 1
+2025-12-27 13:03:57.357 +01:00 [WRN] nb produits en rupture de stock: 0
+2025-12-27 13:03:58.894 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2025-12-27 13:03:58.896 +01:00 [WRN] [{"Id":"bfe1c799-6e6a-4d80-8679-c395bf9e8c5c","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-22T22:27:07.000166Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":3},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"5ecac18f-f60b-43a2-90b8-e8de88f957e9","Name":"hi@hello.ma","Email":"hi@hello.ma","Role":"Client","RegistrationDate":"2025-12-23T09:02:13.4173603Z","IsActive":true,"OrdersCount":0},{"Id":"66e96336-7e55-4299-907b-ccadede03ca6","Name":"client1@test.com","Email":"client1@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:19.7187251Z","IsActive":true,"OrdersCount":0},{"Id":"9e251481-a774-422e-982d-e15f2f4ef48e","Name":"client2@test.com","Email":"client2@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:21.2625812Z","IsActive":true,"OrdersCount":1}]
+2025-12-27 13:08:38.083 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2025-12-27 13:08:38.092 +01:00 [WRN] [{"Id":"bfe1c799-6e6a-4d80-8679-c395bf9e8c5c","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-22T22:27:07.000166Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":3},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"5ecac18f-f60b-43a2-90b8-e8de88f957e9","Name":"hi@hello.ma","Email":"hi@hello.ma","Role":"Client","RegistrationDate":"2025-12-23T09:02:13.4173603Z","IsActive":true,"OrdersCount":0},{"Id":"66e96336-7e55-4299-907b-ccadede03ca6","Name":"client1@test.com","Email":"client1@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:19.7187251Z","IsActive":true,"OrdersCount":0},{"Id":"9e251481-a774-422e-982d-e15f2f4ef48e","Name":"client2@test.com","Email":"client2@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:21.2625812Z","IsActive":true,"OrdersCount":1}]
+2025-12-27 13:08:44.818 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2025-12-27 13:08:44.820 +01:00 [WRN] [{"Id":"bfe1c799-6e6a-4d80-8679-c395bf9e8c5c","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-22T22:27:07.000166Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":3},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"5ecac18f-f60b-43a2-90b8-e8de88f957e9","Name":"hi@hello.ma","Email":"hi@hello.ma","Role":"Client","RegistrationDate":"2025-12-23T09:02:13.4173603Z","IsActive":true,"OrdersCount":0},{"Id":"66e96336-7e55-4299-907b-ccadede03ca6","Name":"client1@test.com","Email":"client1@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:19.7187251Z","IsActive":true,"OrdersCount":0},{"Id":"9e251481-a774-422e-982d-e15f2f4ef48e","Name":"client2@test.com","Email":"client2@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:21.2625812Z","IsActive":true,"OrdersCount":1}]
+2025-12-27 13:08:46.354 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at E_commerce_c_charp.Pages.Admin.User.Pages_Admin_User_Index.ExecuteAsync()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-12-27 13:08:48.811 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2025-12-27 13:08:48.813 +01:00 [WRN] [{"Id":"bfe1c799-6e6a-4d80-8679-c395bf9e8c5c","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-22T22:27:07.000166Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":3},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"5ecac18f-f60b-43a2-90b8-e8de88f957e9","Name":"hi@hello.ma","Email":"hi@hello.ma","Role":"Client","RegistrationDate":"2025-12-23T09:02:13.4173603Z","IsActive":true,"OrdersCount":0},{"Id":"66e96336-7e55-4299-907b-ccadede03ca6","Name":"client1@test.com","Email":"client1@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:19.7187251Z","IsActive":true,"OrdersCount":0},{"Id":"9e251481-a774-422e-982d-e15f2f4ef48e","Name":"client2@test.com","Email":"client2@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:21.2625812Z","IsActive":true,"OrdersCount":1}]
+2025-12-27 13:08:51.036 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2025-12-27 13:08:51.041 +01:00 [WRN] [{"Id":"bfe1c799-6e6a-4d80-8679-c395bf9e8c5c","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-22T22:27:07.000166Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":3},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"5ecac18f-f60b-43a2-90b8-e8de88f957e9","Name":"hi@hello.ma","Email":"hi@hello.ma","Role":"Client","RegistrationDate":"2025-12-23T09:02:13.4173603Z","IsActive":true,"OrdersCount":0},{"Id":"66e96336-7e55-4299-907b-ccadede03ca6","Name":"client1@test.com","Email":"client1@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:19.7187251Z","IsActive":true,"OrdersCount":0},{"Id":"9e251481-a774-422e-982d-e15f2f4ef48e","Name":"client2@test.com","Email":"client2@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:21.2625812Z","IsActive":true,"OrdersCount":1}]
+2025-12-27 13:09:00.964 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2025-12-27 13:09:00.974 +01:00 [WRN] [{"Id":"bfe1c799-6e6a-4d80-8679-c395bf9e8c5c","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-22T22:27:07.000166Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":3},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"5ecac18f-f60b-43a2-90b8-e8de88f957e9","Name":"hi@hello.ma","Email":"hi@hello.ma","Role":"Client","RegistrationDate":"2025-12-23T09:02:13.4173603Z","IsActive":true,"OrdersCount":0},{"Id":"66e96336-7e55-4299-907b-ccadede03ca6","Name":"client1@test.com","Email":"client1@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:19.7187251Z","IsActive":true,"OrdersCount":0},{"Id":"9e251481-a774-422e-982d-e15f2f4ef48e","Name":"client2@test.com","Email":"client2@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:21.2625812Z","IsActive":true,"OrdersCount":1}]
+2025-12-27 13:09:05.378 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2025-12-27 13:09:05.443 +01:00 [WRN] [{"Id":"bfe1c799-6e6a-4d80-8679-c395bf9e8c5c","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-22T22:27:07.000166Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":3},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"5ecac18f-f60b-43a2-90b8-e8de88f957e9","Name":"hi@hello.ma","Email":"hi@hello.ma","Role":"Client","RegistrationDate":"2025-12-23T09:02:13.4173603Z","IsActive":true,"OrdersCount":0},{"Id":"66e96336-7e55-4299-907b-ccadede03ca6","Name":"client1@test.com","Email":"client1@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:19.7187251Z","IsActive":true,"OrdersCount":0},{"Id":"9e251481-a774-422e-982d-e15f2f4ef48e","Name":"client2@test.com","Email":"client2@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:21.2625812Z","IsActive":true,"OrdersCount":1}]
+2025-12-27 13:09:12.374 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2025-12-27 13:09:12.425 +01:00 [WRN] [{"Id":"bfe1c799-6e6a-4d80-8679-c395bf9e8c5c","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-22T22:27:07.000166Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":3},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"5ecac18f-f60b-43a2-90b8-e8de88f957e9","Name":"hi@hello.ma","Email":"hi@hello.ma","Role":"Client","RegistrationDate":"2025-12-23T09:02:13.4173603Z","IsActive":true,"OrdersCount":0},{"Id":"66e96336-7e55-4299-907b-ccadede03ca6","Name":"client1@test.com","Email":"client1@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:19.7187251Z","IsActive":true,"OrdersCount":0},{"Id":"9e251481-a774-422e-982d-e15f2f4ef48e","Name":"client2@test.com","Email":"client2@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:21.2625812Z","IsActive":true,"OrdersCount":1}]
+2025-12-27 13:09:15.431 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2025-12-27 13:09:15.470 +01:00 [WRN] [{"Id":"bfe1c799-6e6a-4d80-8679-c395bf9e8c5c","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-22T22:27:07.000166Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":3},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"5ecac18f-f60b-43a2-90b8-e8de88f957e9","Name":"hi@hello.ma","Email":"hi@hello.ma","Role":"Client","RegistrationDate":"2025-12-23T09:02:13.4173603Z","IsActive":true,"OrdersCount":0},{"Id":"66e96336-7e55-4299-907b-ccadede03ca6","Name":"client1@test.com","Email":"client1@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:19.7187251Z","IsActive":true,"OrdersCount":0},{"Id":"9e251481-a774-422e-982d-e15f2f4ef48e","Name":"client2@test.com","Email":"client2@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:21.2625812Z","IsActive":true,"OrdersCount":1}]
+2025-12-27 13:09:18.068 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2025-12-27 13:09:18.071 +01:00 [WRN] [{"Id":"bfe1c799-6e6a-4d80-8679-c395bf9e8c5c","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-22T22:27:07.000166Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":3},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"5ecac18f-f60b-43a2-90b8-e8de88f957e9","Name":"hi@hello.ma","Email":"hi@hello.ma","Role":"Client","RegistrationDate":"2025-12-23T09:02:13.4173603Z","IsActive":true,"OrdersCount":0},{"Id":"66e96336-7e55-4299-907b-ccadede03ca6","Name":"client1@test.com","Email":"client1@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:19.7187251Z","IsActive":true,"OrdersCount":0},{"Id":"9e251481-a774-422e-982d-e15f2f4ef48e","Name":"client2@test.com","Email":"client2@test.com","Role":"Client","RegistrationDate":"2025-12-22T22:31:21.2625812Z","IsActive":true,"OrdersCount":1}]

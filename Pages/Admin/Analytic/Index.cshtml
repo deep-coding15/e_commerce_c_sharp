@@ -1,0 +1,159 @@
+@page
+@using Microsoft.CodeAnalysis.Scripting
+@model E_commerce_c_charp.Pages_Admin_OrderItem.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_LayoutAdmin";
+}
+
+@{
+    var jsonData = Newtonsoft.Json.JsonConvert
+                            .SerializeObject(
+                                Model?.OrdersItem?.VentesParCategory ??
+                                new Dictionary<string, int>()
+                            );
+}
+
+<div class="container my-4">
+    <h4 class="mb-3">Analytiques et Rapports</h4>
+
+    <!-- Ventes par catégorie -->
+    <div class="card mb-4">
+        <div class="card-header bg-white">
+            <strong>Ventes par catégorie</strong>
+        </div>
+        <div class="card-body">
+            <canvas id="salesByCategoryChart" height="100"></canvas>
+        </div>
+    </div>
+
+    <!-- Taux de conversion + Panier moyen -->
+    <div class="row mb-4">
+        <div class="col-md-6 mb-3">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <h6 class="text-muted">Taux de conversion</h6>
+                    <h2 class="text-primary mb-1">
+                        @Model?.OrdersItem?.NombreCommandesLivrees.ToString("0.0")%
+                    </h2>
+                    <small class="text-muted">
+                        Commandes livrées / Total
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <h6 class="text-muted">Panier moyen</h6>
+                    <h2 class="text-success mb-1">
+                        @Model?.OrdersItem?.PrixMoyenDesCommandes.ToString("0.00") €
+                    </h2>
+                    <small class="text-muted">
+                        Valeur moyenne par commande
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analyse du stock -->
+    <div class="card">
+        <div class="card-header bg-white">
+            <strong>Analyse du stock</strong>
+        </div>
+        
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+                <div>
+                    <span class="text-success me-2">✔</span>
+                    Produits en stock suffisant (&gt; 20)
+                </div>
+                <div class="text-success fw-semibold">
+                    @Model?.OrdersItem?.NombreProduitsEnStock produits
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+                <div>
+                    <span class="text-warning me-2">⚠</span>
+                    Produits en stock faible (&lt; 20)
+                </div>
+                <div class="text-warning fw-semibold">
+                    @Model?.OrdersItem?.NombreProduitsEnFaibleStock produits
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center py-2">
+                <div>
+                    <span class="text-danger me-2">✖</span>
+                    Produits en rupture de stock
+                </div>
+                <div class="text-danger fw-semibold">
+                    @Model?.OrdersItem?.NombreProduitsEnRuptureDeStock produits
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+
+    <script>
+        var ventesParCategory = @Html.Raw(jsonData);
+        console.log('ventes: ', ventesParCategory);
+        // Extraire les labels et les données
+        const labels = Object.keys(ventesParCategory);
+        
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Ventes par categorie',
+                data: Object.values(ventesParCategory), //[65, 59, 80, 81, 56, 55, 40],
+                //maxBarThickness: 100, // optionnel, limite max
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
+                ],
+                borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(201, 203, 207)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    x: {
+                        barPercentage: 0.4,      // <--- diminue la largeur (0–1)
+                        categoryPercentage: 0.4  // optionnel : espace entre groupes
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+            },
+        };
+        const salesByCategoryChart = new Chart(
+            document.getElementById('salesByCategoryChart'),
+            config
+        );
+    </script>
+}

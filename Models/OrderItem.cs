@@ -9,7 +9,7 @@ public class OrderItem
     public Order? Order { get; set; }
 
     public int ProductId { get; set; }
-    public Product? Product { get; set; }
+    public Product Product { get; set; } = default!;
     
     [Range(0, int.MaxValue), Required]
     public int Quantity { get; set; }
