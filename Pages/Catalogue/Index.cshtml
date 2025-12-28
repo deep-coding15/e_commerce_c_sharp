@@ -1,0 +1,141 @@
+@page
+@model E_commerce_c_charp.Pages_Catalogue.IndexModel
+
+@{
+    ViewData["Title"] = "Catalogue Produits";
+}
+<link rel="stylesheet" href="~/css/catalogue.css">
+<div class="catalogue-container">
+    <!-- Header -->
+    <div class="catalogue-header">
+        <h1 class="catalogue-title">Catalogue Produits</h1>
+    </div>
+
+    <!-- Main Content -->
+    <div class="catalogue-main">
+        <!-- Sidebar Filters -->
+        <div class="filters-sidebar">
+            <div class="filter-section">
+                <h3>Filtres</h3>
+                <div class="filter-group">
+                    <label>Toutes</label>
+                </div>
+                <div class="filter-group active">
+                    <label>Mode & Électronique</label>
+                </div>
+                <div class="filter-group">
+                    <label>Maison</label>
+                </div>
+                <div class="filter-group">
+                    <label>Sports</label>
+                </div>
+                <div class="filter-group">
+                    <label>Beauté</label>
+                </div>
+                <div class="filter-group">
+                    <label>Livres</label>
+                </div>
+                <div class="filter-group">
+                    <label>Marques</label>
+                </div>
+                <div class="filter-group">
+                    <label>Nouveautés</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid">
+            <!-- Product Card 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="~/img/placeholder1.jpg" alt="Douche à Ventre" />
+                </div>
+                <div class="product-info">
+                    <h3>Douche à Ventre</h3>
+                    <div class="product-price">
+                        <span class="price">0€</span>
+                        <span class="old-price">100€</span>
+                    </div>
+                    <div class="product-stock">
+                        <span class="stock-in">En stock</span>
+                        <span class="stock-qty">✕ 100</span>
+                    </div>
+                    <button class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="~/img/placeholder2.jpg" alt="Lampe de Bureau" />
+                </div>
+                <div class="product-info">
+                    <h3>Lampe de Bureau</h3>
+                    <div class="product-price">
+                        <span class="price">43.50€</span>
+                    </div>
+                    <div class="product-stock">
+                        <span class="stock-out">Rupture</span>
+                        <span class="stock-qty">de stock</span>
+                    </div>
+                    <button class="add-to-cart disabled">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <!-- Autres produits... -->
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span class="sort-label">Trier par :</span>
+            <select class="sort-select">
+                <option>Popularité</option>
+            </select>
+        </div>
+        <div class="top-bar-right">
+            <button class="view-grid">🟥</button>
+            <button class="view-list active">📱</button>
+        </div>
+    </div>
+</div>
+
+@* @page
+@model E_commerce_c_charp.Pages_Catalogue.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Catalogue[0].Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Catalogue) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ *@

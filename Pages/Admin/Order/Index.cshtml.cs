@@ -10,16 +10,22 @@ using E_commerce_c_charp.Models;
 using E_commerce_c_charp.ViewModels.Admin;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Text;
+using NuGet.Protocol;
 
 namespace E_commerce_c_charp.Pages_Admin_Order;
 
 public class IndexModel : PageModel
 {
     private readonly E_commerce_c_charpContext _context;
+    private readonly ILogger<OrderDetailViewModel> _logger;
 
-    public IndexModel(E_commerce_c_charpContext context)
+    public IndexModel(
+        E_commerce_c_charpContext context,
+        ILogger<OrderDetailViewModel> logger
+    )
     {
         _context = context;
+        _logger = logger;
     }
 
     public string AdminName { get; set; } = "Administrateur";
@@ -51,7 +57,7 @@ public class IndexModel : PageModel
                         .Select(s => new SelectListItem
                         {
                             Value = s.ToString(),
-                            Text  = s.GetDisplayName()
+                            Text = s.GetDisplayName()
                         })
                         .ToList();
 
@@ -86,10 +92,11 @@ public class IndexModel : PageModel
         }).ToList();
 
         // Compteurs par statut (sans tenir compte du filtre)
-        CountPending   = await _context.Order.CountAsync(o => o.Status == Status.Pending);
+        CountPending = await _context.Order.CountAsync(o => o.Status == Status.Pending);
         CountCancelled = await _context.Order.CountAsync(o => o.Status == Status.Cancelled);
         CountCompleted = await _context.Order.CountAsync(o => o.Status == Status.Completed);
         CountDelivered = await _context.Order.CountAsync(o => o.Status == Status.Delivered);
+
     }
 
     public async Task<IActionResult> OnPostChangeStatusAsync(int orderId, Status status)
@@ -119,19 +126,19 @@ public class IndexModel : PageModel
         var orders = await query
                     .OrderByDescending(o => o.CreatedAt)
                     .ToListAsync();
-        
+
         var stringBuilder = new StringBuilder();
         stringBuilder.AppendLine("IdCommande;Date;Client;Articles;Total;Statut");
 
         foreach (var o in orders)
         {
             stringBuilder.AppendLine(
-                $"{o.Id};" + 
+                $"{o.Id};" +
                 $"{o.CreatedAt};" +
                 $"{o.User.Email};" +
                 $"{o.Items.Sum(i => i.Quantity)};" +
                 /* $"{o.Items.Count()};" + */
-                $"{o.TotalAmount};" + 
+                $"{o.TotalAmount};" +
                 $"{o.Status.GetDisplayName()}"
             );
         }
@@ -142,4 +149,44 @@ public class IndexModel : PageModel
         var fileName = $"commandes_{DateTime.UtcNow::yyyyMMdd_HHmmss}.csv";
         return File(bytes, "text/csv", fileName);
     }
+
+    public OrderDetailViewModel OrderDetailViewModel { get; set; } = new OrderDetailViewModel();
+    public int? Id { get; set; } = default!;
+
+    // SUPPRIME TOUT le reste, garde SEULEMENT ça :
+
+    public async Task<IActionResult> OnGetOrderDetailsJsonAsync(int id)
+    {
+        var order = await _context.Order
+            .Include(o => o.Items).ThenInclude(oi => oi.Product)
+            .Include(o => o.User)
+            .FirstOrDefaultAsync(m => m.Id == id);
+
+        if (order == null)
+        {
+            return NotFound(new { error = "Commande introuvable" });
+        }
+
+        var viewModel = new OrderDetailViewModel
+        {
+            Id = id,
+            DateCommande           = order.CreatedAt,
+            StatusCommande         = order.Status.GetDisplayName(),
+            ModeLivraison          = "Mode express",
+            PrixHT                 = order.PrixHT,
+            PrixTotalCommande      = order.PrixTTC,
+            AdresseCommande        = $"{order.Address}, {order.City}",
+            orderItemRowViewModels = order.Items?.Select(oi => new OrderItemRowViewModel
+            {
+                NomProduit = oi?.Product?.Name ?? "Produit supprimé",
+                Quantite   = oi?.Quantity ?? 0,
+                PrixUnit   = oi?.UnitPrice ?? 0m,
+                PrixTotal  = (oi?.UnitPrice ?? 0m) * (oi?.Quantity ?? 0),
+                ImageUrl   = oi?.Product?.ImageUrl ?? "/img/placeholder-product.jpg"
+            }).ToList() ?? new()
+        };
+
+        return new JsonResult(viewModel);
+    }
+
 }

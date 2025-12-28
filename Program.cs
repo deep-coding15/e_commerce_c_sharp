@@ -208,8 +208,29 @@ app.MapRazorPages()
 // ENDPOINTS PERSONNALISES - Redirections et API
 // ====================================================================================================
 
-// Page d'accueil → Liste des produits
-app.MapGet("/", () => Results.Redirect("/Product/Index"));
+// Page d'accueil :
+// - Client : Liste des produits
+// - Admin  : Dashbaord Application
+
+app.MapGet("/", (HttpContext context) =>
+{
+    var user = context.User;
+
+    // Non connecté => page client par défaut
+    if (user?.Identity is null || !user.Identity.IsAuthenticated)
+    {
+        return Results.Redirect("/Product/Index");
+    }
+
+    // Admin
+    if (user.IsInRole("Admin"))
+    {
+        return Results.Redirect("/Admin/Dashboard/Index");
+    }
+
+    // Client normal
+    return Results.Redirect("/Product/Index");
+});
 
 // API TOKEN CSRF - Génère et stocke le token dans un cookie
 app.MapGet("/antiforgery/token", (IAntiforgery antiForgery, HttpContext context) =>
@@ -224,6 +245,7 @@ app.MapGet("/antiforgery/token", (IAntiforgery antiForgery, HttpContext context)
 // Redirections API générales
 app.MapGet("/api", () => Results.Redirect("/Product/Index"));
 app.MapGet("/Checkout", () => Results.Redirect("/Checkout/Index"));
+app.MapGet("/Catalogue", () => Results.Redirect("/Catalogue/Index"));
 
 // GROUPE PRODUITS - /api/Product
 var productItems = app.MapGroup("/api/Product");

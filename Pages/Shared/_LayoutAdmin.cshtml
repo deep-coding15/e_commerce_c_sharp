@@ -42,25 +42,25 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Admin/Products") == true ? "active" : "")"
+                        <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Admin/Product") == true ? "active" : "")"
                             asp-page="/Admin/Product/Index">
                             <i class="bi bi-box-seam"></i> Produits
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Admin/Orders") == true ? "active" : "")"
+                        <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Admin/Order") == true ? "active" : "")"
                             asp-page="/Admin/Order/Index">
                             <i class="bi bi-receipt"></i> Commandes
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Admin/Users") == true ? "active" : "")"
+                        <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Admin/User") == true ? "active" : "")"
                             asp-page="/Admin/User/Index">
                             <i class="bi bi-people"></i> Utilisateurs
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Admin/Analytics") == true ? "active" : "")"
+                        <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Admin/Analytic") == true ? "active" : "")"
                             asp-page="/Admin/Analytic/Index">
                             <i class="bi bi-graph-up"></i> Analytiques
                         </a>

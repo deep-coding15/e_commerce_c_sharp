@@ -1,0 +1,240 @@
+.catalogue-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8fafc;
+    min-height: 100vh;
+}
+
+.catalogue-header {
+    padding: 20px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.catalogue-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+/* Main Layout */
+.catalogue-main {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Sidebar Filters */
+.filters-sidebar {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0,0, 0.1);
+    height: fit-content;
+}
+
+.filter-section h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.filter-group {
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+}
+
+.filter-group:hover {
+    background: #f1f5f9;
+}
+
+.filter-group.active {
+    background: #3b82f6;
+    color: white;
+    border-color: #2563eb;
+}
+
+.filter-group label {
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px -3px rgba(0, 0,0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -5px rgba(0, 0,0, 0.15);
+}
+
+.product-image {
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 24px;
+}
+
+.product-info h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 16px 0;
+    line-height: 1.4;
+}
+
+.product-price {
+    margin-bottom: 12px;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #059669;
+}
+
+.old-price {
+    font-size: 1.1rem;
+    color: #6b7280;
+    text-decoration: line-through;
+    margin-left: 12px;
+}
+
+.product-stock {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.stock-in {
+    color: #059669;
+    font-weight: 500;
+}
+
+.stock-out {
+    color: #dc2626;
+    font-weight: 500;
+}
+
+.stock-qty {
+    margin-left: 8px;
+    opacity: 0.7;
+}
+
+.add-to-cart {
+    width: 100%;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.add-to-cart:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+.add-to-cart.disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Top Bar */
+.top-bar {
+    position: sticky;
+    top: 20px;
+    background: white;
+    padding: 16px 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0,0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    z-index: 10;
+}
+
+.top-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sort-label {
+    font-weight: 500;
+    color: #374151;
+}
+
+.sort-select {
+    padding: 8px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    background: white;
+    font-weight: 500;
+}
+
+.top-bar-right button {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 12px;
+    background: #f1f5f9;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: all 0.2s;
+    font-size: 1.2rem;
+}
+
+.top-bar-right button.active,
+.top-bar-right button:hover {
+    background: #3b82f6;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .catalogue-main {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters-sidebar {
+        order: 2;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+        padding: 16px;
+    }
+}

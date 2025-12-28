@@ -1,6 +1,8 @@
 @page
 @model E_commerce_c_charp.Pages_Admin_Product.IndexModel
-@{ Layout = "_LayoutAdmin"; }
+@{
+    Layout = "_LayoutAdmin";
+}
 
 @{
     ViewData["Title"] = "Produits - Admin";
@@ -13,18 +15,16 @@
                 <span class="input-group-text bg-white border-end-0">
                     <i class="bi bi-search"></i>
                 </span>
-                <input type="text"
-                       name="Search"
-                       value="@Model.Search"
-                       class="form-control border-start-0"
-                       placeholder="Rechercher un produit..." />
+                <input type="text" name="Search" value="@Model.Search" class="form-control border-start-0"
+                    placeholder="Rechercher un produit..." />
             </div>
         </form>
     </div>
     <div>
-        <a asp-page="Create" class="btn btn-primary">
-            <i class="bi bi-plus-lg me-1"></i> Ajouter un produit
-        </a>
+        <!-- Bouton pour ouvrir le modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+            <i class="bi bi-plus-circle me-1"></i>Ajouter un produit
+        </button>
     </div>
 </div>
 
@@ -74,51 +74,247 @@
                     <th>Prix</th>
                     <th>Stock</th>
                     <th>Statut</th>
-                    <th class="text-end pe-4">Actions</th>
+                    <th class="text-center pe-4">Actions</th>
                 </tr>
             </thead>
             <tbody>
-@foreach (var item in Model.Products)
-{
-                <tr>
-                    <td class="ps-4">
-                        <img src="@item.ImageUrl"
-                             alt="@item.Name"
-                             class="rounded"
-                             style="width:60px;height:60px;object-fit:cover;" />
-                    </td>
-                    <td>
-                        <div>@item.Name</div>
-                        <small class="text-muted">@item.Brand</small>
-                    </td>
-                    <td>@item.Category?.Name</td>
-                    <td>@item.Price.ToString("0.00") €</td>
-                    <td class="text-success">@item.StockQuantity</td>
-                    <td>
-                        @if (item.IsFeatured)
-                        {
-                            <span class="badge bg-primary-subtle text-primary border border-primary-subtle">
-                                Vedette
-                            </span>
-                        }
-                    </td>
-                    <td class="text-end pe-4">
-                        <a asp-page="Edit" asp-route-id="@item.Id"
-                           class="btn btn-sm btn-link text-primary">
-                            <i class="bi bi-pencil"></i>
-                        </a>
-                        <a asp-page="Details" asp-route-id="@item.Id"
-                           class="btn btn-sm btn-link text-secondary">
-                            <i class="bi bi-eye"></i>
-                        </a>
-                        <a asp-page="Delete" asp-route-id="@item.Id"
-                           class="btn btn-sm btn-link text-danger">
-                            <i class="bi bi-trash"></i>
-                        </a>
-                    </td>
-                </tr>
-}
+                @foreach (var item in Model.Products)
+                {
+                    <tr>
+                        <td class="ps-4">
+                            <img src="@item.ImageUrl" alt="@item.Name" class="rounded"
+                                style="width:60px;height:60px;object-fit:cover;" />
+                        </td>
+                        <td>
+                            <div>@item.Name</div>
+                            <small class="text-muted">@item.Brand</small>
+                        </td>
+                        <td>@item.Category?.Name</td>
+                        <td>@item.Price.ToString("0.00") €</td>
+                        <td class="text-success">@item.StockQuantity</td>
+                        <td>
+                            @if (item.IsFeatured)
+                            {
+                                <span class="badge bg-primary-subtle text-primary border border-primary-subtle">
+                                    Vedette
+                                </span>
+                            }
+                            @if (item.StockQuantity > 20)
+                            {
+                                <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                    <i class="bi bi-check-circle me-1"></i>En Stock @* (@item.StockQuantity) *@
+                                </span>
+                            }
+                            else if (item.StockQuantity > 0)
+                            {
+                                <span class="badge bg-warning-subtle text-warning border border-warning-subtle">
+                                    <i class="bi bi-exclamation-triangle me-1"></i>
+                                    Faible Stock @*  (@item.StockQuantity) *@
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger-subtle text-danger border border-danger-subtle">
+                                    <i class="bi bi-x-circle me-1"></i>Rupture
+                                </span>
+                            }
+
+                        </td>
+                        <td class="text-center pe-4">
+                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-link text-primary">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a asp-page="Details" asp-route-id="@item.Id" class="btn btn-sm btn-link text-secondary">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a asp-page="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-link text-danger">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
+    </div>
+</div>
+
+<!-- Modal Ajouter Produit -->
+<div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header border-0 pb-3">
+                <h5 class="modal-title fw-bold text-primary" id="addProductModalLabel">
+                    <i class="bi bi-plus-circle me-2"></i>Nouveau produit
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="addProductForm" method="post" asp-page-handler="CreateProduct">
+                <div class="modal-body p-4">
+                    <div class="row g-3">
+                        <!-- SKU (OBLIGATOIRE) -->
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-muted small mb-1">SKU <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-lg" name="InputProduct.Sku"
+                                placeholder="SKU123" required>
+                        </div>
+
+                        <!-- Nom produit -->
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-muted small mb-1">Nom <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-lg" name="InputProduct.Name"
+                                placeholder="T-Shirt Premium" required>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="col-12">
+                            <label class="form-label fw-semibold text-muted small mb-1">Description</label>
+                            <textarea class="form-control" name="InputProduct.Description" rows="3"></textarea>
+                        </div>
+
+                        <!-- Prix et Stock -->
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-muted small mb-1">Prix (€) <span
+                                    class="text-danger">*</span></label>
+                            <input type="number" step="0.01" class="form-control form-control-lg"
+                                name="InputProduct.Price" min="0" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-muted small mb-1">Stock <span
+                                    class="text-danger">*</span></label>
+                            <input type="number" class="form-control form-control-lg" name="InputProduct.StockQuantity"
+                                min="0" required>
+                        </div>
+
+                        <!-- RATING (OBLIGATOIRE) 1-5 -->
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-muted small mb-1">Note (1-5) <span
+                                    class="text-danger">*</span></label>
+                            <select class="form-select" name="InputProduct.Rating" required>
+                                <option value="">Choisir note</option>
+                                <option value="R">1 ⭐</option>
+                                <option value="RR">2 ⭐⭐</option>
+                                <option value="RRR">3 ⭐⭐⭐</option>
+                                <option value="RRRR">4 ⭐⭐⭐⭐</option>
+                                <option value="RRRRR">5 ⭐⭐⭐⭐⭐</option>
+                            </select>
+                        </div>
+
+                        <!-- IMAGE URL (OBLIGATOIRE) -->
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-muted small mb-1">Image URL <span
+                                    class="text-danger">*</span></label>
+                            <input type="url" class="form-control form-control-lg" name="InputProduct.ImageUrl"
+                                placeholder="https://..." required>
+                        </div>
+
+                        <!-- Catégorie (CategoryId) -->
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold text-muted small mb-1">Catégorie <span
+                                    class="text-danger">*</span></label>
+                            <select class="form-select" name="InputProduct.Category" required>
+                                <option value="">Choisir...</option>
+                                @foreach (var cat in Model.Categories)
+                                {
+                                    <option value="@cat">@cat.Name</option>
+                                }
+                            </select>
+                        </div>
+
+                        <!-- IsFeatured CHECKBOX CORRIGÉ -->
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="InputProduct.IsFeatured"
+                                    id="featuredProduct" value="true">
+                                <label class="form-check-label fw-semibold" for="featuredProduct">
+                                    Page d'accueil
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0 px-4 pb-4">
+                    <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">
+                        Annuler
+                    </button>
+                    <button type="submit" class="btn btn-primary px-4 fw-semibold">
+                        <i class="bi bi-check-circle me-2"></i>Enregistrement...
+                    </button>
+                </div>
+            </form>
+
+            @* <form id="addProductForm" method="post" asp-page-handler="CreateProduct">
+                <div class="modal-body p-4">
+                    <div class="row g-3">
+                        <!-- Nom produit -->
+                        <div class="col-12">
+                            <label for="productName" class="form-label fw-semibold text-muted small mb-1">Nom du produit
+                                <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-lg border-primary" id="productName"
+                                name="InputProduct.Name" placeholder="Ex: T-Shirt Premium EcoweAR" required>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="col-12">
+                            <label for="productDescription"
+                                class="form-label fw-semibold text-muted small mb-1">Description <span
+                                    class="text-danger">*</span></label>
+                            <textarea class="form-control border-primary" id="productDescription"
+                                name="InputProduct.Description" rows="3" placeholder="Décrivez votre produit..."
+                                required></textarea>
+                        </div>
+
+                        <!-- Prix et Stock -->
+                        <div class="col-md-6">
+                            <label for="productPrice" class="form-label fw-semibold text-muted small mb-1">Prix (€)
+                                <span class="text-danger">*</span></label>
+                            <input type="number" step="0.01" class="form-control form-control-lg border-primary"
+                                id="productPrice" name="InputProduct.Price" placeholder="47.5" min="0" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="productStock" class="form-label fw-semibold text-muted small mb-1">Stock <span
+                                    class="text-danger">*</span></label>
+                            <input type="number" class="form-control form-control-lg border-primary" id="productStock"
+                                name="InputProduct.StockQuantity" placeholder="0" min="0" required>
+                        </div>
+
+                        <!-- Catégorie -->
+                        <div class="col-md-6">
+                            <label for="productCategory" class="form-label fw-semibold text-muted small mb-1">Catégorie
+                                <span class="text-danger">*</span></label>
+                            <select class="form-select form-select-lg border-primary" id="productCategory"
+                                name="InputProduct.CategoryId" required>
+                                <option value="">Choisir une catégorie</option>
+                                @foreach (var cat in Model.Categories)
+                                {
+                                    <option value="@cat.Id">@cat.Name</option>
+                                }
+                            </select>
+                        </div>
+
+                        <!-- Page d'accueil -->
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="featuredProduct"
+                                    name="InputProduct.IsFeatured">
+                                <label class="form-check-label fw-semibold" for="featuredProduct">
+                                    Mettre en vente sur la page d'accueil
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer border-0 pt-0 px-4 pb-4">
+                    <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">
+                        Annuler
+                    </button>
+                    <button type="submit" class="btn btn-primary px-4 fw-semibold">
+                        <i class="bi bi-check-circle me-2"></i>Enregistrement...
+                    </button>
+                </div>
+            </form> *@
+        </div>
     </div>
 </div>

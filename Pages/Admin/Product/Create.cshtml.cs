@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using E_commerce_c_charp.Data;
 using E_commerce_c_charp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_commerce_c_charp.Pages_Admin_Product
 {
@@ -19,9 +20,11 @@ namespace E_commerce_c_charp.Pages_Admin_Product
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public List<Category> Categories { get; set; } = new();
+        public async Task<IActionResult> OnGet()
         {
-        ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
+            Categories = await _context.Category.ToListAsync();
+            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
             return Page();
         }
 

@@ -1,15 +1,15 @@
 @page
 @model E_commerce_c_charp.Pages_Admin_Product.CreateModel
 
-        @{
-        ViewData["Title"] = "Create";
-        }
-        
-        <h1>Create</h1>
-        
-    <h4>Product</h4>
-    <hr />
-    <div class="row">
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Product</h4>
+<hr />
+@* <div class="row">
     <div class="col-md-4">
     <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -67,12 +67,120 @@
             </div>
         </form>
     </div>
+</div> *@
+
+<!-- Bouton pour ouvrir le modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+    <i class="bi bi-plus-circle me-1"></i>Nouveau produit
+</button>
+
+<!-- Modal Ajouter Produit -->
+<div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header border-0 pb-3">
+                <h5 class="modal-title fw-bold text-primary" id="addProductModalLabel">
+                    <i class="bi bi-plus-circle me-2"></i>Nouveau produit
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form id="addProductForm" method="post" asp-page-handler="CreateProduct">
+                <div class="modal-body p-4">
+                    <div class="row g-3">
+                        <!-- Nom produit -->
+                        <div class="col-12">
+                            <label for="productName" class="form-label fw-semibold text-muted small mb-1">Nom du produit
+                                <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-lg border-primary" id="productName"
+                                name="Product.Name" placeholder="Ex: T-Shirt Premium EcoweAR" required>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="col-12">
+                            <label for="productDescription"
+                                class="form-label fw-semibold text-muted small mb-1">Description <span
+                                    class="text-danger">*</span></label>
+                            <textarea class="form-control border-primary" id="productDescription"
+                                name="Product.Description" rows="3" placeholder="Décrivez votre produit..."
+                                required></textarea>
+                        </div>
+
+                        <!-- Prix et Stock -->
+                        <div class="col-md-6">
+                            <label for="productPrice" class="form-label fw-semibold text-muted small mb-1">Prix (€)
+                                <span class="text-danger">*</span></label>
+                            <input type="number" step="0.01" class="form-control form-control-lg border-primary"
+                                id="productPrice" name="Product.Price" placeholder="47.5" min="0" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="productStock" class="form-label fw-semibold text-muted small mb-1">Stock <span
+                                    class="text-danger">*</span></label>
+                            <input type="number" class="form-control form-control-lg border-primary" id="productStock"
+                                name="Product.StockQuantity" placeholder="0" min="0" required>
+                        </div>
+
+                        <!-- Catégorie -->
+                        <div class="col-md-6">
+                            <label for="productCategory" class="form-label fw-semibold text-muted small mb-1">Catégorie
+                                <span class="text-danger">*</span></label>
+                            <select class="form-select form-select-lg border-primary" id="productCategory"
+                                name="Product.CategoryId" required>
+                                <option value="">Choisir une catégorie</option>
+                                @foreach (var cat in Model.Categories)
+                                {
+                                    <option value="@cat.Id">@cat.Name</option>
+                                }
+                            </select>
+                        </div>
+
+                        <!-- Marque -->
+                        <div class="col-md-6">
+                            <label for="productBrand" class="form-label fw-semibold text-muted small mb-1">Marque <span
+                                    class="text-danger">*</span></label>
+                            @*<select class="form-select form-select-lg border-primary" id="productBrand"
+                                name="Product.BrandId" required>
+                                <option value="">Choisir une marque</option>
+                                @foreach (var brand in Model.Brands)
+                                {
+                                    <option value="@brand.Id">@brand.Name</option>
+                                } 
+                            </select>*@
+                        </div>
+
+                        <!-- Page d'accueil -->
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="featuredProduct"
+                                    name="Product.IsFeatured">
+                                <label class="form-check-label fw-semibold" for="featuredProduct">
+                                    Mettre en vente sur la page d'accueil
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer border-0 pt-0 px-4 pb-4">
+                    <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">
+                        Annuler
+                    </button>
+                    <button type="submit" class="btn btn-primary px-4 fw-semibold">
+                        <i class="bi bi-check-circle me-2"></i>Enregistrement...
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
+
 
 <div>
     <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
