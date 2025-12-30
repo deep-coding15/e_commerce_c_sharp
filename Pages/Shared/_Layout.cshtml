@@ -4,6 +4,232 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="@Antiforgery.GetAndStoreTokens(Context).RequestToken" />
+    <title>@ViewData["Title"] - E-Commerce Store</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="~/css/style.css" />
+
+    <!-- GLOBAL UI IMPROVEMENTS -->
+    <style>
+        * {
+            transition: background-color .2s ease, color .2s ease, box-shadow .2s ease;
+        }
+
+        /* Top bar */
+        .top-bar {
+            font-size: 0.85rem;
+        }
+
+        /* Navbar */
+        .navbar .nav-link {
+            position: relative;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            color: #0d6efd;
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #0d6efd;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Footer */
+        footer h6 {
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        footer a {
+            transition: color .2s ease;
+        }
+
+        footer a:hover {
+            color: #ffffff !important;
+            text-decoration: underline;
+        }
+
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- TOP BAR -->
+    <div class="top-bar bg-dark text-white py-1">
+        <div class="container d-flex justify-content-between">
+            <div>
+                <i class="bi bi-envelope"></i> support@ecommerce.com
+                <span class="ms-3"><i class="bi bi-telephone"></i> +212 690 658 807</span>
+            </div>
+            <div>
+                Livraison gratuite dès 50€
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+            <div class="container">
+                
+                <!-- LOGO -->
+                <a class="navbar-brand fw-bold d-flex align-items-center gap-2" asp-page="/Index">
+                    <span class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center"
+                          style="width:36px;height:36px;">
+                        <i class="bi bi-shop"></i>
+                    </span>
+                    <span class="fs-5">E-Shop</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+
+                    <!-- MENU -->
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link px-3" asp-page="/Index">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" asp-page="/Product/Index">Produits</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" asp-page="/Order/Index">Commandes</a>
+                        </li>
+                    </ul>
+
+                    <!-- RIGHT MENU -->
+                    <ul class="navbar-nav align-items-center">
+
+                        <!-- CART -->
+                        <li class="nav-item me-3">
+                            <a class="nav-link position-relative d-flex align-items-center" asp-page="/Cart/Index">
+                                <i class="bi bi-cart3 fs-5"></i>
+                                <span class="ms-1 d-none d-lg-inline">Panier</span>
+                                @* <span class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">
+                                    0
+                                </span> *@
+                            </a>
+                        </li>
+
+                        <!-- USER -->
+                        <li class="nav-item">
+                            <partial name="_LoginPartial" />
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-fill">
+        <div class="container py-4">
+            @RenderBody()
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white mt-auto">
+        <div class="container py-5">
+            <div class="row">
+
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold"><i class="bi bi-shop"></i> E-Commerce</h5>
+                    <p class="small text-white-50">
+                        Votre boutique en ligne de confiance.
+                    </p>
+                    <div class="social-links d-flex gap-2 mt-3">
+                        <a class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-facebook"></i></a>
+                        <a class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h6 class="fw-semibold mb-3">Liens rapides</h6>
+                    <ul class="list-unstyled">
+                        <li><a class="text-white-50 text-decoration-none">À propos</a></li>
+                        <li><a class="text-white-50 text-decoration-none">Contact</a></li>
+                        <li><a class="text-white-50 text-decoration-none">FAQ</a></li>
+                        <li><a asp-page="/Privacy" class="text-white-50 text-decoration-none">Confidentialité</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h6 class="fw-semibold mb-3">Service client</h6>
+                    <ul class="list-unstyled">
+                        <li><a class="text-white-50 text-decoration-none">Mon compte</a></li>
+                        <li><a class="text-white-50 text-decoration-none">Suivi commande</a></li>
+                        <li><a class="text-white-50 text-decoration-none">Retours</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h6 class="fw-semibold mb-3">Newsletter</h6>
+                    <p class="small text-white-50">Recevez nos offres exclusives</p>
+                    <form class="input-group">
+                        <input type="email" class="form-control" placeholder="Votre email">
+                        <button class="btn btn-primary"><i class="bi bi-send"></i></button>
+                    </form>
+                </div>
+
+            </div>
+
+            <hr class="border-secondary">
+
+            <div class="d-flex justify-content-between small text-white-50">
+                <span>© 2025 E-Commerce. Tous droits réservés.</span>
+                <span>
+                    <i class="bi bi-credit-card"></i>
+                    <i class="bi bi-paypal ms-2"></i>
+                    <i class="bi bi-wallet2 ms-2"></i>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+@* @using Microsoft.AspNetCore.Antiforgery
+@inject IAntiforgery Antiforgery
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
     <meta name="csrf-token" content="@Antiforgery.GetAndStoreTokens(Context).RequestToken" />
     <title>@ViewData["Title"] - E-Commerce Store</title>
@@ -14,7 +240,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/E_commerce_c_charp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
 </head>
 <body>
     <!-- Top Bar -->
@@ -73,14 +299,29 @@
                     </ul>
 
                     <!-- Search Bar -->
-                    <form class="d-flex me-3" role="search">
+                    @* <form class="d-flex me-3" role="search">
                         <div class="input-group">
                             <input class="form-control" type="search" placeholder="Rechercher un produit..." aria-label="Search">
                             <button class="btn btn-outline-primary" type="submit">
                                 <i class="bi bi-search"></i>
                             </button>
                         </div>
-                    </form>
+                    </form> *@
+                    @* @if (Context.Request.Path.Value == "/Product" || Context.Request.Path.Value?.StartsWith("/Product?") == true)
+                    {
+                        <form class="d-flex me-3" role="search">
+                            <div class="input-group">
+                                <input class="form-control me-2" type="search" 
+                                    placeholder="Rechercher un produit..." 
+                                    aria-label="Search"
+                                    name="searchTerm"
+                                    value="@Context.Request.Query["searchTerm"]">
+                                <button class="btn btn-outline-primary" type="submit">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    } * @
 
                     <!-- Right Menu: Cart & User -->
                     <ul class="navbar-nav">
@@ -103,7 +344,6 @@
     </header>
 
     <!-- Main Content avec flex: 1 0 auto -->
-    @* <main class="mb-5"> *@
     <main class="flex-fill">
         <div class="container mt-4">
             @RenderBody()
@@ -192,3 +432,4 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+ *@

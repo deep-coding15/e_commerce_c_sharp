@@ -2,6 +2,248 @@
 @model E_commerce_c_charp.Pages_Admin_Product.EditModel
 
 @{
+    Layout = "_LayoutAdmin";
+}
+
+@{
+    ViewData["Title"] = $"Modifier - {Model.Product.Name}";
+}
+
+<div class="container-fluid py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="h3 mb-1">
+                <i class="bi bi-pencil-square me-2 text-primary"></i>
+                Modifier le produit
+            </h1>
+            <p class="text-muted mb-0">
+                SKU: <strong>@Model.Product.Sku</strong> |
+                <span class="badge @(Model.Product.StockQuantity > 0 ? "bg-success" : "bg-danger")">
+                    @Model.Product.StockQuantity en stock
+                </span>
+            </p>
+        </div>
+        <div class="d-flex gap-2">
+            <a asp-page="./Details" asp-route-id="@Model.Product.Id" class="btn btn-outline-primary">
+                <i class="bi bi-eye me-2"></i>Prévisualiser
+            </a>
+            <a asp-page="./Index" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left me-2"></i>Retour à la liste
+            </a>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Image + Aperçu -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-light border-0">
+                    <h6 class="mb-0">
+                        <i class="bi bi-image me-2"></i>Aperçu visuel
+                    </h6>
+                </div>
+                <div class="card-body text-center p-4">
+                    <div class="position-relative mb-3">
+                        <img id="previewImage"
+                            src="@(Model.Product.ImageUrl ?? "https://via.placeholder.com/400x400?text=Ajouter+Image")"
+                            class="img-fluid rounded-3 shadow mx-auto d-block"
+                            style="max-height: 300px; width: 100%; object-fit: cover;" alt="@Model.Product.Name"
+                            loading="lazy" />
+                        <div class="position-absolute top-0 end-0 p-2">
+                            <span
+                                class="badge @(string.IsNullOrEmpty(Model.Product.ImageUrl) ? "bg-warning text-dark" : "bg-success")">
+                                @if (string.IsNullOrEmpty(Model.Product.ImageUrl))
+                                {
+                                    <text>Aucune image</text>
+                                }
+                                else
+                                {
+
+                                    <text>OK</text>
+                                }
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <input asp-for="Product.ImageUrl" class="form-control"
+                            placeholder="https://example.com/image.jpg" id="imageUrlInput" />
+                        <button class="btn btn-outline-secondary" type="button" id="previewBtn">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                    <div class="form-text">URL d'image ou lien CDN</div>
+                    <span asp-validation-for="Product.ImageUrl" class="text-danger small d-block"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulaire principal -->
+        <div class="col-lg-8">
+            <form method="post">
+                <input type="hidden" asp-for="Product.ImageUrl" class="form-control"
+                            placeholder="https://example.com/image.jpg" id="imageUrlInput" />
+
+                <input type="hidden" asp-for="Product.Id" />
+                <input type="hidden" asp-for="Product.CategoryId" />
+                
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-header bg-primary text-white border-0">
+                        <h5 class="mb-0">
+                            <i class="bi bi-gear me-2"></i>Informations principales
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-4">
+                            <!-- SKU + Nom -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Product.Sku" class="form-control" required />
+                                    <label asp-for="Product.Sku"><span class="text-danger">*</span> SKU</label>
+                                    <span asp-validation-for="Product.Sku" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Product.Name" class="form-control" required />
+                                    <label asp-for="Product.Name"><span class="text-danger">*</span> Nom du
+                                        produit</label>
+                                    <span asp-validation-for="Product.Name" class="text-danger small"></span>
+                                </div>
+                            </div>
+
+                            <!-- Prix + Stock -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Product.Price" class="form-control" type="number" step="0.01"
+                                        min="0" required />
+                                    <label asp-for="Product.Price"><span class="text-danger">*</span> Prix (€)</label>
+                                    <span asp-validation-for="Product.Price" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Product.StockQuantity" class="form-control" type="number" min="0" />
+                                    <label asp-for="Product.StockQuantity">Stock</label>
+                                    <span asp-validation-for="Product.StockQuantity" class="text-danger small"></span>
+                                </div>
+                            </div>
+
+                            <!-- Marque + Catégorie -->
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Product.Brand" class="form-control" />
+                                    <label asp-for="Product.Brand">Marque</label>
+                                    <span asp-validation-for="Product.Brand" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select asp-for="Product.CategoryId" class="form-control" required>
+                                        <option value="">Choisir une catégorie</option>
+                                        @foreach (var cat in (SelectList)ViewBag.CategoryId)
+                                        {
+                                            <option value="@cat.Value">@cat.Text</option>
+                                        }
+                                    </select>
+                                    <label><span class="text-danger">*</span> Catégorie</label>
+                                    <span asp-validation-for="Product.CategoryId" class="text-danger small"></span>
+                                </div>
+                            </div>
+
+                            <!-- Description + Rating -->
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea asp-for="Product.Description" class="form-control" rows="4"
+                                        required></textarea>
+                                    <label asp-for="Product.Description"><span class="text-danger">*</span>
+                                        Description</label>
+                                    <span asp-validation-for="Product.Description" class="text-danger small"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Product.Rating" class="form-control" type="number" min="0" max="5"
+                                        step="0.1" required />
+                                    <label asp-for="Product.Rating"><span class="text-danger">*</span> Note (/5)</label>
+                                    <div class="form-text">Ex: 4.5, 3.8 (0 à 5)</div>
+                                    <span asp-validation-for="Product.Rating" class="text-danger small"></span>
+                                </div>
+                            </div>
+
+                            <!-- Switches spéciaux -->
+                            <div class="col-12">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="isFeatured"
+                                                asp-for="Product.IsFeatured">
+                                            <label class="form-check-label" for="isFeatured">
+                                                <i class="bi bi-star-fill me-2 text-warning"></i>
+                                                Mettre en vedette (accueil)
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="card-footer bg-light border-0">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a asp-page="./Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left me-2"></i>Annuler
+                            </a>
+                            <div class="d-flex gap-2">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="bi bi-check-lg me-2"></i>
+                                    Enregistrer les modifications
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        // Prévisualisation image en temps réel
+        document.getElementById('imageUrlInput').addEventListener('input', function () {
+            const url = this.value;
+            const preview = document.getElementById('previewImage');
+            if (url) {
+                preview.src = url;
+                preview.onerror = () => preview.src = 'https://via.placeholder.com/400x400?text=Image+Introuvable';
+            } else {
+                preview.src = 'https://via.placeholder.com/400x400?text=Ajouter+Image';
+            }
+        });
+
+        document.getElementById('previewBtn').addEventListener('click', function () {
+            const input = document.getElementById('imageUrlInput');
+            const preview = document.getElementById('previewImage');
+            preview.src = input.value || 'https://via.placeholder.com/400x400?text=Ajouter+Image';
+        });
+
+        // Champs obligatoires en évidence
+        document.querySelectorAll('input[required], select[required], textarea[required]').forEach(el => {
+            el.closest('.form-floating').querySelector('label').classList.add('fw-semibold');
+        });
+    </script>
+}
+@* @page
+@model E_commerce_c_charp.Pages_Admin_Product.EditModel
+
+@{
     ViewData["Title"] = "Edit";
 }
 
@@ -82,3 +324,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+ *@

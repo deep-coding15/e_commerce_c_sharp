@@ -2,6 +2,124 @@
 @model LoginModel
 
 @{
+    ViewData["Title"] = "Connexion";
+}
+
+<div class="d-flex align-items-center justify-content-center min-vh-100 bg-light">
+    <div class="card shadow-lg border-0" style="max-width: 900px; width: 100%;">
+        <div class="row g-0">
+            <!-- Colonne gauche : visuel / branding -->
+            <div class="col-md-5 d-none d-md-flex bg-primary text-white flex-column justify-content-center align-items-center p-4">
+                <h2 class="fw-bold mb-3 text-center">Bienvenue sur votre boutique</h2>
+                <p class="text-center mb-4">
+                    Connectez-vous pour suivre vos commandes, gérer vos adresses
+                    et profiter d’une expérience d’achat personnalisée.
+                </p>
+                <i class="bi bi-bag-check-fill" style="font-size: 3rem;"></i>
+            </div>
+
+            <!-- Colonne droite : formulaire -->
+            <div class="col-md-7 p-4 p-md-5">
+                <h3 class="mb-3 text-center">Connexion</h3>
+                <p class="text-muted text-center mb-4">
+                    Utilisez votre compte pour accéder à votre espace client.
+                </p>
+
+                <form id="account" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3" role="alert"></div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Email"
+                               class="form-control"
+                               autocomplete="username"
+                               aria-required="true"
+                               placeholder="name@example.com" />
+                        <label asp-for="Input.Email">Adresse e-mail</label>
+                        <span asp-validation-for="Input.Email" class="text-danger small"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Password"
+                               class="form-control"
+                               autocomplete="current-password"
+                               aria-required="true"
+                               placeholder="Mot de passe" />
+                        <label asp-for="Input.Password">Mot de passe</label>
+                        <span asp-validation-for="Input.Password" class="text-danger small"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" asp-for="Input.RememberMe" />
+                            <label class="form-check-label" asp-for="Input.RememberMe">
+                                @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            </label>
+                        </div>
+                        <a id="forgot-password"
+                           asp-page="./ForgotPassword"
+                           class="small text-decoration-none">
+                            Mot de passe oublié ?
+                        </a>
+                    </div>
+
+                    <button id="login-submit"
+                            type="submit"
+                            class="btn btn-primary w-100 py-2 mb-3">
+                        Se connecter
+                    </button>
+
+                    <div class="text-center mb-3">
+                        <span class="text-muted">Nouveau client ?</span>
+                        <a asp-page="./Register"
+                           asp-route-returnUrl="@Model.ReturnUrl"
+                           class="ms-1 text-decoration-none">
+                            Créer un compte
+                        </a>
+                    </div>
+
+                    @* Authentification externe *@
+                    @if ((Model.ExternalLogins?.Count ?? 0) > 0)
+                    {
+                        <div class="text-center">
+                            <span class="text-muted d-block mb-2">ou continuez avec</span>
+                            @foreach (var provider in Model.ExternalLogins!)
+                            {
+                                <button type="submit"
+                                        class="btn btn-outline-secondary btn-sm mx-1"
+                                        name="provider"
+                                        value="@provider.Name"
+                                        title="Se connecter avec @provider.DisplayName">
+                                    @provider.DisplayName
+                                </button>
+                            }
+                        </div>
+                    }
+                </form>
+
+                @* Message si aucun provider externe configuré (facultatif / dev uniquement) *@
+                @if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <p class="mt-3 small text-muted">
+                        Aucun service d’authentification externe n’est configuré pour le moment.
+                    </p>
+                }
+
+                <p class="mt-3 small text-muted text-center">
+                    En vous connectant, vous acceptez nos conditions d’utilisation et notre politique de confidentialité.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+@* @page
+@model LoginModel
+
+@{
     ViewData["Title"] = "Log in";
 }
 
@@ -81,3 +199,4 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+ *@

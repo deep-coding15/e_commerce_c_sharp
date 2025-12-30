@@ -1,5 +1,99 @@
 ﻿@page
 @model LogoutModel
+
+@{
+    ViewData["Title"] = "Déconnexion";
+}
+
+<div class="d-flex align-items-center justify-content-center min-vh-100 bg-gradient" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <div class="card shadow-lg border-0" style="max-width: 500px; width: 100%;">
+        <div class="card-body p-5 text-center">
+            
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                <!-- État connecté : confirmation de déconnexion -->
+                <div class="mb-4">
+                    <i class="bi bi-box-arrow-right text-primary" style="font-size: 4rem;"></i>
+                </div>
+                
+                <h2 class="fw-bold mb-3 text-dark">Déconnexion</h2>
+                <p class="text-muted mb-4">
+                    Voulez-vous vraiment vous déconnecter de votre compte ?<br>
+                    <small class="text-danger">Vos données de session seront effacées.</small>
+                </p>
+
+                <div class="d-flex gap-2 justify-content-center flex-wrap">
+                    <form class="form-inline d-inline" 
+                          asp-area="Identity" 
+                          asp-page="/Account/Logout" 
+                          asp-route-returnUrl="@Url.Page("/", new { area = "" })" 
+                          method="post">
+                        <button type="submit" 
+                                class="btn btn-outline-danger btn-lg px-4"
+                                onclick="return confirm('Confirmez-vous la déconnexion ?')">
+                            <i class="bi bi-box-arrow-right me-1"></i>
+                            Oui, me déconnecter
+                        </button>
+                    </form>
+                    
+                    <a href="/" class="btn btn-outline-primary btn-lg px-4">
+                        <i class="bi bi-house-door me-1"></i>
+                        Rester connecté
+                    </a>
+                </div>
+            }
+            else
+            {
+                <!-- État déconnecté : confirmation -->
+                <div class="mb-4">
+                    <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+                </div>
+                
+                <h2 class="fw-bold mb-3 text-dark">Déconnecté avec succès</h2>
+                <p class="text-muted mb-4 lead">
+                    Vous avez été déconnecté de votre compte.
+                </p>
+
+                <div class="d-grid gap-2">
+                    <a href="/" class="btn btn-primary btn-lg">
+                        <i class="bi bi-shop me-1"></i>
+                        Continuer les achats
+                    </a>
+                    <a asp-page="/Account/Login" class="btn btn-outline-primary btn-lg">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        Me reconnecter
+                    </a>
+                </div>
+            }
+
+            <!-- Footer légal -->
+            <p class="mt-4 small text-muted">
+                <i class="bi bi-shield-check me-1"></i>
+                Votre session a été sécuritairement fermée.
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Animation de transition douce
+        document.addEventListener('DOMContentLoaded', function() {
+            const card = document.querySelector('.card');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.5s ease';
+            
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+}
+
+@* @page
+@model LogoutModel
 @{
     ViewData["Title"] = "Log out";
 }
@@ -19,3 +113,4 @@
         }
     }
 </header>
+ *@

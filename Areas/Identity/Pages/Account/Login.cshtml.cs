@@ -126,7 +126,7 @@ namespace E_commerce_c_charp.Areas.Identity.Pages.Account
                     var roles = await _userManager.GetRolesAsync(user);
 
                     if(roles.Contains("Admin")){
-                        return Redirect("~/Admin/Product/Index");
+                        return Redirect("~/Admin/Dashboard/Index");
                     }
 
                     _logger.LogInformation("User logged in.");

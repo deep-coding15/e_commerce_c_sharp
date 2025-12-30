@@ -44,6 +44,8 @@ namespace E_commerce_c_charp.Pages_Admin_Product
         {
             var query = _context.Product
                 .Include(p => p.Category)
+                .OrderByDescending(p => p.IsFeatured)   // les vedette en premier
+    //.ThenByDescending(p => p.CreatedAt)   // puis éventuellement par date de création
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(Search))

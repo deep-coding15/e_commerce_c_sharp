@@ -82,6 +82,7 @@ public class IndexModel : PageModel
         Orders = orders.Select(o => new OrderRowViewModel
         {
             Id = o.Id,
+            OrderNumber = o.OrderNumber,
             //PublicId    = o.PublicId,
             CreatedAt = o.CreatedAt,
             Email = o?.User?.Email ?? "",   // adapte au besoin (ex: masquer une partie)
@@ -134,6 +135,7 @@ public class IndexModel : PageModel
         {
             stringBuilder.AppendLine(
                 $"{o.Id};" +
+                $"{o.OrderNumber};" +
                 $"{o.CreatedAt};" +
                 $"{o.User.Email};" +
                 $"{o.Items.Sum(i => i.Quantity)};" +
@@ -169,7 +171,8 @@ public class IndexModel : PageModel
 
         var viewModel = new OrderDetailViewModel
         {
-            Id = id,
+            Id                     = id,
+            OrderNumber            = order.OrderNumber,
             DateCommande           = order.CreatedAt,
             StatusCommande         = order.Status.GetDisplayName(),
             ModeLivraison          = "Mode express",

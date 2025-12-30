@@ -126,11 +126,13 @@
                             <!-- Product Image -->
                             <div class="position-relative">
                                 <img src="@(item?.ImageUrl ?? "https://via.placeholder.com/300x250?text=Product")" 
-                                     class="card-img-top" 
-                                     alt="@item.Name">
+                                    class="card-img-top img-fluid rounded-top" 
+                                    alt="@item?.Name"
+                                    style="height: 220px; object-fit: cover;"
+                                    loading="lazy">
                                 
                                 <!-- Stock Badge -->
-                                @if (item.StockQuantity <= 0)
+                                @if (item?.StockQuantity <= 0)
                                 {
                                     <span class="position-absolute top-0 end-0 m-2 badge bg-danger">
                                         Rupture de stock

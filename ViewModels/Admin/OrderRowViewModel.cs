@@ -3,7 +3,8 @@ namespace E_commerce_c_charp.ViewModels.Admin;
 
 public class OrderRowViewModel
 {
-    public int Id { get; set; }
+    public int Id { get; set; } = default!;
+    public string OrderNumber { get; set; } = default!;
     public string PublicId { get; set; } = default!;
     public DateTime CreatedAt { get; set; }
     public string Email { get; set; } = default!;

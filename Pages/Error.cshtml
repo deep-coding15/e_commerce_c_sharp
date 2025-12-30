@@ -1,4 +1,101 @@
-﻿@page
+﻿@page "/Error/{statusCode:int?}"
+@using Microsoft.AspNetCore.Hosting
+@using Microsoft.Extensions.Hosting
+@inject IWebHostEnvironment Env
+@model ErrorModel
+@{
+    ViewData["Title"] = $"Erreur {Model.StatusCode ?? 500}";
+}
+
+<!-- Import des icônes Bootstrap si pas déjà présent dans le Layout -->
+<link rel="stylesheet" href="cdn.jsdelivr.net">
+
+<div class="d-flex align-items-center justify-content-center min-vh-100 bg-gradient"
+    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin-top: -50px;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-5 text-center">
+
+                        @if (Model.StatusCode == 404)
+                        {
+                            <i class="bi bi-exclamation-triangle-fill text-warning" style="font-size: 5rem;"></i>
+                            <h1 class="display-1 fw-bold text-warning mb-3">404</h1>
+                            <h2 class="fw-bold mb-3">Page non trouvée</h2>
+                            <p class="lead text-muted mb-4">Oups ! La page que vous cherchez n'existe pas ou a été déplacée.
+                            </p>
+                        }
+                        else if (Model.StatusCode == 403)
+                        {
+                            <i class="bi bi-shield-x text-danger" style="font-size: 5rem;"></i>
+                            <h1 class="display-1 fw-bold text-danger mb-3">403</h1>
+                            <h2 class="fw-bold mb-3">Accès interdit</h2>
+                            <p class="lead text-muted mb-4">Vous n'avez pas les permissions nécessaires pour accéder à cette
+                                ressource.</p>
+                        }
+                        else if (Model.StatusCode == 401)
+                        {
+                            <i class="bi bi-person-x text-info" style="font-size: 5rem;"></i>
+                            <h1 class="display-1 fw-bold text-info mb-3">401</h1>
+                            <h2 class="fw-bold mb-3">Non authentifié</h2>
+                            <p class="lead text-muted mb-4">Votre session a expiré ou vous devez vous connecter.</p>
+                        }
+                        else
+                        {
+                            <i class="bi bi-bug-fill text-danger" style="font-size: 5rem;"></i>
+                            <h1 class="display-1 fw-bold text-danger mb-3">@(Model.StatusCode ?? 500)</h1>
+                            <h2 class="fw-bold mb-3">Erreur serveur</h2>
+                            <p class="lead text-muted mb-4">Une erreur inattendue s'est produite de notre côté. Nos équipes
+                                ont été alertées.</p>
+                        }
+
+                        <div class="d-grid gap-3">
+                            <a href="/" class="btn btn-primary btn-lg">
+                                <i class="bi bi-house-door me-2"></i>Retour à l'accueil
+                            </a>
+
+                            @if (Model.StatusCode == 401)
+                            {
+                                <a asp-area="Identity" 
+                                    asp-page="/Account/Login"
+                                    asp-route-returnUrl="@Uri.EscapeDataString(Request.Path + Request.QueryString)"
+                                    class="btn btn-outline-primary btn-lg">
+                                        <i class="bi bi-box-arrow-in-right me-2"></i>
+                                        Me connecter
+                                </a>
+                                @* <a asp-page="/Account/Login" class="btn btn-outline-primary btn-lg">
+                                    <i class="bi bi-box-arrow-in-right me-2"></i>Me connecter
+                                </a> *@
+                            }
+                        </div>
+
+                        <br />
+                        @* <hr class="my-4"> *@
+
+                        <div class="small text-muted">
+                            @if (Model.ShowRequestId)
+                            {
+                                <p class="mb-1"><strong>ID de requête :</strong> <code>@Model.RequestId</code></p>
+                            }
+
+                            @if (!Env.IsDevelopment())
+                            {
+                                <p class="mb-0">
+                                    <i class="bi bi-clock-history me-1"></i>
+                                    Signalé le @DateTime.Now.ToString("dd/MM/yyyy HH:mm")
+                                </p>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* @page
 @model ErrorModel
 @{
     ViewData["Title"] = "Error";
@@ -24,3 +121,4 @@
     For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
     and restarting the app.
 </p>
+ *@

@@ -2,6 +2,185 @@
 @model E_commerce_c_charp.Pages_Admin_Product.DetailsModel
 
 @{
+    ViewData["Title"] = $"Détail - {Model.Product.Name}";
+}
+
+<div class="container-fluid py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="h3 mb-1">
+                <i class="bi bi-box-seam me-2 text-primary"></i>
+                Détail du produit
+            </h1>
+            <p class="text-muted mb-0">
+                <strong>@Model.Product.Name</strong> 
+                <span class="badge @(Model.Product.StockQuantity > 0 ? "bg-success" : "bg-danger") ms-2">
+                    @Model.Product.StockQuantity en stock
+                </span>
+                <span class="badge bg-@(Model.Product.IsFeatured ? "warning" : "secondary")">
+                    @(Model.Product.IsFeatured ? "🌟 Vedette" : "Standard")
+                </span>
+            </p>
+        </div>
+        <div class="d-flex gap-2">
+            <a asp-page="./Edit" asp-route-id="@Model.Product.Id" 
+               class="btn btn-warning btn-lg">
+                <i class="bi bi-pencil me-2"></i>Modifier
+            </a>
+            <a asp-page="./Index" class="btn btn-outline-secondary btn-lg">
+                <i class="bi bi-arrow-left me-2"></i>Retour à la liste
+            </a>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Image et infos principales -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body text-center p-4">
+                    <div class="position-relative">
+                        <img src="@(Model.Product.ImageUrl ?? "https://via.placeholder.com/400x400?text=Produit")" 
+                             class="img-fluid rounded-3 shadow-lg mx-auto d-block"
+                             style="max-height: 350px; width: 100%; object-fit: cover;"
+                             alt="@Model.Product.Name"
+                             loading="lazy" />
+                        @if (Model.Product.IsFeatured)
+                        {
+                            <div class="position-absolute top-0 start-0 m-2">
+                                <span class="badge bg-warning fs-6 fw-bold text-dark shadow">
+                                    🌟 VEDETTE
+                                </span>
+                            </div>
+                        }
+                    </div>
+                    <h4 class="mt-3 mb-2">@Model.Product.Name</h4>
+                    <h2 class="text-primary mb-1">@Model.Product.Price.ToString("C")</h2>
+                    <div class="mb-3">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <span class="fw-bold">@Model.Product.Rating / 5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Détails techniques -->
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-light border-0">
+                    <h5 class="mb-0">
+                        <i class="bi bi-info-circle me-2"></i>
+                        Informations détaillées
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="info-item">
+                                <label class="form-label fw-semibold text-muted">SKU</label>
+                                <div class="h5 text-dark">@Model.Product.Sku</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-item">
+                                <label class="form-label fw-semibold text-muted">Marque</label>
+                                <div class="h6">@Model.Product.Brand</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-item">
+                                <label class="form-label fw-semibold text-muted">Catégorie</label>
+                                <div class="h6">
+                                    <span class="badge bg-primary">@Model.Product.Category?.Name</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-item">
+                                <label class="form-label fw-semibold text-muted">Stock</label>
+                                <div class="h5 @(Model.Product.StockQuantity > 10 ? "text-success" : "text-warning")">
+                                    @Model.Product.StockQuantity
+                                    <small class="text-muted">unités</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="info-item">
+                                <label class="form-label fw-semibold text-muted">Description</label>
+                                <div class="mt-2">@Html.Raw(Model.Product.Description?.Replace("\n", "<br/>"))</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Actions rapides -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card bg-light border-0">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                        <div>
+                            <h6 class="mb-1">
+                                <i class="bi bi-lightning-charge me-2 text-warning"></i>
+                                Actions rapides
+                            </h6>
+                            <small class="text-muted">Gérez ce produit en 1 clic</small>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a asp-page="./Edit" asp-route-id="@Model.Product.Id" 
+                               class="btn btn-primary">
+                                <i class="bi bi-pencil-square me-1"></i> Éditer
+                            </a>
+                            @* <button class="btn btn-outline-danger" onclick="duplicateProduct(@Model.Product.Id)">
+                                <i class="bi bi-copy me-1"></i> Dupliquer
+                            </button> *@
+                            <a asp-page="./Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-list-ul me-1"></i> Voir tous les produits
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .info-item {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 0.1px solid #0d6efd;
+        box-shadow: 10 2px 4px rgba(207, 89, 89, 0.05);
+        transition: all 0.2s ease;
+    }
+    .info-item:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
+    }
+    .info-item label {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        function duplicateProduct(productId) {
+            if (confirm('Dupliquer ce produit ?')) {
+                // TODO: Implémenter la duplication
+                window.location.href = `/Admin/Product/Duplicate?id=${productId}`;
+            }
+        }
+    </script>
+}
+@* @page
+@model E_commerce_c_charp.Pages_Admin_Product.DetailsModel
+
+@{
     ViewData["Title"] = "Details";
 }
 
@@ -71,3 +250,4 @@
     <a asp-page="./Edit" asp-route-id="@Model.Product.Id">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
+ *@

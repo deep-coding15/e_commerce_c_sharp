@@ -13,10 +13,15 @@ namespace E_commerce_c_charp.Pages_Admin_Product
 {
     public class EditModel : PageModel
     {
-        private readonly E_commerce_c_charp.Data.E_commerce_c_charpContext _context;
+        private readonly E_commerce_c_charpContext _context;
+        private readonly ILogger<Product> _logger;
 
-        public EditModel(E_commerce_c_charp.Data.E_commerce_c_charpContext context)
+        public EditModel(
+            E_commerce_c_charpContext context,
+            ILogger<Product> logger
+        )
         {
+            _logger = logger;
             _context = context;
         }
 
@@ -36,7 +41,7 @@ namespace E_commerce_c_charp.Pages_Admin_Product
                 return NotFound();
             }
             Product = product;
-           ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
+            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
             return Page();
         }
 
@@ -44,16 +49,49 @@ namespace E_commerce_c_charp.Pages_Admin_Product
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            if (Product == null || Product.Id == 0)
+            {
+                TempData["Error"] = "Erreur : Produit invalide.";
+                return RedirectToPage("./Index");
+            }
+
             if (!ModelState.IsValid)
             {
+                ViewData["CategoryId"] = new SelectList(
+                    await _context.Category.ToListAsync(),
+                    "Id",
+                    "Name",
+                    Product.CategoryId
+                );
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    _logger.LogError(error.ErrorMessage);
+                }
                 return Page();
             }
 
-            _context.Attach(Product).State = EntityState.Modified;
-
             try
             {
+                var productFromDb = await _context.Product
+                    .FirstOrDefaultAsync(p => p.Id == Product.Id);
+
+                if (productFromDb == null)
+                {
+                    _logger.LogWarning($"Produit ID={Product.Id} introuvable.");
+                    return NotFound();
+                }
+
+                // Mise à jour contrôlée
+                _context.Entry(productFromDb).CurrentValues.SetValues(Product);
+
+                // Propriétés spécifiques
+                productFromDb.CategoryId = Product.CategoryId;
+                productFromDb.IsFeatured = Product.IsFeatured;
+
                 await _context.SaveChangesAsync();
+
+                _logger.LogInformation($"Produit '{Product.Name}' modifié avec succès.");
+                TempData["Success"] = $"Produit '{Product.Name}' modifié avec succès.";
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -61,14 +99,12 @@ namespace E_commerce_c_charp.Pages_Admin_Product
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
+
+                throw;
             }
 
             return RedirectToPage("./Index");
-        }
+        }   
 
         private bool ProductExists(int id)
         {

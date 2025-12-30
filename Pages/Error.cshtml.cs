@@ -13,15 +13,18 @@ public class ErrorModel : PageModel
     public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
     private readonly ILogger<ErrorModel> _logger;
+    public int? StatusCode { get; set; }
 
-    public ErrorModel(ILogger<ErrorModel> logger)
+    /* public ErrorModel(ILogger<ErrorModel> logger)
     {
         _logger = logger;
-    }
+    } */
 
-    public void OnGet()
+    public void OnGet(int? statusCode)
     {
         RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+        // Récupère le code passé dans l'URL (/Error/404) 
+        // ou celui envoyé par le middleware de réexécution
+        StatusCode = statusCode;
     }
 }
-

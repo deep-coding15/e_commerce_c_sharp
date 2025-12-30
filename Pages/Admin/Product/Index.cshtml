@@ -22,9 +22,9 @@
     </div>
     <div>
         <!-- Bouton pour ouvrir le modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+        @* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
             <i class="bi bi-plus-circle me-1"></i>Ajouter un produit
-        </button>
+        </button> *@
     </div>
 </div>
 
@@ -93,12 +93,6 @@
                         <td>@item.Price.ToString("0.00") €</td>
                         <td class="text-success">@item.StockQuantity</td>
                         <td>
-                            @if (item.IsFeatured)
-                            {
-                                <span class="badge bg-primary-subtle text-primary border border-primary-subtle">
-                                    Vedette
-                                </span>
-                            }
                             @if (item.StockQuantity > 20)
                             {
                                 <span class="badge bg-success-subtle text-success border border-success-subtle">
@@ -116,6 +110,12 @@
                             {
                                 <span class="badge bg-danger-subtle text-danger border border-danger-subtle">
                                     <i class="bi bi-x-circle me-1"></i>Rupture
+                                </span>
+                            }
+                            @if (item.IsFeatured)
+                            {
+                                <span class="badge bg-primary-subtle text-primary border border-primary-subtle">
+                                    Vedette
                                 </span>
                             }
 

@@ -108,7 +108,8 @@ namespace E_commerce_c_charp.Pages.Checkout
             var order = _mapper.Map<E_commerce_c_charp.Models.Order>(Order);
             order.UserId = user.Id;
             order.CreatedAt = DateTime.UtcNow;
-            order.Status = Status.Pending;
+            order.Status = Status.Completed;
+            order.OrderNumber = $"ORD-{DateTime.Now:yyMMdd}-{order.Id:D4}";
 
             // 2. Mapper les lignes : CheckoutViewModel.Items -> Order.Items
             order.Items = Order.Items

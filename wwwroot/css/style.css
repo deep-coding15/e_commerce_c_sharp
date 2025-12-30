@@ -1,0 +1,183 @@
+/* ================================
+   GLOBAL APP STYLE
+================================ */
+
+/* Base */
+body {
+    background-color: #f6f8fb;
+    color: #212529;
+    font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+    font-size: 0.95rem;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+h1 { font-size: 1.8rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+
+/* Page container */
+.page-container {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Page header */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.page-header h1 {
+    margin: 0;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 16px;
+}
+
+/* ================================
+   TABLES
+================================ */
+
+.table {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: #f1f5f9;
+}
+
+.table th {
+    font-weight: 600;
+    color: #334155;
+    border-bottom: none;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Table hover */
+.table-hover tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* ================================
+   FORMS
+================================ */
+
+.form-label {
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.15);
+}
+
+/* Validation */
+.text-danger {
+    font-size: 0.85rem;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #0d6efd, #2563eb);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0b5ed7, #1e40af);
+}
+
+.btn-outline-secondary:hover {
+    background-color: #f1f5f9;
+}
+
+/* ================================
+   CARDS
+================================ */
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.card-header {
+    background-color: transparent;
+    font-weight: 600;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.card-footer {
+    background-color: transparent;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* ================================
+   ALERTS
+================================ */
+
+.alert {
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+/* ================================
+   ACTION ICONS (CRUD)
+================================ */
+
+.action-icons a {
+    color: #6b7280;
+    margin-right: 8px;
+}
+
+.action-icons a:hover {
+    color: #0d6efd;
+}
+
+/* ================================
+   UTILS
+================================ */
+
+.section-divider {
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 24px 0;
+}
+
+.text-muted-small {
+    font-size: 0.85rem;
+    color: #6b7280;
+}

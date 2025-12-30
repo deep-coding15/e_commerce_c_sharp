@@ -148,8 +148,8 @@ var app = builder.Build(); // Construit l'application finale
 /** Crée un scope temporaire pour accéder aux services et initialiser la DB */
 using (var scope = app.Services.CreateScope())
 {
-    var services = scope.ServiceProvider; // Récupère le provider de services
-    await SeedData.Initialize(services); // Appelle la méthode d'initialisation
+    //var services = scope.ServiceProvider; // Récupère le provider de services
+    //await SeedData.Initialize(services); // Appelle la méthode d'initialisation
 }
 
 // ====================================================================================================
@@ -178,6 +178,10 @@ else // Développement
         config.DocExpansion = "list"; // État par défaut des sections
     });
 }
+
+// Gère les erreurs HTTP (404, 403, etc.) en réexécutant le pipeline vers une route personnalisée.
+// Le jeton {0} est remplacé par le code d'erreur tout en conservant l'URL d'origine dans le navigateur.
+app.UseStatusCodePagesWithReExecute("/Error/{0}");
 
 // 11. SÉCURITÉ HTTPS
 app.UseHttpsRedirection(); // Force HTTPS (redirige http → https)
@@ -219,17 +223,17 @@ app.MapGet("/", (HttpContext context) =>
     // Non connecté => page client par défaut
     if (user?.Identity is null || !user.Identity.IsAuthenticated)
     {
-        return Results.Redirect("/Product/Index");
+        return Results.Redirect("/Product");
     }
 
     // Admin
     if (user.IsInRole("Admin"))
     {
-        return Results.Redirect("/Admin/Dashboard/Index");
+        return Results.Redirect("/Admin/Dashboard");
     }
 
     // Client normal
-    return Results.Redirect("/Product/Index");
+    return Results.Redirect("/Index");
 });
 
 // API TOKEN CSRF - Génère et stocke le token dans un cookie
