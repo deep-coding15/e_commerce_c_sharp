@@ -38,7 +38,7 @@ namespace E_commerce_c_charp.Pages.Checkout
             var cart = await _context.Cart
                             .Include(i => i.Items)
                                 .ThenInclude(u => u.Product)
-                            .FirstOrDefaultAsync(c => c.UserId == user.Id);
+                            .FirstOrDefaultAsync(c => c.UserId == user.Id && c.IsActive == true);
 
             if (cart is null || cart.Items == null || !cart.Items.Any())
             {
@@ -82,12 +82,12 @@ namespace E_commerce_c_charp.Pages.Checkout
             var cart = await _context.Cart
                             .Include(i => i.Items)
                                 .ThenInclude(u => u.Product)
-                            .FirstOrDefaultAsync(c => c.UserId == user.Id);
+                            .FirstOrDefaultAsync(c => c.UserId == user.Id && c.IsActive);
 
             if (cart is null || cart.Items == null || !cart.Items.Any())
             {
                 // panier vide : à toi de décider quoi faire (rediriger, message, etc.)
-                Order.Items = new List<CartItemViewModel>();
+                //Order.Items = new List<CartItemViewModel>();
                 return Page(); // Panier vide
             }
 
@@ -109,21 +109,45 @@ namespace E_commerce_c_charp.Pages.Checkout
             order.UserId = user.Id;
             order.CreatedAt = DateTime.UtcNow;
             order.Status = Status.Completed;
-            order.OrderNumber = $"ORD-{DateTime.Now:yyMMdd}-{order.Id:D4}";
+            //order.OrderNumber = $"ORD-{DateTime.Now:yyMMdd}-{order.Id:D4}";
+           
+            // Format : ORD-63871234567890-0001
+            //order.OrderNumber = $"ORD-{DateTime.UtcNow.Ticks}-{order.Id:D4}";
+            // Formater après coup (ex: ORD-2026-10254)
 
             // 2. Mapper les lignes : CheckoutViewModel.Items -> Order.Items
             order.Items = Order.Items
                             .Select(i => _mapper.Map<E_commerce_c_charp.Models.OrderItem>(i)).ToList();
-
+            order.OrderNumber = "";
             // 3. Sauvegarder en BDD
             _context.Order.Add(order);
             await _context.SaveChangesAsync();
 
-            // 2. Vider le panier 
-            // Deletes everything in the Cart table directly in the database with a filter
-            await _context.Cart.Where(c => c.UserId == user.Id).ExecuteDeleteAsync();
+            order.OrderNumber = $"ORD-{DateTime.Now:yyMMdd}-{order.Id:D6}";
+            //_context.Order.Update(order);
+            await _context.SaveChangesAsync();
+            
+            // 4. Gestion  automatique des stocks
+            foreach (var OrderItem in order.Items)
+            {
+                await _context.Product.Where(p => p.Id == OrderItem.ProductId)
+                .ExecuteUpdateAsync(setters => 
+                    setters.SetProperty(p => p.StockQuantity, p=> p.StockQuantity - OrderItem.Quantity)
+                );
+            }
 
-            // 3. Rediriger vers la page de reçu avec l'Id de la commande
+            // 5. Vider le panier 
+            // make the cart inactive directly in the database with a filter
+            await _context.Cart
+                .Where(c => c.UserId == user.Id && c.IsActive)
+                .ExecuteUpdateAsync(setters =>
+                    setters.SetProperty(c => c.IsActive, false)
+                );
+
+            //await _context.Cart.Where(c => c.UserId == user.Id).ExecuteDeleteAsync();
+
+
+            // 4. Rediriger vers la page de reçu avec l'Id de la commande
             return RedirectToPage("/Order/Receipt", new { id = order.Id });
             //return RedirectToPage("/Orders/Success");
         }

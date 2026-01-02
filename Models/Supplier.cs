@@ -12,6 +12,10 @@ public class Supplier
     [Required]
     [StringLength(255)]
     public string Name { get; set; } = String.Empty;
+    [StringLength(255, MinimumLength = 3)]
+    [Display(Name = "Nom de l'entreprise")]
+    public string OrganizationName { get; set; } = null!;
+
 
     [StringLength(100)]
     public string Country { get; set; } = String.Empty;

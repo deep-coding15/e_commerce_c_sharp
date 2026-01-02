@@ -130,7 +130,7 @@ Log.Logger = new LoggerConfiguration()
         restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Debug,
         theme: Serilog.Sinks.SystemConsole.Themes.AnsiConsoleTheme.Code
     ).WriteTo.File(
-        "Logs/log-.txt", 
+        "Logs/log-.txt",
         rollingInterval: RollingInterval.Day,
         restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Warning
     ).CreateLogger();
@@ -148,8 +148,17 @@ var app = builder.Build(); // Construit l'application finale
 /** Crée un scope temporaire pour accéder aux services et initialiser la DB */
 using (var scope = app.Services.CreateScope())
 {
-    //var services = scope.ServiceProvider; // Récupère le provider de services
-    //await SeedData.Initialize(services); // Appelle la méthode d'initialisation
+    var services = scope.ServiceProvider; // Récupère le provider de services
+    try
+    {
+        // Appelle la méthode d'initialisation
+        await SeedData.Initialize(services);
+    }
+    catch (Exception exception)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(exception, "Une erreur est survenue lors du seeding de la base de données.");
+    }
 }
 
 // ====================================================================================================
@@ -223,7 +232,7 @@ app.MapGet("/", (HttpContext context) =>
     // Non connecté => page client par défaut
     if (user?.Identity is null || !user.Identity.IsAuthenticated)
     {
-        return Results.Redirect("/");
+        return Results.Redirect("/Product");
     }
 
     // Admin
@@ -233,7 +242,7 @@ app.MapGet("/", (HttpContext context) =>
     }
 
     // Client normal
-    return Results.Redirect("/");
+    return Results.Redirect("/Product");
 });
 
 // API TOKEN CSRF - Génère et stocke le token dans un cookie

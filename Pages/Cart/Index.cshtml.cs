@@ -25,7 +25,8 @@ namespace E_commerce_c_charp.Pages_Cart
         public int NbProducts { get; set; } = 0;
         public decimal PrixHT { get; set; } = 0;
         public decimal PrixTva { get; set; } = 0;
-        public IList<Cart> Cart { get; set; } = default!;
+        public Cart Cart { get; set; } = default!;
+        //public IList<Cart> Cart { get; set; } = default!;
         public decimal PrixTTC { get; set; } = 0;
 
         public IndexModel(
@@ -47,13 +48,23 @@ namespace E_commerce_c_charp.Pages_Cart
             if (user == null /* || user.Id != UserId */) 
                 return Unauthorized();
 
-            Cart = await _context.Cart
+            /* Cart = await _context.Cart
                 .Include(c => c.User)
-                .Where(u => u.UserId == user.Id)
-                .ToListAsync();
+                .Where(u => u.UserId == user.Id && c => c.IsActive)
+                .ToListAsync(); */
+            var cart = await _context.Cart
+                .Include(c => c.User)
+                .FirstOrDefaultAsync(c => c.UserId == user.Id && c.IsActive);
+
+            if(cart is null)
+                cart = new Cart
+                {
+                    UserId = user.Id,
+                    IsActive = true,
+                };
 
             Product = await _context.CartItem
-                .Where(ci => ci.Cart.UserId == user.Id)
+                .Where(ci => ci.Cart.UserId == user.Id && ci.Cart.IsActive)
                 //.Include(ci => ci.Quantity)
                 .Include(ci => ci.Product)
                     .ThenInclude(p => p.Category)
@@ -61,7 +72,7 @@ namespace E_commerce_c_charp.Pages_Cart
                 .ToListAsync();
             
             CartItem = await _context.CartItem
-                .Where(ci => ci.Cart.UserId == user.Id)
+                .Where(ci => ci.Cart.UserId == user.Id && ci.Cart.IsActive)
                 .Include(ci => ci.Product)
                     .ThenInclude(p => p.Category)
                 .ToListAsync();

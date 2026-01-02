@@ -8,6 +8,8 @@
     ViewData["Title"] = "Produits - Admin";
 }
 
+<link rel="stylesheet" href="~/css/bamileke.css">
+
 <div class="d-flex justify-content-between align-items-center mb-3">
     <div class="w-50 me-3">
         <form method="get">
@@ -17,14 +19,15 @@
                 </span>
                 <input type="text" name="Search" value="@Model.Search" class="form-control border-start-0"
                     placeholder="Rechercher un produit..." />
+                <button type="submit">Rechercher</button>
             </div>
         </form>
     </div>
     <div>
         <!-- Bouton pour ouvrir le modal -->
-        @* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
             <i class="bi bi-plus-circle me-1"></i>Ajouter un produit
-        </button> *@
+        </button>
     </div>
 </div>
 
@@ -118,6 +121,11 @@
                                     Vedette
                                 </span>
                             }
+                            @if (item.IsArchived) {
+                                <span class="badge bg-danger-subtle text-error border border-danger-subtle">
+                                    Archivés
+                                </span>
+                            }
 
                         </td>
                         <td class="text-center pe-4">
@@ -138,183 +146,365 @@
     </div>
 </div>
 
-<!-- Modal Ajouter Produit -->
-<div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg">
-            <div class="modal-header border-0 pb-3">
-                <h5 class="modal-title fw-bold text-primary" id="addProductModalLabel">
-                    <i class="bi bi-plus-circle me-2"></i>Nouveau produit
+<div class="modal fade" id="addProductModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-xxl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow-3xl h-95vh" style="border-radius: 20px; overflow: hidden;">
+            
+            <!-- Header fixe -->
+            <div class="modal-header bg-gradient-primary border-0 sticky-top shadow-sm p-4">
+                <h5 class="modal-title fw-bold text-white m-0 fs-4">
+                    <i class="bi bi-plus-circle-fill me-3"></i>
+                    Nouveau Produit Complet
                 </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white rounded-circle" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="addProductForm" method="post" asp-page-handler="CreateProduct">
-                <div class="modal-body p-4">
-                    <div class="row g-3">
-                        <!-- SKU (OBLIGATOIRE) -->
-                        <div class="col-md-6">
-                            <label class="form-label fw-semibold text-muted small mb-1">SKU <span
-                                    class="text-danger">*</span></label>
-                            <input type="text" class="form-control form-control-lg" name="InputProduct.Sku"
-                                placeholder="SKU123" required>
+
+            <form id="addProductForm" method="post" asp-page-handler="CreateProduct" novalidate>
+                <!-- BODY SCROLLABLE -->
+                <div class="modal-body p-4 p-xl-5 scrollable-product-body" style="
+                    height: calc(95vh - 140px);
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    scrollbar-width: thin;
+                    scrollbar-color: #3b82f6 #f8fafc;
+                ">
+                    <div asp-validation-summary="All" class="alert alert-danger mb-4 shadow-sm"></div>
+
+                    <div class="row g-4">
+                        <!-- SKU -->
+                        <div class="col-xl-6 col-lg-6 col-md-12">
+                            <label asp-for="InputProduct.Sku" class="form-label fw-bold mb-2">
+                                <i class="bi bi-hash me-2 text-info"></i>SKU <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="InputProduct.Sku" class="form-control form-control-lg rounded-3 shadow-sm" maxlength="50" required />
+                            <div asp-validation-for="InputProduct.Sku" class="invalid-feedback"></div>
                         </div>
 
-                        <!-- Nom produit -->
-                        <div class="col-md-6">
-                            <label class="form-label fw-semibold text-muted small mb-1">Nom <span
-                                    class="text-danger">*</span></label>
-                            <input type="text" class="form-control form-control-lg" name="InputProduct.Name"
-                                placeholder="T-Shirt Premium" required>
+                        <!-- Nom -->
+                        <div class="col-xl-6 col-lg-6 col-md-12">
+                            <label asp-for="InputProduct.Name" class="form-label fw-bold mb-2">
+                                <i class="bi bi-tag-fill me-2 text-primary"></i>Nom produit <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="InputProduct.Name" class="form-control form-control-lg rounded-3 shadow-sm" maxlength="100" required />
+                            <div asp-validation-for="InputProduct.Name" class="invalid-feedback"></div>
                         </div>
 
                         <!-- Description -->
                         <div class="col-12">
-                            <label class="form-label fw-semibold text-muted small mb-1">Description</label>
-                            <textarea class="form-control" name="InputProduct.Description" rows="3"></textarea>
+                            <label asp-for="InputProduct.Description" class="form-label fw-bold mb-2">
+                                <i class="bi bi-card-text me-2 text-success"></i>Description <span class="text-danger">*</span>
+                            </label>
+                            <textarea asp-for="InputProduct.Description" class="form-control rounded-3 shadow-sm" rows="4" maxlength="500" required></textarea>
+                            <div asp-validation-for="InputProduct.Description" class="invalid-feedback"></div>
                         </div>
 
-                        <!-- Prix et Stock -->
-                        <div class="col-md-6">
-                            <label class="form-label fw-semibold text-muted small mb-1">Prix (€) <span
-                                    class="text-danger">*</span></label>
-                            <input type="number" step="0.01" class="form-control form-control-lg"
-                                name="InputProduct.Price" min="0" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label fw-semibold text-muted small mb-1">Stock <span
-                                    class="text-danger">*</span></label>
-                            <input type="number" class="form-control form-control-lg" name="InputProduct.StockQuantity"
-                                min="0" required>
+                        <!-- Image URL -->
+                        <div class="col-xl-6 col-lg-6 col-md-12">
+                            <label asp-for="InputProduct.ImageUrl" class="form-label fw-bold mb-2">
+                                <i class="bi bi-image me-2 text-warning"></i>URL Image
+                            </label>
+                            <input asp-for="InputProduct.ImageUrl" class="form-control form-control-lg rounded-3 shadow-sm" maxlength="255" />
+                            <div asp-validation-for="InputProduct.ImageUrl" class="invalid-feedback"></div>
+                            <small class="text-muted">Ex: https://example.com/image.jpg</small>
                         </div>
 
-                        <!-- RATING (OBLIGATOIRE) 1-5 -->
-                        <div class="col-md-6">
-                            <label class="form-label fw-semibold text-muted small mb-1">Note (1-5) <span
-                                    class="text-danger">*</span></label>
-                            <select class="form-select" name="InputProduct.Rating" required>
-                                <option value="">Choisir note</option>
-                                <option value="R">1 ⭐</option>
-                                <option value="RR">2 ⭐⭐</option>
-                                <option value="RRR">3 ⭐⭐⭐</option>
-                                <option value="RRRR">4 ⭐⭐⭐⭐</option>
-                                <option value="RRRRR">5 ⭐⭐⭐⭐⭐</option>
-                            </select>
+                        <!-- Prix -->
+                        <div class="col-xl-3 col-lg-3 col-md-6">
+                            <label asp-for="InputProduct.Price" class="form-label fw-bold mb-2">
+                                <i class="bi bi-currency-euro me-2 text-success"></i>Prix (€) <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="InputProduct.Price" type="number" step="0.01" min="0.01" class="form-control form-control-lg rounded-3 shadow-sm" required />
+                            <div asp-validation-for="InputProduct.Price" class="invalid-feedback"></div>
                         </div>
 
-                        <!-- IMAGE URL (OBLIGATOIRE) -->
-                        <div class="col-md-6">
-                            <label class="form-label fw-semibold text-muted small mb-1">Image URL <span
-                                    class="text-danger">*</span></label>
-                            <input type="url" class="form-control form-control-lg" name="InputProduct.ImageUrl"
-                                placeholder="https://..." required>
+                        <!-- Stock -->
+                        <div class="col-xl-3 col-lg-3 col-md-6">
+                            <label asp-for="InputProduct.StockQuantity" class="form-label fw-bold mb-2">
+                                <i class="bi bi-box-seam me-2 text-danger"></i>Stock <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="InputProduct.StockQuantity" type="number" min="0" class="form-control form-control-lg rounded-3 shadow-sm" required />
+                            <div asp-validation-for="InputProduct.StockQuantity" class="invalid-feedback"></div>
                         </div>
 
-                        <!-- Catégorie (CategoryId) -->
-                        <div class="col-md-6">
-                            <label class="form-label fw-semibold text-muted small mb-1">Catégorie <span
-                                    class="text-danger">*</span></label>
-                            <select class="form-select" name="InputProduct.Category" required>
-                                <option value="">Choisir...</option>
-                                @foreach (var cat in Model.Categories)
+                        <!-- Marque -->
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <label asp-for="InputProduct.Brand" class="form-label fw-semibold mb-2">
+                                <i class="bi bi-award me-2 text-secondary"></i>Marque
+                            </label>
+                            <input asp-for="InputProduct.Brand" class="form-control form-control-lg rounded-3 shadow-sm" maxlength="50" />
+                            <div asp-validation-for="InputProduct.Brand" class="invalid-feedback"></div>
+                        </div>
+
+                        <!-- Catégorie -->
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <label asp-for="InputProduct.CategoryId" class="form-label fw-bold mb-2">
+                                <i class="bi bi-grid-3x3-gap-fill me-2 text-info"></i>Catégorie <span class="text-danger">*</span>
+                            </label>
+                            <select asp-for="InputProduct.CategoryId" class="form-select form-select-lg rounded-3 shadow-sm" required>
+                                <option value="">Sélectionner...</option>
+                                @foreach (var category in Model.Categories)
                                 {
-                                    <option value="@cat">@cat.Name</option>
+                                    <option value="@category.Id">@category.Name</option>
+                                }
+                            </select>
+                            <div asp-validation-for="InputProduct.CategoryId" class="invalid-feedback"></div>
+                        </div>
+
+                        <!-- Note -->
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <label asp-for="InputProduct.Rating" class="form-label fw-bold mb-2">
+                                <i class="bi bi-star-fill me-2 text-warning"></i>Note (/5) <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="InputProduct.Rating" type="number" step="0.1" min="0" max="5" class="form-control form-control-lg rounded-3 shadow-sm" required />
+                            <div asp-validation-for="InputProduct.Rating" class="invalid-feedback"></div>
+                            <div class="mt-1">
+                                <small class="text-warning">
+                                    <i class="bi bi-star-fill me-1"></i>
+                                    @for (int i = 1; i <= 5; i++)
+                                    {
+                                        <i class="bi @(Model.InputProduct?.Rating >= i ? "bi-star-fill text-warning" : "bi-star text-muted")"></i>
+                                    }
+                                </small>
+                            </div>
+                        </div>
+
+                        <!-- Fournisseur (optionnel) -->
+                        <div class="col-xl-6 col-lg-6 col-md-12">
+                            <label asp-for="InputProduct.SupplierId" class="form-label fw-semibold mb-2">
+                                <i class="bi bi-person-badge me-2 text-purple"></i>Fournisseur
+                            </label>
+                            <select asp-for="InputProduct.SupplierId" class="form-select form-select-lg rounded-3 shadow-sm">
+                                <option value="">Aucun fournisseur</option>
+                                @foreach (var supplier in Model.Suppliers ?? new())
+                                {
+                                    <option value="@supplier.Id">@supplier.OrganizationName</option>
                                 }
                             </select>
                         </div>
 
-                        <!-- IsFeatured CHECKBOX CORRIGÉ -->
+                        <!-- Vedette -->
                         <div class="col-12">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" name="InputProduct.IsFeatured"
-                                    id="featuredProduct" value="true">
-                                <label class="form-check-label fw-semibold" for="featuredProduct">
-                                    Page d'accueil
+                            <div class="form-check form-switch form-switch-lg">
+                                <input asp-for="InputProduct.IsFeatured" class="form-check-input" id="isFeatured" />
+                                <label class="form-check-label fw-bold fs-5" for="isFeatured">
+                                    <i class="bi bi-star-fill me-2 text-warning"></i>
+                                    Produit vedette (page d'accueil)
                                 </label>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer border-0 pt-0 px-4 pb-4">
-                    <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">
-                        Annuler
+
+                <!-- Footer fixe -->
+                <div class="modal-footer border-top bg-light shadow-sm sticky-bottom p-4">
+                    <button type="button" class="btn btn-outline-secondary px-5 py-2 me-auto" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle me-2"></i>Annuler
                     </button>
-                    <button type="submit" class="btn btn-primary px-4 fw-semibold">
-                        <i class="bi bi-check-circle me-2"></i>Enregistrement...
-                    </button>
+                    <div class="d-flex gap-2">
+                        <button type="reset" class="btn btn-outline-danger px-4">
+                            <i class="bi bi-arrow-clockwise me-2"></i>Réinitialiser
+                        </button>
+                        <button type="submit" class="btn btn-success px-5 shadow-lg">
+                            <i class="bi bi-check2-circle me-2"></i>
+                            <strong>Enregistrer produit</strong>
+                        </button>
+                    </div>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
 
-            @* <form id="addProductForm" method="post" asp-page-handler="CreateProduct">
-                <div class="modal-body p-4">
-                    <div class="row g-3">
+
+@* <div class="modal fade" id="addProductModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow-3xl bamileke-modal" style="border-radius: 24px; overflow: hidden; position: relative;">
+            
+            <!-- Header Bamileke -->
+            <div class="modal-header border-0 pb-4 pt-4 px-5 position-relative overflow-hidden" 
+                 style="background: linear-gradient(135deg, #8b4513 0%, #a0522d 25%, #cd853f 50%, #d2b48c 100%); color: #2d1b0f;">
+                
+                <!-- Motif tissage Bamileke SVG -->
+                <div class="position-absolute inset-0 opacity-20" style="
+                    background-image: 
+                        radial-gradient(circle at 25% 25%, #d4af37 2px, transparent 2px),
+                        radial-gradient(circle at 75% 75%, #8b4513 3px, transparent 3px);
+                    background-size: 50px 50px, 80px 80px;
+                "></div>
+                
+                <h5 class="modal-title fw-bold fs-4 position-relative z-2 text-shadow-bamileke">
+                    <i class="bi bi-plus-circle-fill me-3" style="font-size: 2rem; color: #d4af37; text-shadow: 0 0 12px rgba(212,175,55,0.6);"></i>
+                    Ajouter un Produit Bamileke
+                    <br><small style="font-family: 'Playfair Display', serif; font-size: 1rem;">Nouveau produit traditionnel</small>
+                </h5>
+                <button type="button" class="btn-close btn-close-white z-2 rounded-circle shadow-sm" data-bs-dismiss="modal" aria-label="Close" style="width: 36px; height: 36px;"></button>
+            </div>
+<!-- BODY SCROLLABLE -->
+            <div class="modal-body p-4" style="
+                height: calc(90vh - 120px);  /* Hauteur fixe - header/footer */
+                overflow-y: auto;
+                scrollbar-width: thin;       /* Firefox */
+                scrollbar-color: #3b82f6 #f3f4f6; /* Track/Thumb */
+            ">
+            <form id="addProductForm" method="post" asp-page-handler="CreateProduct" novalidate>
+                <div class="modal-body p-5 px-lg-5 position-relative">
+                    <!-- Fond texture tissage -->
+                    <div class="position-absolute top-0 start-0 w-100 h-100 opacity-5 z-0" style="
+                        background-image: 
+                            repeating-linear-gradient(45deg, transparent 0 10px, rgba(139,69,19,0.05) 10px 20px),
+                            repeating-linear-gradient(-45deg, transparent 0 10px, rgba(212,175,55,0.03) 10px 20px);
+                    "></div>
+
+                    <div class="row g-4 position-relative z-2">
                         <!-- Nom produit -->
                         <div class="col-12">
-                            <label for="productName" class="form-label fw-semibold text-muted small mb-1">Nom du produit
-                                <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control form-control-lg border-primary" id="productName"
-                                name="InputProduct.Name" placeholder="Ex: T-Shirt Premium EcoweAR" required>
+                            <label for="productName" class="form-label fw-bold mb-3 position-relative" style="color: #4a5568;">
+                                <i class="bi bi-tag-fill position-absolute me-3" style="color: #c05621; font-size: 1.4rem; left: 0; top: 0.2rem;"></i>
+                                <span style="font-family: 'Playfair Display', serif; padding-left: 2.2rem;">Nom du produit Bamileke</span> <span class="text-danger">*</span>
+                                <small class="d-block text-muted fw-normal mt-1 ms-3">(Tissu wax, pagne, artisanat...)</small>
+                            </label>
+                            <input type="text" class="form-control form-control-lg bamileke-input shadow-sm px-5 py-4 rounded-3" 
+                                   id="productName" name="Product.Name" 
+                                   placeholder="Pagne wax traditionnel Njoya | Ex: Tissu Bamoun royal" 
+                                   required />
+                            <div class="invalid-feedback mt-1">Nom obligatoire (max 100 caractères)</div>
                         </div>
 
                         <!-- Description -->
                         <div class="col-12">
-                            <label for="productDescription"
-                                class="form-label fw-semibold text-muted small mb-1">Description <span
-                                    class="text-danger">*</span></label>
-                            <textarea class="form-control border-primary" id="productDescription"
-                                name="InputProduct.Description" rows="3" placeholder="Décrivez votre produit..."
-                                required></textarea>
+                            <label for="productDescription" class="form-label fw-bold mb-3 position-relative" style="color: #4a5568;">
+                                <i class="bi bi-card-text position-absolute me-3" style="color: #9c4221; font-size: 1.4rem; left: 0; top: 0.2rem;"></i>
+                                <span style="font-family: 'Playfair Display', serif; padding-left: 2.2rem;">Description artisanale</span> <span class="text-danger">*</span>
+                                <small class="d-block text-muted fw-normal mt-1 ms-3">(Matériaux, technique, histoire...)</small>
+                            </label>
+                            <textarea class="form-control bamileke-input shadow-sm px-5 py-4 rounded-3" id="productDescription" 
+                                      name="Product.Description" rows="5" 
+                                      placeholder="Tissu Bamileke tissé à la main par les maîtres tisserands de Bafoussam. Coton bio teint avec des pigments naturels ocre et indigo..." 
+                                      style="font-family: inherit; resize: vertical; line-height: 1.6;" 
+                                      required></textarea>
+                            <div class="invalid-feedback mt-1">Description obligatoire</div>
                         </div>
 
                         <!-- Prix et Stock -->
-                        <div class="col-md-6">
-                            <label for="productPrice" class="form-label fw-semibold text-muted small mb-1">Prix (€)
-                                <span class="text-danger">*</span></label>
-                            <input type="number" step="0.01" class="form-control form-control-lg border-primary"
-                                id="productPrice" name="InputProduct.Price" placeholder="47.5" min="0" required>
+                        <div class="col-xl-6 col-lg-6">
+                            <label for="productPrice" class="form-label fw-bold mb-3 position-relative" style="color: #4a5568;">
+                                <i class="bi bi-currency-euro position-absolute me-3" style="color: #c2410c; font-size: 1.4rem; left: 0; top: 0.2rem;"></i>
+                                <span style="font-family: 'Playfair Display', serif; padding-left: 2.2rem;">Prix artisanal</span> <span class="text-danger">*</span>
+                                <small class="d-block text-muted fw-normal mt-1 ms-3">(€ - valeur traditionnelle)</small>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text rounded-start-3 shadow-sm fs-6 px-4 py-3" style="background: linear-gradient(145deg, #fef7ed 0%, #fde8d4 100%); border-color: #f59e0b !important; color: #92400e;">
+                                    <i class="bi bi-currency-euro"></i>
+                                </span>
+                                <input type="number" step="0.01" min="0.01" class="form-control form-control-lg shadow-sm border-0 rounded-end-3 px-5 py-3" 
+                                       id="productPrice" name="Product.Price" placeholder="125.00" 
+                                       style="background: linear-gradient(145deg, #fef7ed 0%, #fde8d4 100%); border-left: none; font-weight: 600; color: #92400e;" 
+                                       required />
+                            </div>
+                            <div class="invalid-feedback mt-1">Prix valide requis</div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="productStock" class="form-label fw-semibold text-muted small mb-1">Stock <span
-                                    class="text-danger">*</span></label>
-                            <input type="number" class="form-control form-control-lg border-primary" id="productStock"
-                                name="InputProduct.StockQuantity" placeholder="0" min="0" required>
+
+                        <div class="col-xl-6 col-lg-6">
+                            <label for="productStock" class="form-label fw-bold mb-3 position-relative" style="color: #4a5568;">
+                                <i class="bi bi-archive-fill position-absolute me-3" style="color: #b45309; font-size: 1.4rem; left: 0; top: 0.2rem;"></i>
+                                <span style="font-family: 'Playfair Display', serif; padding-left: 2.2rem;">Stock disponible</span> <span class="text-danger">*</span>
+                                <small class="d-block text-muted fw-normal mt-1 ms-3">(Unités artisanales)</small>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text rounded-start-3 shadow-sm fs-6 px-4 py-3" style="background: linear-gradient(145deg, #fdf4f3 0%, #fce7e3 100%); border-color: #f87171 !important; color: #dc2626;">
+                                    <i class="bi bi-archive"></i>
+                                </span>
+                                <input type="number" min="0" class="form-control form-control-lg shadow-sm border-0 rounded-end-3 px-5 py-3" 
+                                       id="productStock" name="Product.StockQuantity" placeholder="25" 
+                                       style="background: linear-gradient(145deg, #fdf4f3 0%, #fce7e3 100%); border-left: none; font-weight: 600; color: #b91c1c;" 
+                                       required />
+                            </div>
+                            <div class="invalid-feedback mt-1">Stock valide requis</div>
                         </div>
 
                         <!-- Catégorie -->
-                        <div class="col-md-6">
-                            <label for="productCategory" class="form-label fw-semibold text-muted small mb-1">Catégorie
-                                <span class="text-danger">*</span></label>
-                            <select class="form-select form-select-lg border-primary" id="productCategory"
-                                name="InputProduct.CategoryId" required>
-                                <option value="">Choisir une catégorie</option>
+                        <div class="col-12">
+                            <label for="productCategory" class="form-label fw-bold mb-3 position-relative" style="color: #4a5568;">
+                                <i class="bi bi-grid-3x3-gap-fill position-absolute me-3" style="color: #7c2d12; font-size: 1.4rem; left: 0; top: 0.2rem;"></i>
+                                <span style="font-family: 'Playfair Display', serif; padding-left: 2.2rem;">Catégorie artisanale</span> <span class="text-danger">*</span>
+                                <small class="d-block text-muted fw-normal mt-1 ms-3">(Tissage Bamileke, Pagne, etc.)</small>
+                            </label>
+                            <select class="form-select form-control-lg shadow-sm border-0 rounded-4 px-5 py-4" id="productCategory" 
+                                    name="Product.CategoryId" style="background: linear-gradient(145deg, #f1f5f9 0%, #e2e8f0 100%); border: 2px solid #cbd5e1; font-family: 'Playfair Display', serif; font-size: 1.1rem;" required>
+                                <option value="">Sélectionner catégorie...</option>
                                 @foreach (var cat in Model.Categories)
                                 {
                                     <option value="@cat.Id">@cat.Name</option>
                                 }
                             </select>
+                            <div class="invalid-feedback mt-1">Catégorie requise</div>
                         </div>
 
-                        <!-- Page d'accueil -->
+                        <!-- Featured Bamileke -->
                         <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="featuredProduct"
-                                    name="InputProduct.IsFeatured">
-                                <label class="form-check-label fw-semibold" for="featuredProduct">
-                                    Mettre en vente sur la page d'accueil
-                                </label>
+                            <div class="card border-0 shadow-lg rounded-4 p-5 position-relative overflow-hidden" style="background: linear-gradient(145deg, #fefce8 0%, #fef3c7 25%, #fde68a 75%, #f59e0b 100%); border: 3px solid #d97706;">
+                                <!-- Motif chevron Bamileke -->
+                                <div class="position-absolute top-0 start-0 opacity-20" style="font-size: 6rem; transform: rotate(-15deg);">
+                                    <i class="bi bi-chevron-compact-down"></i><i class="bi bi-chevron-compact-down ms-n3"></i>
+                                </div>
+                                
+                                <div class="form-check form-switch form-switch-xl d-flex align-items-center justify-content-center">
+                                    <input class="form-check-input" type="checkbox" id="featuredProduct" name="Product.IsFeatured" style="transform: scale(1.8); filter: drop-shadow(0 4px 8px rgba(245,158,11,0.4));">
+                                    <label class="form-check-label fw-bold fs-4 text-center lh-sm mx-4 mb-0 position-relative z-2" for="featuredProduct" style="font-family: 'Playfair Display', serif; color: #92400e; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
+                                        <i class="bi bi-star-fill d-block mb-2 mx-auto" style="font-size: 3rem; color: #f59e0b; animation: glow 2s ease-in-out infinite alternate;"></i>
+                                        <span class="d-block">Mettre en vedette Bamileke</span>
+                                        <small class="d-block text-muted fw-semibold mt-1">(Page d'accueil traditionnelle)</small>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="modal-footer border-0 pt-0 px-4 pb-4">
-                    <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">
-                        Annuler
+                <!-- Footer -->
+                <div class="modal-footer border-top border-secondary-subtle border-3 p-4 px-lg-5" style="background: linear-gradient(90deg, #2d1b0f 0%, #4a2c0f 50%, #5f3a0b 100%);">
+                    <button type="button" class="btn btn-outline-light btn-lg px-6 py-3 rounded-4 shadow-xl border-3 position-relative overflow-hidden" data-bs-dismiss="modal" style="border-color: #d4af37 !important; backdrop-filter: blur(10px);">
+                        <i class="bi bi-x-circle-fill me-3 fs-5"></i>
+                        <strong style="font-family: 'Playfair Display', serif;">Annuler</strong>
                     </button>
-                    <button type="submit" class="btn btn-primary px-4 fw-semibold">
-                        <i class="bi bi-check-circle me-2"></i>Enregistrement...
+                    <button type="submit" class="btn btn-warning btn-lg px-6 py-3 rounded-4 shadow-xl border-0 position-relative overflow-hidden" style="background: linear-gradient(45deg, #d97706 0%, #f59e0b 50%, #d97706 100%) !important; box-shadow: 0 10px 30px rgba(245,158,11,0.4);">
+                        <span class="position-relative z-2">
+                            <i class="bi bi-check-circle-fill me-3 fs-5" style="color: #92400e;"></i>
+                            <strong style="font-family: 'Playfair Display', serif; color: #92400e;">Enregistrer Produit</strong>
+                        </span>
+                        <div class="position-absolute inset-0 bg-warning opacity-0 scale-150 rounded-4" style="transition: all 0.4s cubic-bezier(0.4,0,0.2,1);"></div>
                     </button>
                 </div>
-            </form> *@
+            </form>
+            </div>
         </div>
     </div>
-</div>
+</div> *@
+
+
+
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script>
+        // Validation realtime + animations
+        document.querySelectorAll('.bamileke-input').forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    this.parentElement.style.background = 'linear-gradient(145deg, #fefce8 0%, #fef3c7 100%)';
+                } else {
+                    this.parentElement.style.background = '';
+                }
+            });
+        });
+
+        // Submit animation
+        document.getElementById('addProductForm').addEventListener('submit', function() {
+            const btn = this.querySelector('button[type="submit"] .z-2');
+            btn.style.transform = 'scale(1.05)';
+            btn.innerHTML = '<i class="bi bi-hourglass-split-fill me-3 fs-5 animate__animated animate__spin"></i><strong>Enregistrement...</strong>';
+        });
+    </script>
+}
+

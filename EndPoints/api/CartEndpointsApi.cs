@@ -60,7 +60,7 @@ public static class CartEndpointsApi
 
             var cart = await db.Cart.Include(c => c.Items)
                 .ThenInclude(i => i.Product)
-                .FirstOrDefaultAsync(c => c.UserId == user.Id);
+                .FirstOrDefaultAsync(c => c.UserId == user.Id && c.IsActive);
 
             if (cart is null)
             {
@@ -185,7 +185,7 @@ public static class CartEndpointsApi
 
             var cart = await db.Cart.Include(c => c.Items)
                 .ThenInclude(i => i.Product)
-                .FirstOrDefaultAsync(c => c.UserId == user.Id);
+                .FirstOrDefaultAsync(c => c.UserId == user.Id && c.IsActive);
 
             if (cart is null)
             {
@@ -237,7 +237,7 @@ public static class CartEndpointsApi
 
             var cart = await db.Cart.Include(c => c.Items)
                 .ThenInclude(i => i.Product)
-                .FirstOrDefaultAsync(c => c.UserId == user.Id);
+                .FirstOrDefaultAsync(c => c.UserId == user.Id && c.IsActive);
 
             if (cart is null)
             {

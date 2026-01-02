@@ -36,7 +36,7 @@ namespace E_commerce_c_charp.Pages_Admin_Dashboard
                 .CountAsync(o => o.Status == Status.Pending);
 
             Dashboard.Revenue = await _context.Order
-                .Where(o => o.Status == Status.Delivered)
+                .Where(o => o.Status == Status.Completed)
                 .SumAsync(o => (decimal?)o.PrixTTC) ?? 0m;
 
             Dashboard.AvgOrder = Dashboard.TotalOrders > 0
@@ -51,7 +51,7 @@ namespace E_commerce_c_charp.Pages_Admin_Dashboard
             var start = new DateTime(now.Year, now.Month, 1).AddMonths(-5); // 6 mois
 
             var salesByMonth = await _context.Order
-                .Where(o => o.Status == Status.Delivered &&
+                .Where(o => o.Status == Status.Completed &&
                             o.CreatedAt >= start)
                 .GroupBy(o => new { o.CreatedAt.Year, o.CreatedAt.Month })
                 .Select(g => new

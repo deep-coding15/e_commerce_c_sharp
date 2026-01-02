@@ -40,6 +40,7 @@ public class Product
     public Category Category { get; set; } = default!;
 
     public bool IsFeatured { get; set; }   // pour le badge "Vedette"
+    public bool IsArchived { get; set; } = false;
 
     // Optionnel : rating texte (ex: "4.5/5")
     [Range(0.0, 5.0, ErrorMessage = "La note doit être entre 0.0 et 5.0")]

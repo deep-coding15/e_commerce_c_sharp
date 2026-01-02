@@ -4,6 +4,7 @@ using E_commerce_c_charp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_commerce_c_charp.Migrations
 {
     [DbContext(typeof(E_commerce_c_charpContext))]
-    partial class E_commerce_c_charpContextModelSnapshot : ModelSnapshot
+    [Migration("20260102021000_list_cart_et_non_cart_sur_user_table")]
+    partial class list_cart_et_non_cart_sur_user_table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -210,9 +213,6 @@ namespace E_commerce_c_charp.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<bool>("IsArchived")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsFeatured")
                         .HasColumnType("bit");
 
@@ -291,11 +291,6 @@ namespace E_commerce_c_charp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("OrganizationName")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");

@@ -12,7 +12,7 @@ public class User : IdentityUser
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     /* public int CartId {get; set;} */
     
-    public Cart? Cart { get; set; } // Propriété de navigation vers le panier
+    public IList<Cart> Cart { get; set; } = default!; // Propriété de navigation vers le panier
     
     public ICollection<Order> Orders { get; set; } = new List<Order>();
 }

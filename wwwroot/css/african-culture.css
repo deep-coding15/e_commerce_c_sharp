@@ -1,0 +1,252 @@
+/* =========================================================
+   🌍 AFRICAN CULTURE DESIGN SYSTEM — BAMILEKE
+   Élégant • Épuré • Identitaire
+   
+========================================================= */
+
+/* =========================================================
+   1. DESIGN TOKENS
+========================================================= */
+:root {
+  /* Terres nobles */
+  --african-ochre: #8B4513;
+  --african-sienna: #9C4A1A;
+  --african-terracotta: #C26A3A;
+  --african-clay: #EFE6D8;
+
+  /* Or raffiné */
+  --african-gold: #D4AF37;
+  --african-gold-soft: #E6C973;
+
+  /* Indigo royal */
+  --african-indigo: #1E3A8A;
+  --african-navy: #1E293B;
+
+  /* Nature */
+  --african-emerald: #047857;
+
+  /* Neutres premium */
+  --african-beige: #F8F6F2;
+  --african-cream: #FFFDF7;
+
+  /* Gradients discrets */
+  --gradient-gold: linear-gradient(135deg, #D4AF37, #E9D18B);
+  --gradient-warning: linear-gradient(135deg, #F59E0B, #E6A23C);
+  --gradient-danger: linear-gradient(135deg, #DC2626, #B91C1C);
+  --gradient-hero: linear-gradient(
+    135deg,
+    #1E3A8A,
+    #9C4A1A,
+    #D4AF37
+  );
+}
+
+/* =========================================================
+   2. TYPOGRAPHIE
+========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.fw-bold {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #2A1A0F;
+}
+
+/* =========================================================
+   3. MOTIF BAMILEKE — SUBTIL
+========================================================= */
+.bamileke-pattern {
+  background-image:
+    linear-gradient(45deg, rgba(212,175,55,0.08) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(30,58,138,0.08) 25%, transparent 25%);
+  background-size: 48px 48px;
+}
+
+/* =========================================================
+   4. BOUTONS
+========================================================= */
+.btn-wax {
+  background: var(--gradient-gold);
+  border: none;
+  color: #2A1A0F !important;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+.btn-wax:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(212,175,55,0.35);
+}
+
+/* =========================================================
+   5. CARDS — CLEAN & PREMIUM
+========================================================= */
+.card {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--african-gold),
+    var(--african-indigo)
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+}
+
+.card-body {
+  color: #374151;
+}
+
+/* =========================================================
+   6. NAVBAR
+========================================================= */
+.navbar {
+  background: linear-gradient(
+    180deg,
+    #1E293B,
+    #1E3A8A
+  );
+  border-bottom: 1px solid rgba(212,175,55,0.3);
+}
+
+.navbar-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  background: linear-gradient(45deg, #D4AF37, #F5E3A1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   7. BADGES
+========================================================= */
+.badge {
+  font-weight: 600;
+  padding: 0.4em 0.8em;
+  border-radius: 16px;
+}
+
+.badge-stock-rupture {
+  background: var(--gradient-danger);
+  color: #fff !important;
+}
+
+.badge-stock-limited {
+  background: var(--gradient-warning);
+  color: #fff !important;
+}
+
+.badge-archive {
+  background: #6B7280;
+  color: #fff !important;
+}
+
+.badge-featured {
+  background: var(--gradient-gold);
+  color: #2A1A0F !important;
+}
+
+/* =========================================================
+   8. FORMULAIRES
+========================================================= */
+.form-control,
+.form-select {
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  background: var(--african-cream);
+  border: 1px solid #D1D5DB;
+  transition: all 0.25s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--african-indigo);
+  box-shadow: 0 0 0 3px rgba(30,58,138,0.12);
+}
+
+/* =========================================================
+   9. TABLES
+========================================================= */
+.table {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.table thead th {
+  background: linear-gradient(90deg, var(--african-indigo), var(--african-navy));
+  color: #fff;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.table-hover tbody tr:hover {
+  background: rgba(212,175,55,0.08);
+}
+
+/* =========================================================
+   10. HERO
+========================================================= */
+.hero-section {
+  background: var(--gradient-hero);
+  background-size: 200% 200%;
+  animation: gradient-shift 18s ease infinite;
+}
+
+/* =========================================================
+   11. ANIMATIONS
+========================================================= */
+@keyframes gradient-shift {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* =========================================================
+   12. RESPONSIVE
+========================================================= */
+@media (max-width: 768px) {
+  .card { border-radius: 14px; }
+  .navbar-brand { font-size: 1.4rem; }
+}
+
+/* =========================================================
+   13. DARK MODE
+========================================================= */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #0F172A;
+    color: #E5E7EB;
+  }
+
+  .card {
+    background: #020617;
+    border-color: #1E293B;
+  }
+
+  .table {
+    background: #020617;
+  }
+}

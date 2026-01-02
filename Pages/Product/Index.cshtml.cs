@@ -35,7 +35,7 @@ namespace E_commerce_c_charp.Pages_Product
             IQueryable<string> categoryQuery = from p in _context.Product 
                                                     orderby p.Category.Name select p.Category.Name;
             // Réquête LINQ pour sélectionner les produits en fonction de la sélection de l'utilisateur
-            var products = from p in _context.Product select p; 
+            var products = from p in _context.Product where p.IsArchived == false select p ; 
             if (!string.IsNullOrWhiteSpace(SearchString))
             {
                 products = products.Where(ss => ss.Name.Contains(SearchString));
@@ -46,7 +46,8 @@ namespace E_commerce_c_charp.Pages_Product
             }
 
             Category = new SelectList(await categoryQuery.Distinct().ToListAsync());
-            Product = await products.Include(p => p.Category).ToListAsync();
+            Product = await products.Include(p => p.Category).OrderByDescending(p => p.IsFeatured == true)
+                        .ToListAsync();
         }
     }
 }

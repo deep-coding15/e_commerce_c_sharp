@@ -44,9 +44,9 @@ namespace E_commerce_c_charp.Pages_Admin_OrderItem
             //OrderItem = null;
 
             var prixMoyenDesCommandes = await _context.Order
-                                                .Select(o => o.PrixTTC)
-                                                .AverageAsync();                                                
-                                                
+                                                .Select(o => (decimal?)o.PrixTTC)
+                                                .AverageAsync() ?? 0m;                                                                                         
+
             var nombreProduitsEnStock = _context.Product
                 .Where(p => p.StockQuantity >= 20)
                 .Count();

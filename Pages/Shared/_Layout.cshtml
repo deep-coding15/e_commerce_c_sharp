@@ -6,12 +6,286 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="@Antiforgery.GetAndStoreTokens(Context).RequestToken" />
+
+    <title>@ViewData["Title"] - Nka'aMarket</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/african-culture.css" />
+
+    <!-- Layout Enhancements -->
+    <style>
+        * {
+            transition: background-color .2s ease, color .2s ease, box-shadow .2s ease;
+        }
+
+        body {
+            background-color: var(--african-beige);
+        }
+
+        /* ================= TOP BAR ================= */
+        .top-bar {
+            font-size: 0.8rem;
+            background: linear-gradient(90deg,
+                var(--african-indigo),
+                var(--african-sienna));
+            color: #fff;
+        }
+
+        /* ================= NAVBAR ================= */
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid rgba(212,175,55,0.25);
+        }
+
+        .navbar-brand span:last-child {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.03em;
+        }
+
+        .navbar .nav-link {
+            position: relative;
+            font-weight: 500;
+            color: #2A1A0F;
+            padding: 0.75rem 1rem;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            color: var(--african-indigo);
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 20%;
+            bottom: 6px;
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(
+                90deg,
+                var(--african-gold),
+                var(--african-indigo)
+            );
+            opacity: 0;
+            transform: scaleX(0);
+            transition: all .25s ease;
+        }
+
+        .navbar .nav-link:hover::after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
+        /* ================= MAIN ================= */
+        main {
+            background: var(--african-cream);
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: linear-gradient(
+                180deg,
+                #1E293B,
+                #020617
+            );
+        }
+
+        footer h5,
+        footer h6 {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.05em;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--african-gold);
+            text-decoration: underline;
+        }
+
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(212,175,55,0.4);
+            color: var(--african-gold);
+        }
+
+        .social-links a:hover {
+            background: var(--gradient-gold);
+            color: #2A1A0F;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- TOP BAR -->
+    <div class="top-bar py-1">
+        <div class="container d-flex justify-content-between">
+            <div>
+                <i class="bi bi-envelope"></i> support@nkaamarket.com
+                <span class="ms-3">
+                    <i class="bi bi-telephone"></i> +212 690 658 807
+                </span>
+            </div>
+            <div>
+                Livraison gratuite dès 50€
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+
+                <!-- LOGO -->
+                <a class="navbar-brand d-flex align-items-center gap-2" asp-page="/Index">
+                    <span class="rounded-circle d-inline-flex align-items-center justify-content-center"
+                          style="width:38px;height:38px;background:var(--gradient-gold);">
+                        <i class="bi bi-shop text-dark"></i>
+                    </span>
+                    <span class="fs-5 fw-bold">Nka'aMarket</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+
+                    <!-- MENU -->
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Index">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Product/Index">Produits</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Order/Index">Commandes</a>
+                        </li>
+                    </ul>
+
+                    <!-- RIGHT -->
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item me-3">
+                            <a class="nav-link d-flex align-items-center" asp-page="/Cart/Index">
+                                <i class="bi bi-cart3 fs-5"></i>
+                                <span class="ms-1 d-none d-lg-inline">Panier</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <partial name="_LoginPartial" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main class="flex-fill">
+        <div class="container py-4">
+            @RenderBody()
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-auto">
+        <div class="container py-5">
+            <div class="row">
+
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold"><i class="bi bi-shop"></i> Nka'aMarket</h5>
+                    <p class="small text-white-50">
+                        Marketplace inspiré des valeurs africaines :
+                        authenticité, qualité et confiance.
+                    </p>
+                    <div class="social-links d-flex gap-2 mt-3">
+                        <a class="btn btn-sm rounded-circle"><i class="bi bi-facebook"></i></a>
+                        <a class="btn btn-sm rounded-circle"><i class="bi bi-instagram"></i></a>
+                        <a class="btn btn-sm rounded-circle"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h6 class="fw-semibold mb-3">Liens rapides</h6>
+                    <ul class="list-unstyled">
+                        <li><a>À propos</a></li>
+                        <li><a>Contact</a></li>
+                        <li><a>FAQ</a></li>
+                        <li><a asp-page="/Privacy">Confidentialité</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h6 class="fw-semibold mb-3">Service client</h6>
+                    <ul class="list-unstyled">
+                        <li><a>Mon compte</a></li>
+                        <li><a>Suivi commande</a></li>
+                        <li><a>Retours</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h6 class="fw-semibold mb-3">Newsletter</h6>
+                    <p class="small text-white-50">Recevez nos offres exclusives</p>
+                    <form class="input-group">
+                        <input type="email" class="form-control" placeholder="Votre email">
+                        <button class="btn btn-wax">
+                            <i class="bi bi-send"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <hr class="border-secondary">
+
+            <div class="d-flex justify-content-between small text-white-50">
+                <span>© 2025 Nka'aMarket — Tous droits réservés</span>
+                <span>
+                    <i class="bi bi-credit-card"></i>
+                    <i class="bi bi-paypal ms-2"></i>
+                    <i class="bi bi-wallet2 ms-2"></i>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+@* @using Microsoft.AspNetCore.Antiforgery
+@inject IAntiforgery Antiforgery
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="@Antiforgery.GetAndStoreTokens(Context).RequestToken" />
     <title>@ViewData["Title"] - E-Commerce Store</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="~/css/style.css" />
+
+    <!-- Autres CSS -->
+    <link href="~/css/african-culture.css" rel="stylesheet" />  <!-- Global ! -->
 
     <!-- GLOBAL UI IMPROVEMENTS -->
     <style>
@@ -135,7 +409,7 @@
                                 <span class="ms-1 d-none d-lg-inline">Panier</span>
                                 @* <span class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">
                                     0
-                                </span> *@
+                                </span> * @
                             </a>
                         </li>
 
@@ -223,7 +497,7 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
-</html>
+</html> *@
 @* @using Microsoft.AspNetCore.Antiforgery
 @inject IAntiforgery Antiforgery
 <!DOCTYPE html>
