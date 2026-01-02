@@ -75,6 +75,8 @@
     - dotnet aspnet-codegenerator razorpage --model User --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/Admin/User --referenceScriptLibraries --databaseProvider sqlserver
     - dotnet aspnet-codegenerator razorpage --model OrderItem --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/Admin/OrderItem --referenceScriptLibraries --databaseProvider sqlserver
     - dotnet aspnet-codegenerator razorpage --model OrderItem --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/Admin/OrderItem --referenceScriptLibraries --databaseProvider sqlserver
+    - dotnet aspnet-codegenerator razorpage --model SupplierRequest --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/Admin/SupplierRequest --referenceScriptLibraries --databaseProvider sqlserver
+    - dotnet aspnet-codegenerator razorpage --model Supplier --dataContext E_commerce_c_charp.Data.E_commerce_c_charpContext --useDefaultLayout --relativeFolderPath Pages/Admin/Supplier --referenceScriptLibraries --databaseProvider sqlserver
     - dotnet aspnet-codegenerator identity --files "Account.Login;Account.Register" -dc E_commerce_c_charp.Data.E_commerce_c_charpContext
 
 # Create the initial database schema using EF's migration feature :

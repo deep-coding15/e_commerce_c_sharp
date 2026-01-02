@@ -1,0 +1,25 @@
+2025-12-31 08:03:02.619 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-12-31 08:03:05.945 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-31 08:03:05.947 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-31 08:03:05.947 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-12-31 08:03:12.756 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:03:57.060 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:04:06.364 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:04:06.627 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:04:07.640 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:04:15.956 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:04:16.044 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:04:31.247 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:07:00.677 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:15:40.554 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:15:53.228 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:15:55.713 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:16:07.668 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:16:09.794 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:24:47.547 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:26:29.601 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:26:36.779 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:26:41.979 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:26:43.762 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:26:46.930 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}
+2025-12-31 08:26:50.577 +01:00 [WRN] order: {"Pending":2,"Cancelled":1,"Completed":1,"Delivered":1}

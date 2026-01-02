@@ -1,0 +1,96 @@
+@page
+@model E_commerce_c_charp.Pages_Supplier.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Supplier</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Supplier.Id" />
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Supplier.Name" class="control-label"></label>
+                <input asp-for="Supplier.Name" class="form-control" />
+                <span asp-validation-for="Supplier.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Supplier.Country" class="control-label"></label>
+                <input asp-for="Supplier.Country" class="form-control" />
+                <span asp-validation-for="Supplier.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Supplier.CulturalOrigin" class="control-label"></label>
+                <input asp-for="Supplier.CulturalOrigin" class="form-control" />
+                <span asp-validation-for="Supplier.CulturalOrigin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Supplier.ContactPhone" class="control-label"></label>
+                <input asp-for="Supplier.ContactPhone" class="form-control" />
+                <span asp-validation-for="Supplier.ContactPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Supplier.ContactEmail" class="control-label"></label>
+                <input asp-for="Supplier.ContactEmail" class="form-control" />
+                <span asp-validation-for="Supplier.ContactEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Supplier.Description" class="control-label"></label>
+                <input asp-for="Supplier.Description" class="form-control" />
+                <span asp-validation-for="Supplier.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Supplier.Status" class="control-label"></label>
+                <input asp-for="Supplier.Status" class="form-control" />
+                <span asp-validation-for="Supplier.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Supplier.Website" class="control-label"></label>
+                <input asp-for="Supplier.Website" class="form-control" />
+                <span asp-validation-for="Supplier.Website" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Supplier.Facebook" class="control-label"></label>
+                <input asp-for="Supplier.Facebook" class="form-control" />
+                <span asp-validation-for="Supplier.Facebook" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Supplier.Instagram" class="control-label"></label>
+                <input asp-for="Supplier.Instagram" class="form-control" />
+                <span asp-validation-for="Supplier.Instagram" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Supplier.CreatedAt" class="control-label"></label>
+                <input asp-for="Supplier.CreatedAt" class="form-control" />
+                <span asp-validation-for="Supplier.CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

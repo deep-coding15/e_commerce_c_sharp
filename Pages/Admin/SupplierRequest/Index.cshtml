@@ -1,0 +1,326 @@
+@page
+
+@model E_commerce_c_charp.Pages_Admin_SupplierRequest.IndexModel
+
+@{
+    ViewData["Title"] = "Gestion Candidatures Fournisseurs";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="container-fluid py-4">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="h3 mb-1">
+                <i class="bi bi-handshake me-2 text-primary"></i>
+                Candidatures Fournisseurs
+            </h1>
+            <p class="text-muted mb-0">
+                <span class="badge bg-info-subtle text-info">@Model.SupplierRequest.Count()</span> candidatures
+                <span class="badge @(Model.SupplierRequest.Count(x => !x.IsReviewed) > 0 ? "bg-warning-subtle text-warning" : "bg-success-subtle text-success")">
+                    @Model.SupplierRequest.Count(x => !x.IsReviewed) à examiner
+                </span>
+            </p>
+        </div>
+        <a asp-page="Create" class="btn btn-primary">
+            <i class="bi bi-plus-circle me-2"></i>
+            Nouvelle candidature
+        </a>
+    </div>
+
+    <!-- Filtres -->
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-3">
+                    <input name="search" class="form-control" placeholder="Rechercher par nom/entreprise..." value="@Model.CurrentFilter">
+                </div>
+                <div class="col-md-2">
+                    <select name="status" class="form-select">
+                        <option value="">Tous les statuts</option>
+                        <option value="pending" >À examiner</option>
+                        <option value="reviewed" >Examinées</option>
+                        @* <option value="pending" @(Model.StatusFilter == "pending" ? "selected" : "")>À examiner</option>
+                        <option value="reviewed" @(Model.StatusFilter == "reviewed" ? "selected" : "")>Examinées</option> *@
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-outline-primary w-100">
+                        <i class="bi bi-search"></i> Filtrer
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <a @* href="@Context.Request.Path" *@ class="btn btn-outline-secondary w-100">
+                        <i class="bi bi-arrow-clockwise"></i> Réinitialiser
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tableau responsive -->
+    <div class="card shadow-lg border-0 overflow-hidden">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th style="width: 200px;">
+                            <i class="bi bi-person me-2"></i>Nom
+                        </th>
+                        <th style="width: 180px;">
+                            <i class="bi bi-building me-2"></i>Entreprise
+                        </th>
+                        <th style="width: 120px;">
+                            Activité
+                        </th>
+                        <th style="width: 100px;">
+                            Pays
+                        </th>
+                        <th style="width: 120px;">
+                            Produits
+                        </th>
+                        <th style="width: 120px;">
+                            <i class="bi bi-chat-left-text me-2"></i>Description
+                        </th>
+                        <th style="width: 140px;">
+                            Contact
+                        </th>
+                        <th style="width: 120px;">
+                            Statut
+                        </th>
+                        <th style="width: 140px;">
+                            Date création
+                        </th>
+                        <th style="width: 150px;" class="text-center">
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.SupplierRequest.Any())
+                    {
+                        @foreach (var item in Model.SupplierRequest)
+                        {
+                            <tr class="@(item.IsReviewed ? "" : "table-warning")">
+                                <td>
+                                    <div class="fw-semibold">@item.FullName</div>
+                                    <small class="text-muted">@item.OrganizationName</small>
+                                </td>
+                                <td>
+                                    <span class="badge bg-primary-subtle text-primary px-2 py-1">
+                                        @item.ActivityType
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="fw-semibold">@item.Country</span>
+                                </td>
+                                <td class="small">
+                                    @item.ProductTypes
+                                </td>
+                                <td class="small text-truncate" style="max-width: 200px;" title="@item.Description">
+                                    @item.Description
+                                </td>
+                                <td>
+                                    <div>@item.Email</div>
+                                    <div class="small text-muted">
+                                        <i class="bi bi-telephone me-1"></i>@item.Phone
+                                    </div>
+                                </td>
+                                <td>
+                                    @if (!item.IsReviewed)
+                                    {
+                                        <span class="badge bg-warning-subtle text-warning border border-warning-subtle rounded-pill px-3">
+                                            <i class="bi bi-clock-fill me-1"></i>À examiner
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3">
+                                            <i class="bi bi-check-circle-fill me-1"></i>Examinée
+                                        </span>
+                                    }
+                                </td>
+                                <td>
+                                    <span class="badge bg-secondary-subtle text-secondary px-2 py-1">
+                                        @item.CreatedAt.ToString("dd/MM/yy HH:mm")
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-sm" role="group">
+                                        <a asp-page="./Details" asp-route-id="@item.Id" 
+                                           class="btn btn-outline-primary" title="Détails">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <a asp-page="./Edit" asp-route-id="@item.Id" 
+                                           class="btn btn-outline-success" title="Modifier">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a asp-page="./Delete" asp-route-id="@item.Id" 
+                                           class="btn btn-outline-danger" title="Supprimer">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="10" class="text-center py-5">
+                                <i class="bi bi-inbox fs-1 text-muted mb-3"></i>
+                                <h4 class="text-muted">Aucune candidature</h4>
+                                <p class="text-muted mb-4">Soyez le premier fournisseur !</p>
+                                <a asp-page="Create" class="btn btn-primary">
+                                    <i class="bi bi-plus-circle me-2"></i>Nouvelle candidature
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        @if (Model.SupplierRequest.Any())
+        {
+            <div class="card-footer bg-light border-0">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                    <div class="small text-muted">
+                        Affichage de @Model.SupplierRequest.Count() candidature(s)
+                    </div>
+                    <!-- Pagination simple -->
+                    <nav>
+                        <ul class="pagination pagination-sm mb-0">
+                            <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
+                                <a class="page-link" href="?page=1">Premier</a>
+                            </li>
+                            <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
+                                <a class="page-link" href="?page=@(Model.CurrentPage - 1)">Précédent</a>
+                            </li>
+                            <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")">
+                                <a class="page-link" href="?page=@(Model.CurrentPage + 1)">Suivant</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@* @page
+@model E_commerce_c_charp.Pages_Admin_SupplierRequest.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierRequest[0].FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierRequest[0].OrganizationName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierRequest[0].ActivityType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierRequest[0].Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierRequest[0].CulturalOrigin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierRequest[0].ProductTypes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierRequest[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierRequest[0].Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierRequest[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierRequest[0].Website)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierRequest[0].Facebook)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierRequest[0].Instagram)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierRequest[0].IsReviewed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierRequest[0].CreatedAt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SupplierRequest) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrganizationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActivityType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CulturalOrigin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductTypes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Website)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facebook)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instagram)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsReviewed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ *@

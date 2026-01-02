@@ -1,0 +1,295 @@
+@page
+
+@model E_commerce_c_charp.Pages_SupplierRequest.CandidatureModel
+
+@{
+    ViewData["Title"] = "Gestion Candidatures Fournisseurs";
+    Layout = "_LayoutAdmin";
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <div class="container-fluid px-3 px-md-4 py-5 min-vh-100">
+        <div class="row justify-content-center">
+            <div class="col-xxl-8 col-xl-9 col-lg-10">
+
+                <!-- Header "Pourquoi nous rejoindre ?" -->
+                <div class="text-center mb-5">
+                    <h1 class="display-5 fw-bold mb-4 text-center" style="color: #1e3a8a;">
+                        <i class="bi bi-handshake me-3 position-relative" style="font-size: 2.5rem;"></i>
+                        Pourquoi nous rejoindre ?
+                    </h1>
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card border-0 h-100 shadow-sm hover-lift">
+                                <div class="card-body text-center p-4">
+                                    <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3 mx-auto"
+                                        style="width: 70px; height: 70px;">
+                                        <i class="bi bi-people-fill fs-4 text-primary"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-2" style="color: #1e3a8a;">Large audience</h6>
+                                    <p class="small text-muted">Accédez à des milliers de clients</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card border-0 h-100 shadow-sm hover-lift">
+                                <div class="card-body text-center p-4">
+                                    <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3 mx-auto"
+                                        style="width: 70px; height: 70px;">
+                                        <i class="bi bi-graph-up fs-4 text-success"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-2" style="color: #1e3a8a;">Visibilité garantie</h6>
+                                    <p class="small text-muted">Mise en avant produits</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card border-0 h-100 shadow-sm hover-lift">
+                                <div class="card-body text-center p-4">
+                                    <div class="bg-info bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3 mx-auto"
+                                        style="width: 70px; height: 70px;">
+                                        <i class="bi bi-credit-card fs-4 text-info"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-2" style="color: #1e3a8a;">Paiements sécurisés</h6>
+                                    <p class="small text-muted">Virements hebdomadaires</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulaire bleu -->
+                <div class="card shadow-xl border-0 rounded-4 mb-5 overflow-hidden"
+                    style="background: linear-gradient(145deg, #1e40af 0%, #1d4ed8 100%); border: 1px solid #3b82f6;">
+                    <div class="card-body p-5 p-lg-5 text-white position-relative">
+                        <!-- Badge rouge en haut à gauche -->
+                        <div class="position-absolute top-4 start-4 z-3">
+                            <span class="badge bg-danger px-3 py-2 rounded-pill fw-semibold shadow">
+                                <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                                Informations obligatoires
+                            </span>
+                        </div>
+
+                        <h2 class="h3 fw-bold mb-5 text-center position-relative z-2">
+                            Formulaire Candidature Fournisseur
+                        </h2>
+
+                        <form method="post" novalidate>
+                            <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-4"></div>
+
+                            <!-- 1ère rangée -->
+                            <div class="row g-4 mb-4">
+                                <div class="col-lg-6">
+                                    <label asp-for="SupplierRequest.FullName" class="form-label fw-semibold mb-2">
+                                        <i class="bi bi-person-circle me-2 text-danger"></i>
+                                        Nom & Prénom <span class="text-danger">*</span>
+                                    </label>
+                                    <input asp-for="SupplierRequest.FullName"
+                                        class="form-control form-control-lg rounded-3" required />
+                                    <div asp-validation-for="SupplierRequest.FullName" class="invalid-feedback"></div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label asp-for="SupplierRequest.OrganizationName"
+                                        class="form-label fw-semibold mb-2">
+                                        Nom de l'entreprise
+                                    </label>
+                                    <input asp-for="SupplierRequest.OrganizationName"
+                                        class="form-control form-control-lg rounded-3" />
+                                    <div asp-validation-for="SupplierRequest.OrganizationName" class="invalid-feedback">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2ème rangée -->
+                            <div class="row g-4 mb-4">
+                                <div class="col-lg-6">
+                                    <label asp-for="SupplierRequest.ActivityType" class="form-label fw-semibold mb-2">
+                                        <i class="bi bi-briefcase me-2 text-danger"></i>
+                                        Type d'activité <span class="text-danger">*</span>
+                                    </label>
+                                    <select asp-for="SupplierRequest.ActivityType"
+                                        class="form-select form-select-lg rounded-3" required>
+                                        <option value="">Choisir...</option>
+                                        <option value="Agroalimentaire">Agroalimentaire</option>
+                                        <option value="Textile">Textile & habillement</option>
+                                        <option value="Artisanat">Artisanat</option>
+                                        <option value="Électronique">Électronique</option>
+                                        <option value="Autres">Autres</option>
+                                    </select>
+                                    <div asp-validation-for="SupplierRequest.ActivityType" class="invalid-feedback">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label asp-for="SupplierRequest.Country" class="form-label fw-semibold mb-2">
+                                        Pays <span class="text-danger">*</span>
+                                    </label>
+                                    <input asp-for="SupplierRequest.Country"
+                                        class="form-control form-control-lg rounded-3" list="countries" required />
+                                    <datalist id="countries">
+                                        <option value="Maroc">Maroc</option>
+                                        <option value="France">France</option>
+                                        <option value="Espagne">Espagne</option>
+                                    </datalist>
+                                    <div asp-validation-for="SupplierRequest.Country" class="invalid-feedback"></div>
+                                </div>
+                            </div>
+
+                            <!-- 3ème rangée -->
+                            <div class="row g-4 mb-4">
+                                <div class="col-lg-6">
+                                    <label asp-for="SupplierRequest.CulturalOrigin" class="form-label fw-semibold mb-2">
+                                        Origine culturelle
+                                    </label>
+                                    <input asp-for="SupplierRequest.CulturalOrigin"
+                                        class="form-control form-control-lg rounded-3" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label asp-for="SupplierRequest.ProductTypes" class="form-label fw-semibold mb-2">
+                                        Types de produits <span class="text-danger">*</span>
+                                    </label>
+                                    <input asp-for="SupplierRequest.ProductTypes"
+                                        class="form-control form-control-lg rounded-3"
+                                        placeholder="Ex: Huile d'argan, Fruits secs..." required />
+                                    <div asp-validation-for="SupplierRequest.ProductTypes" class="invalid-feedback">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="mb-5">
+                                <label asp-for="SupplierRequest.Description" class="form-label fw-semibold mb-2">
+                                    <i class="bi bi-card-text me-2 text-danger"></i>
+                                    Description <span class="text-danger">*</span>
+                                </label>
+                                <textarea asp-for="SupplierRequest.Description" class="form-control rounded-3" rows="4"
+                                    placeholder="Décrivez votre activité, vos produits, votre expérience..."
+                                    required></textarea>
+                                <div asp-validation-for="SupplierRequest.Description" class="invalid-feedback"></div>
+                            </div>
+
+                            <!-- Coordonnées -->
+                            <div class="row g-4 mb-5">
+                                <div class="col-lg-4">
+                                    <label asp-for="SupplierRequest.Phone" class="form-label fw-semibold mb-2">
+                                        <i class="bi bi-telephone me-2"></i>Téléphone
+                                    </label>
+                                    <input asp-for="SupplierRequest.Phone"
+                                        class="form-control form-control-lg rounded-3" />
+                                </div>
+                                <div class="col-lg-4">
+                                    <label asp-for="SupplierRequest.Email" class="form-label fw-semibold mb-2">
+                                        <i class="bi bi-envelope me-2"></i>Email
+                                    </label>
+                                    <input asp-for="SupplierRequest.Email" type="email"
+                                        class="form-control form-control-lg rounded-3" />
+                                </div>
+                                <div class="col-lg-4">
+                                    <label asp-for="SupplierRequest.Website" class="form-label fw-semibold mb-2">
+                                        Site web
+                                    </label>
+                                    <input asp-for="SupplierRequest.Website"
+                                        class="form-control form-control-lg rounded-3" />
+                                </div>
+                            </div>
+
+                            <!-- Réseaux sociaux -->
+                            <div class="row g-4 mb-5">
+                                <div class="col-lg-6">
+                                    <label asp-for="SupplierRequest.Facebook" class="form-label fw-semibold mb-2">
+                                        <i class="bi bi-facebook text-primary me-2"></i>Facebook
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white border-primary text-primary">
+                                            <i class="bi bi-facebook"></i>
+                                        </span>
+                                        <input asp-for="SupplierRequest.Facebook" class="form-control rounded-end-3" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label asp-for="SupplierRequest.Instagram" class="form-label fw-semibold mb-2">
+                                        <i class="bi bi-instagram text-danger me-2"></i>Instagram
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white border-danger text-danger">
+                                            <i class="bi bi-instagram"></i>
+                                        </span>
+                                        <input asp-for="SupplierRequest.Instagram" class="form-control rounded-end-3" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Boutons -->
+                            <div class="d-grid d-md-flex gap-3 justify-content-center">
+                                <button type="submit"
+                                    class="btn btn-danger btn-lg px-5 py-3 rounded-pill shadow-lg border-0"
+                                    style="background: linear-gradient(45deg, #dc2626, #ef4444);">
+                                    <i class="bi bi-send-check-fill me-2"></i>
+                                    <strong>Soumettre candidature</strong>
+                                </button>
+                                <a href="/" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">
+                                    <i class="bi bi-arrow-left me-2"></i>
+                                    Retour accueil
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Footer orange -->
+                <div class="bg-gradient text-center p-4 rounded-bottom-4 shadow-lg"
+                    style="background: linear-gradient(145deg, #f97316, #fb923c); color: white;">
+                    <div class="row align-items-center g-3">
+                        <div class="col-md-6">
+                            <h6 class="fw-bold mb-1">Des questions ?</h6>
+                            <p class="mb-0 small">
+                                <i class="bi bi-envelope me-2"></i>contact@multicoop.ma
+                                <span class="d-block d-md-inline-block d-lg-none mt-1"></span>
+                                <i class="bi bi-telephone ms-3 me-2"></i>+212 6 12 34 56 78
+                            </p>
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            <small class="opacity-75">
+                                MultiCoop E-commerce © 2026 |
+                                <a href="#" class="text-white text-decoration-none">Mentions légales</a> |
+                                <a href="#" class="text-white text-decoration-none">Confidentialité</a>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+        <script>
+            // Validation client personnalisée
+            (function () {
+                'use strict';
+                window.addEventListener('load', function () {
+                    var forms = document.getElementsByClassName('needs-validation');
+                    Array.prototype.filter.call(forms, function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+        </script>
+}

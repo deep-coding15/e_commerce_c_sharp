@@ -50,4 +50,9 @@ public class Product
 
     // Navigation vers les lignes de commande
     public List<OrderItem> OrderItems { get; set; } = new();
+    
+    // Clé étrangère et relation vers le fournisseur
+    
+    public int? SupplierId { get; set; }
+    public Supplier? Supplier { get; set; }
 }

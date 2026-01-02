@@ -223,7 +223,7 @@ app.MapGet("/", (HttpContext context) =>
     // Non connecté => page client par défaut
     if (user?.Identity is null || !user.Identity.IsAuthenticated)
     {
-        return Results.Redirect("/Product");
+        return Results.Redirect("/");
     }
 
     // Admin
@@ -233,7 +233,7 @@ app.MapGet("/", (HttpContext context) =>
     }
 
     // Client normal
-    return Results.Redirect("/Index");
+    return Results.Redirect("/");
 });
 
 // API TOKEN CSRF - Génère et stocke le token dans un cookie

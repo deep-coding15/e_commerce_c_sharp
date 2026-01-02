@@ -1,8 +1,13 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using E_commerce_c_charp.Data;
 using E_commerce_c_charp.Models;
 using E_commerce_c_charp.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,13 +26,16 @@ public class IndexModel : PageModel
 
     public OrderDashboardViewModel Dashboard { get; set; } = new();
 
-    public async Task OnGetAsync()
+    public async Task<IActionResult> OnGetAsync()
     {
         var user = await _userManager.GetUserAsync(User);
+            if (user == null /* || user.Id != UserId */) 
+                return Unauthorized();
+
         if (user is null)
         {
             Dashboard = new OrderDashboardViewModel();
-            return;
+            return Page();
         }
 
         var orders = await _context.Order
@@ -63,6 +71,7 @@ public class IndexModel : PageModel
         Dashboard.Delivered = orders.Count(o => o.Status == Status.Delivered);
         Dashboard.InProgress = orders.Count(o => o.Status is Status.Pending or Status.Completed);
         Dashboard.ItemsPurchased = Dashboard.Orders.Sum(o => o.ItemsCount);
+        return Page();
     }
 
     private static string GetStatusCss(Status status) =>

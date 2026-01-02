@@ -17,4 +17,6 @@ public class E_commerce_c_charpContext : IdentityDbContext<User, IdentityRole, s
     public DbSet<OrderItem> OrderItem { get; set; } = default!;
     public DbSet<Cart> Cart { get; set; } = default!;
     public DbSet<CartItem> CartItem { get; set; } = default!;
+    public DbSet<E_commerce_c_charp.Models.SupplierRequest> SupplierRequest { get; set; } = default!;
+    public DbSet<Supplier> Supplier { get; set; } = default!;
 }
