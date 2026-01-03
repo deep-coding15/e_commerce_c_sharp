@@ -1,240 +1,278 @@
+/* =========================
+   CONTAINER
+========================= */
 .catalogue-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f8fafc;
+    padding: 32px;
+    background: var(--african-cream);
     min-height: 100vh;
 }
 
+/* =========================
+   HEADER
+========================= */
 .catalogue-header {
-    padding: 20px 0;
-    border-bottom: 1px solid #e2e8f0;
+    padding: 24px 0;
+    border-bottom: 2px solid rgba(212,175,55,0.35);
 }
 
 .catalogue-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin: 0;
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: var(--african-indigo);
 }
 
-/* Main Layout */
+/* =========================
+   MAIN LAYOUT
+========================= */
 .catalogue-main {
     display: grid;
-    grid-template-columns: 250px 1fr;
-    gap: 30px;
-    margin-top: 30px;
+    grid-template-columns: 280px 1fr;
+    gap: 36px;
+    margin-top: 36px;
 }
 
-/* Sidebar Filters */
+/* =========================
+   FILTER SIDEBAR
+========================= */
 .filters-sidebar {
-    background: white;
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0,0, 0.1);
-    height: fit-content;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 10px 32px rgba(139,69,19,0.15);
+    border: 1px solid rgba(212,175,55,0.25);
 }
 
 .filter-section h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 20px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--african-sienna);
+    margin-bottom: 24px;
 }
 
 .filter-group {
-    padding: 12px 16px;
-    margin-bottom: 8px;
-    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    border-radius: 14px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.25s ease;
     border: 2px solid transparent;
+    font-weight: 500;
 }
 
 .filter-group:hover {
-    background: #f1f5f9;
+    background: rgba(212,175,55,0.12);
 }
 
 .filter-group.active {
-    background: #3b82f6;
-    color: white;
-    border-color: #2563eb;
+    background: var(--gradient-gold);
+    color: #2D1B0F;
+    border-color: var(--african-gold);
 }
 
 .filter-group label {
-    font-weight: 500;
     margin: 0;
 }
 
-/* Products Grid */
+/* =========================
+   PRODUCTS GRID
+========================= */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 24px;
+    gap: 28px;
 }
 
+/* =========================
+   PRODUCT CARD
+========================= */
 .product-card {
-    background: white;
-    border-radius: 20px;
+    background: #ffffff;
+    border-radius: 22px;
     overflow: hidden;
-    box-shadow: 0 10px 25px -3px rgba(0, 0,0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 12px 36px rgba(139,69,19,0.18);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    border: 1px solid rgba(212,175,55,0.25);
 }
 
 .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px -5px rgba(0, 0,0, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 24px 48px rgba(139,69,19,0.25);
 }
 
+/* =========================
+   PRODUCT IMAGE
+========================= */
 .product-image {
-    height: 240px;
-    overflow: hidden;
+    height: 250px;
     position: relative;
+    overflow: hidden;
 }
 
 .product-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.6s ease;
 }
 
+.product-card:hover .product-image img {
+    transform: scale(1.08);
+}
+
+/* =========================
+   PRODUCT INFO
+========================= */
 .product-info {
-    padding: 24px;
+    padding: 26px;
 }
 
 .product-info h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin: 0 0 16px 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--african-indigo);
+    margin-bottom: 18px;
     line-height: 1.4;
 }
 
+/* =========================
+   PRICE
+========================= */
 .product-price {
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #059669;
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--african-emerald);
 }
 
 .old-price {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: #6b7280;
     text-decoration: line-through;
-    margin-left: 12px;
+    margin-left: 10px;
 }
 
+/* =========================
+   STOCK
+========================= */
 .product-stock {
-    margin-bottom: 20px;
-    font-size: 0.9rem;
+    margin-bottom: 22px;
+    font-size: 0.95rem;
 }
 
 .stock-in {
-    color: #059669;
-    font-weight: 500;
+    color: var(--african-safari);
+    font-weight: 600;
 }
 
 .stock-out {
-    color: #dc2626;
-    font-weight: 500;
+    color: #b91c1c;
+    font-weight: 600;
 }
 
 .stock-qty {
-    margin-left: 8px;
+    margin-left: 6px;
     opacity: 0.7;
 }
 
+/* =========================
+   ADD TO CART
+========================= */
 .add-to-cart {
     width: 100%;
-    padding: 14px 20px;
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    color: white;
+    padding: 15px 22px;
+    background: linear-gradient(
+        145deg,
+        var(--african-gold),
+        var(--african-sunset),
+        var(--african-terracotta)
+    );
+    color: #2D1B0F;
     border: none;
-    border-radius: 12px;
-    font-weight: 600;
+    border-radius: 14px;
+    font-weight: 700;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
 }
 
 .add-to-cart:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(212,175,55,0.45);
 }
 
 .add-to-cart.disabled {
     background: #9ca3af;
     cursor: not-allowed;
-    transform: none;
+    box-shadow: none;
 }
 
-/* Top Bar */
+/* =========================
+   TOP BAR
+========================= */
 .top-bar {
     position: sticky;
-    top: 20px;
-    background: white;
-    padding: 16px 24px;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0,0, 0.1);
+    top: 24px;
+    background: #ffffff;
+    padding: 18px 26px;
+    border-radius: 20px;
+    box-shadow: 0 10px 28px rgba(139,69,19,0.18);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 28px;
     z-index: 10;
-}
-
-.top-bar-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    border: 1px solid rgba(212,175,55,0.25);
 }
 
 .sort-label {
-    font-weight: 500;
-    color: #374151;
+    font-weight: 600;
+    color: var(--african-sienna);
 }
 
 .sort-select {
-    padding: 8px 16px;
-    border: 2px solid #e5e7eb;
-    border-radius: 10px;
-    background: white;
-    font-weight: 500;
+    padding: 9px 18px;
+    border: 2px solid rgba(212,175,55,0.4);
+    border-radius: 12px;
+    background: #ffffff;
+    font-weight: 600;
 }
 
+/* View buttons */
 .top-bar-right button {
-    width: 44px;
-    height: 44px;
-    border: none;
-    border-radius: 12px;
-    background: #f1f5f9;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: rgba(212,175,55,0.15);
     cursor: pointer;
-    margin-left: 8px;
-    transition: all 0.2s;
+    margin-left: 10px;
+    transition: all 0.25s ease;
     font-size: 1.2rem;
 }
 
 .top-bar-right button.active,
 .top-bar-right button:hover {
-    background: #3b82f6;
-    color: white;
+    background: var(--gradient-gold);
+    color: #2D1B0F;
 }
 
-/* Responsive */
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 1024px) {
     .catalogue-main {
         grid-template-columns: 1fr;
     }
-    
+
     .filters-sidebar {
         order: 2;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 12px;
-        padding: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 14px;
+        padding: 18px;
     }
 }

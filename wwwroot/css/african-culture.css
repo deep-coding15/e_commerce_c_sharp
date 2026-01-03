@@ -1,44 +1,38 @@
 /* =========================================================
    🌍 AFRICAN CULTURE DESIGN SYSTEM — BAMILEKE
    Élégant • Épuré • Identitaire
-   
 ========================================================= */
 
 /* =========================================================
    1. DESIGN TOKENS
 ========================================================= */
 :root {
-  /* Terres nobles */
-  --african-ochre: #8B4513;
-  --african-sienna: #9C4A1A;
-  --african-terracotta: #C26A3A;
-  --african-clay: #EFE6D8;
+  /* Terres lumineuses */
+  --african-ochre: #9A5A2E;
+  --african-sienna: #B45309;
+  --african-terracotta: #D97745;
+  --african-clay: #F3ECE4;
 
-  /* Or raffiné */
+  /* Or discret */
   --african-gold: #D4AF37;
-  --african-gold-soft: #E6C973;
+  --african-gold-soft: #F1E2A0;
 
-  /* Indigo royal */
-  --african-indigo: #1E3A8A;
-  --african-navy: #1E293B;
+  /* Indigo adouci */
+  --african-indigo: #334155;
+  --african-navy: #475569;
 
   /* Nature */
   --african-emerald: #047857;
 
-  /* Neutres premium */
-  --african-beige: #F8F6F2;
-  --african-cream: #FFFDF7;
+  /* Neutres clairs */
+  --african-beige: #FAF8F4;
+  --african-cream: #FFFDF9;
 
-  /* Gradients discrets */
-  --gradient-gold: linear-gradient(135deg, #D4AF37, #E9D18B);
+  /* Gradients subtils */
+  --gradient-gold: linear-gradient(135deg, #EAD98C, #D4AF37);
   --gradient-warning: linear-gradient(135deg, #F59E0B, #E6A23C);
   --gradient-danger: linear-gradient(135deg, #DC2626, #B91C1C);
-  --gradient-hero: linear-gradient(
-    135deg,
-    #1E3A8A,
-    #9C4A1A,
-    #D4AF37
-  );
+  --gradient-hero: linear-gradient(135deg, #FFF6D6, #F3E8C8, #FAF4EA);
 }
 
 /* =========================================================
@@ -48,100 +42,105 @@
 
 * {
   font-family: 'Poppins', system-ui, sans-serif;
+  color: #3A2A1F;
 }
 
 h1, h2, h3, h4, h5, h6,
 .fw-bold {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  color: #2A1A0F;
+  color: #2F1D12;
+  letter-spacing: 0.02em;
 }
 
 /* =========================================================
-   3. MOTIF BAMILEKE — SUBTIL
+   3. FOND GLOBAL
+========================================================= */
+body {
+  background: var(--african-beige);
+  color: #3A2A1F;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   4. MOTIF BAMILEKE — SUBTIL
 ========================================================= */
 .bamileke-pattern {
   background-image:
     linear-gradient(45deg, rgba(212,175,55,0.08) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(30,58,138,0.08) 25%, transparent 25%);
+    linear-gradient(-45deg, rgba(51,65,85,0.08) 25%, transparent 25%);
   background-size: 48px 48px;
 }
 
 /* =========================================================
-   4. BOUTONS
+   5. BOUTONS
 ========================================================= */
 .btn-wax {
   background: var(--gradient-gold);
-  border: none;
-  color: #2A1A0F !important;
+  color: #2F1D12 !important;
+  border-radius: 14px;
   font-weight: 600;
-  border-radius: 12px;
+  border: none;
   transition: all 0.25s ease;
 }
 
 .btn-wax:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(212,175,55,0.35);
+  box-shadow: 0 10px 24px rgba(212,175,55,0.35);
 }
 
 /* =========================================================
-   5. CARDS — CLEAN & PREMIUM
+   6. CARDS — CLEAN & PREMIUM
 ========================================================= */
 .card {
   background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #E5E7EB;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  border-radius: 20px;
+  border: 1px solid rgba(212,175,55,0.25);
+  box-shadow: 0 8px 28px rgba(90,60,30,0.12);
   transition: all 0.3s ease;
   overflow: hidden;
+  position: relative;
 }
 
 .card::before {
   content: '';
   height: 3px;
   width: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--african-gold),
-    var(--african-indigo)
-  );
+  background: linear-gradient(90deg, var(--african-gold), transparent);
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 32px rgba(0,0,0,0.12);
-}
-
 .card-body {
-  color: #374151;
+  color: #4A3A2E;
 }
 
 /* =========================================================
-   6. NAVBAR
+   7. NAVBAR
 ========================================================= */
 .navbar {
-  background: linear-gradient(
-    180deg,
-    #1E293B,
-    #1E3A8A
-  );
+  background: var(--african-cream);
   border-bottom: 1px solid rgba(212,175,55,0.3);
 }
 
 .navbar-brand {
   font-family: 'Playfair Display', serif;
-  font-weight: 800;
-  font-size: 1.7rem;
-  background: linear-gradient(45deg, #D4AF37, #F5E3A1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 1.6rem;
+  color: var(--african-indigo) !important;
+}
+
+.nav-link {
+  color: #4B3A2F !important;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: var(--african-gold) !important;
 }
 
 /* =========================================================
-   7. BADGES
+   8. BADGES
 ========================================================= */
 .badge {
   font-weight: 600;
@@ -170,7 +169,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* =========================================================
-   8. FORMULAIRES
+   9. FORMULAIRES
 ========================================================= */
 .form-control,
 .form-select {
@@ -184,11 +183,11 @@ h1, h2, h3, h4, h5, h6,
 .form-control:focus,
 .form-select:focus {
   border-color: var(--african-indigo);
-  box-shadow: 0 0 0 3px rgba(30,58,138,0.12);
+  box-shadow: 0 0 0 3px rgba(51,65,85,0.12);
 }
 
 /* =========================================================
-   9. TABLES
+   10. TABLES
 ========================================================= */
 .table {
   background: #ffffff;
@@ -197,18 +196,18 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .table thead th {
-  background: linear-gradient(90deg, var(--african-indigo), var(--african-navy));
-  color: #fff;
-  font-size: 0.8rem;
+  background: #F5EFE6;
+  color: #2F1D12;
+  font-weight: 600;
   letter-spacing: 0.05em;
 }
 
 .table-hover tbody tr:hover {
-  background: rgba(212,175,55,0.08);
+  background: rgba(212,175,55,0.1);
 }
 
 /* =========================================================
-   10. HERO
+   11. HERO
 ========================================================= */
 .hero-section {
   background: var(--gradient-hero);
@@ -217,7 +216,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* =========================================================
-   11. ANIMATIONS
+   12. ANIMATIONS
 ========================================================= */
 @keyframes gradient-shift {
   0%,100% { background-position: 0% 50%; }
@@ -225,28 +224,301 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* =========================================================
-   12. RESPONSIVE
+   13. CATALOGUE — GRIDS & PRODUCT CARD
 ========================================================= */
-@media (max-width: 768px) {
-  .card { border-radius: 14px; }
-  .navbar-brand { font-size: 1.4rem; }
+.catalogue-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.catalogue-header {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(212,175,55,0.3);
+}
+
+.catalogue-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2F1D12;
+    margin: 0;
+}
+
+/* Main Layout */
+.catalogue-main {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Sidebar Filters */
+.filters-sidebar {
+    background: #FFFDF9;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(90,60,30,0.1);
+    height: fit-content;
+}
+
+.filter-section h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2F1D12;
+    margin-bottom: 20px;
+}
+
+.filter-group {
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+}
+
+.filter-group:hover {
+    background: rgba(212,175,55,0.1);
+}
+
+.filter-group.active {
+    background: var(--african-gold);
+    color: #2F1D12;
+    border-color: #B45309;
+}
+
+.filter-group label {
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.product-card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(90,60,30,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(90,60,30,0.15);
+}
+
+.product-image img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 24px;
+}
+
+.product-info h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2F1D12;
+    margin-bottom: 16px;
+}
+
+.product-price .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--african-emerald);
+}
+
+.product-price .old-price {
+    font-size: 1.1rem;
+    color: #6B7280;
+    text-decoration: line-through;
+    margin-left: 12px;
+}
+
+.product-stock .stock-in {
+    color: var(--african-emerald);
+    font-weight: 500;
+}
+
+.product-stock .stock-out {
+    color: #DC2626;
+    font-weight: 500;
+}
+
+/* Add to Cart */
+.add-to-cart {
+    width: 100%;
+    padding: 14px 20px;
+    background: var(--gradient-gold);
+    color: #2F1D12;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.add-to-cart:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(212,175,55,0.4);
+}
+
+.add-to-cart.disabled {
+    background: #D1D5DB;
+    cursor: not-allowed;
 }
 
 /* =========================================================
-   13. DARK MODE
+   14. TOP BAR
 ========================================================= */
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #0F172A;
-    color: #E5E7EB;
-  }
+.top-bar {
+    position: sticky;
+    top: 0px;
+    background: #FFFDF9;
+    padding: 16px 24px;
+    /* border-radius: 16px; */
+    box-shadow: 0 4px 6px rgba(90,60,30,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    z-index: 10;
+}
 
-  .card {
-    background: #020617;
-    border-color: #1E293B;
-  }
+.top-bar-left .sort-label {
+    font-weight: 500;
+    color: #4B3A2F;
+}
 
-  .table {
-    background: #020617;
-  }
+.top-bar-left .sort-select {
+    padding: 8px 16px;
+    border-radius: 10px;
+    background: #FFFDF9;
+    border: 1px solid #D1D5DB;
+    font-weight: 500;
+}
+
+.top-bar-right button {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 12px;
+    background: #F3ECE4;
+    cursor: pointer;
+    margin-left: 8px;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+}
+
+.top-bar-right button.active,
+.top-bar-right button:hover {
+    background: var(--african-gold);
+    color: #2F1D12;
+}
+
+/* =========================================================
+   FOOTER — AFRICAN CULTURE DESIGN
+========================================================= */
+footer {
+    background: var(--african-indigo);
+    color: #FFFDF9;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+footer h5, footer h6 {
+    font-family: 'Playfair Display', serif;
+    color: var(--african-clay);
+}
+
+footer a {
+    color: #F8F6F2;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: var(--african-gold-soft);
+}
+
+footer p, footer li {
+    color: #FFFDF9;
+    opacity: 0.85;
+    font-size: 0.9rem;
+}
+
+footer ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+footer .social-links a {
+    background: var(--african-gold-soft);
+    color: var(--african-indigo);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: all 0.25s ease;
+}
+
+footer .social-links a:hover {
+    background: var(--african-gold);
+    color: var(--african-navy);
+    transform: translateY(-2px);
+}
+
+footer .input-group .form-control {
+    border-radius: 12px 0 0 12px;
+    border: 1px solid rgba(212,175,55,0.4);
+    background: #FFFDF9;
+    color: var(--african-indigo);
+}
+
+footer .input-group .btn-wax {
+    border-radius: 0 12px 12px 0;
+}
+
+footer hr {
+    border-color: rgba(212,175,55,0.3);
+}
+
+footer .d-flex span i {
+    color: var(--african-gold);
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   15. RESPONSIVE
+========================================================= */
+@media (max-width: 1024px) {
+    .catalogue-main {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters-sidebar {
+        order: 2;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card { border-radius: 14px; }
+    .navbar-brand { font-size: 1.4rem; }
 }

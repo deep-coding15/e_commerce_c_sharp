@@ -17,15 +17,16 @@
             </h1>
             <p class="text-muted mb-0">
                 <span class="badge bg-info-subtle text-info">@Model.SupplierRequest.Count()</span> candidatures
-                <span class="badge @(Model.SupplierRequest.Count(x => !x.IsReviewed) > 0 ? "bg-warning-subtle text-warning" : "bg-success-subtle text-success")">
+                <span
+                    class="badge @(Model.SupplierRequest.Count(x => !x.IsReviewed) > 0 ? "bg-warning-subtle text-warning" : "bg-success-subtle text-success")">
                     @Model.SupplierRequest.Count(x => !x.IsReviewed) à examiner
                 </span>
             </p>
         </div>
-        <a asp-page="Create" class="btn btn-primary">
+        @* <a asp-page="Create" class="btn btn-primary">
             <i class="bi bi-plus-circle me-2"></i>
             Nouvelle candidature
-        </a>
+        </a> *@
     </div>
 
     <!-- Filtres -->
@@ -33,13 +34,15 @@
         <div class="card-body">
             <form method="get" class="row g-3">
                 <div class="col-md-3">
-                    <input name="search" class="form-control" placeholder="Rechercher par nom/entreprise..." value="@Model.CurrentFilter">
+                    <input name="search" class="form-control" placeholder="Rechercher par nom/entreprise..."
+                        value="@Model.CurrentFilter">
                 </div>
                 <div class="col-md-2">
                     <select name="status" class="form-select">
                         <option value="">Tous les statuts</option>
-                        <option value="pending" >À examiner</option>
-                        <option value="reviewed" >Examinées</option>
+                        <option value="pending">À examiner</option>
+                        <option value="reviewed">Examinées</option>
+                        <option value="archived">Archivées</option>
                         @* <option value="pending" @(Model.StatusFilter == "pending" ? "selected" : "")>À examiner</option>
                         <option value="reviewed" @(Model.StatusFilter == "reviewed" ? "selected" : "")>Examinées</option> *@
                     </select>
@@ -49,11 +52,11 @@
                         <i class="bi bi-search"></i> Filtrer
                     </button>
                 </div>
-                <div class="col-md-2">
-                    <a @* href="@Context.Request.Path" *@ class="btn btn-outline-secondary w-100">
+                @* <div class="col-md-2">
+                    <a @* href="@Context.Request.Path" * @ class="btn btn-outline-secondary w-100">
                         <i class="bi bi-arrow-clockwise"></i> Réinitialiser
                     </a>
-                </div>
+                </div> *@
             </form>
         </div>
     </div>
@@ -67,12 +70,12 @@
                         <th style="width: 200px;">
                             <i class="bi bi-person me-2"></i>Nom
                         </th>
-                        <th style="width: 180px;">
-                            <i class="bi bi-building me-2"></i>Entreprise
-                        </th>
                         <th style="width: 120px;">
                             Activité
                         </th>
+                        @* <th style="width: 180px;">
+                            <i class="bi bi-building me-2"></i>Entreprise
+                        </th> *@
                         <th style="width: 100px;">
                             Pays
                         </th>
@@ -88,12 +91,12 @@
                         <th style="width: 120px;">
                             Statut
                         </th>
-                        <th style="width: 140px;">
-                            Date création
-                        </th>
                         <th style="width: 150px;" class="text-center">
                             Actions
                         </th>
+                        @* <th style="width: 140px;">
+                            
+                        </th> *@
                     </tr>
                 </thead>
                 <tbody>
@@ -129,37 +132,66 @@
                                 <td>
                                     @if (!item.IsReviewed)
                                     {
-                                        <span class="badge bg-warning-subtle text-warning border border-warning-subtle rounded-pill px-3">
+                                        <span
+                                            class="badge bg-warning-subtle text-warning border border-warning-subtle rounded-pill px-3">
                                             <i class="bi bi-clock-fill me-1"></i>À examiner
                                         </span>
                                     }
-                                    else
+                                    else if (item.IsArchived){
+                                        <span
+                                            class="badge bg-warning-subtle text-warning border border-warning-subtle rounded-pill px-3">
+                                            <i class="bi bi-clock-fill me-1"></i>Archivée
+                                        </span>
+                                    }
+                                    else if(item.IsReviewed)
                                     {
-                                        <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3">
+                                        <span
+                                            class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3">
                                             <i class="bi bi-check-circle-fill me-1"></i>Examinée
                                         </span>
                                     }
                                 </td>
-                                <td>
+                                @* <td>
                                     <span class="badge bg-secondary-subtle text-secondary px-2 py-1">
-                                        @item.CreatedAt.ToString("dd/MM/yy HH:mm")
+                                        @item?.CreatedAt?.ToString("dd/MM/yy HH:mm")
                                     </span>
-                                </td>
+                                </td> *@
                                 <td class="text-center">
                                     <div class="btn-group btn-group-sm" role="group">
-                                        <a asp-page="./Details" asp-route-id="@item.Id" 
-                                           class="btn btn-outline-primary" title="Détails">
+                                        <!-- Détails (GET) -->
+                                        <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-outline-primary"
+                                            title="Détails">
                                             <i class="bi bi-eye"></i>
                                         </a>
-                                        <a asp-page="./Edit" asp-route-id="@item.Id" 
-                                           class="btn btn-outline-success" title="Modifier">
+
+                                        <!-- Examiner (POST Review) -->
+                                        @if (!item.IsReviewed)
+                                        {
+                                            <form method="post" asp-page-handler="Review" asp-route-id="@item.Id" class="d-inline"
+                                                style="margin: 0;" onsubmit="return confirm('Marquer comme examiné ?')">
+                                                <button type="submit" class="btn btn-success btn-sm border-0 p-1">
+                                                    <i class="bi bi-check-circle"></i> Examiner
+                                                </button>
+                                            </form>
+                                        }
+
+                                        <!-- Archiver (POST Archive) -->
+                                        @if (!item.IsArchived)
+                                        {
+                                            <form method="post" asp-page-handler="Archive" asp-route-id="@item.Id" class="d-inline"
+                                                style="margin: 0;" onsubmit="return confirm('Archiver cette candidature ?')">
+                                                <button type="submit" class="btn btn-outline-secondary btn-sm border-0 p-1">
+                                                    <i class="bi bi-archive"></i> Archiver
+                                                </button>
+                                            </form>
+                                        }
+
+                                        <!-- Modifier -->
+                                        <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm">
                                             <i class="bi bi-pencil"></i>
                                         </a>
-                                        <a asp-page="./Delete" asp-route-id="@item.Id" 
-                                           class="btn btn-outline-danger" title="Supprimer">
-                                            <i class="bi bi-trash"></i>
-                                        </a>
                                     </div>
+
                                 </td>
                             </tr>
                         }
@@ -190,7 +222,7 @@
                         Affichage de @Model.SupplierRequest.Count() candidature(s)
                     </div>
                     <!-- Pagination simple -->
-                    <nav>
+                    @* <nav>
                         <ul class="pagination pagination-sm mb-0">
                             <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
                                 <a class="page-link" href="?page=1">Premier</a>
@@ -202,7 +234,7 @@
                                 <a class="page-link" href="?page=@(Model.CurrentPage + 1)">Suivant</a>
                             </li>
                         </ul>
-                    </nav>
+                    </nav> *@
                 </div>
             </div>
         }

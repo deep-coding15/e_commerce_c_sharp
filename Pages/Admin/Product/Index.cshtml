@@ -76,7 +76,7 @@
                     <th>Catégorie</th>
                     <th>Prix</th>
                     <th>Stock</th>
-                    <th>Statut</th>
+                    <th class="text-center pe-4">Statut</th>
                     <th class="text-center pe-4">Actions</th>
                 </tr>
             </thead>
@@ -152,7 +152,7 @@
             
             <!-- Header fixe -->
             <div class="modal-header bg-gradient-primary border-0 sticky-top shadow-sm p-4">
-                <h5 class="modal-title fw-bold text-white m-0 fs-4">
+                <h5 class="modal-title fw-bold text-gray m-0 fs-4">
                     <i class="bi bi-plus-circle-fill me-3"></i>
                     Nouveau Produit Complet
                 </h5>
@@ -168,8 +168,8 @@
                     scrollbar-width: thin;
                     scrollbar-color: #3b82f6 #f8fafc;
                 ">
-                    <div asp-validation-summary="All" class="alert alert-danger mb-4 shadow-sm"></div>
-
+                    @* <div asp-validation-summary="All" class="alert alert-danger mb-4 shadow-sm"></div>
+ *@
                     <div class="row g-4">
                         <!-- SKU -->
                         <div class="col-xl-6 col-lg-6 col-md-12">

@@ -21,7 +21,46 @@
                 </h5>
 
                 <form method="get" class="d-grid gap-3">
-                    <input asp-for="SearchString"
+                    <!-- Search by Name -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">
+                            <i class="bi bi-search"></i> Rechercher
+                        </label>
+                        <input type="text" class="form-control" asp-for="SearchString"
+                            placeholder="Nom du produit..." />
+                    </div>
+                    <!-- Category Filter -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">
+                            <i class="bi bi-tags"></i> Catégorie
+                        </label>
+                        <select asp-for="ProductCategory" asp-items="Model.Category" class="form-select">
+                            <option value="">Toutes les catégories</option>
+                        </select>
+                    </div>
+
+                    <!-- Price Range (optionnel) -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">
+                            <i class="bi bi-currency-euro"></i> Prix
+                        </label>
+                        <div class="d-flex gap-2">
+                            <input type="number" class="form-control" placeholder="Min" min="0">
+                            <input type="number" class="form-control" placeholder="Max" min="0">
+                        </div>
+                    </div>
+
+                    <!-- Filter Buttons -->
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-filter"></i> Appliquer
+                        </button>
+                        <a asp-page="./Index" class="btn btn-outline-secondary">
+                            <i class="bi bi-x-circle"></i> Réinitialiser
+                        </a>
+                    </div>
+
+                    @* <input asp-for="SearchString"
                            class="form-control"
                            placeholder="Rechercher..." />
 
@@ -33,7 +72,7 @@
 
                     <button type="submit" class="btn btn-primary">
                         <i class="bi bi-filter"></i> Appliquer
-                    </button>
+                    </button> *@
                 </form>
             </div>
         </div>
@@ -62,10 +101,8 @@
 
                             <!-- IMAGE -->
                             <div class="position-relative">
-                                <img src="@(item.ImageUrl ?? "https://via.placeholder.com/400x300")"
-                                     class="card-img-top"
-                                     style="height:240px; object-fit:cover;"
-                                     alt="@item.Name" />
+                                <img src="@(item.ImageUrl ?? "https://via.placeholder.com/400x300")" class="card-img-top"
+                                    style="height:240px; object-fit:cover;" alt="@item.Name" />
 
                                 @* STOCK *@
                                 @if (item.StockQuantity <= 0)
@@ -105,17 +142,15 @@
                                 </small>
 
                                 <h5 class="card-title mt-2">
-                                    <a asp-page="./Details"
-                                       asp-route-id="@item.Id"
-                                       class="text-decoration-none">
+                                    <a asp-page="./Details" asp-route-id="@item.Id" class="text-decoration-none">
                                         @item.Name
                                     </a>
                                 </h5>
 
                                 <p class="text-muted small flex-grow-1">
                                     @(item.Description?.Length > 90
-                                        ? item.Description[..90] + "..."
-                                        : item.Description)
+                                                                ? item.Description[..90] + "..."
+                                                                : item.Description)
                                 </p>
 
                                 <div class="d-flex justify-content-between align-items-end">
@@ -124,16 +159,13 @@
                                     </span>
 
                                     <div class="btn-group btn-group-sm">
-                                        <a asp-page="./Details"
-                                           asp-route-id="@item.Id"
-                                           class="btn btn-outline-primary">
+                                        <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-outline-primary">
                                             <i class="bi bi-eye"></i>
                                         </a>
 
                                         @if (item.StockQuantity > 0)
                                         {
-                                            <button class="btn btn-primary ajouter-panier"
-                                                    data-product-id="@item.Id">
+                                            <button class="btn btn-primary ajouter-panier" data-product-id="@item.Id">
                                                 <i class="bi bi-cart-plus"></i>
                                             </button>
                                         }

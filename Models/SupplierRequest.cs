@@ -29,7 +29,7 @@ public class SupplierRequest
     public string CulturalOrigin { get; set; } = null!;
 
     [Required,]
-    public decimal ProductTypes { get; set; }
+    public string ProductTypes { get; set; }
 
     public string Description { get; set; } = string.Empty;
 
@@ -42,16 +42,19 @@ public class SupplierRequest
     public string Email { get; set; } = String.Empty;
 
     [Url]
-    public string Website { get; set; } = String.Empty;
+    public string? Website { get; set; } = String.Empty;
     
     [Url]
-    public string Facebook { get; set; } = String.Empty;
+    public string? Facebook { get; set; } = String.Empty;
     
     [Url]
-    public string Instagram { get; set; } = String.Empty;
+    public string? Instagram { get; set; } = String.Empty;
 
-    public bool IsReviewed { get; set; }
+   
 
+    public bool IsReviewed { get; set; } = false;
+    public bool IsArchived { get; set; } = false;  
+    public DateTime? ReviewedAt { get; set; }      
     [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
 }

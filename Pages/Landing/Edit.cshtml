@@ -1,0 +1,108 @@
+@page
+@model E_commerce_c_charp.Pages_Landing.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>SupplierRequest</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SupplierRequest.Id" />
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="SupplierRequest.FullName" class="control-label"></label>
+                <input asp-for="SupplierRequest.FullName" class="form-control" />
+                <span asp-validation-for="SupplierRequest.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="SupplierRequest.OrganizationName" class="control-label"></label>
+                <input asp-for="SupplierRequest.OrganizationName" class="form-control" />
+                <span asp-validation-for="SupplierRequest.OrganizationName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="SupplierRequest.ActivityType" class="control-label"></label>
+                <input asp-for="SupplierRequest.ActivityType" class="form-control" />
+                <span asp-validation-for="SupplierRequest.ActivityType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="SupplierRequest.Country" class="control-label"></label>
+                <input asp-for="SupplierRequest.Country" class="form-control" />
+                <span asp-validation-for="SupplierRequest.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="SupplierRequest.CulturalOrigin" class="control-label"></label>
+                <input asp-for="SupplierRequest.CulturalOrigin" class="form-control" />
+                <span asp-validation-for="SupplierRequest.CulturalOrigin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="SupplierRequest.ProductTypes" class="control-label"></label>
+                <input asp-for="SupplierRequest.ProductTypes" class="form-control" />
+                <span asp-validation-for="SupplierRequest.ProductTypes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="SupplierRequest.Description" class="control-label"></label>
+                <input asp-for="SupplierRequest.Description" class="form-control" />
+                <span asp-validation-for="SupplierRequest.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="SupplierRequest.Phone" class="control-label"></label>
+                <input asp-for="SupplierRequest.Phone" class="form-control" />
+                <span asp-validation-for="SupplierRequest.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="SupplierRequest.Email" class="control-label"></label>
+                <input asp-for="SupplierRequest.Email" class="form-control" />
+                <span asp-validation-for="SupplierRequest.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="SupplierRequest.Website" class="control-label"></label>
+                <input asp-for="SupplierRequest.Website" class="form-control" />
+                <span asp-validation-for="SupplierRequest.Website" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="SupplierRequest.Facebook" class="control-label"></label>
+                <input asp-for="SupplierRequest.Facebook" class="form-control" />
+                <span asp-validation-for="SupplierRequest.Facebook" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="SupplierRequest.Instagram" class="control-label"></label>
+                <input asp-for="SupplierRequest.Instagram" class="form-control" />
+                <span asp-validation-for="SupplierRequest.Instagram" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="SupplierRequest.IsReviewed" /> @Html.DisplayNameFor(model => model.SupplierRequest.IsReviewed)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

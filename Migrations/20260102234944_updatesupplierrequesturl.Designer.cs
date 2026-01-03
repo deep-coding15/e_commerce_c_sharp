@@ -4,6 +4,7 @@ using E_commerce_c_charp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_commerce_c_charp.Migrations
 {
     [DbContext(typeof(E_commerce_c_charpContext))]
-    partial class E_commerce_c_charpContextModelSnapshot : ModelSnapshot
+    [Migration("20260102234944_updatesupplierrequesturl")]
+    partial class updatesupplierrequesturl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -360,9 +363,6 @@ namespace E_commerce_c_charp.Migrations
                     b.Property<string>("Instagram")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsArchived")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsReviewed")
                         .HasColumnType("bit");
 
@@ -379,9 +379,6 @@ namespace E_commerce_c_charp.Migrations
                     b.Property<string>("ProductTypes")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ReviewedAt")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Website")
                         .HasColumnType("nvarchar(max)");

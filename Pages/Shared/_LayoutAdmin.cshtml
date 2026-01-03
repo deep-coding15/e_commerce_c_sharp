@@ -89,14 +89,14 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
+                @* <li class="nav-item">
                     <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Admin/Supplier") == true ? "active" : "")"
                        asp-page="/Admin/Supplier/Index">
                         <i class="bi bi-truck"></i>
                         Suppliers
                     </a>
                 </li>
-
+ *@
                 <li class="nav-item">
                     <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString()?.StartsWith("/Admin/Analytic") == true ? "active" : "")"
                        asp-page="/Admin/Analytic/Index">
