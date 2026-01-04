@@ -11,11 +11,12 @@ obj/
 .vs
 .vscode
 .github
+.env
 .config
 publish/
 /publish
 appsettings.Development.json
 # Secrets et fichiers sensibles
-appsettings.*.json
+#appsettings.*.json
 secrets.json
 *.usersecrets.json
