@@ -3472,3 +3472,178 @@ System.TypeLoadException: Could not resolve type 'E_commerce_c_charp.Pages.Admin
 2026-01-03 02:02:23.071 +01:00 [WRN] nb produits en stock: 4
 2026-01-03 02:02:23.071 +01:00 [WRN] nb produits en faible stock: 9
 2026-01-03 02:02:23.071 +01:00 [WRN] nb produits en rupture de stock: 0
+2026-01-03 02:04:54.132 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 02:04:54.175 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 02:04:54.175 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 02:04:57.353 +01:00 [WRN] Failed to determine the https port for redirect.
+2026-01-03 02:04:58.116 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 02:14:32.232 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2026-01-03 02:14:49.597 +01:00 [WRN] Login result: Succeeded=false, LockedOut=false, Requires2FA=false, IsNotAllowed=false
+2026-01-03 02:14:59.090 +01:00 [WRN] Login result: Succeeded=true, LockedOut=false, Requires2FA=false, IsNotAllowed=false
+2026-01-03 02:30:40.397 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 02:34:46.132 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2026-01-03 02:34:46.399 +01:00 [WRN] [{"Id":"307a4321-0f71-4548-b5e4-f03f75f59310","Name":"admin@nkaa.local","Email":"admin@nkaa.local","Role":"Admin","RegistrationDate":"2026-01-02T00:02:58.3839651Z","IsActive":true,"OrdersCount":0},{"Id":"404530bd-e02b-4b9b-80df-faaac3a18022","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-30T09:31:57.201141Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":8},{"Id":"1d73e992-2c64-48fb-87cb-5b5bacd80af7","Name":"client2@nkaa.local","Email":"client2@nkaa.local","Role":"Client","RegistrationDate":"2026-01-02T00:02:59.458463Z","IsActive":true,"OrdersCount":1},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"6cbd62c7-7a19-43cf-93da-c90447576b85","Name":"client1@nkaa.local","Email":"client1@nkaa.local","Role":"Client","RegistrationDate":"2026-01-02T00:02:59.184057Z","IsActive":true,"OrdersCount":1}]
+2026-01-03 13:14:27.137 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 13:14:27.229 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 13:14:27.230 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 13:14:39.360 +01:00 [WRN] Failed to determine the https port for redirect.
+2026-01-03 13:14:41.927 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 13:27:58.593 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2026-01-03 13:29:52.350 +01:00 [WRN] order: {"Artisanat & sculptures":7,"Textiles traditionnels":4,"Bijoux culturels":2,"Instruments de musique":1}
+2026-01-03 13:29:52.351 +01:00 [WRN] nb commande livrees: 12
+2026-01-03 13:29:52.354 +01:00 [WRN] prix moyen commande: 1054.800000
+2026-01-03 13:29:52.354 +01:00 [WRN] nb produits en stock: 4
+2026-01-03 13:29:52.354 +01:00 [WRN] nb produits en faible stock: 7
+2026-01-03 13:29:52.354 +01:00 [WRN] nb produits en rupture de stock: 0
+2026-01-03 13:30:39.088 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 13:30:45.655 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2026-01-03 13:30:45.692 +01:00 [WRN] [{"Id":"307a4321-0f71-4548-b5e4-f03f75f59310","Name":"admin@nkaa.local","Email":"admin@nkaa.local","Role":"Admin","RegistrationDate":"2026-01-02T00:02:58.3839651Z","IsActive":true,"OrdersCount":0},{"Id":"404530bd-e02b-4b9b-80df-faaac3a18022","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-30T09:31:57.201141Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":8},{"Id":"1d73e992-2c64-48fb-87cb-5b5bacd80af7","Name":"client2@nkaa.local","Email":"client2@nkaa.local","Role":"Client","RegistrationDate":"2026-01-02T00:02:59.458463Z","IsActive":true,"OrdersCount":1},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"6cbd62c7-7a19-43cf-93da-c90447576b85","Name":"client1@nkaa.local","Email":"client1@nkaa.local","Role":"Client","RegistrationDate":"2026-01-02T00:02:59.184057Z","IsActive":true,"OrdersCount":1}]
+2026-01-03 13:30:48.891 +01:00 [WRN] order: {"Artisanat & sculptures":7,"Textiles traditionnels":4,"Bijoux culturels":2,"Instruments de musique":1}
+2026-01-03 13:30:48.891 +01:00 [WRN] nb commande livrees: 12
+2026-01-03 13:30:48.891 +01:00 [WRN] prix moyen commande: 1054.800000
+2026-01-03 13:30:48.891 +01:00 [WRN] nb produits en stock: 4
+2026-01-03 13:30:48.891 +01:00 [WRN] nb produits en faible stock: 7
+2026-01-03 13:30:48.892 +01:00 [WRN] nb produits en rupture de stock: 0
+2026-01-03 13:31:43.463 +01:00 [WRN] order: {"Artisanat & sculptures":7,"Textiles traditionnels":4,"Bijoux culturels":2,"Instruments de musique":1}
+2026-01-03 13:31:43.463 +01:00 [WRN] nb commande livrees: 12
+2026-01-03 13:31:43.463 +01:00 [WRN] prix moyen commande: 1054.800000
+2026-01-03 13:31:43.463 +01:00 [WRN] nb produits en stock: 4
+2026-01-03 13:31:43.463 +01:00 [WRN] nb produits en faible stock: 7
+2026-01-03 13:31:43.463 +01:00 [WRN] nb produits en rupture de stock: 0
+2026-01-03 13:31:45.328 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2026-01-03 13:31:45.348 +01:00 [WRN] [{"Id":"307a4321-0f71-4548-b5e4-f03f75f59310","Name":"admin@nkaa.local","Email":"admin@nkaa.local","Role":"Admin","RegistrationDate":"2026-01-02T00:02:58.3839651Z","IsActive":true,"OrdersCount":0},{"Id":"404530bd-e02b-4b9b-80df-faaac3a18022","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-30T09:31:57.201141Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":8},{"Id":"1d73e992-2c64-48fb-87cb-5b5bacd80af7","Name":"client2@nkaa.local","Email":"client2@nkaa.local","Role":"Client","RegistrationDate":"2026-01-02T00:02:59.458463Z","IsActive":true,"OrdersCount":1},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"6cbd62c7-7a19-43cf-93da-c90447576b85","Name":"client1@nkaa.local","Email":"client1@nkaa.local","Role":"Client","RegistrationDate":"2026-01-02T00:02:59.184057Z","IsActive":true,"OrdersCount":1}]
+2026-01-03 13:31:49.132 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 13:40:14.934 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 13:40:15.927 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 13:41:10.427 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 13:41:27.536 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 13:42:25.803 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 13:45:08.552 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 13:45:25.620 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 13:46:00.317 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 13:46:28.578 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 13:46:32.147 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'E_commerce_c_charp.Pages_Product.DetailsModel'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Antiforgery.Internal.AntiforgeryMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-01-03 13:46:46.902 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 13:46:46.905 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 13:46:47.264 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'E_commerce_c_charp.Pages_Product.DetailsModel'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Antiforgery.Internal.AntiforgeryMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-01-03 13:46:47.303 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'E_commerce_c_charp.Pages_Product.DetailsModel'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Antiforgery.Internal.AntiforgeryMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-01-03 13:49:15.236 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 13:49:15.304 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 13:49:15.304 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 13:49:23.168 +01:00 [WRN] Failed to determine the https port for redirect.
+2026-01-03 13:49:24.886 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2026-01-03 13:53:03.766 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 13:53:03.827 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 13:53:03.827 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 13:53:08.150 +01:00 [WRN] Failed to determine the https port for redirect.
+2026-01-03 13:53:09.123 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2026-01-03 15:19:46.396 +01:00 [WRN] Login result: Succeeded=false, LockedOut=false, Requires2FA=false, IsNotAllowed=false
+2026-01-03 15:53:59.366 +01:00 [WRN] order: {"Artisanat & sculptures":7,"Textiles traditionnels":4,"Bijoux culturels":2,"Instruments de musique":1}
+2026-01-03 15:53:59.368 +01:00 [WRN] nb commande livrees: 12
+2026-01-03 15:53:59.370 +01:00 [WRN] prix moyen commande: 1054.800000
+2026-01-03 15:53:59.370 +01:00 [WRN] nb produits en stock: 4
+2026-01-03 15:53:59.370 +01:00 [WRN] nb produits en faible stock: 7
+2026-01-03 15:53:59.370 +01:00 [WRN] nb produits en rupture de stock: 0
+2026-01-03 16:08:33.856 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 16:16:07.647 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 16:16:15.687 +01:00 [WRN] order: {"Artisanat & sculptures":7,"Textiles traditionnels":4,"Bijoux culturels":2,"Instruments de musique":1}
+2026-01-03 16:16:15.687 +01:00 [WRN] nb commande livrees: 12
+2026-01-03 16:16:15.688 +01:00 [WRN] prix moyen commande: 1054.800000
+2026-01-03 16:16:15.688 +01:00 [WRN] nb produits en stock: 4
+2026-01-03 16:16:15.688 +01:00 [WRN] nb produits en faible stock: 7
+2026-01-03 16:16:15.688 +01:00 [WRN] nb produits en rupture de stock: 0
+2026-01-03 16:17:47.107 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 16:17:47.210 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 16:17:47.210 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 16:17:56.164 +01:00 [WRN] Failed to determine the https port for redirect.
+2026-01-03 16:17:57.359 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2026-01-03 16:28:52.455 +01:00 [WRN] No store type was specified for the decimal property 'PrixHT' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 16:28:52.524 +01:00 [WRN] No store type was specified for the decimal property 'PrixTTC' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 16:28:52.526 +01:00 [WRN] No store type was specified for the decimal property 'PrixTVA' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-01-03 16:28:58.150 +01:00 [WRN] Failed to determine the https port for redirect.
+2026-01-03 16:28:58.688 +01:00 [WRN] The query uses the 'Distinct' operator after applying an ordering. If there are any row limiting operation used before 'Distinct' and after ordering then ordering will be used for it. Ordering(s) will be erased after 'Distinct' and results afterwards would be unordered.
+2026-01-03 16:35:33.516 +01:00 [WRN] Login result: Succeeded=true, LockedOut=false, Requires2FA=false, IsNotAllowed=false
+2026-01-03 16:35:33.781 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 16:35:38.289 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2026-01-03 16:35:38.331 +01:00 [WRN] [{"Id":"307a4321-0f71-4548-b5e4-f03f75f59310","Name":"admin@nkaa.local","Email":"admin@nkaa.local","Role":"Admin","RegistrationDate":"2026-01-02T00:02:58.3839651Z","IsActive":true,"OrdersCount":0},{"Id":"404530bd-e02b-4b9b-80df-faaac3a18022","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-30T09:31:57.201141Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":8},{"Id":"1d73e992-2c64-48fb-87cb-5b5bacd80af7","Name":"client2@nkaa.local","Email":"client2@nkaa.local","Role":"Client","RegistrationDate":"2026-01-02T00:02:59.458463Z","IsActive":true,"OrdersCount":1},{"Id":"4845b1c4-729c-4c1f-b586-ad45ac82e8ab","Name":"tsafackmerveille15@gmail.com","Email":"tsafackmerveille15@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T14:06:28.9859231Z","IsActive":true,"OrdersCount":0},{"Id":"6cbd62c7-7a19-43cf-93da-c90447576b85","Name":"client1@nkaa.local","Email":"client1@nkaa.local","Role":"Client","RegistrationDate":"2026-01-02T00:02:59.184057Z","IsActive":true,"OrdersCount":1},{"Id":"a381acf0-9cd8-454f-b6d1-b03c3bbf2099","Name":"bonjour@salut.com","Email":"bonjour@salut.com","Role":"Client","RegistrationDate":"2026-01-03T14:19:45.4040502Z","IsActive":true,"OrdersCount":0}]
+2026-01-03 16:37:07.816 +01:00 [WRN] [{"Id":"2c69c616-48f3-4f8a-b58c-03b0e0ffe9ed","Name":"Admin","NormalizedName":"ADMIN"},{"Id":"f38268e7-a982-4bc6-878b-2eac8b9af1ee","Name":"Client","NormalizedName":"CLIENT"}]
+2026-01-03 16:37:07.829 +01:00 [WRN] [{"Id":"307a4321-0f71-4548-b5e4-f03f75f59310","Name":"admin@nkaa.local","Email":"admin@nkaa.local","Role":"Admin","RegistrationDate":"2026-01-02T00:02:58.3839651Z","IsActive":true,"OrdersCount":0},{"Id":"404530bd-e02b-4b9b-80df-faaac3a18022","Name":"admin@shop.com","Email":"admin@shop.com","Role":"Admin","RegistrationDate":"2025-12-30T09:31:57.201141Z","IsActive":true,"OrdersCount":0},{"Id":"1b4c6ffd-e53b-49e1-9d0e-b7b61ad19a77","Name":"nananalova4@gmail.com","Email":"nananalova4@gmail.com","Role":"Client","RegistrationDate":"2025-12-23T10:29:13.3661501Z","IsActive":true,"OrdersCount":8},{"Id":"1d73e992-2c64-48fb-87cb-5b5bacd80af7","Name":"client2@nkaa.local","Email":"client2@nkaa.local","Role":"Client","RegistrationDate":"2026-01-02T00:02:59.458463Z","IsActive":true,"OrdersCount":1},{"Id":"6cbd62c7-7a19-43cf-93da-c90447576b85","Name":"client1@nkaa.local","Email":"client1@nkaa.local","Role":"Client","RegistrationDate":"2026-01-02T00:02:59.184057Z","IsActive":true,"OrdersCount":1},{"Id":"a381acf0-9cd8-454f-b6d1-b03c3bbf2099","Name":"bonjour@salut.com","Email":"bonjour@salut.com","Role":"Client","RegistrationDate":"2026-01-03T14:19:45.4040502Z","IsActive":true,"OrdersCount":0}]
+2026-01-03 16:37:47.828 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 16:42:15.897 +01:00 [WRN] Login result: Succeeded=false, LockedOut=false, Requires2FA=false, IsNotAllowed=false
+2026-01-03 16:42:24.301 +01:00 [WRN] Login result: Succeeded=true, LockedOut=false, Requires2FA=false, IsNotAllowed=false
+2026-01-03 16:43:28.404 +01:00 [WRN] Login result: Succeeded=true, LockedOut=false, Requires2FA=false, IsNotAllowed=false
+2026-01-03 16:43:28.503 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 16:48:06.905 +01:00 [WRN] order: {"Artisanat & sculptures":7,"Textiles traditionnels":4,"Bijoux culturels":2,"Instruments de musique":1}
+2026-01-03 16:48:06.907 +01:00 [WRN] nb commande livrees: 12
+2026-01-03 16:48:06.909 +01:00 [WRN] prix moyen commande: 1054.800000
+2026-01-03 16:48:06.909 +01:00 [WRN] nb produits en stock: 4
+2026-01-03 16:48:06.910 +01:00 [WRN] nb produits en faible stock: 7
+2026-01-03 16:48:06.910 +01:00 [WRN] nb produits en rupture de stock: 0
+2026-01-03 16:55:08.692 +01:00 [WRN] order: {"Pending":1,"Completed":9}
+2026-01-03 16:58:51.899 +01:00 [WRN] Login result: Succeeded=false, LockedOut=false, Requires2FA=false, IsNotAllowed=true
+2026-01-03 16:59:22.600 +01:00 [WRN] Login result: Succeeded=true, LockedOut=false, Requires2FA=false, IsNotAllowed=false
+2026-01-03 16:59:55.986 +01:00 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-01-03 17:02:12.103 +01:00 [WRN] order: {"Pending":1,"Completed":10}

@@ -12,6 +12,8 @@ obj/
 .vscode
 .github
 .config
+publish/
+/publish
 appsettings.Development.json
 # Secrets et fichiers sensibles
 appsettings.*.json

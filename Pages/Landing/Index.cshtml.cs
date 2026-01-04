@@ -83,6 +83,8 @@ namespace E_commerce_c_charp.Pages_Landing
                     CreatedAt = DateTime.UtcNow  // ✅ Fix erreur NULL
                 };
 
+                request.CreatedAt = DateTime.UtcNow;
+
                 _context.SupplierRequest.Add(request);
                 await _context.SaveChangesAsync();
 
